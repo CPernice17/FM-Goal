@@ -1,0 +1,188 @@
+{
+  "pack": "gavetta",
+  "events": [
+    {
+      "id": "primavera_talento_chiamato",
+      "moment": "start",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "youth"
+          ]
+        },
+        {
+          "type": "keyPlayer",
+          "satisfaction": {
+            "op": ">=",
+            "value": 50
+          }
+        }
+      ],
+      "weight": 10,
+      "cooldown": 2,
+      "title": {
+        "it": "La prima squadra vuole {giocatore}"
+      },
+      "body": {
+        "it": "L'allenatore della prima squadra ha notato {giocatore} e lo vuole in ritiro. Senza di lui la tua Primavera perde il suo punto di forza."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Lascialo andare: è la sua occasione"
+          },
+          "effects": [
+            {
+              "type": "keyPlayer",
+              "leave": true
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 6
+            },
+            {
+              "type": "var",
+              "var": "reputation",
+              "delta": 2
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Tienilo per il campionato"
+          },
+          "effects": [
+            {
+              "type": "teamRating",
+              "delta": 1
+            },
+            {
+              "type": "keyPlayer",
+              "satisfaction": -15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "primavera_risultati_o_crescita",
+      "moment": "start",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "youth"
+          ]
+        }
+      ],
+      "weight": 10,
+      "cooldown": 2,
+      "title": {
+        "it": "Risultati o crescita?"
+      },
+      "body": {
+        "it": "Il responsabile del settore giovanile di {club} ti chiede su cosa puntare quest'anno."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Prima i risultati"
+          },
+          "effects": [
+            {
+              "type": "teamRating",
+              "delta": 1
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 3
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": -4
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Prima la crescita dei ragazzi"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "reputation",
+              "delta": 2
+            },
+            {
+              "type": "teamRating",
+              "delta": -1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "primavera_torneo_estero",
+      "moment": "start",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "youth"
+          ]
+        }
+      ],
+      "weight": 8,
+      "cooldown": 3,
+      "title": {
+        "it": "Invito a un torneo in Spagna"
+      },
+      "body": {
+        "it": "Un torneo internazionale giovanile invita la tua squadra. È una vetrina, ma il viaggio pesa sul budget del settore giovanile."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Accetta: esperienza preziosa"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "reputation",
+              "delta": 2
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 4
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -3
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Resta a lavorare in sede"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

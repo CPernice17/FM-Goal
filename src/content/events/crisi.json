@@ -1,0 +1,48 @@
+{
+  "pack": "crisi",
+  "events": [
+    {
+      "id": "contestazione_tifosi",
+      "moment": "end",
+      "category": "management",
+      "conditions": [{ "type": "var", "var": "environment", "op": "<=", "value": 30 }],
+      "weight": 15,
+      "cooldown": 2,
+      "title": { "it": "Contestazione sotto la sede: {club}" },
+      "body": { "it": "Striscioni e cori contro di te. La società aspetta di capire se reggerai la pressione." },
+      "options": [
+        { "text": { "it": "Ci metti la faccia" }, "effects": [{ "type": "var", "var": "environment", "delta": 10 }, { "type": "var", "var": "reputation", "delta": -1 }] },
+        { "text": { "it": "Lasci parlare la società" }, "effects": [{ "type": "var", "var": "board", "delta": 3 }, { "type": "var", "var": "environment", "delta": -5 }] },
+        { "text": { "it": "Rassegni le dimissioni" }, "effects": [{ "type": "endJob", "reason": "resign" }, { "type": "var", "var": "reputation", "delta": -2 }] }
+      ]
+    },
+    {
+      "id": "opinionista_tv",
+      "moment": "unemployed",
+      "category": "management",
+      "conditions": [],
+      "weight": 10,
+      "cooldown": 3,
+      "title": { "it": "Una TV ti vuole come opinionista" },
+      "body": { "it": "Un posto fisso in studio la domenica: ti tiene in vetrina, ma ti lascia poco tempo per studiare." },
+      "options": [
+        { "text": { "it": "Accetti: resti in vetrina" }, "effects": [{ "type": "var", "var": "reputation", "delta": 3 }] },
+        { "text": { "it": "Rifiuti e studi le partite" }, "effects": [{ "type": "style", "axis": "press", "delta": 10 }, { "type": "var", "var": "reputation", "delta": -1 }] }
+      ]
+    },
+    {
+      "id": "stage_estero",
+      "moment": "unemployed",
+      "category": "management",
+      "conditions": [],
+      "weight": 8,
+      "cooldown": 4,
+      "title": { "it": "Uno stage in un club straniero" },
+      "body": { "it": "Un vecchio compagno di corso ti invita a seguire per un mese gli allenamenti del suo club all'estero." },
+      "options": [
+        { "text": { "it": "Parti per un mese" }, "effects": [{ "type": "style", "axis": "build", "delta": 15 }, { "type": "var", "var": "reputation", "delta": 1 }] },
+        { "text": { "it": "Resti disponibile in Italia" }, "effects": [{ "type": "var", "var": "reputation", "delta": 1 }] }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "pack": "spogliatoio",
+  "events": [
+    {
+      "id": "leader_chiede_spazio",
+      "moment": "start",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "keyPlayer",
+          "trait": "leader",
+          "satisfaction": {
+            "op": "<=",
+            "value": 60
+          }
+        }
+      ],
+      "weight": 10,
+      "cooldown": 3,
+      "title": {
+        "it": "{giocatore} chiede più spazio"
+      },
+      "body": {
+        "it": "{giocatore} è un punto di riferimento per il gruppo e pretende un ruolo da titolare fisso."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Gli garantisci il posto"
+          },
+          "effects": [
+            {
+              "type": "keyPlayer",
+              "satisfaction": 20
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 4
+            },
+            {
+              "type": "teamRating",
+              "delta": -1
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Decide il campo"
+          },
+          "effects": [
+            {
+              "type": "keyPlayer",
+              "satisfaction": -15
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ribelle_salta_allenamento",
+      "moment": "start",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "keyPlayer",
+          "trait": "rebel"
+        }
+      ],
+      "weight": 10,
+      "cooldown": 3,
+      "title": {
+        "it": "{giocatore} salta l'allenamento"
+      },
+      "body": {
+        "it": "Nessun avviso, telefono spento. Il resto della squadra aspetta di vedere come reagisci."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Lo escludi dalla prossima partita"
+          },
+          "effects": [
+            {
+              "type": "keyPlayer",
+              "satisfaction": -20
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 6
+            },
+            {
+              "type": "teamRating",
+              "delta": -1
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Chiudi un occhio"
+          },
+          "effects": [
+            {
+              "type": "keyPlayer",
+              "satisfaction": 5
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": -8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ambizioso_vuole_partire",
+      "moment": "end",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "first"
+          ]
+        },
+        {
+          "type": "keyPlayer",
+          "trait": "ambitious",
+          "satisfaction": {
+            "op": "<=",
+            "value": 45
+          }
+        }
+      ],
+      "weight": 10,
+      "cooldown": 2,
+      "title": {
+        "it": "{giocatore} vuole un club più grande"
+      },
+      "body": {
+        "it": "Il procuratore di {giocatore} ha già parlato con altre squadre. Il giocatore chiede di essere ceduto."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Lo cedi alle sue condizioni"
+          },
+          "effects": [
+            {
+              "type": "keyPlayer",
+              "leave": true
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 4
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": -3
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Lo trattieni e provi a convincerlo"
+          },
+          "effects": [
+            {
+              "type": "keyPlayer",
+              "satisfaction": 10
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fragile_gioca_col_dolore",
+      "moment": "start",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "keyPlayer",
+          "trait": "fragile"
+        }
+      ],
+      "weight": 8,
+      "cooldown": 3,
+      "title": {
+        "it": "{giocatore} gioca col dolore"
+      },
+      "body": {
+        "it": "Lo staff medico consiglia un mese di stop. {giocatore} però vuole esserci fin dalla prima giornata."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Lo fermi per un mese"
+          },
+          "effects": [
+            {
+              "type": "teamRating",
+              "delta": -1
+            },
+            {
+              "type": "keyPlayer",
+              "satisfaction": 10
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Gioca, serve alla squadra"
+          },
+          "effects": [
+            {
+              "type": "teamRating",
+              "delta": 1
+            },
+            {
+              "type": "keyPlayer",
+              "satisfaction": -10
+            },
+            {
+              "type": "schedule",
+              "event": "fragile_ricaduta",
+              "inTurns": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fragile_ricaduta",
+      "moment": "start",
+      "category": "management",
+      "followUpOnly": true,
+      "conditions": [
+        {
+          "type": "keyPlayer",
+          "trait": "fragile"
+        }
+      ],
+      "weight": 10,
+      "cooldown": 0,
+      "title": {
+        "it": "Ricaduta per {giocatore}"
+      },
+      "body": {
+        "it": "Il problema dell'anno scorso si ripresenta, più grave. Lo staff propone due strade."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Lunga riabilitazione"
+          },
+          "effects": [
+            {
+              "type": "teamRating",
+              "delta": -2
+            },
+            {
+              "type": "keyPlayer",
+              "satisfaction": 5
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Intervento chirurgico subito"
+          },
+          "effects": [
+            {
+              "type": "teamRating",
+              "delta": -1
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -4
+            },
+            {
+              "type": "keyPlayer",
+              "satisfaction": -5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spogliatoio_diviso",
+      "moment": "start",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "var",
+          "var": "dressing",
+          "op": "<=",
+          "value": 40
+        }
+      ],
+      "weight": 12,
+      "cooldown": 2,
+      "title": {
+        "it": "Spogliatoio diviso in due"
+      },
+      "body": {
+        "it": "Senatori da una parte, nuovi arrivati dall'altra. In allenamento ormai si parla poco."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Ritiro di una settimana tutti insieme"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 10
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -4
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Lasci che si chiariscano da soli"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": -4
+            },
+            {
+              "type": "var",
+              "var": "environment",
+              "delta": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leader_ti_difende",
+      "moment": "start",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "var",
+          "var": "board",
+          "op": "<=",
+          "value": 30
+        },
+        {
+          "type": "keyPlayer",
+          "trait": "leader"
+        }
+      ],
+      "weight": 15,
+      "cooldown": 3,
+      "title": {
+        "it": "{giocatore} ti difende in pubblico"
+      },
+      "body": {
+        "it": "Con la tua panchina in bilico, {giocatore} dice ai giornalisti che la squadra è con te."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Lo ringrazi e rilanci il gruppo"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 10
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 5
+            },
+            {
+              "type": "keyPlayer",
+              "satisfaction": 5
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Chiedi alla squadra di parlare in campo"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 4
+            },
+            {
+              "type": "teamRating",
+              "delta": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

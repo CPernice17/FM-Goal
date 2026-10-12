@@ -1,0 +1,10 @@
+{
+  "ita": {
+    "first": ["Marco", "Luca", "Andrea", "Matteo", "Lorenzo", "Davide", "Simone", "Federico", "Alessandro", "Giacomo", "Riccardo", "Tommaso", "Nicolò", "Gabriele", "Stefano", "Pietro", "Edoardo", "Filippo", "Samuele", "Christian"],
+    "last": ["Rossi", "Bianchi", "Esposito", "Romano", "Colombo", "Ricci", "Marino", "Greco", "Bruno", "Gallo", "Conti", "De Luca", "Mancini", "Costa", "Giordano", "Rizzo", "Lombardi", "Moretti", "Barbieri", "Fontana", "Santoro", "Mariani", "Rinaldi", "Caruso", "Ferrara", "Galli", "Martini", "Leone", "Longo", "Gentile"]
+  },
+  "foreign": {
+    "first": ["João", "Mateo", "Lucas", "Kevin", "Nikola", "Jonas", "Youssef", "Emil", "Diego", "Kenji", "Ibrahim", "Tomás", "Viktor", "Noah", "Sergio"],
+    "last": ["Silva", "Fernández", "Novak", "Jensen", "Diallo", "Petrović", "Müller", "Haddad", "Okafor", "Lindqvist", "Ortega", "Kovač", "Mendes", "Tanaka", "Dubois"]
+  }
+}
