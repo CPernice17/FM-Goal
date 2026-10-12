@@ -43,12 +43,15 @@ export const it = {
   option_leave: 'Lascia il club',
   option_wait: 'Aspetta un\'occasione migliore',
   option_study: 'Studia per il patentino successivo',
+  option_retire: 'Appendi il fischietto al chiodo',
+  option_continue: 'Ancora una stagione',
 
   context_contract_running: 'Sono arrivate offerte',
   context_contract_ended: 'Il contratto non viene rinnovato',
   context_renewal: 'Il club ti offre il rinnovo',
   context_unemployed: 'Senza panchina',
   context_fired: 'Esonerato: si riparte',
+  context_retirement: 'È arrivato il momento di dire basta?',
 
   style_dominio: 'Dominio',
   style_pressing_ripartenza: 'Pressing e ripartenza',

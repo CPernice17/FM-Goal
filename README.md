@@ -15,6 +15,10 @@ npm run sim          # simula 2000 carriere e stampa le statistiche
 npm run sim -- --n=500 --seed=3 --policy=random
 ```
 
+## Senza installare nulla
+
+Ogni push su `main` esegue tipi, test, controllo degli eventi e una simulazione di 1000 carriere (scheda **Actions** del repository, poi l'ultima esecuzione: i risultati sono nel riepilogo). Per una simulazione con parametri diversi: **Actions → Test e simulazione → Run workflow**.
+
 ## Struttura
 
 ```

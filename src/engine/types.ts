@@ -153,15 +153,17 @@ export type CareerOption =
   | { kind: 'stay' }
   | { kind: 'leave' }
   | { kind: 'wait' }
-  | { kind: 'study' };
+  | { kind: 'study' }
+  | { kind: 'retire' }
+  | { kind: 'continue' };
 
 export type Pending =
   | { kind: 'event'; eventId: string; bindings: Bindings }
   | { kind: 'career'; options: CareerOption[]; context: CareerContext };
 
-export type EndStep = 'career_event' | 'career_decision' | 'management_event';
+export type EndStep = 'retirement' | 'career_event' | 'career_decision' | 'management_event';
 
-export type CareerContext ='contract_running' | 'contract_ended' | 'renewal' | 'unemployed' | 'fired';
+export type CareerContext = 'contract_running' | 'contract_ended' | 'renewal' | 'unemployed' | 'fired' | 'retirement';
 
 export interface Bindings {
   playerId?: string;

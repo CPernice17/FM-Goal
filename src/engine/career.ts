@@ -39,6 +39,11 @@ export const SAVE_VERSION = 1;
 export const BALANCE = {
   startAge: 35,
   retireAge: 70,
+  /** Da quest'età, a fine stagione, può arrivare la proposta di ritiro. */
+  retireOfferAge: 52,
+  /** Probabilità della proposta: base + incremento per ogni anno oltre la soglia. */
+  retireOfferBase: 0.15,
+  retireOfferPerYear: 0.10,
   startReputation: 10,
   maxUnemployedTurns: 3,
   youthPrestige: 0.35,
@@ -51,7 +56,7 @@ export const BALANCE = {
   formSd: 1.5,
   boardPerPosition: 3.5,
   environmentPerPosition: 3,
-  reputationPerPosition: 1.2,
+  reputationPerPosition: 2.0,
   experienceReputation: 0.5,
   midSeasonFireBoard: 15,
   midSeasonFireJudgment: -3,
@@ -297,8 +302,12 @@ function applyCareerOption(state: GameState, rng: Rng, option: CareerOption): vo
       state.coach.license = LICENSE_ORDER[Math.min(i + 1, LICENSE_ORDER.length - 1)] ?? state.coach.license;
       break;
     }
+    case 'retire':
+      state.retireRequested = true;
+      break;
     case 'stay':
     case 'wait':
+    case 'continue':
       break;
   }
 }
@@ -560,7 +569,7 @@ function prioritize(headlines: Headline[]): Headline[] {
 
 export function prepareEnd(state: GameState, events: readonly EventDef[]): GameState {
   assertPhase(state, 'report');
-  state.endQueue = ['career_event', 'career_decision', 'management_event'];
+  state.endQueue = ['retirement', 'career_event', 'career_decision', 'management_event'];
   state.careerShown = false;
   return advanceEnd(state, events);
 }
@@ -582,6 +591,14 @@ function advanceEnd(state: GameState, events: readonly EventDef[]): GameState {
 function buildEndStep(state: GameState, rng: Rng, events: readonly EventDef[], step: string | undefined): Pending | null {
   if (state.retireRequested) return null;
   const moment = state.job ? 'end' : 'unemployed';
+  if (step === 'retirement') {
+    // Proposta di ritiro sempre più probabile con l'età: la carriera finisce
+    // in modo naturale prima del limite massimo.
+    const years = state.coach.age - BALANCE.retireOfferAge;
+    if (years < 0 || !rng.chance(clamp(BALANCE.retireOfferBase + years * BALANCE.retireOfferPerYear, 0, 0.9))) return null;
+    state.careerShown = true;
+    return { kind: 'career', context: 'retirement', options: [{ kind: 'retire' }, { kind: 'continue' }] };
+  }
   if (step === 'career_event') {
     const picked = selectEvent(state, rng, events, moment, 'career');
     if (!picked) return null;

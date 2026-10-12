@@ -309,7 +309,7 @@
           "type": "var",
           "var": "dressing",
           "op": "<=",
-          "value": 40
+          "value": 45
         }
       ],
       "weight": 12,

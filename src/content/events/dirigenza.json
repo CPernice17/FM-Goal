@@ -6,17 +6,68 @@
       "moment": "start",
       "category": "management",
       "conditions": [
-        { "type": "role", "is": ["first"] },
-        { "type": "var", "var": "board", "op": "<=", "value": 60 },
-        { "type": "style", "axis": "build", "op": ">=", "value": 20 }
+        {
+          "type": "role",
+          "is": [
+            "first"
+          ]
+        },
+        {
+          "type": "var",
+          "var": "board",
+          "op": "<=",
+          "value": 60
+        },
+        {
+          "type": "style",
+          "axis": "build",
+          "op": ">=",
+          "value": 20
+        }
       ],
       "weight": 10,
       "cooldown": 3,
-      "title": { "it": "Il presidente vuole un calcio più diretto" },
-      "body": { "it": "Troppi passaggi orizzontali, dice il presidente di {club}. Vuole vedere la squadra arrivare in porta più in fretta." },
+      "title": {
+        "it": "Il presidente vuole un calcio più diretto"
+      },
+      "body": {
+        "it": "Troppi passaggi orizzontali, dice il presidente di {club}. Vuole vedere la squadra arrivare in porta più in fretta."
+      },
       "options": [
-        { "text": { "it": "Ti adegui: più verticalità" }, "effects": [{ "type": "style", "axis": "build", "delta": -25 }, { "type": "var", "var": "board", "delta": 8 }] },
-        { "text": { "it": "Difendi le tue idee" }, "effects": [{ "type": "var", "var": "board", "delta": -6 }, { "type": "var", "var": "environment", "delta": 3 }] }
+        {
+          "text": {
+            "it": "Ti adegui: più verticalità"
+          },
+          "effects": [
+            {
+              "type": "style",
+              "axis": "build",
+              "delta": -25
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 8
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Difendi le tue idee"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -6
+            },
+            {
+              "type": "var",
+              "var": "environment",
+              "delta": 3
+            }
+          ]
+        }
       ]
     },
     {
@@ -24,72 +75,299 @@
       "moment": "start",
       "category": "management",
       "conditions": [
-        { "type": "role", "is": ["first"] },
-        { "type": "style", "axis": "press", "op": "<=", "value": 0 }
+        {
+          "type": "role",
+          "is": [
+            "first"
+          ]
+        },
+        {
+          "type": "style",
+          "axis": "press",
+          "op": "<=",
+          "value": 0
+        }
       ],
       "weight": 10,
       "cooldown": 3,
-      "title": { "it": "La piazza chiede più coraggio" },
-      "body": { "it": "Tifosi e stampa accusano la squadra di aspettare troppo. Vogliono vederla aggredire alta." },
+      "title": {
+        "it": "La piazza chiede più coraggio"
+      },
+      "body": {
+        "it": "Tifosi e stampa accusano la squadra di aspettare troppo. Vogliono vederla aggredire alta."
+      },
       "options": [
-        { "text": { "it": "Alzi il pressing" }, "effects": [{ "type": "style", "axis": "press", "delta": 25 }, { "type": "var", "var": "environment", "delta": 6 }, { "type": "var", "var": "dressing", "delta": -3 }] },
-        { "text": { "it": "Resti compatto e paziente" }, "effects": [{ "type": "var", "var": "environment", "delta": -6 }, { "type": "var", "var": "board", "delta": 2 }] }
+        {
+          "text": {
+            "it": "Alzi il pressing"
+          },
+          "effects": [
+            {
+              "type": "style",
+              "axis": "press",
+              "delta": 25
+            },
+            {
+              "type": "var",
+              "var": "environment",
+              "delta": 6
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": -3
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Resti compatto e paziente"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "environment",
+              "delta": -6
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 2
+            }
+          ]
+        }
       ]
     },
     {
       "id": "mercato_rinforzo_o_bilancio",
       "moment": "start",
       "category": "management",
-      "conditions": [{ "type": "role", "is": ["first"] }],
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "first"
+          ]
+        }
+      ],
       "weight": 12,
-      "cooldown": 2,
-      "title": { "it": "Mercato: un rinforzo o il bilancio?" },
-      "body": { "it": "Il direttore sportivo di {club} ha margine per un solo colpo, ma i conti preoccupano la proprietà." },
+      "cooldown": 4,
+      "title": {
+        "it": "Mercato: un rinforzo o il bilancio?"
+      },
+      "body": {
+        "it": "Il direttore sportivo di {club} ha margine per un solo colpo, ma i conti preoccupano la proprietà."
+      },
       "options": [
-        { "text": { "it": "Chiedi il rinforzo" }, "effects": [{ "type": "teamRating", "delta": 2 }, { "type": "var", "var": "board", "delta": -8 }] },
-        { "text": { "it": "Lavori con chi hai" }, "effects": [{ "type": "var", "var": "board", "delta": 6 }, { "type": "var", "var": "dressing", "delta": 2 }] }
+        {
+          "text": {
+            "it": "Chiedi il rinforzo"
+          },
+          "effects": [
+            {
+              "type": "teamRating",
+              "delta": 2
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -8
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Lavori con chi hai"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 6
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 2
+            }
+          ]
+        }
       ]
     },
     {
       "id": "rivale_provoca",
       "moment": "start",
       "category": "management",
-      "conditions": [{ "type": "role", "is": ["first"] }],
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "first"
+          ]
+        }
+      ],
       "weight": 8,
       "cooldown": 3,
-      "title": { "it": "Provocazioni da {rivale}" },
-      "body": { "it": "L'allenatore di {rivale} ironizza sul tuo gioco in conferenza stampa. Tutti aspettano la tua risposta." },
+      "title": {
+        "it": "Provocazioni da {rivale}"
+      },
+      "body": {
+        "it": "L'allenatore di {rivale} ironizza sul tuo gioco in conferenza stampa. Tutti aspettano la tua risposta."
+      },
       "options": [
-        { "text": { "it": "Rispondi a tono" }, "effects": [{ "type": "var", "var": "environment", "delta": 8 }, { "type": "var", "var": "board", "delta": -4 }, { "type": "var", "var": "dressing", "delta": 3 }] },
-        { "text": { "it": "Ignori le provocazioni" }, "effects": [{ "type": "var", "var": "board", "delta": 3 }, { "type": "var", "var": "environment", "delta": -3 }] }
+        {
+          "text": {
+            "it": "Rispondi a tono"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "environment",
+              "delta": 8
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -4
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 3
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Ignori le provocazioni"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 3
+            },
+            {
+              "type": "var",
+              "var": "environment",
+              "delta": -3
+            }
+          ]
+        }
       ]
     },
     {
       "id": "attese_alzate",
       "moment": "start",
       "category": "management",
-      "conditions": [{ "type": "headline", "is": "above_expectations" }],
+      "conditions": [
+        {
+          "type": "headline",
+          "is": "above_expectations"
+        }
+      ],
       "weight": 12,
       "cooldown": 2,
-      "title": { "it": "Dopo una grande stagione, attese più alte" },
-      "body": { "it": "L'anno scorso è andato oltre ogni previsione. Ora a {club} tutti sognano qualcosa di più." },
+      "title": {
+        "it": "Dopo una grande stagione, attese più alte"
+      },
+      "body": {
+        "it": "L'anno scorso è andato oltre ogni previsione. Ora a {club} tutti sognano qualcosa di più."
+      },
       "options": [
-        { "text": { "it": "Alimenti il sogno" }, "effects": [{ "type": "var", "var": "environment", "delta": 6 }, { "type": "var", "var": "board", "delta": 3 }, { "type": "var", "var": "dressing", "delta": -3 }] },
-        { "text": { "it": "Freni gli entusiasmi" }, "effects": [{ "type": "var", "var": "environment", "delta": -4 }, { "type": "var", "var": "dressing", "delta": 4 }] }
+        {
+          "text": {
+            "it": "Alimenti il sogno"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "environment",
+              "delta": 6
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 3
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": -3
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Freni gli entusiasmi"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "environment",
+              "delta": -4
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 4
+            }
+          ]
+        }
       ]
     },
     {
       "id": "crollo_da_spiegare",
       "moment": "start",
       "category": "management",
-      "conditions": [{ "type": "headline", "is": "second_half_collapse" }],
+      "conditions": [
+        {
+          "type": "headline",
+          "is": "second_half_collapse"
+        }
+      ],
       "weight": 15,
       "cooldown": 2,
-      "title": { "it": "La dirigenza ricorda il crollo" },
-      "body": { "it": "Nel girone di ritorno la squadra si è spenta. Prima di ripartire, la dirigenza vuole sapere cosa cambierai." },
+      "title": {
+        "it": "La dirigenza ricorda il crollo"
+      },
+      "body": {
+        "it": "Nel girone di ritorno la squadra si è spenta. Prima di ripartire, la dirigenza vuole sapere cosa cambierai."
+      },
       "options": [
-        { "text": { "it": "Preparazione più intensa e pressing alto" }, "effects": [{ "type": "teamRating", "delta": 1 }, { "type": "var", "var": "dressing", "delta": -5 }, { "type": "style", "axis": "press", "delta": 10 }] },
-        { "text": { "it": "Spieghi che è stata sfortuna" }, "effects": [{ "type": "var", "var": "board", "delta": -5 }] }
+        {
+          "text": {
+            "it": "Preparazione più intensa e pressing alto"
+          },
+          "effects": [
+            {
+              "type": "teamRating",
+              "delta": 1
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": -5
+            },
+            {
+              "type": "style",
+              "axis": "press",
+              "delta": 10
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Spieghi che è stata sfortuna"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -5
+            }
+          ]
+        }
       ]
     }
   ]

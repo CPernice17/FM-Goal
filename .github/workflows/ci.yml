@@ -1,0 +1,46 @@
+name: Test e simulazione
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      careers:
+        description: 'Numero di carriere da simulare'
+        default: '1000'
+      seed:
+        description: 'Seed della simulazione'
+        default: '1'
+      retire:
+        description: 'Probabilità di accettare la proposta di ritiro (0–1)'
+        default: '0.5'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Controllo dei tipi
+        run: npm run typecheck
+      - name: Test del motore
+        run: npm test
+      - name: Controllo degli eventi
+        run: npm run validate
+      - name: Simulazione di carriere
+        run: |
+          N="${{ github.event.inputs.careers || '1000' }}"
+          SEED="${{ github.event.inputs.seed || '1' }}"
+          RETIRE="${{ github.event.inputs.retire || '0.5' }}"
+          npm run --silent sim -- --n="$N" --seed="$SEED" --retire="$RETIRE" | tee sim.txt
+          {
+            echo '## Simulazione di carriere'
+            echo
+            echo '```'
+            cat sim.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

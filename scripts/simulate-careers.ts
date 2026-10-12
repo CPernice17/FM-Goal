@@ -22,6 +22,8 @@ const SEED = arg('seed', 1);
  * Gli eventi di gestione sono sempre scelti a caso.
  */
 const POLICY = process.argv.includes('--policy=random') ? 'random' : 'sensible';
+/** Probabilità che la strategia sensata accetti una proposta di ritiro. */
+const RETIRE_P = arg('retire', 0.5);
 
 /** Secondi stimati per schermata: scheda, resoconto, ogni decisione. */
 const SECONDS = { sheet: 3, report: 5, decision: 5 };
@@ -50,7 +52,8 @@ function note(state: GameState): void {
   if (state.pending?.kind === 'event') eventCount[state.pending.eventId] = (eventCount[state.pending.eventId] ?? 0) + 1;
 }
 
-function sensibleCareerChoice(state: GameState, options: CareerOption[]): number {
+function sensibleCareerChoice(state: GameState, options: CareerOption[], pick: Rng): number {
+  if (options[0]?.kind === 'retire') return pick.chance(RETIRE_P) ? 0 : 1;
   const score = (o: CareerOption): number => {
     switch (o.kind) {
       case 'accept': {
@@ -68,6 +71,8 @@ function sensibleCareerChoice(state: GameState, options: CareerOption[]): number
       case 'wait':
         return 20;
       case 'leave':
+      case 'retire':
+      case 'continue':
         return 0;
     }
   };
@@ -113,7 +118,7 @@ function runCareer(seed: number, pick: Rng): CareerStats {
       const p = state.pending;
       let index: number;
       if (p?.kind === 'career' && POLICY === 'sensible') {
-        index = sensibleCareerChoice(state, p.options);
+        index = sensibleCareerChoice(state, p.options, pick);
       } else {
         const n = !p ? 1 : p.kind === 'event' ? (EVENTS.find((e) => e.id === p.eventId)?.options.length ?? 1) : p.options.length;
         index = pick.int(0, n - 1);
@@ -157,7 +162,7 @@ const quant = (f: (s: CareerStats) => number, q: number) => {
 const reasons: Record<string, number> = {};
 for (const r of results) reasons[r.reason] = (reasons[r.reason] ?? 0) + 1;
 
-console.log(`Strategia: ${POLICY}`);
+console.log(`Strategia: ${POLICY}${POLICY === 'sensible' ? ` (accetta il ritiro con probabilità ${RETIRE_P})` : ''}`);
 console.log(`Carriere simulate: ${N} in ${elapsed.toFixed(1)} s (${((elapsed / N) * 1000).toFixed(1)} ms ciascuna)\n`);
 console.log('Durata');
 console.log(`  turni:            media ${mean((s) => s.turns).toFixed(1)}  (p10 ${quant((s) => s.turns, 0.1)}, p90 ${quant((s) => s.turns, 0.9)})   obiettivo 15–20`);
