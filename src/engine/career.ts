@@ -33,7 +33,7 @@ import {
   type WorldSeasonResult,
 } from './world';
 
-export const SAVE_VERSION = 1;
+export const SAVE_VERSION = 2;
 
 /** Tutti i numeri da bilanciare con il simulatore di carriere. */
 export const BALANCE = {
@@ -58,9 +58,14 @@ export const BALANCE = {
   environmentPerPosition: 3,
   reputationPerPosition: 2.0,
   experienceReputation: 0.5,
-  midSeasonFireBoard: 15,
+  midSeasonFireBoard: 13,
   midSeasonFireJudgment: -3,
-  endSeasonFireBoard: 20,
+  endSeasonFireBoard: 18,
+  /** Mestiere: rating aggiunto per ogni stagione allenata, con un tetto. */
+  experiencePerSeason: 0.15,
+  experienceMax: 2,
+  /** Fiducia iniziale della dirigenza in un nuovo incarico. */
+  startBoard: 55,
   renewalBoard: 50,
   /** Ritorno verso 50 delle variabili d'incarico a ogni stagione. */
   meanReversion: 0.1,
@@ -151,7 +156,7 @@ function takeJob(state: GameState, rng: Rng, offer: Offer): void {
     role: offer.role,
     contractYears: offer.role === 'youth' ? offer.years * BALANCE.youthTurnYears : offer.years,
     seasons: 0,
-    board: clamp(Math.round(50 + clamp(fitRating, -15, 15)), 30, 70),
+    board: clamp(Math.round(BALANCE.startBoard + clamp(fitRating, -15, 15)), 35, 75),
     dressing: 50,
     environment: offer.challenge ? 40 : 50,
     keyPlayers: [],
@@ -186,7 +191,12 @@ export function teamStrength(state: GameState, rng?: Rng): number {
   const dist = Math.hypot(state.coach.style.build - c.profile.build, state.coach.style.press - c.profile.press);
   const fit = -(dist / 283) * BALANCE.styleFitImpact;
   const form = rng ? rng.normal(0, BALANCE.formSd) : 0;
-  return base + job.seasonBoost + dressing + fit + form;
+  return base + coachBonus(state) + job.seasonBoost + dressing + fit + form;
+}
+
+/** Bonus del mestiere: cresce con le stagioni allenate, fino a un tetto. */
+export function coachBonus(state: GameState): number {
+  return Math.min(BALANCE.experienceMax, state.history.length * BALANCE.experiencePerSeason);
 }
 
 function competitionEntrants(state: GameState): { ids: string[]; rating: (id: string) => number; name: string } | null {
@@ -224,8 +234,10 @@ export function preseason(state: GameState): Preseason | null {
   const job = state.job;
   const comp = competitionEntrants(state);
   if (!job || !comp) return null;
-  const strength = teamStrength(state);
-  const entrants = comp.ids.map((id) => ({ id, rating: id === job.clubId ? strength : comp.rating(id) }));
+  // La dirigenza giudica la rosa, non l'allenatore: le attese nascono dai soli
+  // rating. Quello che l'allenatore aggiunge (mestiere, spogliatoio, stile,
+  // scelte) è ciò che gli permette di battere le attese.
+  const entrants = comp.ids.map((id) => ({ id, rating: comp.rating(id) }));
   const expected = expectedPositions(entrants)[job.clubId] ?? comp.ids.length;
   return {
     clubName: club(state.world, job.clubId).name,
@@ -495,7 +507,7 @@ function applyOutcome(state: GameState, rng: Rng, report: SeasonReport): void {
     if (has('champion')) board += 10;
     if (has('cup_winner')) board += 6;
     if (has('promoted')) board += 10;
-    if (has('relegated')) board -= 15;
+    if (has('relegated')) board -= 10;
     job.board = clamp(job.board + board, 0, 100);
 
     let env = clamp(judgment * BALANCE.environmentPerPosition, -20, 15);

@@ -154,6 +154,15 @@ export const it = {
   ui_fired_short: 'esonerato',
   ui_youth_short: 'Primavera',
   ui_quit_short: 'Abbandona la carriera',
+  ui_side_label: 'Classifica e carriera',
+  ui_side_table: '{league} {season}',
+  ui_side_forecast: '{league}: le squadre per forza',
+  ui_side_club: 'Squadra',
+  ui_side_diff: 'Diff.',
+  ui_side_points: 'Punti',
+  ui_side_up: 'promozione',
+  ui_side_playoff: 'playoff',
+  ui_side_down: 'retrocessione',
 };
 
 export type Strings = { [K in keyof typeof it]: string };

@@ -77,6 +77,8 @@ export interface LeagueState {
   clubIds: string[];
   /** Classifica dell'ultima stagione giocata (id in ordine). */
   lastTable: string[];
+  /** Classifica completa dell'ultima stagione, per l'interfaccia. */
+  standings: { id: string; points: number; gf: number; ga: number }[];
 }
 
 export interface WorldState {

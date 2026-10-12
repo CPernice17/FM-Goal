@@ -27,7 +27,7 @@ export function createWorld(countries: CountryData[], season: number): WorldStat
     };
     for (const config of country.leagues) {
       const data = country.clubs[config.id] ?? [];
-      world.leagues[config.id] = { config, country: country.id, clubIds: data.map((c) => c.id), lastTable: [] };
+      world.leagues[config.id] = { config, country: country.id, clubIds: data.map((c) => c.id), lastTable: [], standings: [] };
       for (const c of data) addClub(world, c.id, c.name, country.id, config.id, c.rating, c.profile);
     }
     for (const c of country.external) addClub(world, c.id, c.name, country.id, null, c.rating, c.profile);
@@ -173,6 +173,7 @@ export function endOfSeason(world: WorldState, rng: Rng, season: WorldSeasonResu
   for (const league of Object.values(world.leagues)) {
     const table = season.leagues[league.config.id]?.table ?? [];
     league.lastTable = table.map((r) => r.id);
+    league.standings = table.map((r) => ({ id: r.id, points: r.points, gf: r.gf, ga: r.ga }));
   }
 
   for (const league of Object.values(world.leagues)) {

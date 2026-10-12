@@ -604,3 +604,155 @@ input {
     }
   }
 }
+
+/* ---------------- Colonna laterale e layout ---------------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-bottom: 8rem;
+}
+
+.layout > .screen {
+  padding-bottom: 0;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-top: 6px solid var(--ink);
+  padding-top: 1.25rem;
+}
+
+.side-section h2 {
+  font-size: var(--step-1);
+}
+
+.standings {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+}
+
+.standings th {
+  font-weight: 400;
+  color: var(--ink-soft);
+  text-align: left;
+  padding-bottom: 0.25rem;
+}
+
+.standings th:nth-child(n + 3),
+.standings td:nth-child(n + 3) {
+  text-align: right;
+  width: 3rem;
+}
+
+.standings td {
+  padding: 0.28rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.standings td:first-child {
+  width: 2rem;
+  padding-left: 0.5rem;
+  border-left: 3px solid transparent;
+}
+
+.standings tr.zone-up td:first-child {
+  border-left-color: var(--green);
+}
+
+.standings tr.zone-playoff td:first-child {
+  border-left-color: #8fbfa5;
+}
+
+.standings tr.zone-down td:first-child {
+  border-left-color: var(--red);
+}
+
+.standings tr.mine td {
+  font-weight: 700;
+  background: var(--rosa);
+}
+
+.legend {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+}
+
+.key {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin: 0 0.3rem 0 0.2rem;
+  vertical-align: -0.05rem;
+}
+
+.key-up {
+  background: var(--green);
+}
+
+.key-playoff {
+  background: #8fbfa5;
+}
+
+.key-down {
+  background: var(--red);
+}
+
+/* Da tablet orizzontale in su: due colonne, classifica sempre visibile. */
+@media (min-width: 60rem) {
+  #app.is-game {
+    max-width: 66rem;
+    padding-top: 2rem;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 34rem) minmax(17rem, 23rem);
+    justify-content: space-between;
+    align-items: start;
+    gap: 4rem;
+    padding-bottom: 3rem;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 1.5rem;
+    max-height: calc(100vh - 3rem);
+    overflow-y: auto;
+    padding-right: 0.25rem;
+  }
+
+  .layout .action-bar {
+    position: sticky;
+    left: auto;
+    right: auto;
+    padding: 1rem 0 1.25rem;
+  }
+
+  .layout .paper {
+    margin: 0;
+    padding: 1.5rem 1.5rem 1.75rem;
+  }
+}
+
+/* Su telefono il resoconto ha già la sua classifica: niente doppione sotto. */
+@media (max-width: 59.99rem) {
+  .phase-report .sidebar .side-section {
+    display: none;
+  }
+}

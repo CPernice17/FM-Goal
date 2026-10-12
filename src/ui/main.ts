@@ -10,6 +10,7 @@ import {
   renderHome,
   renderReport,
   renderSheet,
+  renderSidebar,
   summaryText,
   type Draft,
 } from './views';
@@ -39,32 +40,34 @@ function commit(next: GameState): void {
 
 function render(newScreen = false): void {
   if (!state) {
+    root.className = 'is-home';
     root.innerHTML = renderHome(LANG, loadGame() !== null, draft);
   } else {
+    let main = '';
     switch (state.phase) {
       case 'preseason':
-        root.innerHTML = renderSheet(state);
+        main = renderSheet(state);
         break;
       case 'start_decision':
       case 'end_decision': {
         const p = state.pending;
         if (p?.kind === 'event') {
           const ev = EVENTS.find((e) => e.id === p.eventId);
-          root.innerHTML = ev ? renderEvent(state, ev, p) : '';
+          main = ev ? renderEvent(state, ev, p) : '';
         } else if (p?.kind === 'career') {
-          root.innerHTML = renderCareerDecision(state, p);
+          main = renderCareerDecision(state, p);
         }
         break;
       }
       case 'report':
-        root.innerHTML = renderReport(state);
+        main = renderReport(state);
         break;
       case 'finished':
-        root.innerHTML = renderFinal(state, copied);
+        main = renderFinal(state, copied);
         break;
-      default:
-        root.innerHTML = '';
     }
+    root.className = 'is-game';
+    root.innerHTML = `<div class="layout phase-${state.phase}">${main}${renderSidebar(state)}</div>`;
   }
   if (newScreen) {
     window.scrollTo({ top: 0 });

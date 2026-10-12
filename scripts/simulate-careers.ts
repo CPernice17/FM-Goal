@@ -42,6 +42,7 @@ interface CareerStats {
   topTitles: number;
   cups: number;
   promotions: number;
+  relegations: number;
   seconds: number;
 }
 
@@ -143,6 +144,7 @@ function runCareer(seed: number, pick: Rng): CareerStats {
     topTitles,
     cups: state.trophies.filter((t) => t.startsWith('cup:')).length,
     promotions: state.trophies.filter((t) => t.startsWith('promotion:')).length,
+    relegations: state.history.filter((r) => r.headlines.some((h) => h.id === 'relegated')).length,
     seconds,
   };
 }
@@ -178,6 +180,7 @@ console.log(`  club di vertice (≥80):     ${pct((s) => s.bigClub)}`);
 console.log(`  almeno uno scudetto:       ${pct((s) => s.topTitles > 0)}`);
 console.log(`  almeno una coppa:          ${pct((s) => s.cups > 0)}`);
 console.log(`  promozioni per carriera:   ${mean((s) => s.promotions).toFixed(2)}`);
+console.log(`  retrocessioni per carriera: ${mean((s) => s.relegations).toFixed(2)}`);
 console.log(`  reputazione massima:       media ${mean((s) => s.peakRep).toFixed(0)} (p10 ${quant((s) => s.peakRep, 0.1)}, p90 ${quant((s) => s.peakRep, 0.9)})`);
 console.log('\nEsoneri');
 console.log(`  per carriera:              media ${mean((s) => s.firings).toFixed(2)}`);

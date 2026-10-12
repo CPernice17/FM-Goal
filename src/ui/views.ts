@@ -153,7 +153,6 @@ export function renderSheet(state: GameState): string {
       </ul>
     </section>
     ${styleBlock(state)}
-    ${historyBlock(state)}
     ${actionBar(`<button class="btn btn-primary" data-action="play">${tt(lang, 'ui_play_season')}</button>`, t(lang, 'ui_quit_short'))}
   </main>`;
 }
@@ -167,11 +166,112 @@ function styleBlock(state: GameState): string {
   </section>`;
 }
 
+// ---------------------------------------------------------------------------
+// Colonna laterale: classifica dell'ultima stagione e carriera
+// ---------------------------------------------------------------------------
+
+interface SideRow {
+  id: string;
+  name: string;
+  points: number | null;
+  diff: number | null;
+}
+
+/** Campionato da mostrare: quello del club allenato, altrimenti la massima serie. */
+function sideTable(state: GameState): { title: string; rows: SideRow[]; zones: (i: number, n: number) => string; mine: string | null } | null {
+  const lang = state.lang;
+  const world = state.world;
+  const job = state.job;
+  const last = state.lastReport;
+  const lastSeason = seasonLabel(world.season - 1);
+
+  // In Primavera la classifica viene dall'ultimo resoconto, se c'è.
+  if (job?.role === 'youth' || (!job && last?.role === 'youth')) {
+    if (last && last.role === 'youth') {
+      return {
+        title: t(lang, 'ui_side_table', { league: last.leagueName, season: seasonLabel(last.season) }),
+        rows: last.table.map((r) => ({ id: r.clubId, name: r.name, points: r.points, diff: r.gf - r.ga })),
+        zones: () => '',
+        mine: last.clubId,
+      };
+    }
+  }
+
+  const clubId = job?.role === 'first' ? job.clubId : null;
+  const leagueId = clubId ? world.clubs[clubId]?.leagueId : Object.values(world.leagues).find((l) => l.config.division === 1)?.config.id;
+  const league = leagueId ? world.leagues[leagueId] : undefined;
+  if (!league) return null;
+  const cfg = league.config;
+  const zones = (i: number, n: number) => {
+    if (cfg.relegated > 0 && i >= n - cfg.relegated) return 'zone-down';
+    if (cfg.promotedDirect > 0 && i < cfg.promotedDirect) return 'zone-up';
+    if (cfg.playoff && i + 1 >= cfg.playoff.from && i + 1 <= cfg.playoff.to) return 'zone-playoff';
+    return '';
+  };
+
+  if (league.standings.length > 0) {
+    return {
+      title: t(lang, 'ui_side_table', { league: cfg.name, season: lastSeason }),
+      rows: league.standings.map((r) => ({ id: r.id, name: world.clubs[r.id]?.name ?? r.id, points: r.points, diff: r.gf - r.ga })),
+      zones,
+      mine: clubId,
+    };
+  }
+  // Prima stagione: ancora nessuna classifica, si mostrano le squadre per forza.
+  const byRating = [...league.clubIds].sort((a, b) => (world.clubs[b]?.rating ?? 0) - (world.clubs[a]?.rating ?? 0));
+  return {
+    title: t(lang, 'ui_side_forecast', { league: cfg.name }),
+    rows: byRating.map((id) => ({ id, name: world.clubs[id]?.name ?? id, points: null, diff: null })),
+    zones,
+    mine: clubId,
+  };
+}
+
+export function renderSidebar(state: GameState): string {
+  const lang = state.lang;
+  const table = sideTable(state);
+  let tableHtml = '';
+  if (table) {
+    const n = table.rows.length;
+    const hasPoints = table.rows.some((r) => r.points !== null);
+    tableHtml = `
+    <section class="side-section">
+      <h2>${esc(table.title)}</h2>
+      <table class="standings">
+        ${hasPoints ? `<thead><tr><th scope="col"><span class="sr-only">Posizione</span></th><th scope="col">${tt(lang, 'ui_side_club')}</th><th scope="col">${tt(lang, 'ui_side_diff')}</th><th scope="col">${tt(lang, 'ui_side_points')}</th></tr></thead>` : ''}
+        <tbody>
+          ${table.rows
+            .map(
+              (r, i) => `<tr class="${[table.zones(i, n), r.id === table.mine ? 'mine' : ''].join(' ').trim()}">
+                <td>${i + 1}</td><td>${esc(r.name)}</td>
+                ${hasPoints ? `<td>${r.diff !== null && r.diff > 0 ? '+' : ''}${r.diff ?? ''}</td><td>${r.points ?? ''}</td>` : ''}
+              </tr>`,
+            )
+            .join('')}
+        </tbody>
+      </table>
+      ${legend(lang, table.rows.some((_, i) => table.zones(i, n) !== ''), state)}
+    </section>`;
+  }
+  return `<aside class="sidebar" aria-label="${tt(lang, 'ui_side_label')}">${tableHtml}${historyBlock(state)}</aside>`;
+}
+
+function legend(lang: Lang, show: boolean, state: GameState): string {
+  if (!show) return '';
+  const job = state.job;
+  const leagueId = job?.role === 'first' ? state.world.clubs[job.clubId]?.leagueId : null;
+  const div2 = leagueId ? state.world.leagues[leagueId]?.config.division === 2 : false;
+  return `<p class="legend">${
+    div2
+      ? `<span class="key key-up"></span>${tt(lang, 'ui_side_up')} <span class="key key-playoff"></span>${tt(lang, 'ui_side_playoff')} `
+      : ''
+  }<span class="key key-down"></span>${tt(lang, 'ui_side_down')}</p>`;
+}
+
 function historyBlock(state: GameState): string {
   if (state.history.length === 0) return '';
   const rows = [...state.history]
     .reverse()
-    .slice(0, 6)
     .map(
       (r) => `<li><span>${seasonLabel(r.season)}</span><span>${esc(r.clubName)}${r.role === 'youth' ? ` (${tt(state.lang, 'ui_youth_short')})` : ''}</span><span>${r.firedAtMatchday !== null ? `<em>${tt(state.lang, 'ui_fired_short')}</em>` : `${r.position}°`}</span></li>`,
     )
