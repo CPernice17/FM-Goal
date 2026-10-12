@@ -2,12 +2,14 @@
 
 Simulatore web della carriera di un allenatore di calcio, a decisioni stagionali: una carriera completa in pochi minuti, dalla Primavera alle grandi panchine.
 
-Stato: **fetta verticale, motore senza interfaccia.** Solo Italia (Serie A, Serie B, campionato Primavera, Coppa Italia), eventi in italiano.
+Stato: **fetta verticale giocabile.** Si gioca su https://cpernice17.github.io/FM-Goal/ (dopo l'attivazione di GitHub Pages). Solo Italia (Serie A, Serie B, campionato Primavera, Coppa Italia), eventi in italiano.
 
 ## Comandi
 
 ```bash
-npm install          # TypeScript e tsx (Vite arriverà con l'interfaccia)
+npm install          # TypeScript, tsx, Vite
+npm run dev          # gioco in locale con ricaricamento automatico
+npm run build        # versione da pubblicare, in dist/
 npm test             # test del motore
 npm run typecheck    # controllo dei tipi
 npm run validate     # controllo dei pacchetti di eventi (--strict: anche en/es)
@@ -18,6 +20,8 @@ npm run sim -- --n=500 --seed=3 --policy=random
 ## Senza installare nulla
 
 Ogni push su `main` esegue tipi, test, controllo degli eventi e una simulazione di 1000 carriere (scheda **Actions** del repository, poi l'ultima esecuzione: i risultati sono nel riepilogo). Per una simulazione con parametri diversi: **Actions → Test e simulazione → Run workflow**.
+
+Ogni push su `main` pubblica anche il gioco su GitHub Pages (workflow **Pubblica il gioco**). Va attivato una volta: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
 ## Struttura
 
@@ -38,6 +42,7 @@ src/
     countries/*.json club e campionati per paese (istantanea 2026/27)
     names.json       nomi per i giocatori generati
   i18n/              testi dell'interfaccia
+  ui/                interfaccia (TypeScript senza framework) e foglio di stile
 scripts/             simulatore di carriere e validatore
 tests/               test del motore
 ```
