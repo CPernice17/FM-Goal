@@ -119,6 +119,8 @@ export interface WorldSeasonResult {
   youth: Record<string, LeagueResult>;
   youthExpected: Record<string, Record<string, number>>;
   playoffWinners: Record<string, string>;
+  /** Vincitori del titolo nei campionati che lo assegnano con un playoff. */
+  titleWinners: Record<string, string>;
 }
 
 /**
@@ -139,12 +141,13 @@ export function simulateWorldSeason(
     youth: {},
     youthExpected: {},
     playoffWinners: {},
+    titleWinners: {},
   };
 
   for (const league of Object.values(world.leagues)) {
     const entrants = league.clubIds.map((id) => ({ id, rating: ratingOf(id) }));
     result.expected[league.config.id] = expectedPositions(entrants);
-    result.leagues[league.config.id] = simulateLeague(rng, entrants);
+    result.leagues[league.config.id] = simulateLeague(rng, entrants, league.config.rounds ?? 2);
   }
 
   for (const [countryId, country] of Object.entries(world.countries)) {
@@ -159,7 +162,8 @@ export function simulateWorldSeason(
       rating: override.youth[id] ?? world.youthRatings[id] ?? 50,
     }));
     result.youthExpected[countryId] = expectedPositions(youthEntrants);
-    result.youth[countryId] = simulateLeague(rng, youthEntrants);
+    const topRounds = world.leagues[topLeagueId(world, countryId)]?.config.rounds ?? 2;
+    result.youth[countryId] = simulateLeague(rng, youthEntrants, topRounds);
   }
 
   // Playoff promozione: eliminazione diretta tra le posizioni indicate.
@@ -169,6 +173,15 @@ export function simulateWorldSeason(
     if (!po || !table) continue;
     const contenders = table.slice(po.from - 1, po.to).map((r) => ({ id: r.id, rating: ratingOf(r.id) }));
     if (contenders.length >= 2) result.playoffWinners[league.config.id] = simulateCup(rng, contenders).winner;
+  }
+
+  // Playoff per il titolo: eliminazione diretta tra le prime N.
+  for (const league of Object.values(world.leagues)) {
+    const n = league.config.championPlayoff;
+    const table = result.leagues[league.config.id]?.table;
+    if (!n || !table) continue;
+    const contenders = table.slice(0, n).map((r) => ({ id: r.id, rating: ratingOf(r.id) }));
+    if (contenders.length >= 2) result.titleWinners[league.config.id] = simulateCup(rng, contenders).winner;
   }
   return result;
 }

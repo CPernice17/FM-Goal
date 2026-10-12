@@ -48,7 +48,7 @@ export function roundRobin(ids: string[]): [string, string][][] {
   return [...rounds, ...second];
 }
 
-export function simulateLeague(rng: Rng, entrants: Entrant[]): LeagueResult {
+export function simulateLeague(rng: Rng, entrants: Entrant[], rounds: 1 | 2 = 2): LeagueResult {
   const rating = new Map(entrants.map((e) => [e.id, e.rating]));
   const rows = new Map<string, TableRow>(
     entrants.map((e) => [e.id, { id: e.id, played: 0, points: 0, gf: 0, ga: 0 }]),
@@ -56,8 +56,9 @@ export function simulateLeague(rng: Rng, entrants: Entrant[]): LeagueResult {
   const logs: Record<string, TeamSeasonLog> = {};
   for (const e of entrants) logs[e.id] = { results: [] };
 
-  const rounds = roundRobin(entrants.map((e) => e.id));
-  for (const round of rounds) {
+  const all = roundRobin(entrants.map((e) => e.id));
+  const schedule = rounds === 1 ? all.slice(0, all.length / 2) : all;
+  for (const round of schedule) {
     for (const [h, a] of round) {
       const res = playMatch(rng, rating.get(h) ?? 60, rating.get(a) ?? 60);
       const rh = rows.get(h) as TableRow;
@@ -86,7 +87,7 @@ export function simulateLeague(rng: Rng, entrants: Entrant[]): LeagueResult {
       y.gf - x.gf ||
       (tiebreak.get(y.id) ?? 0) - (tiebreak.get(x.id) ?? 0),
   );
-  return { table, logs, matchdays: rounds.length };
+  return { table, logs, matchdays: schedule.length };
 }
 
 export type CupStage = 'winner' | 'final' | 'semi' | 'quarter' | 'r16' | 'r32' | 'r64' | 'prelim';

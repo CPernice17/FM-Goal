@@ -272,8 +272,20 @@ function competitionEntrants(state: GameState): { ids: string[]; rating: (id: st
   return { ids: league.clubIds, rating: (id) => club(state.world, id).rating, name: league.config.name };
 }
 
-export function objectiveFor(role: Role, division: number | null, expected: number, teams: number): ObjectiveId {
+export function objectiveFor(
+  role: Role,
+  division: number | null,
+  expected: number,
+  teams: number,
+  playoffSpots?: number,
+): ObjectiveId {
   if (role === 'youth') return 'youth_growth';
+  // Campionati senza retrocessioni, con il titolo ai playoff (es. MLS).
+  if (playoffSpots) {
+    if (expected <= 2) return 'title';
+    if (expected <= playoffSpots) return 'playoffs';
+    return 'rebuild';
+  }
   if (division === 1) {
     if (expected <= 2) return 'title';
     if (expected <= 6) return 'europe';
@@ -300,7 +312,13 @@ export function preseason(state: GameState): Preseason | null {
     clubName: club(state.world, job.clubId).name,
     leagueName: comp.name,
     role: job.role,
-    objective: objectiveFor(job.role, divisionOf(state.world, job.clubId), expected, comp.ids.length),
+    objective: objectiveFor(
+      job.role,
+      divisionOf(state.world, job.clubId),
+      expected,
+      comp.ids.length,
+      job.role === 'first' ? state.world.leagues[club(state.world, job.clubId).leagueId ?? '']?.config.championPlayoff : undefined,
+    ),
     expectedPosition: expected,
     teams: comp.ids.length,
   };
@@ -444,6 +462,7 @@ function leagueContext(state: GameState, season: WorldSeasonResult, job: Job) {
       prestige: BALANCE.youthPrestige,
       division: null as number | null,
       leagueKey: `youth:${c.country}`,
+      leagueId: null as string | null,
     };
   }
   const leagueId = c.leagueId as string;
@@ -453,6 +472,7 @@ function leagueContext(state: GameState, season: WorldSeasonResult, job: Job) {
     prestige: league?.config.prestige ?? 0.5,
     division: league?.config.division ?? null,
     leagueKey: `league:${leagueId}`,
+    leagueId: leagueId as string | null,
   };
 }
 
@@ -495,7 +515,8 @@ function buildReport(state: GameState, rng: Rng, season: WorldSeasonResult, pre:
   if (firedAt !== null) {
     headlines.push({ id: 'fired', values: { matchday: firedAt } });
   } else {
-    if (position === 1) {
+    const titleWinner = ctx.leagueId ? season.titleWinners[ctx.leagueId] : undefined;
+    if (titleWinner ? titleWinner === job.clubId : position === 1) {
       headlines.push({ id: 'champion' });
       trophies.push(`${ctx.leagueKey}:${seasonYear}`);
     }
@@ -541,6 +562,7 @@ function buildReport(state: GameState, rng: Rng, season: WorldSeasonResult, pre:
     cup,
     headlines,
     firedAtMatchday: firedAt,
+    matchdays: ctx.res.matchdays,
     trophies,
     deltas: { board: 0, dressing: 0, environment: 0, reputation: 0 },
   };
@@ -601,7 +623,7 @@ function applyOutcome(state: GameState, rng: Rng, report: SeasonReport): void {
   const endFired = report.firedAtMatchday === null && job.board < bal(state).endSeasonFireBoard;
   if (report.firedAtMatchday !== null || endFired) {
     if (endFired) {
-      report.firedAtMatchday = report.table.length * 2 - 2;
+      report.firedAtMatchday = report.matchdays;
       report.headlines.unshift({ id: 'fired', values: { matchday: report.firedAtMatchday } });
     }
     state.firings += 1;

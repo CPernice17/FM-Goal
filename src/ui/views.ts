@@ -240,6 +240,7 @@ function sideTable(state: GameState): { title: string; rows: SideRow[]; zones: (
   const cfg = league.config;
   const zones = (i: number, n: number) => {
     if (cfg.relegated > 0 && i >= n - cfg.relegated) return 'zone-down';
+    if (cfg.championPlayoff && i < cfg.championPlayoff) return 'zone-playoff';
     if (cfg.promotedDirect > 0 && i < cfg.promotedDirect) return 'zone-up';
     if (cfg.playoff && i + 1 >= cfg.playoff.from && i + 1 <= cfg.playoff.to) return 'zone-playoff';
     return '';
@@ -286,22 +287,17 @@ export function renderSidebar(state: GameState): string {
             .join('')}
         </tbody>
       </table>
-      ${legend(lang, table.rows.some((_, i) => table.zones(i, n) !== ''), state)}
+      ${legend(lang, [...new Set(table.rows.map((_, i) => table.zones(i, n)).filter((z) => z !== ''))])}
     </section>`;
   }
   return `<aside class="sidebar" aria-label="${tt(lang, 'ui_side_label')}">${tableHtml}${historyBlock(state)}</aside>`;
 }
 
-function legend(lang: Lang, show: boolean, state: GameState): string {
-  if (!show) return '';
-  const job = state.job;
-  const leagueId = job?.role === 'first' ? state.world.clubs[job.clubId]?.leagueId : null;
-  const div2 = leagueId ? state.world.leagues[leagueId]?.config.division === 2 : false;
-  return `<p class="legend">${
-    div2
-      ? `<span class="key key-up"></span>${tt(lang, 'ui_side_up')} <span class="key key-playoff"></span>${tt(lang, 'ui_side_playoff')} `
-      : ''
-  }<span class="key key-down"></span>${tt(lang, 'ui_side_down')}</p>`;
+function legend(lang: Lang, zones: string[]): string {
+  if (zones.length === 0) return '';
+  const item = (zone: string, key: string, label: keyof Strings) =>
+    zones.includes(zone) ? `<span class="key ${key}"></span>${tt(lang, label)} ` : '';
+  return `<p class="legend">${item('zone-up', 'key-up', 'ui_side_up')}${item('zone-playoff', 'key-playoff', 'ui_side_playoff')}${item('zone-down', 'key-down', 'ui_side_down')}</p>`;
 }
 
 function historyBlock(state: GameState): string {
@@ -411,7 +407,8 @@ function optionHtml(state: GameState, o: CareerOption, i: number): string {
     const c = state.world.clubs[o.offer.clubId];
     if (!c) return '';
     const league = c.leagueId ? state.world.leagues[c.leagueId]?.config.name ?? '' : '';
-    const div = divisionOf(state.world, c.id) === 1 ? 'd1' : 'd2';
+    const cfg = c.leagueId ? state.world.leagues[c.leagueId]?.config : undefined;
+    const div = cfg?.championPlayoff ? 'po' : divisionOf(state.world, c.id) === 1 ? 'd1' : 'd2';
     const tier = t(lang, `tier_${div}_${tierInLeague(state.world, c.id)}` as keyof Strings);
     const meta =
       o.offer.role === 'youth'

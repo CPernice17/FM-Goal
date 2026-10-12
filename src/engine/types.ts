@@ -40,6 +40,10 @@ export interface LeagueConfig {
   promotedDirect: number;
   /** Playoff promozione: posizioni da `from` a `to`, una promossa. */
   playoff?: { from: number; to: number };
+  /** Gironi: 2 = andata e ritorno (predefinito), 1 = sola andata. */
+  rounds?: 1 | 2;
+  /** Titolo assegnato da un playoff tra le prime N in classifica (es. MLS). */
+  championPlayoff?: number;
   /** Lega superiore e inferiore collegate; assente = club esterni. */
   up?: string;
   down?: string;
@@ -118,7 +122,9 @@ export type ObjectiveId =
   | 'survival'
   | 'promotion'
   | 'playoff'
-  | 'youth_growth';
+  | 'youth_growth'
+  | 'playoffs'
+  | 'rebuild';
 
 export interface Job {
   clubId: string;
@@ -210,6 +216,7 @@ export interface SeasonReport {
   cup: { reached: string; won: boolean } | null;
   headlines: Headline[];
   firedAtMatchday: number | null;
+  matchdays: number;
   trophies: string[];
   deltas: { board: number; dressing: number; environment: number; reputation: number };
 }

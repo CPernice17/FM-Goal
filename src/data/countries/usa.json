@@ -1,0 +1,293 @@
+{
+  "id": "usa",
+  "name": "Stati Uniti e Canada",
+  "cupName": "U.S. Open Cup",
+  "youthLeagueName": "MLS Next Pro",
+  "leagues": [
+    {
+      "id": "usa1",
+      "name": "MLS",
+      "division": 1,
+      "prestige": 0.6,
+      "relegated": 0,
+      "promotedDirect": 0,
+      "rounds": 1,
+      "championPlayoff": 16
+    }
+  ],
+  "clubs": {
+    "usa1": [
+      {
+        "id": "usa-inter-miami-cf",
+        "name": "Inter Miami CF",
+        "rating": 75,
+        "profile": {
+          "build": 40,
+          "press": 30
+        }
+      },
+      {
+        "id": "usa-los-angeles-fc",
+        "name": "Los Angeles FC",
+        "rating": 75,
+        "profile": {
+          "build": -10,
+          "press": 50
+        }
+      },
+      {
+        "id": "usa-columbus-crew",
+        "name": "Columbus Crew",
+        "rating": 73,
+        "profile": {
+          "build": 50,
+          "press": 40
+        }
+      },
+      {
+        "id": "usa-fc-cincinnati",
+        "name": "FC Cincinnati",
+        "rating": 73,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-philadelphia-union",
+        "name": "Philadelphia Union",
+        "rating": 73,
+        "profile": {
+          "build": -10,
+          "press": 60
+        }
+      },
+      {
+        "id": "usa-san-diego-fc",
+        "name": "San Diego FC",
+        "rating": 73,
+        "profile": {
+          "build": 50,
+          "press": 40
+        }
+      },
+      {
+        "id": "usa-seattle-sounders-fc",
+        "name": "Seattle Sounders FC",
+        "rating": 72,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-vancouver-whitecaps-fc",
+        "name": "Vancouver Whitecaps FC",
+        "rating": 72,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-la-galaxy",
+        "name": "LA Galaxy",
+        "rating": 71,
+        "profile": {
+          "build": 30,
+          "press": 20
+        }
+      },
+      {
+        "id": "usa-minnesota-united-fc",
+        "name": "Minnesota United FC",
+        "rating": 71,
+        "profile": {
+          "build": -30,
+          "press": 30
+        }
+      },
+      {
+        "id": "usa-charlotte-fc",
+        "name": "Charlotte FC",
+        "rating": 71,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-new-york-city-fc",
+        "name": "New York City FC",
+        "rating": 71,
+        "profile": {
+          "build": 30,
+          "press": 30
+        }
+      },
+      {
+        "id": "usa-nashville-sc",
+        "name": "Nashville SC",
+        "rating": 71,
+        "profile": {
+          "build": -20,
+          "press": 20
+        }
+      },
+      {
+        "id": "usa-orlando-city-sc",
+        "name": "Orlando City SC",
+        "rating": 71,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-chicago-fire-fc",
+        "name": "Chicago Fire FC",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-portland-timbers",
+        "name": "Portland Timbers",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-austin-fc",
+        "name": "Austin FC",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-real-salt-lake",
+        "name": "Real Salt Lake",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-houston-dynamo-fc",
+        "name": "Houston Dynamo FC",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-colorado-rapids",
+        "name": "Colorado Rapids",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-atlanta-united-fc",
+        "name": "Atlanta United FC",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-new-york-red-bulls",
+        "name": "New York Red Bulls",
+        "rating": 69,
+        "profile": {
+          "build": -20,
+          "press": 70
+        }
+      },
+      {
+        "id": "usa-fc-dallas",
+        "name": "FC Dallas",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-st-louis-city-sc",
+        "name": "St. Louis City SC",
+        "rating": 68,
+        "profile": {
+          "build": -20,
+          "press": 60
+        }
+      },
+      {
+        "id": "usa-sporting-kansas-city",
+        "name": "Sporting Kansas City",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-new-england-revolution",
+        "name": "New England Revolution",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-toronto-fc",
+        "name": "Toronto FC",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-san-jose-earthquakes",
+        "name": "San Jose Earthquakes",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-d-c-united",
+        "name": "D.C. United",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "usa-cf-montreal",
+        "name": "CF Montréal",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      }
+    ]
+  },
+  "external": []
+}

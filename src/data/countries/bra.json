@@ -1,0 +1,256 @@
+{
+  "id": "bra",
+  "name": "Brasile",
+  "cupName": "Copa do Brasil",
+  "youthLeagueName": "Brasileirão Sub-20",
+  "leagues": [
+    {
+      "id": "bra1",
+      "name": "Série A",
+      "division": 1,
+      "prestige": 0.8,
+      "relegated": 4,
+      "promotedDirect": 0
+    }
+  ],
+  "clubs": {
+    "bra1": [
+      {
+        "id": "bra-flamengo",
+        "name": "Flamengo",
+        "rating": 81,
+        "profile": {
+          "build": 40,
+          "press": 50
+        }
+      },
+      {
+        "id": "bra-palmeiras",
+        "name": "Palmeiras",
+        "rating": 81,
+        "profile": {
+          "build": 10,
+          "press": 50
+        }
+      },
+      {
+        "id": "bra-botafogo",
+        "name": "Botafogo",
+        "rating": 77,
+        "profile": {
+          "build": 0,
+          "press": 40
+        }
+      },
+      {
+        "id": "bra-cruzeiro",
+        "name": "Cruzeiro",
+        "rating": 77,
+        "profile": {
+          "build": 20,
+          "press": 40
+        }
+      },
+      {
+        "id": "bra-fluminense",
+        "name": "Fluminense",
+        "rating": 76,
+        "profile": {
+          "build": 50,
+          "press": 30
+        }
+      },
+      {
+        "id": "bra-atletico-mineiro",
+        "name": "Atlético Mineiro",
+        "rating": 76,
+        "profile": {
+          "build": 0,
+          "press": 30
+        }
+      },
+      {
+        "id": "bra-internacional",
+        "name": "Internacional",
+        "rating": 76,
+        "profile": {
+          "build": 10,
+          "press": 30
+        }
+      },
+      {
+        "id": "bra-sao-paulo",
+        "name": "São Paulo",
+        "rating": 76,
+        "profile": {
+          "build": 20,
+          "press": 30
+        }
+      },
+      {
+        "id": "bra-corinthians",
+        "name": "Corinthians",
+        "rating": 75,
+        "profile": {
+          "build": -10,
+          "press": 30
+        }
+      },
+      {
+        "id": "bra-bahia",
+        "name": "Bahia",
+        "rating": 75,
+        "profile": {
+          "build": 40,
+          "press": 30
+        }
+      },
+      {
+        "id": "bra-gremio",
+        "name": "Grêmio",
+        "rating": 74,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "bra-vasco-da-gama",
+        "name": "Vasco da Gama",
+        "rating": 74,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "bra-red-bull-bragantino",
+        "name": "Red Bull Bragantino",
+        "rating": 74,
+        "profile": {
+          "build": 0,
+          "press": 70
+        }
+      },
+      {
+        "id": "bra-santos",
+        "name": "Santos",
+        "rating": 73,
+        "profile": {
+          "build": 20,
+          "press": 20
+        }
+      },
+      {
+        "id": "bra-athletico-paranaense",
+        "name": "Athletico Paranaense",
+        "rating": 72,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "bra-mirassol",
+        "name": "Mirassol",
+        "rating": 72,
+        "profile": {
+          "build": -10,
+          "press": 40
+        }
+      },
+      {
+        "id": "bra-vitoria",
+        "name": "Vitória",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "bra-coritiba",
+        "name": "Coritiba",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "bra-remo",
+        "name": "Remo",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "bra-chapecoense",
+        "name": "Chapecoense",
+        "rating": 68,
+        "profile": {
+          "build": -30,
+          "press": 10
+        }
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "bra-fortaleza",
+      "name": "Fortaleza",
+      "rating": 69,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "bra-ceara",
+      "name": "Ceará",
+      "rating": 68,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "bra-juventude",
+      "name": "Juventude",
+      "rating": 66,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "bra-sport",
+      "name": "Sport",
+      "rating": 66,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "bra-goias",
+      "name": "Goiás",
+      "rating": 64,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "bra-america-mineiro",
+      "name": "América Mineiro",
+      "rating": 64,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    }
+  ]
+}

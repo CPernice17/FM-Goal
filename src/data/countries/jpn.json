@@ -1,0 +1,247 @@
+{
+  "id": "jpn",
+  "name": "Giappone",
+  "cupName": "Emperor's Cup",
+  "youthLeagueName": "Prince Takamado U-18 Premier League",
+  "leagues": [
+    {
+      "id": "jpn1",
+      "name": "J1 League",
+      "division": 1,
+      "prestige": 0.6,
+      "relegated": 3,
+      "promotedDirect": 0
+    }
+  ],
+  "clubs": {
+    "jpn1": [
+      {
+        "id": "jpn-vissel-kobe",
+        "name": "Vissel Kobe",
+        "rating": 74,
+        "profile": {
+          "build": -10,
+          "press": 60
+        }
+      },
+      {
+        "id": "jpn-kashima-antlers",
+        "name": "Kashima Antlers",
+        "rating": 74,
+        "profile": {
+          "build": 0,
+          "press": 50
+        }
+      },
+      {
+        "id": "jpn-sanfrecce-hiroshima",
+        "name": "Sanfrecce Hiroshima",
+        "rating": 74,
+        "profile": {
+          "build": 10,
+          "press": 60
+        }
+      },
+      {
+        "id": "jpn-kashiwa-reysol",
+        "name": "Kashiwa Reysol",
+        "rating": 73,
+        "profile": {
+          "build": 50,
+          "press": 40
+        }
+      },
+      {
+        "id": "jpn-machida-zelvia",
+        "name": "Machida Zelvia",
+        "rating": 73,
+        "profile": {
+          "build": -40,
+          "press": 50
+        }
+      },
+      {
+        "id": "jpn-urawa-red-diamonds",
+        "name": "Urawa Red Diamonds",
+        "rating": 72,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "jpn-kawasaki-frontale",
+        "name": "Kawasaki Frontale",
+        "rating": 72,
+        "profile": {
+          "build": 50,
+          "press": 40
+        }
+      },
+      {
+        "id": "jpn-gamba-osaka",
+        "name": "Gamba Osaka",
+        "rating": 71,
+        "profile": {
+          "build": 30,
+          "press": 30
+        }
+      },
+      {
+        "id": "jpn-fc-tokyo",
+        "name": "FC Tokyo",
+        "rating": 71,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "jpn-kyoto-sanga",
+        "name": "Kyoto Sanga",
+        "rating": 71,
+        "profile": {
+          "build": -20,
+          "press": 60
+        }
+      },
+      {
+        "id": "jpn-yokohama-f-marinos",
+        "name": "Yokohama F. Marinos",
+        "rating": 71,
+        "profile": {
+          "build": 30,
+          "press": 50
+        }
+      },
+      {
+        "id": "jpn-cerezo-osaka",
+        "name": "Cerezo Osaka",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "jpn-nagoya-grampus",
+        "name": "Nagoya Grampus",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "jpn-avispa-fukuoka",
+        "name": "Avispa Fukuoka",
+        "rating": 69,
+        "profile": {
+          "build": -30,
+          "press": 30
+        }
+      },
+      {
+        "id": "jpn-tokyo-verdy",
+        "name": "Tokyo Verdy",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "jpn-shimizu-s-pulse",
+        "name": "Shimizu S-Pulse",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "jpn-fagiano-okayama",
+        "name": "Fagiano Okayama",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "jpn-jef-united-chiba",
+        "name": "JEF United Chiba",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "jpn-v-varen-nagasaki",
+        "name": "V-Varen Nagasaki",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "jpn-mito-hollyhock",
+        "name": "Mito HollyHock",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "jpn-yokohama-fc",
+      "name": "Yokohama FC",
+      "rating": 67,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "jpn-shonan-bellmare",
+      "name": "Shonan Bellmare",
+      "rating": 67,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "jpn-albirex-niigata",
+      "name": "Albirex Niigata",
+      "rating": 67,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "jpn-vegalta-sendai",
+      "name": "Vegalta Sendai",
+      "rating": 65,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "jpn-sagan-tosu",
+      "name": "Sagan Tosu",
+      "rating": 65,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    }
+  ]
+}

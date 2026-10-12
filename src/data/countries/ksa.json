@@ -1,0 +1,229 @@
+{
+  "id": "ksa",
+  "name": "Arabia Saudita",
+  "cupName": "King's Cup",
+  "youthLeagueName": "Saudi U-21 League",
+  "leagues": [
+    {
+      "id": "ksa1",
+      "name": "Saudi Pro League",
+      "division": 1,
+      "prestige": 0.65,
+      "relegated": 3,
+      "promotedDirect": 0
+    }
+  ],
+  "clubs": {
+    "ksa1": [
+      {
+        "id": "ksa-al-hilal",
+        "name": "Al-Hilal",
+        "rating": 80,
+        "profile": {
+          "build": 40,
+          "press": 50
+        }
+      },
+      {
+        "id": "ksa-al-ahli",
+        "name": "Al-Ahli",
+        "rating": 79,
+        "profile": {
+          "build": 20,
+          "press": 40
+        }
+      },
+      {
+        "id": "ksa-al-nassr",
+        "name": "Al-Nassr",
+        "rating": 79,
+        "profile": {
+          "build": 30,
+          "press": 30
+        }
+      },
+      {
+        "id": "ksa-al-ittihad",
+        "name": "Al-Ittihad",
+        "rating": 78,
+        "profile": {
+          "build": 10,
+          "press": 30
+        }
+      },
+      {
+        "id": "ksa-al-qadsiah",
+        "name": "Al-Qadsiah",
+        "rating": 75,
+        "profile": {
+          "build": 20,
+          "press": 40
+        }
+      },
+      {
+        "id": "ksa-al-ettifaq",
+        "name": "Al-Ettifaq",
+        "rating": 72,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ksa-al-shabab",
+        "name": "Al-Shabab",
+        "rating": 72,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ksa-al-taawoun",
+        "name": "Al-Taawoun",
+        "rating": 72,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ksa-neom",
+        "name": "Neom",
+        "rating": 71,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ksa-al-khaleej",
+        "name": "Al-Khaleej",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ksa-al-fateh",
+        "name": "Al-Fateh",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ksa-al-fayha",
+        "name": "Al-Fayha",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ksa-al-kholood",
+        "name": "Al-Kholood",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ksa-al-riyadh",
+        "name": "Al-Riyadh",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ksa-al-hazem",
+        "name": "Al-Hazem",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ksa-abha",
+        "name": "Abha",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ksa-al-faisaly",
+        "name": "Al-Faisaly",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ksa-al-diriyah",
+        "name": "Al-Diriyah",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "ksa-damac",
+      "name": "Damac",
+      "rating": 66,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "ksa-al-okhdood",
+      "name": "Al-Okhdood",
+      "rating": 65,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "ksa-al-wehda",
+      "name": "Al-Wehda",
+      "rating": 64,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "ksa-al-raed",
+      "name": "Al-Raed",
+      "rating": 64,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "ksa-al-najma",
+      "name": "Al-Najma",
+      "rating": 63,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    }
+  ]
+}

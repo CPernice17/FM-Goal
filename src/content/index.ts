@@ -1,12 +1,17 @@
 import type { EventDef, EventPack } from '../engine/events/schema';
 import type { CountryData } from '../engine/types';
+import arg from '../data/countries/arg.json';
+import bra from '../data/countries/bra.json';
 import eng from '../data/countries/eng.json';
 import esp from '../data/countries/esp.json';
 import fra from '../data/countries/fra.json';
 import ger from '../data/countries/ger.json';
 import ita from '../data/countries/ita.json';
+import jpn from '../data/countries/jpn.json';
+import ksa from '../data/countries/ksa.json';
 import ned from '../data/countries/ned.json';
 import por from '../data/countries/por.json';
+import usa from '../data/countries/usa.json';
 import carriera from './events/carriera.json';
 import crisi from './events/crisi.json';
 import dirigenza from './events/dirigenza.json';
@@ -22,4 +27,4 @@ export const EVENT_PACKS: EventPack[] = [carriera, gavetta, spogliatoio, dirigen
 
 export const EVENTS: EventDef[] = EVENT_PACKS.flatMap((p) => p.events);
 
-export const COUNTRIES: CountryData[] = [ita, eng, esp, ger, fra, por, ned] as unknown as CountryData[];
+export const COUNTRIES: CountryData[] = [ita, eng, esp, ger, fra, por, ned, bra, arg, ksa, jpn, usa] as unknown as CountryData[];

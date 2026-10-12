@@ -1,0 +1,338 @@
+{
+  "id": "arg",
+  "name": "Argentina",
+  "cupName": "Copa Argentina",
+  "youthLeagueName": "Torneo de Reserva",
+  "leagues": [
+    {
+      "id": "arg1",
+      "name": "Liga Profesional",
+      "division": 1,
+      "prestige": 0.75,
+      "relegated": 2,
+      "promotedDirect": 0,
+      "rounds": 1
+    }
+  ],
+  "clubs": {
+    "arg1": [
+      {
+        "id": "arg-river-plate",
+        "name": "River Plate",
+        "rating": 79,
+        "profile": {
+          "build": 40,
+          "press": 50
+        }
+      },
+      {
+        "id": "arg-boca-juniors",
+        "name": "Boca Juniors",
+        "rating": 79,
+        "profile": {
+          "build": 0,
+          "press": 40
+        }
+      },
+      {
+        "id": "arg-racing-club",
+        "name": "Racing Club",
+        "rating": 77,
+        "profile": {
+          "build": -10,
+          "press": 50
+        }
+      },
+      {
+        "id": "arg-velez-sarsfield",
+        "name": "Vélez Sarsfield",
+        "rating": 75,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-estudiantes-de-la-plata",
+        "name": "Estudiantes de La Plata",
+        "rating": 75,
+        "profile": {
+          "build": -20,
+          "press": 40
+        }
+      },
+      {
+        "id": "arg-talleres",
+        "name": "Talleres",
+        "rating": 74,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-independiente",
+        "name": "Independiente",
+        "rating": 74,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-lanus",
+        "name": "Lanús",
+        "rating": 74,
+        "profile": {
+          "build": 20,
+          "press": 40
+        }
+      },
+      {
+        "id": "arg-rosario-central",
+        "name": "Rosario Central",
+        "rating": 74,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-argentinos-juniors",
+        "name": "Argentinos Juniors",
+        "rating": 73,
+        "profile": {
+          "build": 20,
+          "press": 40
+        }
+      },
+      {
+        "id": "arg-san-lorenzo",
+        "name": "San Lorenzo",
+        "rating": 72,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-huracan",
+        "name": "Huracán",
+        "rating": 72,
+        "profile": {
+          "build": -20,
+          "press": 30
+        }
+      },
+      {
+        "id": "arg-belgrano",
+        "name": "Belgrano",
+        "rating": 72,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-defensa-y-justicia",
+        "name": "Defensa y Justicia",
+        "rating": 71,
+        "profile": {
+          "build": 30,
+          "press": 40
+        }
+      },
+      {
+        "id": "arg-newell-s-old-boys",
+        "name": "Newell's Old Boys",
+        "rating": 71,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-tigre",
+        "name": "Tigre",
+        "rating": 71,
+        "profile": {
+          "build": -10,
+          "press": 40
+        }
+      },
+      {
+        "id": "arg-union",
+        "name": "Unión",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-platense",
+        "name": "Platense",
+        "rating": 70,
+        "profile": {
+          "build": -30,
+          "press": 20
+        }
+      },
+      {
+        "id": "arg-instituto",
+        "name": "Instituto",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-gimnasia-y-esgrima-de-la-plata",
+        "name": "Gimnasia y Esgrima de La Plata",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-banfield",
+        "name": "Banfield",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-independiente-rivadavia",
+        "name": "Independiente Rivadavia",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-atletico-tucuman",
+        "name": "Atlético Tucumán",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-barracas-central",
+        "name": "Barracas Central",
+        "rating": 68,
+        "profile": {
+          "build": -30,
+          "press": 20
+        }
+      },
+      {
+        "id": "arg-central-cordoba",
+        "name": "Central Córdoba",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-sarmiento",
+        "name": "Sarmiento",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-deportivo-riestra",
+        "name": "Deportivo Riestra",
+        "rating": 67,
+        "profile": {
+          "build": -40,
+          "press": 30
+        }
+      },
+      {
+        "id": "arg-aldosivi",
+        "name": "Aldosivi",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-gimnasia-y-esgrima-de-mendoza",
+        "name": "Gimnasia y Esgrima de Mendoza",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "arg-estudiantes-de-rio-cuarto",
+        "name": "Estudiantes de Río Cuarto",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "arg-godoy-cruz",
+      "name": "Godoy Cruz",
+      "rating": 66,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "arg-san-martin-de-san-juan",
+      "name": "San Martín de San Juan",
+      "rating": 65,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "arg-colon",
+      "name": "Colón",
+      "rating": 64,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "arg-quilmes",
+      "name": "Quilmes",
+      "rating": 63,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "arg-chacarita-juniors",
+      "name": "Chacarita Juniors",
+      "rating": 62,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    }
+  ]
+}
