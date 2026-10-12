@@ -62,15 +62,27 @@ export function topLeagueId(world: WorldState, country: string): string {
   return top.config.id;
 }
 
-export function youthClubIds(world: WorldState, country: string): string[] {
-  return world.leagues[topLeagueId(world, country)]?.clubIds ?? [];
+/**
+ * Squadre del campionato Primavera: le Primavera dei club di prima divisione.
+ * `include` è la Primavera allenata dal giocatore: se la prima squadra non è in
+ * massima serie (per esempio dopo una retrocessione) entra comunque, al posto
+ * della Primavera più debole, così il campionato resta della stessa dimensione.
+ */
+export function youthClubIds(world: WorldState, country: string, include?: string | null): string[] {
+  const ids = [...(world.leagues[topLeagueId(world, country)]?.clubIds ?? [])];
+  if (include && !ids.includes(include) && world.clubs[include]?.country === country && ids.length > 0) {
+    ids.sort((a, b) => (world.youthRatings[a] ?? 0) - (world.youthRatings[b] ?? 0));
+    ids[0] = include;
+  }
+  return ids;
 }
 
-/** Rating della Primavera: derivato dalla prima squadra più una componente casuale. */
+/** Rating delle Primavera di tutti i club con un campionato: prima squadra più una componente casuale. */
 export function refreshYouthRatings(world: WorldState, rng: Rng): void {
   world.youthRatings = {};
   for (const country of Object.keys(world.countries)) {
-    for (const id of youthClubIds(world, country)) {
+    const ids = (world.countries[country]?.leagueIds ?? []).flatMap((lid) => world.leagues[lid]?.clubIds ?? []);
+    for (const id of ids) {
       const r = club(world, id).rating;
       world.youthRatings[id] = clamp(Math.round(50 + (r - 60) * 0.5 + rng.range(-6, 6)), 35, 80);
     }
@@ -141,7 +153,8 @@ export function simulateWorldSeason(
     );
     if (cupEntrants.length >= 2) result.cups[countryId] = simulateCup(rng, cupEntrants);
 
-    const youthEntrants = youthClubIds(world, countryId).map((id) => ({
+    const coachYouth = Object.keys(override.youth).find((id) => world.clubs[id]?.country === countryId);
+    const youthEntrants = youthClubIds(world, countryId, coachYouth).map((id) => ({
       id,
       rating: override.youth[id] ?? world.youthRatings[id] ?? 50,
     }));

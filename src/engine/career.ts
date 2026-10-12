@@ -40,14 +40,13 @@ export const BALANCE = {
   startAge: 35,
   retireAge: 70,
   /** Da quest'età, a fine stagione, può arrivare la proposta di ritiro. */
-  retireOfferAge: 52,
+  retireOfferAge: 50,
   /** Probabilità della proposta: base + incremento per ogni anno oltre la soglia. */
   retireOfferBase: 0.15,
   retireOfferPerYear: 0.10,
   startReputation: 10,
   maxUnemployedTurns: 3,
   youthPrestige: 0.35,
-  youthTurnYears: 2,
   /** Rendimento: spogliatoio (±punti di rating agli estremi). */
   dressingImpact: 3.5,
   /** Rendimento: penalità massima per stile opposto alla rosa. */
@@ -154,7 +153,7 @@ function takeJob(state: GameState, rng: Rng, offer: Offer): void {
   const job: Job = {
     clubId: offer.clubId,
     role: offer.role,
-    contractYears: offer.role === 'youth' ? offer.years * BALANCE.youthTurnYears : offer.years,
+    contractYears: offer.years,
     seasons: 0,
     board: clamp(Math.round(BALANCE.startBoard + clamp(fitRating, -15, 15)), 35, 75),
     dressing: 50,
@@ -205,7 +204,7 @@ function competitionEntrants(state: GameState): { ids: string[]; rating: (id: st
   const c = club(state.world, job.clubId);
   if (job.role === 'youth') {
     return {
-      ids: youthClubIds(state.world, c.country),
+      ids: youthClubIds(state.world, c.country, job.clubId),
       rating: (id) => state.world.youthRatings[id] ?? 50,
       name: state.world.countries[c.country]?.youthLeagueName ?? '',
     };
@@ -530,7 +529,7 @@ function applyOutcome(state: GameState, rng: Rng, report: SeasonReport): void {
   };
 
   job.seasons += 1;
-  job.contractYears -= job.role === 'youth' ? BALANCE.youthTurnYears : 1;
+  job.contractYears -= 1;
 
   const endFired = report.firedAtMatchday === null && job.board < BALANCE.endSeasonFireBoard;
   if (report.firedAtMatchday !== null || endFired) {
@@ -647,7 +646,7 @@ function buildCareerDecision(state: GameState, rng: Rng): Pending | null {
       return { kind: 'career', context: 'contract_running', options: [...accept(offers), { kind: 'stay' }] };
     }
     if (job.board >= BALANCE.renewalBoard) {
-      const years = job.role === 'youth' ? 1 : rng.int(1, 3);
+      const years = job.role === 'youth' ? 2 : rng.int(1, 3);
       return { kind: 'career', context: 'renewal', options: [{ kind: 'renew', years }, ...accept(offers), { kind: 'leave' }] };
     }
     loseJob(state);
@@ -673,7 +672,7 @@ export function generateOffers(state: GameState, rng: Rng, mode: 'employed' | 'u
   if (coach.license === 'B') {
     if (mode === 'employed') return [];
     const pool = Object.keys(world.youthRatings).filter((id) => id !== state.lastClubId);
-    return pool.length > 0 ? [{ clubId: rng.pick(pool), role: 'youth', years: 1, challenge: false }] : [];
+    return pool.length > 0 ? [{ clubId: rng.pick(pool), role: 'youth', years: 2, challenge: false }] : [];
   }
 
   let p: number;
@@ -722,19 +721,14 @@ export function nextSeason(state: GameState): GameState {
   assertPhase(state, 'season_over');
   withRng(state, (rng) => {
     const job = state.job;
-    const wasYouth = state.history.at(-1)?.role === 'youth' && state.history.at(-1)?.season === state.world.season - 1;
     if (job) {
       job.board += (50 - job.board) * BALANCE.meanReversion;
       job.dressing += (50 - job.dressing) * BALANCE.meanReversion;
       job.environment += (50 - job.environment) * BALANCE.meanReversion;
       job.seasonBoost = 0;
     }
-    // Un turno di gavetta vale due anni: il mondo gioca una stagione in più.
-    if (wasYouth) {
-      const extra = simulateWorldSeason(state.world, rng, { first: {}, youth: {} });
-      endOfSeason(state.world, rng, extra);
-    }
-    state.coach.age += wasYouth ? BALANCE.youthTurnYears : 1;
+    // Ogni turno è una stagione, anche in Primavera.
+    state.coach.age += 1;
     state.unemployedTurns = job ? 0 : state.unemployedTurns + 1;
     state.turn += 1;
     state.skipOffers = false;

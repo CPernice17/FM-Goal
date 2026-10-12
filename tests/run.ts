@@ -138,6 +138,40 @@ test('salvataggio: un salvataggio a metà carriera riprende identico', () => {
   assert(serialize(a) === serialize(b), 'il salvataggio cambia il risultato');
 });
 
+test('primavera: la squadra allenata gioca anche se la prima squadra retrocede', () => {
+  let state = createCareer({ name: 'Test', nationality: 'ita', style: { build: 0, press: 0 }, seed: 21, countries: COUNTRIES });
+  const clubId = state.job?.clubId as string;
+  // Simula la retrocessione: la prima squadra passa in Serie B.
+  const a = state.world.leagues.ita1;
+  const b = state.world.leagues.ita2;
+  if (!a || !b) throw new Error('campionati mancanti');
+  const swap = b.clubIds[0] as string;
+  a.clubIds = a.clubIds.filter((id) => id !== clubId).concat(swap);
+  b.clubIds = b.clubIds.filter((id) => id !== swap).concat(clubId);
+  (state.world.clubs[clubId] as { leagueId: string | null }).leagueId = 'ita2';
+  (state.world.clubs[swap] as { leagueId: string | null }).leagueId = 'ita1';
+
+  state = startSeason(state, EVENTS);
+  while (state.phase === 'start_decision') state = choose(state, 0, EVENTS);
+  state = playSeason(state);
+  const r = state.lastReport;
+  if (!r) throw new Error('nessun resoconto');
+  assert(r.position >= 1 && r.position <= r.teams, `posizione ${r?.position}`);
+  assert(r.table.some((row) => row.clubId === clubId), 'la Primavera allenata manca dalla classifica');
+  assert(r.teams === 20, `squadre ${r.teams}`);
+});
+
+test('carriera: ogni turno è una stagione', () => {
+  const s = playToEnd(8);
+  const seasons = s.history.map((r) => r.season);
+  for (let i = 1; i < seasons.length; i++) {
+    assert((seasons[i] as number) > (seasons[i - 1] as number), 'stagioni non in ordine');
+  }
+  const first = s.history[0];
+  assert(first && first.season === 2026, `prima stagione ${first?.season}`);
+  assert(s.coach.age - 35 === s.turn - 1, `età ${s.coach.age} dopo ${s.turn - 1} turni`);
+});
+
 test('eventi: i pacchetti reali sono validi', () => {
   const report = validatePacks(EVENT_PACKS);
   assert(report.errors.length === 0, report.errors.join('; '));
