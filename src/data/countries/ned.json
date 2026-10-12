@@ -1,0 +1,229 @@
+{
+  "id": "ned",
+  "name": "Paesi Bassi",
+  "cupName": "KNVB Beker",
+  "youthLeagueName": "Divisie 1 Onder 21",
+  "leagues": [
+    {
+      "id": "ned1",
+      "name": "Eredivisie",
+      "division": 1,
+      "prestige": 0.75,
+      "relegated": 3,
+      "promotedDirect": 0
+    }
+  ],
+  "clubs": {
+    "ned1": [
+      {
+        "id": "ned-psv-eindhoven",
+        "name": "PSV Eindhoven",
+        "rating": 82,
+        "profile": {
+          "build": 40,
+          "press": 60
+        }
+      },
+      {
+        "id": "ned-ajax",
+        "name": "Ajax",
+        "rating": 81,
+        "profile": {
+          "build": 60,
+          "press": 50
+        }
+      },
+      {
+        "id": "ned-feyenoord",
+        "name": "Feyenoord",
+        "rating": 81,
+        "profile": {
+          "build": 30,
+          "press": 60
+        }
+      },
+      {
+        "id": "ned-az",
+        "name": "AZ",
+        "rating": 78,
+        "profile": {
+          "build": 40,
+          "press": 50
+        }
+      },
+      {
+        "id": "ned-twente",
+        "name": "Twente",
+        "rating": 76,
+        "profile": {
+          "build": 10,
+          "press": 40
+        }
+      },
+      {
+        "id": "ned-utrecht",
+        "name": "Utrecht",
+        "rating": 76,
+        "profile": {
+          "build": 0,
+          "press": 50
+        }
+      },
+      {
+        "id": "ned-nec",
+        "name": "NEC",
+        "rating": 73,
+        "profile": {
+          "build": 20,
+          "press": 40
+        }
+      },
+      {
+        "id": "ned-go-ahead-eagles",
+        "name": "Go Ahead Eagles",
+        "rating": 72,
+        "profile": {
+          "build": 20,
+          "press": 40
+        }
+      },
+      {
+        "id": "ned-heerenveen",
+        "name": "Heerenveen",
+        "rating": 72,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ned-groningen",
+        "name": "Groningen",
+        "rating": 71,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ned-sparta-rotterdam",
+        "name": "Sparta Rotterdam",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ned-fortuna-sittard",
+        "name": "Fortuna Sittard",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ned-pec-zwolle",
+        "name": "PEC Zwolle",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ned-excelsior",
+        "name": "Excelsior",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ned-telstar",
+        "name": "Telstar",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ned-willem-ii",
+        "name": "Willem II",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ned-cambuur",
+        "name": "Cambuur",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ned-ado-den-haag",
+        "name": "ADO Den Haag",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "ned-volendam",
+      "name": "Volendam",
+      "rating": 66,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "ned-nac-breda",
+      "name": "NAC Breda",
+      "rating": 66,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "ned-heracles-almelo",
+      "name": "Heracles Almelo",
+      "rating": 66,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "ned-roda-jc",
+      "name": "Roda JC",
+      "rating": 62,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "ned-de-graafschap",
+      "name": "De Graafschap",
+      "rating": 62,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    }
+  ]
+}

@@ -33,6 +33,7 @@ import {
   youthClubIds,
   type WorldSeasonResult,
 } from './world';
+import type { WorldState } from './types';
 
 export const SAVE_VERSION = 2;
 
@@ -77,6 +78,9 @@ export const BALANCE = {
   offerTargetBase: 55,
   offerTargetSlope: 0.33,
   offerSpread: 4,
+  /** Probabilità che un'offerta arrivi dal paese in cui si lavora e da quello d'origine. */
+  offerHomeShare: 0.8,
+  offerNationShare: 0.1,
 };
 
 /**
@@ -122,8 +126,6 @@ export interface NewCareerOptions {
   lang?: Lang;
   countries: CountryData[];
   difficulty?: Difficulty;
-  /** Paese della prima Primavera. */
-  startCountry?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -157,7 +159,7 @@ export function createCareer(opts: NewCareerOptions): GameState {
     flags: {},
     scheduled: [],
     eventLog: {},
-    phase: 'preseason',
+    phase: 'first_job',
     pending: null,
     endQueue: [],
     careerShown: false,
@@ -172,12 +174,28 @@ export function createCareer(opts: NewCareerOptions): GameState {
     decisions: 0,
   };
 
-  // Prima Primavera: un club di Serie A di fascia medio-bassa.
-  const country = opts.startCountry ?? opts.countries[0]?.id ?? 'ita';
-  const candidates = youthClubIds(world, country).filter((id) => tierInLeague(world, id) >= 3);
-  takeJob(state, rng, { clubId: rng.pick(candidates), role: 'youth', years: 2, challenge: false });
+  // Prima decisione della carriera: tre Primavera tra cui scegliere.
+  state.pending = {
+    kind: 'career',
+    context: 'first_job',
+    options: startingOffers(world, rng, opts.nationality).map((offer) => ({ kind: 'accept', offer })),
+  };
   state.rng = rng.snapshot;
   return state;
+}
+
+/**
+ * Tre Primavera iniziali nel paese della nazionalità (se ha campionati nel
+ * gioco, altrimenti in un paese a caso): una di un club di vertice, una di
+ * metà classifica, una di un club piccolo.
+ */
+export function startingOffers(world: WorldState, rng: Rng, nationality: string): Offer[] {
+  const countries = Object.keys(world.countries);
+  const country = world.countries[nationality] ? nationality : rng.pick(countries);
+  const ids = [...youthClubIds(world, country)].sort((a, b) => club(world, b).rating - club(world, a).rating);
+  const third = Math.max(1, Math.floor(ids.length / 3));
+  const bands = [ids.slice(0, third), ids.slice(third, 2 * third), ids.slice(2 * third)];
+  return bands.filter((b) => b.length > 0).map((b) => ({ clubId: rng.pick(b), role: 'youth', years: 2, challenge: false }));
 }
 
 function withRng<T>(state: GameState, fn: (rng: Rng) => T): T {
@@ -312,6 +330,15 @@ export function startSeason(state: GameState, events: readonly EventDef[]): Game
 
 export function choose(state: GameState, optionIndex: number, events: readonly EventDef[]): GameState {
   const pending = state.pending;
+  if (state.phase === 'first_job') {
+    const option = pending?.kind === 'career' ? pending.options[optionIndex] : undefined;
+    if (!option) throw new Error(`Primo incarico non valido: ${optionIndex}`);
+    state.decisions += 1;
+    withRng(state, (rng) => applyCareerOption(state, rng, option));
+    state.pending = null;
+    state.phase = 'preseason';
+    return state;
+  }
   if (!pending || (state.phase !== 'start_decision' && state.phase !== 'end_decision')) {
     throw new Error(`Nessuna decisione in sospeso (fase ${state.phase})`);
   }
@@ -728,6 +755,8 @@ export function generateOffers(state: GameState, rng: Rng, mode: 'employed' | 'u
   if (job?.role === 'youth' && job.seasons >= 3) count = Math.max(count, 1);
   if (count === 0) return [];
 
+  const currentClub = job?.clubId ?? state.lastClubId;
+  const currentCountry = currentClub ? world.clubs[currentClub]?.country : coach.nationality;
   const target = bal(state).offerTargetBase + coach.reputation * BALANCE.offerTargetSlope - (mode === 'fired' ? 4 : 0);
   const eligible = Object.values(world.clubs).filter((c) => {
     if (!c.leagueId || c.id === job?.clubId) return false;
@@ -739,18 +768,33 @@ export function generateOffers(state: GameState, rng: Rng, mode: 'employed' | 'u
   });
 
   const offers: Offer[] = [];
+  const weight = (c: (typeof eligible)[number], center: number) => {
+    if (offers.some((o) => o.clubId === c.id)) return 0;
+    const closeness = Math.exp(-(((c.rating - center) / BALANCE.offerSpread) ** 2));
+    const dist = Math.hypot(coach.style.build - c.profile.build, coach.style.press - c.profile.press);
+    return closeness * (1.2 - dist / 283);
+  };
   for (let i = 0; i < count; i++) {
     const challenge = rng.chance(0.15);
     const center = challenge ? target + 6 : target;
-    const choice = rng.weighted(eligible, (c) => {
-      if (offers.some((o) => o.clubId === c.id)) return 0;
-      const closeness = Math.exp(-(((c.rating - center) / BALANCE.offerSpread) ** 2));
-      const dist = Math.hypot(coach.style.build - c.profile.build, coach.style.press - c.profile.press);
-      return closeness * (1.2 - dist / 283);
-    });
+    // Prima il paese (soprattutto quello in cui lavori), poi il club al suo interno.
+    const country = pickOfferCountry(rng, currentCountry, coach.nationality, Object.keys(world.countries));
+    const local = eligible.filter((c) => c.country === country);
+    const choice = rng.weighted(local, (c) => weight(c, center)) ?? rng.weighted(eligible, (c) => weight(c, center));
     if (choice) offers.push({ clubId: choice.id, role: 'first', years: rng.int(1, 3), challenge });
   }
   return offers;
+}
+
+/** Paese di un'offerta: quello in cui lavori, quello d'origine, oppure un altro. */
+function pickOfferCountry(rng: Rng, current: string | undefined, nationality: string, all: string[]): string {
+  const r = rng.next();
+  const home = current && all.includes(current) ? current : undefined;
+  const origin = all.includes(nationality) ? nationality : undefined;
+  if (home && r < BALANCE.offerHomeShare) return home;
+  if (origin && origin !== home && r < BALANCE.offerHomeShare + BALANCE.offerNationShare) return origin;
+  const others = all.filter((c) => c !== home && c !== origin);
+  return others.length > 0 ? rng.pick(others) : (home ?? rng.pick(all));
 }
 
 // ---------------------------------------------------------------------------

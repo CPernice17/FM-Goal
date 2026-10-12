@@ -2,7 +2,7 @@ import { preseason } from '../engine/career';
 import type { EventDef } from '../engine/events/schema';
 import { renderText } from '../engine/events/runtime';
 import type { CareerOption, Difficulty, GameState, KeyPlayer, Lang, Pending, SeasonReport, Style } from '../engine/types';
-import { divisionOf, tierInLeague } from '../engine/world';
+import { divisionOf, tierInLeague, topLeagueId } from '../engine/world';
 import { headlineText, styleLabel, t, trophyText } from '../i18n/index';
 import type { Strings } from '../i18n/it';
 
@@ -53,6 +53,7 @@ export function styleSquare(lang: Lang, style: Style, interactive: boolean): str
 
 export interface Draft {
   name: string;
+  nationality: string;
   style: Style;
   difficulty: Difficulty;
   error: string | null;
@@ -75,7 +76,7 @@ function difficultyField(lang: Lang, current: Difficulty): string {
   </fieldset>`;
 }
 
-export function renderHome(lang: Lang, hasSave: boolean, draft: Draft): string {
+export function renderHome(lang: Lang, hasSave: boolean, draft: Draft, countries: { id: string; name: string }[]): string {
   return `
   <main class="screen home">
     <header class="home-head">
@@ -88,6 +89,14 @@ export function renderHome(lang: Lang, hasSave: boolean, draft: Draft): string {
         <span class="field-label">${tt(lang, 'ui_name')}</span>
         <input name="name" autocomplete="off" maxlength="32" value="${esc(draft.name)}"
                placeholder="${tt(lang, 'ui_name_placeholder')}" />
+      </label>
+      <label class="field">
+        <span class="field-label">${tt(lang, 'ui_nationality')}</span>
+        <span class="hint">${tt(lang, 'ui_nationality_hint')}</span>
+        <select name="nationality">
+          ${countries.map((c) => `<option value="${esc(c.id)}" ${c.id === draft.nationality ? 'selected' : ''}>${esc(c.name)}</option>`).join('')}
+          <option value="other" ${draft.nationality === 'other' ? 'selected' : ''}>${tt(lang, 'ui_nationality_other')}</option>
+        </select>
       </label>
       <div class="field">
         <span class="field-label">${tt(lang, 'ui_style')}</span>
@@ -197,6 +206,14 @@ interface SideRow {
 }
 
 /** Campionato da mostrare: quello del club allenato, altrimenti la massima serie. */
+/** Paese di riferimento quando non si allena: ultimo club, altrimenti la nazionalità. */
+function homeCountry(state: GameState): string {
+  const clubId = state.job?.clubId ?? state.lastClubId;
+  const fromClub = clubId ? state.world.clubs[clubId]?.country : undefined;
+  if (fromClub) return fromClub;
+  return state.world.countries[state.coach.nationality] ? state.coach.nationality : Object.keys(state.world.countries)[0] ?? 'ita';
+}
+
 function sideTable(state: GameState): { title: string; rows: SideRow[]; zones: (i: number, n: number) => string; mine: string | null } | null {
   const lang = state.lang;
   const world = state.world;
@@ -217,7 +234,7 @@ function sideTable(state: GameState): { title: string; rows: SideRow[]; zones: (
   }
 
   const clubId = job?.role === 'first' ? job.clubId : null;
-  const leagueId = clubId ? world.clubs[clubId]?.leagueId : Object.values(world.leagues).find((l) => l.config.division === 1)?.config.id;
+  const leagueId = clubId ? world.clubs[clubId]?.leagueId : topLeagueId(world, homeCountry(state));
   const league = leagueId ? world.leagues[leagueId] : undefined;
   if (!league) return null;
   const cfg = league.config;
@@ -330,14 +347,14 @@ export function renderReport(state: GameState): string {
   const lang = state.lang;
   const r = state.lastReport;
   if (!r) {
-    const top = Object.values(state.world.leagues).find((l) => l.config.division === 1);
+    const top = state.world.leagues[topLeagueId(state.world, homeCountry(state))];
     const champ = top?.lastTable[0] ? state.world.clubs[top.lastTable[0]]?.name ?? '' : '';
     return `
     <main class="screen report">
       <div class="paper">
         <p class="masthead">${tt(lang, 'ui_season', { season: seasonLabel(state.world.season - 1) })}</p>
         <h1 class="front-headline">${tt(lang, 'ui_spectator_title')}</h1>
-        <p class="front-sub">${tt(lang, 'ui_spectator_body', { club: champ })}</p>
+        <p class="front-sub">${tt(lang, 'ui_spectator_body', { club: champ, league: top?.config.name ?? '' })}</p>
       </div>
       ${actionBar(`<button class="btn btn-primary" data-action="next">${tt(lang, 'ui_next')}</button>`)}
     </main>`;
@@ -393,15 +410,13 @@ function optionHtml(state: GameState, o: CareerOption, i: number): string {
   if (o.kind === 'accept') {
     const c = state.world.clubs[o.offer.clubId];
     if (!c) return '';
-    let meta: string;
-    if (o.offer.role === 'youth') {
-      meta = t(lang, 'ui_offer_youth_meta');
-    } else {
-      const league = c.leagueId ? state.world.leagues[c.leagueId]?.config.name ?? '' : '';
-      const div = divisionOf(state.world, c.id) === 1 ? 'd1' : 'd2';
-      const tier = t(lang, `tier_${div}_${tierInLeague(state.world, c.id)}` as keyof Strings);
-      meta = t(lang, o.offer.years === 1 ? 'ui_offer_meta_one' : 'ui_offer_meta', { league, tier, years: o.offer.years });
-    }
+    const league = c.leagueId ? state.world.leagues[c.leagueId]?.config.name ?? '' : '';
+    const div = divisionOf(state.world, c.id) === 1 ? 'd1' : 'd2';
+    const tier = t(lang, `tier_${div}_${tierInLeague(state.world, c.id)}` as keyof Strings);
+    const meta =
+      o.offer.role === 'youth'
+        ? t(lang, 'ui_offer_youth_meta', { league, tier })
+        : t(lang, o.offer.years === 1 ? 'ui_offer_meta_one' : 'ui_offer_meta', { league, tier, years: o.offer.years });
     return `
     <button class="offer" data-action="choose" data-index="${i}">
       ${o.offer.challenge ? `<span class="offer-flag">${tt(lang, 'ui_challenge')}</span>` : ''}
@@ -420,7 +435,7 @@ export function renderCareerDecision(state: GameState, pending: Extract<Pending,
   const lang = state.lang;
   return `
   <main class="screen decision">
-    <p class="decision-context">${tt(lang, 'ui_season', { season: seasonLabel(state.world.season - 1) })}</p>
+    <p class="decision-context">${tt(lang, 'ui_season', { season: seasonLabel(pending.context === 'first_job' ? state.world.season : state.world.season - 1) })}</p>
     <h1 class="decision-title">${tt(lang, `context_${pending.context}` as keyof Strings)}</h1>
     <div class="choices">${pending.options.map((o, i) => optionHtml(state, o, i)).join('')}</div>
   </main>`;

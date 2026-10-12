@@ -1,0 +1,488 @@
+{
+  "id": "eng",
+  "name": "Inghilterra",
+  "cupName": "FA Cup",
+  "youthLeagueName": "Premier League 2",
+  "leagues": [
+    {
+      "id": "eng1",
+      "name": "Premier League",
+      "division": 1,
+      "prestige": 1.0,
+      "relegated": 3,
+      "promotedDirect": 0,
+      "down": "eng2"
+    },
+    {
+      "id": "eng2",
+      "name": "Championship",
+      "division": 2,
+      "prestige": 0.65,
+      "relegated": 3,
+      "promotedDirect": 2,
+      "playoff": {
+        "from": 3,
+        "to": 6
+      },
+      "up": "eng1"
+    }
+  ],
+  "clubs": {
+    "eng1": [
+      {
+        "id": "eng-arsenal",
+        "name": "Arsenal",
+        "rating": 87,
+        "profile": {
+          "build": 35,
+          "press": 50
+        }
+      },
+      {
+        "id": "eng-liverpool",
+        "name": "Liverpool",
+        "rating": 87,
+        "profile": {
+          "build": 30,
+          "press": 60
+        }
+      },
+      {
+        "id": "eng-manchester-city",
+        "name": "Manchester City",
+        "rating": 86,
+        "profile": {
+          "build": 60,
+          "press": 60
+        }
+      },
+      {
+        "id": "eng-chelsea",
+        "name": "Chelsea",
+        "rating": 84,
+        "profile": {
+          "build": 45,
+          "press": 45
+        }
+      },
+      {
+        "id": "eng-newcastle-united",
+        "name": "Newcastle United",
+        "rating": 82,
+        "profile": {
+          "build": 0,
+          "press": 60
+        }
+      },
+      {
+        "id": "eng-manchester-united",
+        "name": "Manchester United",
+        "rating": 81,
+        "profile": {
+          "build": 10,
+          "press": 30
+        }
+      },
+      {
+        "id": "eng-tottenham-hotspur",
+        "name": "Tottenham Hotspur",
+        "rating": 81,
+        "profile": {
+          "build": 20,
+          "press": 50
+        }
+      },
+      {
+        "id": "eng-aston-villa",
+        "name": "Aston Villa",
+        "rating": 81,
+        "profile": {
+          "build": 30,
+          "press": 40
+        }
+      },
+      {
+        "id": "eng-brighton-hove-albion",
+        "name": "Brighton & Hove Albion",
+        "rating": 79,
+        "profile": {
+          "build": 60,
+          "press": 50
+        }
+      },
+      {
+        "id": "eng-nottingham-forest",
+        "name": "Nottingham Forest",
+        "rating": 78,
+        "profile": {
+          "build": -40,
+          "press": 0
+        }
+      },
+      {
+        "id": "eng-crystal-palace",
+        "name": "Crystal Palace",
+        "rating": 78,
+        "profile": {
+          "build": -20,
+          "press": 40
+        }
+      },
+      {
+        "id": "eng-bournemouth",
+        "name": "Bournemouth",
+        "rating": 78,
+        "profile": {
+          "build": -10,
+          "press": 70
+        }
+      },
+      {
+        "id": "eng-brentford",
+        "name": "Brentford",
+        "rating": 77,
+        "profile": {
+          "build": -20,
+          "press": 30
+        }
+      },
+      {
+        "id": "eng-fulham",
+        "name": "Fulham",
+        "rating": 76,
+        "profile": {
+          "build": 30,
+          "press": 20
+        }
+      },
+      {
+        "id": "eng-everton",
+        "name": "Everton",
+        "rating": 76,
+        "profile": {
+          "build": -20,
+          "press": 10
+        }
+      },
+      {
+        "id": "eng-leeds-united",
+        "name": "Leeds United",
+        "rating": 75,
+        "profile": {
+          "build": 10,
+          "press": 50
+        }
+      },
+      {
+        "id": "eng-sunderland",
+        "name": "Sunderland",
+        "rating": 74,
+        "profile": {
+          "build": 0,
+          "press": 20
+        }
+      },
+      {
+        "id": "eng-ipswich-town",
+        "name": "Ipswich Town",
+        "rating": 72,
+        "profile": {
+          "build": 30,
+          "press": 30
+        }
+      },
+      {
+        "id": "eng-coventry-city",
+        "name": "Coventry City",
+        "rating": 72,
+        "profile": {
+          "build": 10,
+          "press": 40
+        }
+      },
+      {
+        "id": "eng-hull-city",
+        "name": "Hull City",
+        "rating": 71,
+        "profile": {
+          "build": 20,
+          "press": 10
+        }
+      }
+    ],
+    "eng2": [
+      {
+        "id": "eng-west-ham-united",
+        "name": "West Ham United",
+        "rating": 73,
+        "profile": {
+          "build": -10,
+          "press": 20
+        }
+      },
+      {
+        "id": "eng-wolverhampton-wanderers",
+        "name": "Wolverhampton Wanderers",
+        "rating": 72,
+        "profile": {
+          "build": -10,
+          "press": 10
+        }
+      },
+      {
+        "id": "eng-burnley",
+        "name": "Burnley",
+        "rating": 72,
+        "profile": {
+          "build": 10,
+          "press": 10
+        }
+      },
+      {
+        "id": "eng-southampton",
+        "name": "Southampton",
+        "rating": 71,
+        "profile": {
+          "build": 40,
+          "press": 20
+        }
+      },
+      {
+        "id": "eng-sheffield-united",
+        "name": "Sheffield United",
+        "rating": 69,
+        "profile": {
+          "build": -10,
+          "press": 30
+        }
+      },
+      {
+        "id": "eng-middlesbrough",
+        "name": "Middlesbrough",
+        "rating": 69,
+        "profile": {
+          "build": 20,
+          "press": 30
+        }
+      },
+      {
+        "id": "eng-norwich-city",
+        "name": "Norwich City",
+        "rating": 68,
+        "profile": {
+          "build": 30,
+          "press": 20
+        }
+      },
+      {
+        "id": "eng-west-bromwich-albion",
+        "name": "West Bromwich Albion",
+        "rating": 68,
+        "profile": {
+          "build": 10,
+          "press": 20
+        }
+      },
+      {
+        "id": "eng-watford",
+        "name": "Watford",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 20
+        }
+      },
+      {
+        "id": "eng-bristol-city",
+        "name": "Bristol City",
+        "rating": 67,
+        "profile": {
+          "build": 10,
+          "press": 20
+        }
+      },
+      {
+        "id": "eng-birmingham-city",
+        "name": "Birmingham City",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 30
+        }
+      },
+      {
+        "id": "eng-stoke-city",
+        "name": "Stoke City",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "eng-millwall",
+        "name": "Millwall",
+        "rating": 66,
+        "profile": {
+          "build": -40,
+          "press": 20
+        }
+      },
+      {
+        "id": "eng-swansea-city",
+        "name": "Swansea City",
+        "rating": 66,
+        "profile": {
+          "build": 40,
+          "press": 10
+        }
+      },
+      {
+        "id": "eng-wrexham",
+        "name": "Wrexham",
+        "rating": 66,
+        "profile": {
+          "build": -10,
+          "press": 30
+        }
+      },
+      {
+        "id": "eng-derby-county",
+        "name": "Derby County",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "eng-queens-park-rangers",
+        "name": "Queens Park Rangers",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "eng-preston-north-end",
+        "name": "Preston North End",
+        "rating": 65,
+        "profile": {
+          "build": -20,
+          "press": 10
+        }
+      },
+      {
+        "id": "eng-blackburn-rovers",
+        "name": "Blackburn Rovers",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "eng-portsmouth",
+        "name": "Portsmouth",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "eng-charlton-athletic",
+        "name": "Charlton Athletic",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "eng-cardiff-city",
+        "name": "Cardiff City",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "eng-bolton-wanderers",
+        "name": "Bolton Wanderers",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "eng-lincoln-city",
+        "name": "Lincoln City",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "eng-leicester-city",
+      "name": "Leicester City",
+      "rating": 66,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "eng-luton-town",
+      "name": "Luton Town",
+      "rating": 62,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "eng-oxford-united",
+      "name": "Oxford United",
+      "rating": 61,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "eng-huddersfield-town",
+      "name": "Huddersfield Town",
+      "rating": 61,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "eng-sheffield-wednesday",
+      "name": "Sheffield Wednesday",
+      "rating": 60,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "eng-reading",
+      "name": "Reading",
+      "rating": 60,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    }
+  ]
+}

@@ -98,6 +98,7 @@ test('mondo: promozioni e retrocessioni mantengono le dimensioni dei campionati'
 function playToEnd(seed: number): GameState {
   const pick = new Rng(seed);
   let state = createCareer({ name: 'Test', nationality: 'ita', style: { build: 20, press: 30 }, seed, countries: COUNTRIES });
+  state = choose(state, pick.int(0, 2), EVENTS);
   let guard = 0;
   while (state.phase !== 'finished' && guard++ < 80) {
     state = startSeason(state, EVENTS);
@@ -130,6 +131,7 @@ test('carriera: termina sempre con un riepilogo', () => {
 
 test('salvataggio: un salvataggio a metà carriera riprende identico', () => {
   let state = createCareer({ name: 'Test', nationality: 'ita', style: { build: 0, press: 0 }, seed: 9, countries: COUNTRIES });
+  state = choose(state, 0, EVENTS);
   state = startSeason(state, EVENTS);
   while (state.phase === 'start_decision') state = choose(state, 0, EVENTS);
   const copy = deserialize(serialize(state));
@@ -140,6 +142,7 @@ test('salvataggio: un salvataggio a metà carriera riprende identico', () => {
 
 test('primavera: la squadra allenata gioca anche se la prima squadra retrocede', () => {
   let state = createCareer({ name: 'Test', nationality: 'ita', style: { build: 0, press: 0 }, seed: 21, countries: COUNTRIES });
+  state = choose(state, 2, EVENTS);
   const clubId = state.job?.clubId as string;
   // Simula la retrocessione: la prima squadra passa in Serie B.
   const a = state.world.leagues.ita1;
@@ -170,6 +173,22 @@ test('carriera: ogni turno è una stagione', () => {
   const first = s.history[0];
   assert(first && first.season === 2026, `prima stagione ${first?.season}`);
   assert(s.coach.age - 35 === s.turn - 1, `età ${s.coach.age} dopo ${s.turn - 1} turni`);
+});
+
+test('inizio: tre Primavera nel paese della nazionalità, di forza diversa', () => {
+  for (const nat of ['ita', 'eng', 'esp', 'ger', 'fra', 'por', 'ned']) {
+    const s = createCareer({ name: 'Test', nationality: nat, style: { build: 0, press: 0 }, seed: 4, countries: COUNTRIES });
+    const p = s.pending;
+    if (s.phase !== 'first_job' || p?.kind !== 'career') throw new Error(`${nat}: nessuna scelta iniziale`);
+    assert(p.options.length === 3, `${nat}: ${p.options.length} proposte`);
+    const ratings = p.options.map((o) => (o.kind === 'accept' ? (s.world.clubs[o.offer.clubId]?.rating ?? 0) : 0));
+    for (const o of p.options) {
+      assert(o.kind === 'accept' && o.offer.role === 'youth' && s.world.clubs[o.offer.clubId]?.country === nat, `${nat}: proposta fuori paese`);
+    }
+    assert((ratings[0] ?? 0) >= (ratings[1] ?? 0) && (ratings[1] ?? 0) >= (ratings[2] ?? 0), `${nat}: proposte non ordinate per forza`);
+  }
+  const other = createCareer({ name: 'Test', nationality: 'other', style: { build: 0, press: 0 }, seed: 4, countries: COUNTRIES });
+  assert(other.pending?.kind === 'career' && other.pending.options.length === 3, 'nazionalità non modellata: nessuna proposta');
 });
 
 test('eventi: i pacchetti reali sono validi', () => {

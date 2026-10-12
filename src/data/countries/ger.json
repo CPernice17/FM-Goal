@@ -1,0 +1,403 @@
+{
+  "id": "ger",
+  "name": "Germania",
+  "cupName": "DFB-Pokal",
+  "youthLeagueName": "DFB-Nachwuchsliga U19",
+  "leagues": [
+    {
+      "id": "ger1",
+      "name": "Bundesliga",
+      "division": 1,
+      "prestige": 1.0,
+      "relegated": 3,
+      "promotedDirect": 0,
+      "down": "ger2"
+    },
+    {
+      "id": "ger2",
+      "name": "2. Bundesliga",
+      "division": 2,
+      "prestige": 0.6,
+      "relegated": 3,
+      "promotedDirect": 3,
+      "up": "ger1"
+    }
+  ],
+  "clubs": {
+    "ger1": [
+      {
+        "id": "ger-bayern-munich",
+        "name": "Bayern Munich",
+        "rating": 88,
+        "profile": {
+          "build": 40,
+          "press": 70
+        }
+      },
+      {
+        "id": "ger-bayer-leverkusen",
+        "name": "Bayer Leverkusen",
+        "rating": 83,
+        "profile": {
+          "build": 40,
+          "press": 50
+        }
+      },
+      {
+        "id": "ger-borussia-dortmund",
+        "name": "Borussia Dortmund",
+        "rating": 83,
+        "profile": {
+          "build": 20,
+          "press": 50
+        }
+      },
+      {
+        "id": "ger-rb-leipzig",
+        "name": "RB Leipzig",
+        "rating": 82,
+        "profile": {
+          "build": -20,
+          "press": 80
+        }
+      },
+      {
+        "id": "ger-vfb-stuttgart",
+        "name": "VfB Stuttgart",
+        "rating": 81,
+        "profile": {
+          "build": 30,
+          "press": 60
+        }
+      },
+      {
+        "id": "ger-eintracht-frankfurt",
+        "name": "Eintracht Frankfurt",
+        "rating": 80,
+        "profile": {
+          "build": 0,
+          "press": 50
+        }
+      },
+      {
+        "id": "ger-sc-freiburg",
+        "name": "SC Freiburg",
+        "rating": 78,
+        "profile": {
+          "build": 0,
+          "press": 40
+        }
+      },
+      {
+        "id": "ger-tsg-hoffenheim",
+        "name": "TSG Hoffenheim",
+        "rating": 77,
+        "profile": {
+          "build": 10,
+          "press": 50
+        }
+      },
+      {
+        "id": "ger-mainz-05",
+        "name": "Mainz 05",
+        "rating": 76,
+        "profile": {
+          "build": -30,
+          "press": 70
+        }
+      },
+      {
+        "id": "ger-borussia-monchengladbach",
+        "name": "Borussia Mönchengladbach",
+        "rating": 76,
+        "profile": {
+          "build": 10,
+          "press": 30
+        }
+      },
+      {
+        "id": "ger-werder-bremen",
+        "name": "Werder Bremen",
+        "rating": 76,
+        "profile": {
+          "build": 10,
+          "press": 30
+        }
+      },
+      {
+        "id": "ger-union-berlin",
+        "name": "Union Berlin",
+        "rating": 75,
+        "profile": {
+          "build": -40,
+          "press": 40
+        }
+      },
+      {
+        "id": "ger-fc-augsburg",
+        "name": "FC Augsburg",
+        "rating": 74,
+        "profile": {
+          "build": -20,
+          "press": 40
+        }
+      },
+      {
+        "id": "ger-hamburger-sv",
+        "name": "Hamburger SV",
+        "rating": 74,
+        "profile": {
+          "build": 20,
+          "press": 30
+        }
+      },
+      {
+        "id": "ger-1-fc-koln",
+        "name": "1. FC Köln",
+        "rating": 73,
+        "profile": {
+          "build": 0,
+          "press": 50
+        }
+      },
+      {
+        "id": "ger-schalke-04",
+        "name": "Schalke 04",
+        "rating": 72,
+        "profile": {
+          "build": -10,
+          "press": 40
+        }
+      },
+      {
+        "id": "ger-sc-paderborn",
+        "name": "SC Paderborn",
+        "rating": 70,
+        "profile": {
+          "build": 20,
+          "press": 60
+        }
+      },
+      {
+        "id": "ger-sv-elversberg",
+        "name": "SV Elversberg",
+        "rating": 70,
+        "profile": {
+          "build": 30,
+          "press": 50
+        }
+      }
+    ],
+    "ger2": [
+      {
+        "id": "ger-vfl-wolfsburg",
+        "name": "VfL Wolfsburg",
+        "rating": 73,
+        "profile": {
+          "build": 0,
+          "press": 30
+        }
+      },
+      {
+        "id": "ger-fc-st-pauli",
+        "name": "FC St. Pauli",
+        "rating": 71,
+        "profile": {
+          "build": 20,
+          "press": 40
+        }
+      },
+      {
+        "id": "ger-1-fc-heidenheim",
+        "name": "1. FC Heidenheim",
+        "rating": 70,
+        "profile": {
+          "build": -40,
+          "press": 40
+        }
+      },
+      {
+        "id": "ger-hertha-bsc",
+        "name": "Hertha BSC",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ger-1-fc-kaiserslautern",
+        "name": "1. FC Kaiserslautern",
+        "rating": 68,
+        "profile": {
+          "build": -10,
+          "press": 40
+        }
+      },
+      {
+        "id": "ger-hannover-96",
+        "name": "Hannover 96",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ger-karlsruher-sc",
+        "name": "Karlsruher SC",
+        "rating": 67,
+        "profile": {
+          "build": 10,
+          "press": 30
+        }
+      },
+      {
+        "id": "ger-darmstadt-98",
+        "name": "Darmstadt 98",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ger-holstein-kiel",
+        "name": "Holstein Kiel",
+        "rating": 67,
+        "profile": {
+          "build": 20,
+          "press": 30
+        }
+      },
+      {
+        "id": "ger-vfl-bochum",
+        "name": "VfL Bochum",
+        "rating": 67,
+        "profile": {
+          "build": -30,
+          "press": 40
+        }
+      },
+      {
+        "id": "ger-1-fc-nurnberg",
+        "name": "1. FC Nürnberg",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ger-1-fc-magdeburg",
+        "name": "1. FC Magdeburg",
+        "rating": 66,
+        "profile": {
+          "build": 40,
+          "press": 50
+        }
+      },
+      {
+        "id": "ger-arminia-bielefeld",
+        "name": "Arminia Bielefeld",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 40
+        }
+      },
+      {
+        "id": "ger-greuther-furth",
+        "name": "Greuther Fürth",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ger-dynamo-dresden",
+        "name": "Dynamo Dresden",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ger-eintracht-braunschweig",
+        "name": "Eintracht Braunschweig",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ger-energie-cottbus",
+        "name": "Energie Cottbus",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "ger-vfl-osnabruck",
+        "name": "VfL Osnabrück",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "ger-fortuna-dusseldorf",
+      "name": "Fortuna Düsseldorf",
+      "rating": 64,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "ger-preuen-munster",
+      "name": "Preußen Münster",
+      "rating": 61,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "ger-1860-munich",
+      "name": "1860 Munich",
+      "rating": 61,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "ger-msv-duisburg",
+      "name": "MSV Duisburg",
+      "rating": 60,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "ger-ssv-ulm",
+      "name": "SSV Ulm",
+      "rating": 60,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    }
+  ]
+}

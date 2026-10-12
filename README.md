@@ -2,7 +2,7 @@
 
 Simulatore web della carriera di un allenatore di calcio, a decisioni stagionali: una carriera completa in pochi minuti, dalla Primavera alle grandi panchine.
 
-Stato: **fetta verticale giocabile.** Si gioca su https://cpernice17.github.io/FM-Goal/ (dopo l'attivazione di GitHub Pages). Solo Italia (Serie A, Serie B, campionato Primavera, Coppa Italia), eventi in italiano.
+Stato: **fetta verticale giocabile.** Si gioca su https://cpernice17.github.io/FM-Goal/ (dopo l'attivazione di GitHub Pages). Campionati europei: Italia, Inghilterra, Spagna, Germania e Francia (prima e seconda divisione), Portogallo e Paesi Bassi, con coppe nazionali e campionati giovanili. Eventi in italiano.
 
 ## Comandi
 

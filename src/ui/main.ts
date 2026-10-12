@@ -17,10 +17,11 @@ import {
 import './style.css';
 
 const LANG: Lang = 'it';
+const COUNTRY_LIST = COUNTRIES.map((c) => ({ id: c.id, name: c.name }));
 const root = document.getElementById('app') as HTMLElement;
 
 let state: GameState | null = null;
-let draft: Draft = { name: '', style: { build: 30, press: 40 }, difficulty: 'normal', error: null };
+let draft: Draft = { name: '', style: { build: 30, press: 40 }, difficulty: 'normal', nationality: 'ita', error: null };
 let copied = false;
 
 /** Avanza da sola le fasi senza schermata (simulazione e passaggio di stagione). */
@@ -41,13 +42,14 @@ function commit(next: GameState): void {
 function render(newScreen = false): void {
   if (!state) {
     root.className = 'is-home';
-    root.innerHTML = renderHome(LANG, loadGame() !== null, draft);
+    root.innerHTML = renderHome(LANG, loadGame() !== null, draft, COUNTRY_LIST);
   } else {
     let main = '';
     switch (state.phase) {
       case 'preseason':
         main = renderSheet(state);
         break;
+      case 'first_job':
       case 'start_decision':
       case 'end_decision': {
         const p = state.pending;
@@ -129,7 +131,7 @@ root.addEventListener('click', (e) => {
       clearGame();
       state = null;
       copied = false;
-      draft = { name: '', style: { build: 30, press: 40 }, difficulty: draft.difficulty, error: null };
+      draft = { name: '', style: { build: 30, press: 40 }, difficulty: draft.difficulty, nationality: draft.nationality, error: null };
       render(true);
       break;
     case 'quit':
@@ -157,13 +159,14 @@ root.addEventListener('submit', (e) => {
   }
   const seed = Math.floor(Math.random() * 2 ** 31);
   copied = false;
-  commit(createCareer({ name, nationality: 'ita', style: draft.style, difficulty: draft.difficulty, seed, lang: LANG, countries: COUNTRIES }));
+  commit(createCareer({ name, nationality: draft.nationality, style: draft.style, difficulty: draft.difficulty, seed, lang: LANG, countries: COUNTRIES }));
 });
 
 // La difficoltà scelta resta nella bozza, così sopravvive ai ridisegni.
 root.addEventListener('change', (e) => {
   const input = e.target as HTMLInputElement;
   if (input.name === 'difficulty') draft = { ...draft, name: currentName(), difficulty: input.value as Difficulty };
+  if (input.name === 'nationality') draft = { ...draft, name: currentName(), nationality: input.value };
 });
 
 // Tastiera sul quadrato dello stile: frecce per spostare il punto.

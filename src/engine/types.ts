@@ -166,7 +166,7 @@ export type Pending =
 
 export type EndStep = 'retirement' | 'career_event' | 'career_decision' | 'management_event';
 
-export type CareerContext = 'contract_running' | 'contract_ended' | 'renewal' | 'unemployed' | 'fired' | 'retirement';
+export type CareerContext = 'contract_running' | 'contract_ended' | 'renewal' | 'unemployed' | 'fired' | 'retirement' | 'first_job';
 
 export interface Bindings {
   playerId?: string;
@@ -215,6 +215,7 @@ export interface SeasonReport {
 }
 
 export type Phase =
+  | 'first_job'
   | 'preseason'
   | 'start_decision'
   | 'ready'

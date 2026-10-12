@@ -44,6 +44,8 @@ interface CareerStats {
   cups: number;
   promotions: number;
   relegations: number;
+  abroad: boolean;
+  abroadShare: number;
   seconds: number;
 }
 
@@ -88,12 +90,13 @@ function sensibleCareerChoice(state: GameState, options: CareerOption[], pick: R
 function runCareer(seed: number, pick: Rng): CareerStats {
   let state = createCareer({
     name: 'Test',
-    nationality: 'ita',
+    nationality: pick.pick(COUNTRIES).id,
     style: { build: pick.int(-80, 80), press: pick.int(-80, 80) },
     seed,
     countries: COUNTRIES,
     difficulty: DIFF,
   });
+  state = choose(state, pick.int(0, 2), EVENTS);
   let seconds = 0;
   let reachedTop = false;
   let bigClub = false;
@@ -147,6 +150,8 @@ function runCareer(seed: number, pick: Rng): CareerStats {
     cups: state.trophies.filter((t) => t.startsWith('cup:')).length,
     promotions: state.trophies.filter((t) => t.startsWith('promotion:')).length,
     relegations: state.history.filter((r) => r.headlines.some((h) => h.id === 'relegated')).length,
+    abroadShare: (() => { const f = state.history.filter((r) => r.role === 'first'); return f.length ? f.filter((r) => state.world.clubs[r.clubId]?.country !== state.coach.nationality).length / f.length : 0; })(),
+    abroad: state.history.some((r) => r.role === 'first' && state.world.clubs[r.clubId]?.country !== state.coach.nationality),
     seconds,
   };
 }
@@ -178,12 +183,14 @@ console.log('\nFine carriera');
 for (const [k, v] of Object.entries(reasons)) console.log(`  ${k.padEnd(12)} ${((v / N) * 100).toFixed(1)}%`);
 console.log('\nProgressione');
 console.log(`  prima squadra raggiunta:   ${pct((s) => s.reachedFirstTeam)}`);
-console.log(`  Serie A raggiunta:         ${pct((s) => s.reachedTopDivision)}`);
+console.log(`  prima divisione raggiunta:${pct((s) => s.reachedTopDivision)}`);
 console.log(`  club di vertice (≥80):     ${pct((s) => s.bigClub)}`);
-console.log(`  almeno uno scudetto:       ${pct((s) => s.topTitles > 0)}`);
+console.log(`  almeno un titolo nazionale:${pct((s) => s.topTitles > 0)}`);
 console.log(`  almeno una coppa:          ${pct((s) => s.cups > 0)}`);
 console.log(`  promozioni per carriera:   ${mean((s) => s.promotions).toFixed(2)}`);
 console.log(`  retrocessioni per carriera: ${mean((s) => s.relegations).toFixed(2)}`);
+console.log(`  almeno una panchina estera: ${pct((s) => s.abroad)}`);
+console.log(`  stagioni all'estero:       ${(mean((s) => s.abroadShare) * 100).toFixed(1)}%`);
 console.log(`  reputazione massima:       media ${mean((s) => s.peakRep).toFixed(0)} (p10 ${quant((s) => s.peakRep, 0.1)}, p90 ${quant((s) => s.peakRep, 0.9)})`);
 console.log('\nEsoneri');
 console.log(`  per carriera:              media ${mean((s) => s.firings).toFixed(2)}`);

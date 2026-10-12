@@ -1,0 +1,394 @@
+{
+  "id": "fra",
+  "name": "Francia",
+  "cupName": "Coupe de France",
+  "youthLeagueName": "Championnat National U19",
+  "leagues": [
+    {
+      "id": "fra1",
+      "name": "Ligue 1",
+      "division": 1,
+      "prestige": 0.9,
+      "relegated": 2,
+      "promotedDirect": 0,
+      "down": "fra2"
+    },
+    {
+      "id": "fra2",
+      "name": "Ligue 2",
+      "division": 2,
+      "prestige": 0.5,
+      "relegated": 2,
+      "promotedDirect": 2,
+      "up": "fra1"
+    }
+  ],
+  "clubs": {
+    "fra1": [
+      {
+        "id": "fra-paris-saint-germain",
+        "name": "Paris Saint-Germain",
+        "rating": 88,
+        "profile": {
+          "build": 60,
+          "press": 70
+        }
+      },
+      {
+        "id": "fra-marseille",
+        "name": "Marseille",
+        "rating": 82,
+        "profile": {
+          "build": 30,
+          "press": 60
+        }
+      },
+      {
+        "id": "fra-monaco",
+        "name": "Monaco",
+        "rating": 81,
+        "profile": {
+          "build": 30,
+          "press": 50
+        }
+      },
+      {
+        "id": "fra-lille",
+        "name": "Lille",
+        "rating": 80,
+        "profile": {
+          "build": 30,
+          "press": 30
+        }
+      },
+      {
+        "id": "fra-lyon",
+        "name": "Lyon",
+        "rating": 80,
+        "profile": {
+          "build": 30,
+          "press": 30
+        }
+      },
+      {
+        "id": "fra-nice",
+        "name": "Nice",
+        "rating": 78,
+        "profile": {
+          "build": 20,
+          "press": 30
+        }
+      },
+      {
+        "id": "fra-lens",
+        "name": "Lens",
+        "rating": 78,
+        "profile": {
+          "build": 0,
+          "press": 50
+        }
+      },
+      {
+        "id": "fra-rennes",
+        "name": "Rennes",
+        "rating": 77,
+        "profile": {
+          "build": 20,
+          "press": 20
+        }
+      },
+      {
+        "id": "fra-strasbourg",
+        "name": "Strasbourg",
+        "rating": 77,
+        "profile": {
+          "build": 40,
+          "press": 40
+        }
+      },
+      {
+        "id": "fra-toulouse",
+        "name": "Toulouse",
+        "rating": 75,
+        "profile": {
+          "build": 0,
+          "press": 30
+        }
+      },
+      {
+        "id": "fra-brest",
+        "name": "Brest",
+        "rating": 75,
+        "profile": {
+          "build": -30,
+          "press": 40
+        }
+      },
+      {
+        "id": "fra-paris-fc",
+        "name": "Paris FC",
+        "rating": 74,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-auxerre",
+        "name": "Auxerre",
+        "rating": 73,
+        "profile": {
+          "build": -30,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-angers",
+        "name": "Angers",
+        "rating": 72,
+        "profile": {
+          "build": -30,
+          "press": 0
+        }
+      },
+      {
+        "id": "fra-le-havre",
+        "name": "Le Havre",
+        "rating": 72,
+        "profile": {
+          "build": -30,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-lorient",
+        "name": "Lorient",
+        "rating": 72,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-troyes",
+        "name": "Troyes",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-le-mans",
+        "name": "Le Mans",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      }
+    ],
+    "fra2": [
+      {
+        "id": "fra-nantes",
+        "name": "Nantes",
+        "rating": 71,
+        "profile": {
+          "build": -10,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-metz",
+        "name": "Metz",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-saint-etienne",
+        "name": "Saint-Étienne",
+        "rating": 69,
+        "profile": {
+          "build": 20,
+          "press": 20
+        }
+      },
+      {
+        "id": "fra-montpellier",
+        "name": "Montpellier",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-reims",
+        "name": "Reims",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-guingamp",
+        "name": "Guingamp",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-dunkerque",
+        "name": "Dunkerque",
+        "rating": 64,
+        "profile": {
+          "build": 40,
+          "press": 30
+        }
+      },
+      {
+        "id": "fra-clermont",
+        "name": "Clermont",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-annecy",
+        "name": "Annecy",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-laval",
+        "name": "Laval",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-grenoble",
+        "name": "Grenoble",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-pau",
+        "name": "Pau",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-red-star",
+        "name": "Red Star",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-rodez",
+        "name": "Rodez",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-sochaux",
+        "name": "Sochaux",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-nancy",
+        "name": "Nancy",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-dijon",
+        "name": "Dijon",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "fra-boulogne",
+        "name": "Boulogne",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "fra-bastia",
+      "name": "Bastia",
+      "rating": 61,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "fra-amiens",
+      "name": "Amiens",
+      "rating": 61,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "fra-caen",
+      "name": "Caen",
+      "rating": 60,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "fra-ajaccio",
+      "name": "Ajaccio",
+      "rating": 58,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    }
+  ]
+}

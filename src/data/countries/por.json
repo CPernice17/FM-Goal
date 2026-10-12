@@ -1,0 +1,229 @@
+{
+  "id": "por",
+  "name": "Portogallo",
+  "cupName": "Taça de Portugal",
+  "youthLeagueName": "Liga Revelação",
+  "leagues": [
+    {
+      "id": "por1",
+      "name": "Primeira Liga",
+      "division": 1,
+      "prestige": 0.75,
+      "relegated": 2,
+      "promotedDirect": 0
+    }
+  ],
+  "clubs": {
+    "por1": [
+      {
+        "id": "por-sporting-cp",
+        "name": "Sporting CP",
+        "rating": 84,
+        "profile": {
+          "build": 40,
+          "press": 50
+        }
+      },
+      {
+        "id": "por-benfica",
+        "name": "Benfica",
+        "rating": 83,
+        "profile": {
+          "build": 30,
+          "press": 50
+        }
+      },
+      {
+        "id": "por-porto",
+        "name": "Porto",
+        "rating": 83,
+        "profile": {
+          "build": 20,
+          "press": 50
+        }
+      },
+      {
+        "id": "por-braga",
+        "name": "Braga",
+        "rating": 79,
+        "profile": {
+          "build": 30,
+          "press": 40
+        }
+      },
+      {
+        "id": "por-vitoria-de-guimaraes",
+        "name": "Vitória de Guimarães",
+        "rating": 74,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "por-famalicao",
+        "name": "Famalicão",
+        "rating": 73,
+        "profile": {
+          "build": 20,
+          "press": 30
+        }
+      },
+      {
+        "id": "por-santa-clara",
+        "name": "Santa Clara",
+        "rating": 71,
+        "profile": {
+          "build": -30,
+          "press": 20
+        }
+      },
+      {
+        "id": "por-gil-vicente",
+        "name": "Gil Vicente",
+        "rating": 71,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "por-moreirense",
+        "name": "Moreirense",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "por-rio-ave",
+        "name": "Rio Ave",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "por-estoril-praia",
+        "name": "Estoril Praia",
+        "rating": 70,
+        "profile": {
+          "build": 40,
+          "press": 30
+        }
+      },
+      {
+        "id": "por-arouca",
+        "name": "Arouca",
+        "rating": 69,
+        "profile": {
+          "build": 30,
+          "press": 20
+        }
+      },
+      {
+        "id": "por-casa-pia",
+        "name": "Casa Pia",
+        "rating": 69,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "por-alverca",
+        "name": "Alverca",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "por-nacional",
+        "name": "Nacional",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "por-estrela-da-amadora",
+        "name": "Estrela da Amadora",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "por-maritimo",
+        "name": "Marítimo",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "por-academico-de-viseu",
+        "name": "Académico de Viseu",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "por-avs",
+      "name": "AVS",
+      "rating": 64,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "por-tondela",
+      "name": "Tondela",
+      "rating": 64,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "por-vizela",
+      "name": "Vizela",
+      "rating": 62,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "por-chaves",
+      "name": "Chaves",
+      "rating": 62,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "por-feirense",
+      "name": "Feirense",
+      "rating": 61,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,461 @@
+{
+  "id": "esp",
+  "name": "Spagna",
+  "cupName": "Copa del Rey",
+  "youthLeagueName": "División de Honor Juvenil",
+  "leagues": [
+    {
+      "id": "esp1",
+      "name": "LaLiga",
+      "division": 1,
+      "prestige": 1.0,
+      "relegated": 3,
+      "promotedDirect": 0,
+      "down": "esp2"
+    },
+    {
+      "id": "esp2",
+      "name": "Segunda División",
+      "division": 2,
+      "prestige": 0.55,
+      "relegated": 4,
+      "promotedDirect": 2,
+      "playoff": {
+        "from": 3,
+        "to": 6
+      },
+      "up": "esp1"
+    }
+  ],
+  "clubs": {
+    "esp1": [
+      {
+        "id": "esp-real-madrid",
+        "name": "Real Madrid",
+        "rating": 88,
+        "profile": {
+          "build": 40,
+          "press": 40
+        }
+      },
+      {
+        "id": "esp-barcelona",
+        "name": "Barcelona",
+        "rating": 88,
+        "profile": {
+          "build": 70,
+          "press": 70
+        }
+      },
+      {
+        "id": "esp-atletico-madrid",
+        "name": "Atlético Madrid",
+        "rating": 85,
+        "profile": {
+          "build": -20,
+          "press": 40
+        }
+      },
+      {
+        "id": "esp-athletic-bilbao",
+        "name": "Athletic Bilbao",
+        "rating": 81,
+        "profile": {
+          "build": 0,
+          "press": 70
+        }
+      },
+      {
+        "id": "esp-villarreal",
+        "name": "Villarreal",
+        "rating": 81,
+        "profile": {
+          "build": 30,
+          "press": 30
+        }
+      },
+      {
+        "id": "esp-real-betis",
+        "name": "Real Betis",
+        "rating": 80,
+        "profile": {
+          "build": 50,
+          "press": 30
+        }
+      },
+      {
+        "id": "esp-real-sociedad",
+        "name": "Real Sociedad",
+        "rating": 79,
+        "profile": {
+          "build": 40,
+          "press": 50
+        }
+      },
+      {
+        "id": "esp-celta-vigo",
+        "name": "Celta Vigo",
+        "rating": 77,
+        "profile": {
+          "build": 40,
+          "press": 40
+        }
+      },
+      {
+        "id": "esp-sevilla",
+        "name": "Sevilla",
+        "rating": 77,
+        "profile": {
+          "build": 20,
+          "press": 30
+        }
+      },
+      {
+        "id": "esp-valencia",
+        "name": "Valencia",
+        "rating": 76,
+        "profile": {
+          "build": 0,
+          "press": 20
+        }
+      },
+      {
+        "id": "esp-osasuna",
+        "name": "Osasuna",
+        "rating": 76,
+        "profile": {
+          "build": -20,
+          "press": 30
+        }
+      },
+      {
+        "id": "esp-rayo-vallecano",
+        "name": "Rayo Vallecano",
+        "rating": 76,
+        "profile": {
+          "build": 0,
+          "press": 60
+        }
+      },
+      {
+        "id": "esp-espanyol",
+        "name": "Espanyol",
+        "rating": 75,
+        "profile": {
+          "build": -20,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-getafe",
+        "name": "Getafe",
+        "rating": 75,
+        "profile": {
+          "build": -60,
+          "press": 40
+        }
+      },
+      {
+        "id": "esp-alaves",
+        "name": "Alavés",
+        "rating": 74,
+        "profile": {
+          "build": -20,
+          "press": 30
+        }
+      },
+      {
+        "id": "esp-elche",
+        "name": "Elche",
+        "rating": 73,
+        "profile": {
+          "build": 40,
+          "press": 20
+        }
+      },
+      {
+        "id": "esp-levante",
+        "name": "Levante",
+        "rating": 72,
+        "profile": {
+          "build": 20,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-deportivo-a-coruna",
+        "name": "Deportivo A Coruña",
+        "rating": 72,
+        "profile": {
+          "build": 30,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-malaga",
+        "name": "Málaga",
+        "rating": 71,
+        "profile": {
+          "build": 10,
+          "press": 20
+        }
+      },
+      {
+        "id": "esp-racing-santander",
+        "name": "Racing Santander",
+        "rating": 71,
+        "profile": {
+          "build": 30,
+          "press": 20
+        }
+      }
+    ],
+    "esp2": [
+      {
+        "id": "esp-girona",
+        "name": "Girona",
+        "rating": 73,
+        "profile": {
+          "build": 50,
+          "press": 30
+        }
+      },
+      {
+        "id": "esp-mallorca",
+        "name": "Mallorca",
+        "rating": 73,
+        "profile": {
+          "build": -30,
+          "press": 20
+        }
+      },
+      {
+        "id": "esp-oviedo",
+        "name": "Oviedo",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-las-palmas",
+        "name": "Las Palmas",
+        "rating": 69,
+        "profile": {
+          "build": 50,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-valladolid",
+        "name": "Valladolid",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-almeria",
+        "name": "Almería",
+        "rating": 68,
+        "profile": {
+          "build": 30,
+          "press": 20
+        }
+      },
+      {
+        "id": "esp-granada",
+        "name": "Granada",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-leganes",
+        "name": "Leganés",
+        "rating": 67,
+        "profile": {
+          "build": -20,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-sporting-gijon",
+        "name": "Sporting Gijón",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-cadiz",
+        "name": "Cádiz",
+        "rating": 66,
+        "profile": {
+          "build": -30,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-eibar",
+        "name": "Eibar",
+        "rating": 66,
+        "profile": {
+          "build": -10,
+          "press": 40
+        }
+      },
+      {
+        "id": "esp-castellon",
+        "name": "Castellón",
+        "rating": 65,
+        "profile": {
+          "build": 50,
+          "press": 40
+        }
+      },
+      {
+        "id": "esp-albacete",
+        "name": "Albacete",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-burgos",
+        "name": "Burgos",
+        "rating": 64,
+        "profile": {
+          "build": -30,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-cordoba",
+        "name": "Córdoba",
+        "rating": 64,
+        "profile": {
+          "build": 30,
+          "press": 20
+        }
+      },
+      {
+        "id": "esp-tenerife",
+        "name": "Tenerife",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-andorra",
+        "name": "Andorra",
+        "rating": 63,
+        "profile": {
+          "build": 40,
+          "press": 20
+        }
+      },
+      {
+        "id": "esp-ceuta",
+        "name": "Ceuta",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-eldense",
+        "name": "Eldense",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-sabadell",
+        "name": "Sabadell",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        }
+      },
+      {
+        "id": "esp-real-sociedad-b",
+        "name": "Real Sociedad B",
+        "rating": 60,
+        "profile": {
+          "build": 40,
+          "press": 40
+        }
+      },
+      {
+        "id": "esp-celta-fortuna",
+        "name": "Celta Fortuna",
+        "rating": 59,
+        "profile": {
+          "build": 40,
+          "press": 30
+        }
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "esp-zaragoza",
+      "name": "Zaragoza",
+      "rating": 62,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "esp-huesca",
+      "name": "Huesca",
+      "rating": 61,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "esp-mirandes",
+      "name": "Mirandés",
+      "rating": 61,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "esp-cultural-leonesa",
+      "name": "Cultural Leonesa",
+      "rating": 60,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    },
+    {
+      "id": "esp-real-murcia",
+      "name": "Real Murcia",
+      "rating": 59,
+      "profile": {
+        "build": 0,
+        "press": 10
+      }
+    }
+  ]
+}

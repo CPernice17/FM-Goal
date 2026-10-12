@@ -14,8 +14,13 @@ export const SQUAD = {
   youthGraduationAge: 20,
 };
 
+type NamePool = { first: string[]; last: string[] };
+const NAMES = names as Record<string, NamePool>;
+
+/** Nome di un giocatore: 70% del paese del club, il resto straniero. */
 function playerName(rng: Rng, country: string): string {
-  const pool = country === 'ita' && rng.chance(0.7) ? names.ita : names.foreign;
+  const local = NAMES[country];
+  const pool = local && rng.chance(0.7) ? local : (NAMES.foreign as NamePool);
   return `${rng.pick(pool.first)} ${rng.pick(pool.last)}`;
 }
 
