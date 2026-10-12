@@ -3,7 +3,7 @@
  * le statistiche da confrontare con i criteri della fetta verticale.
  * Uso: npm run sim [-- --n=2000 --seed=1]
  */
-import { COUNTRIES, EVENTS } from '../src/content/index';
+import { CONTINENTAL, COUNTRIES, EVENTS } from '../src/content/index';
 import { choose, createCareer, nextSeason, playSeason, prepareEnd, startSeason } from '../src/engine/career';
 import { Rng } from '../src/engine/rng';
 import type { CareerOption, Difficulty, GameState } from '../src/engine/types';
@@ -45,6 +45,7 @@ interface CareerStats {
   promotions: number;
   relegations: number;
   abroad: boolean;
+  continentalTitles: number;
   abroadShare: number;
   seconds: number;
 }
@@ -94,6 +95,7 @@ function runCareer(seed: number, pick: Rng): CareerStats {
     style: { build: pick.int(-80, 80), press: pick.int(-80, 80) },
     seed,
     countries: COUNTRIES,
+    continental: CONTINENTAL,
     difficulty: DIFF,
   });
   state = choose(state, pick.int(0, 2), EVENTS);
@@ -150,6 +152,7 @@ function runCareer(seed: number, pick: Rng): CareerStats {
     cups: state.trophies.filter((t) => t.startsWith('cup:')).length,
     promotions: state.trophies.filter((t) => t.startsWith('promotion:')).length,
     relegations: state.history.filter((r) => r.headlines.some((h) => h.id === 'relegated')).length,
+    continentalTitles: state.trophies.filter((t) => t.startsWith('cont:')).length,
     abroadShare: (() => { const f = state.history.filter((r) => r.role === 'first'); return f.length ? f.filter((r) => state.world.clubs[r.clubId]?.country !== state.coach.nationality).length / f.length : 0; })(),
     abroad: state.history.some((r) => r.role === 'first' && state.world.clubs[r.clubId]?.country !== state.coach.nationality),
     seconds,
@@ -187,6 +190,7 @@ console.log(`  prima divisione raggiunta:${pct((s) => s.reachedTopDivision)}`);
 console.log(`  club di vertice (≥80):     ${pct((s) => s.bigClub)}`);
 console.log(`  almeno un titolo nazionale:${pct((s) => s.topTitles > 0)}`);
 console.log(`  almeno una coppa:          ${pct((s) => s.cups > 0)}`);
+console.log(`  almeno un trofeo internaz.: ${pct((s) => s.continentalTitles > 0)}`);
 console.log(`  promozioni per carriera:   ${mean((s) => s.promotions).toFixed(2)}`);
 console.log(`  retrocessioni per carriera: ${mean((s) => s.relegations).toFixed(2)}`);
 console.log(`  almeno una panchina estera: ${pct((s) => s.abroad)}`);

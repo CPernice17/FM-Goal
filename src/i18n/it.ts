@@ -27,6 +27,9 @@ export const it = {
   headline_below_expectations: 'Molto sotto le attese',
   headline_fired: 'Esonerato alla {matchday}ª giornata',
   headline_top_scorer: '{player} trascina il miglior attacco',
+  headline_continental_winner: '{cup}: trofeo conquistato',
+  headline_continental_final: '{cup}: sconfitti in finale',
+  headline_continental_semi: '{cup}: fuori in semifinale',
 
   stage_winner: 'vincitori',
   stage_final: 'finale',
@@ -36,6 +39,10 @@ export const it = {
   stage_r32: 'sedicesimi di finale',
   stage_r64: 'trentaduesimi di finale',
   stage_prelim: 'turno preliminare',
+  stage_group: 'fase a gironi',
+  stage_league: 'fase campionato',
+  stage_playoff: 'playoff',
+  stage_r1: 'primo turno',
 
   option_accept: 'Accetta: {club} ({years} anni)',
   option_accept_youth: 'Accetta la Primavera: {club}',
@@ -67,6 +74,7 @@ export const it = {
   trophy_cup: '{name} {season}',
   trophy_youth: '{name} {season}',
   trophy_promotion: 'Promozione dalla {name} {season}',
+  trophy_cont: '{name} {season}',
 
   end_age: 'Ritiro per età',
   end_unemployed: 'Troppo a lungo senza panchina',
@@ -74,6 +82,7 @@ export const it = {
 
   title_legend: 'Leggenda della panchina',
   title_champion: 'Campione nazionale',
+  title_continental_king: 'Re del continente',
   title_promotion_specialist: 'Specialista delle promozioni',
   title_survival_king: 'Il re delle salvezze',
   title_journeyman: 'Il girovago',
@@ -139,6 +148,7 @@ export const it = {
   ui_objective: 'Obiettivo',
   ui_expected: 'Previsione: {pos}° su {teams}',
   ui_key_players: 'Giocatori chiave',
+  ui_competitions: 'Coppe internazionali',
   ui_play_season: 'Gioca la stagione',
   ui_unemployed_title: 'Senza panchina',
   ui_unemployed_body: 'Ultimo incarico: {club}. La stagione si gioca senza di te: alla fine arriveranno, forse, nuove offerte.',

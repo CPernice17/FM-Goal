@@ -1,4 +1,5 @@
 import type { LeagueResult } from './competition';
+import { compInfo } from './continental';
 import { applyEffects, selectEvent } from './events/runtime';
 import type { EventDef } from './events/schema';
 import { clamp, Rng } from './rng';
@@ -9,6 +10,7 @@ import {
   type CareerSummary,
   type Coach,
   type Difficulty,
+  type ContinentalData,
   type CountryData,
   type GameState,
   type Headline,
@@ -125,6 +127,8 @@ export interface NewCareerOptions {
   seed: number;
   lang?: Lang;
   countries: CountryData[];
+  /** Coppe continentali e club esterni; senza, si giocano solo campionati e coppe nazionali. */
+  continental?: ContinentalData;
   difficulty?: Difficulty;
 }
 
@@ -134,7 +138,7 @@ export interface NewCareerOptions {
 
 export function createCareer(opts: NewCareerOptions): GameState {
   const rng = new Rng(opts.seed);
-  const world = createWorld(opts.countries, 2026);
+  const world = createWorld(opts.countries, 2026, opts.continental);
   refreshYouthRatings(world, rng);
   const coach: Coach = {
     name: opts.name,
@@ -512,6 +516,7 @@ function buildReport(state: GameState, rng: Rng, season: WorldSeasonResult, pre:
   }
 
   let cup: SeasonReport['cup'] = null;
+  const continental: SeasonReport['continental'] = [];
   if (firedAt !== null) {
     headlines.push({ id: 'fired', values: { matchday: firedAt } });
   } else {
@@ -530,6 +535,20 @@ function buildReport(state: GameState, rng: Rng, season: WorldSeasonResult, pre:
           trophies.push(`cup:${c.country}:${seasonYear}`);
         } else if (cupRes.penaltiesOut[job.clubId]) {
           headlines.push({ id: 'cup_penalties_out', values: { stage: reached } });
+        }
+      }
+    }
+    if (job.role === 'first') {
+      for (const [compId, res] of Object.entries(season.continental)) {
+        const reached = res.reached[job.clubId];
+        const info = compInfo(state.world, compId);
+        if (!reached || !info) continue;
+        continental.push({ id: compId, name: info.name, reached, won: reached === 'winner' });
+        if (reached === 'winner') {
+          headlines.push({ id: 'continental_winner', values: { cup: info.name } });
+          trophies.push(`cont:${compId}:${seasonYear}`);
+        } else if (info.kind === 'continental' && (reached === 'final' || reached === 'semi')) {
+          headlines.push({ id: reached === 'final' ? 'continental_final' : 'continental_semi', values: { cup: info.name } });
         }
       }
     }
@@ -560,12 +579,31 @@ function buildReport(state: GameState, rng: Rng, season: WorldSeasonResult, pre:
     points: row?.points ?? 0,
     table: table.map((r) => ({ clubId: r.id, name: club(state.world, r.id).name, points: r.points, gf: r.gf, ga: r.ga })),
     cup,
+    continental,
     headlines,
     firedAtMatchday: firedAt,
     matchdays: ctx.res.matchdays,
     trophies,
     deltas: { board: 0, dressing: 0, environment: 0, reputation: 0 },
   };
+}
+
+/** Reputazione dalle coppe internazionali: vittorie pesate per livello, più le corse lunghe. */
+function continentalReputation(state: GameState, report: SeasonReport): number {
+  let gain = 0;
+  for (const c of report.continental) {
+    const info = compInfo(state.world, c.id);
+    if (!info) continue;
+    const base =
+      info.kind === 'continental' ? ({ 1: 12, 2: 7, 3: 4 } as Record<number, number>)[info.tier] ?? 3
+      : info.kind === 'clubWorldCup' ? 6
+      : info.kind === 'intercontinental' ? 3
+      : 2;
+    if (c.won) gain += base;
+    else if (info.kind === 'continental' && c.reached === 'final') gain += base / 2;
+    else if (info.kind === 'continental' && c.reached === 'semi') gain += base / 4;
+  }
+  return gain;
 }
 
 const TROPHY_REPUTATION = { league1: 14, league2: 6, youth: 4, cup: 6, promotion: 5, relegation: -6 };
@@ -588,12 +626,14 @@ function applyOutcome(state: GameState, rng: Rng, report: SeasonReport): void {
       repGain += job.role === 'youth' ? TROPHY_REPUTATION.youth : division === 1 ? TROPHY_REPUTATION.league1 : TROPHY_REPUTATION.league2;
     }
     if (has('cup_winner')) repGain += TROPHY_REPUTATION.cup;
+    repGain += continentalReputation(state, report);
     if (has('promoted')) repGain += TROPHY_REPUTATION.promotion;
     if (has('relegated')) repGain += TROPHY_REPUTATION.relegation;
 
     let board = clamp(judgment * BALANCE.boardPerPosition, -25, 20);
     if (has('champion')) board += 10;
     if (has('cup_winner')) board += 6;
+    if (report.continental.some((c) => c.won)) board += 8;
     if (has('promoted')) board += 10;
     if (has('relegated')) board -= bal(state).relegationBoard;
     job.board = clamp(job.board + board, 0, 100);
@@ -644,9 +684,12 @@ function applyOutcome(state: GameState, rng: Rng, report: SeasonReport): void {
 const HEADLINE_PRIORITY: Headline['id'][] = [
   'fired',
   'champion',
+  'continental_winner',
   'promoted',
   'relegated',
   'cup_winner',
+  'continental_final',
+  'continental_semi',
   'above_expectations',
   'below_expectations',
   'win_streak',
@@ -863,7 +906,9 @@ export function summarize(state: GameState, reason: CareerSummary['reason']): Ca
   const promotions = state.trophies.filter((t) => t.startsWith('promotion:')).length;
   const survivals = state.history.filter((r) => r.objective === 'survival' && r.firedAtMatchday === null && !r.headlines.some((h) => h.id === 'relegated')).length;
   let title = 'field_man';
-  if (topTitles.length >= 3) title = 'legend';
+  const continentalTitles = state.trophies.filter((t) => t.startsWith('cont:') && compInfo(state.world, t.split(':')[1] ?? '')?.tier === 1).length;
+  if (topTitles.length >= 3 || (topTitles.length >= 1 && continentalTitles >= 1)) title = 'legend';
+  else if (continentalTitles >= 1) title = 'continental_king';
   else if (topTitles.length >= 1) title = 'champion';
   else if (promotions >= 3) title = 'promotion_specialist';
   else if (survivals >= 3) title = 'survival_king';

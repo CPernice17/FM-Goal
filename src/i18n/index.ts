@@ -1,3 +1,4 @@
+import { compInfo } from '../engine/continental';
 import type { GameState, Headline, Lang, Style } from '../engine/types';
 import { it, type Strings } from './it';
 
@@ -33,5 +34,6 @@ export function trophyText(state: GameState, key: string): string {
   if (kind === 'cup') return t(lang, 'trophy_cup', { name: state.world.countries[ref ?? '']?.cupName ?? '', season });
   if (kind === 'youth') return t(lang, 'trophy_youth', { name: state.world.countries[ref ?? '']?.youthLeagueName ?? '', season });
   if (kind === 'promotion') return t(lang, 'trophy_promotion', { name: state.world.leagues[ref ?? '']?.config.name ?? '', season });
+  if (kind === 'cont') return t(lang, 'trophy_cont', { name: compInfo(state.world, ref ?? '')?.name ?? ref ?? '', season });
   return key;
 }

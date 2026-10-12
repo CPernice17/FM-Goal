@@ -1,5 +1,6 @@
 import type { EventDef, EventPack } from '../engine/events/schema';
-import type { CountryData } from '../engine/types';
+import type { ContinentalData, CountryData } from '../engine/types';
+import continental from '../data/continental.json';
 import arg from '../data/countries/arg.json';
 import bra from '../data/countries/bra.json';
 import eng from '../data/countries/eng.json';
@@ -28,3 +29,6 @@ export const EVENT_PACKS: EventPack[] = [carriera, gavetta, spogliatoio, dirigen
 export const EVENTS: EventDef[] = EVENT_PACKS.flatMap((p) => p.events);
 
 export const COUNTRIES: CountryData[] = [ita, eng, esp, ger, fra, por, ned, bra, arg, ksa, jpn, usa] as unknown as CountryData[];
+
+/** Coppe continentali, supercoppe, competizioni mondiali e club esterni. */
+export const CONTINENTAL: ContinentalData = continental as unknown as ContinentalData;

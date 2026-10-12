@@ -1,7 +1,7 @@
 /**
  * Test del motore, senza dipendenze esterne. Uso: npm test
  */
-import { COUNTRIES, EVENT_PACKS, EVENTS } from '../src/content/index';
+import { CONTINENTAL, COUNTRIES, EVENT_PACKS, EVENTS } from '../src/content/index';
 import {
   choose,
   createCareer,
@@ -17,6 +17,7 @@ import type { EventPack } from '../src/engine/events/schema';
 import { validatePacks } from '../src/engine/events/validate';
 import { Rng } from '../src/engine/rng';
 import type { GameState } from '../src/engine/types';
+import { expectedSize } from '../src/engine/continental';
 import { createWorld, endOfSeason, refreshYouthRatings, simulateWorldSeason } from '../src/engine/world';
 
 let failed = 0;
@@ -189,6 +190,77 @@ test('inizio: tre Primavera nel paese della nazionalità, di forza diversa', () 
   }
   const other = createCareer({ name: 'Test', nationality: 'other', style: { build: 0, press: 0 }, seed: 4, countries: COUNTRIES });
   assert(other.pending?.kind === 'career' && other.pending.options.length === 3, 'nazionalità non modellata: nessuna proposta');
+});
+
+test('coppe continentali: qualificate complete, senza doppioni, nella confederazione giusta', () => {
+  const rng = new Rng(17);
+  const world = createWorld(COUNTRIES, 2026, CONTINENTAL);
+  refreshYouthRatings(world, rng);
+  for (let s = 0; s < 4; s++) {
+    const season = simulateWorldSeason(world, rng, { first: {}, youth: {} });
+    const cont = world.continental;
+    if (!cont) throw new Error('coppe mancanti');
+    for (const conf of cont.defs.confederations) {
+      for (const comp of conf.competitions) {
+        const ids = cont.qualified[comp.id] ?? [];
+        const size = expectedSize(conf, comp);
+        assert(ids.length === size, `${comp.id}: ${ids.length} squadre su ${size}`);
+        const res = season.continental[comp.id];
+        assert(res && Object.values(res.reached).filter((x) => x === 'winner').length === 1, `${comp.id}: vincitore non unico`);
+        for (const id of ids) {
+          const club = world.clubs[id];
+          const ok = cont.poolConfed[id] === conf.id || (club && conf.countries.includes(club.country));
+          assert(ok, `${comp.id}: ${id} fuori confederazione`);
+        }
+      }
+    }
+    const all = Object.values(cont.qualified).flat();
+    assert(new Set(all).size === all.length, 'club qualificato a due coppe');
+    if (s >= 1) assert(season.continental.eusc, 'supercoppa europea mancante');
+    if (s >= 1) assert(season.continental.ic, 'trofeo intercontinentale mancante');
+    if (world.season === 2029) {
+      const cwc = season.continental.cwc;
+      assert(cwc && Object.keys(cwc.reached).length === 32, `mondiale per club: ${Object.keys(cwc?.reached ?? {}).length} squadre`);
+    }
+    // Formato UEFA: 36 squadre, 12 eliminate nella fase campionato, 8 ai playoff.
+    const eu1 = season.continental.eu1;
+    if (eu1) {
+      const stages = Object.values(eu1.reached);
+      assert(stages.filter((x) => x === 'league').length === 12, 'eu1: eliminate nella fase campionato');
+      assert(stages.filter((x) => x === 'playoff').length === 8, 'eu1: eliminate ai playoff');
+    }
+    // Sudamericana: le terze della Libertadores giocano i playoff.
+    const sa2 = season.continental.sa2;
+    assert(sa2 && Object.keys(sa2.reached).length === 40, `sa2: ${Object.keys(sa2?.reached ?? {}).length} partecipanti con le terze`);
+    endOfSeason(world, rng, season);
+  }
+  // Il mondiale per club si gioca nel 2029, con 32 squadre.
+  assert(world.season === 2030, `stagione ${world.season}`);
+  const season2030 = simulateWorldSeason(world, rng, { first: {}, youth: {} });
+  assert(!season2030.continental.cwc, 'mondiale per club fuori stagione');
+});
+
+test('coppe continentali: la squadra allenata le gioca e le ritrova nel resoconto', () => {
+  let found = false;
+  for (let seed = 1; seed <= 12 && !found; seed++) {
+    const pick = new Rng(seed);
+    let state = createCareer({ name: 'Test', nationality: 'eng', style: { build: 0, press: 0 }, seed, countries: COUNTRIES, continental: CONTINENTAL, difficulty: 'easy' });
+    state = choose(state, 0, EVENTS);
+    let guard = 0;
+    while (state.phase !== 'finished' && guard++ < 80) {
+      state = startSeason(state, EVENTS);
+      while (state.phase === 'start_decision') state = choose(state, 0, EVENTS);
+      state = playSeason(state);
+      if ((state.lastReport?.continental.length ?? 0) > 0) found = true;
+      state = prepareEnd(state, EVENTS);
+      while (state.phase === 'end_decision') {
+        const p = state.pending;
+        state = choose(state, p?.kind === 'career' ? pick.int(0, p.options.length - 1) : 0, EVENTS);
+      }
+      state = nextSeason(state);
+    }
+  }
+  assert(found, 'nessuna carriera ha giocato una coppa internazionale');
 });
 
 test('eventi: i pacchetti reali sono validi', () => {

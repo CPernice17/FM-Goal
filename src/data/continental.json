@@ -1,0 +1,2137 @@
+{
+  "confederations": [
+    {
+      "id": "uefa",
+      "name": "Europa",
+      "countries": [
+        "ita",
+        "eng",
+        "esp",
+        "ger",
+        "fra",
+        "por",
+        "ned"
+      ],
+      "competitions": [
+        {
+          "id": "eu1",
+          "name": "Coppa Élite d'Europa",
+          "tier": 1,
+          "format": {
+            "type": "league",
+            "teams": 36,
+            "matches": 8,
+            "direct": 8,
+            "playoffTo": 24
+          },
+          "slots": {
+            "eng": 5,
+            "esp": 5,
+            "ita": 4,
+            "ger": 4,
+            "fra": 3,
+            "por": 2,
+            "ned": 2
+          }
+        },
+        {
+          "id": "eu2",
+          "name": "Coppa Continentale europea",
+          "tier": 2,
+          "format": {
+            "type": "league",
+            "teams": 36,
+            "matches": 8,
+            "direct": 8,
+            "playoffTo": 24
+          },
+          "slots": {
+            "eng": 2,
+            "ita": 2,
+            "esp": 2,
+            "ger": 2,
+            "fra": 2,
+            "por": 1,
+            "ned": 1
+          }
+        },
+        {
+          "id": "eu3",
+          "name": "Trofeo europeo",
+          "tier": 3,
+          "format": {
+            "type": "league",
+            "teams": 36,
+            "matches": 6,
+            "direct": 8,
+            "playoffTo": 24
+          },
+          "slots": {
+            "eng": 1,
+            "ita": 1,
+            "esp": 1,
+            "ger": 1,
+            "fra": 1,
+            "por": 1,
+            "ned": 2
+          }
+        }
+      ],
+      "supercup": {
+        "id": "eusc",
+        "name": "Supercoppa europea",
+        "from": [
+          "eu1",
+          "eu2"
+        ]
+      }
+    },
+    {
+      "id": "conmebol",
+      "name": "Sud America",
+      "countries": [
+        "bra",
+        "arg"
+      ],
+      "competitions": [
+        {
+          "id": "sa1",
+          "name": "Copa Élite sudamericana",
+          "tier": 1,
+          "format": {
+            "type": "groups",
+            "groups": 8,
+            "advance": 2
+          },
+          "slots": {
+            "bra": 7,
+            "arg": 6
+          }
+        },
+        {
+          "id": "sa2",
+          "name": "Copa Continental del Sur",
+          "tier": 2,
+          "format": {
+            "type": "groups",
+            "groups": 8,
+            "advance": 1,
+            "playoffWithThirdsOf": "sa1"
+          },
+          "slots": {
+            "bra": 6,
+            "arg": 6
+          }
+        }
+      ],
+      "supercup": {
+        "id": "sasc",
+        "name": "Supercopa sudamericana",
+        "from": [
+          "sa1",
+          "sa2"
+        ]
+      }
+    },
+    {
+      "id": "afc",
+      "name": "Asia",
+      "countries": [
+        "ksa",
+        "jpn"
+      ],
+      "regions": {
+        "west": [
+          "ksa"
+        ],
+        "east": [
+          "jpn"
+        ]
+      },
+      "competitions": [
+        {
+          "id": "as1",
+          "name": "Coppa Élite asiatica",
+          "tier": 1,
+          "format": {
+            "type": "regionalLeague",
+            "teamsPerRegion": 16,
+            "matches": 8,
+            "advance": 8
+          },
+          "slots": {
+            "ksa": 5,
+            "jpn": 5
+          }
+        },
+        {
+          "id": "as2",
+          "name": "Coppa Continentale asiatica",
+          "tier": 2,
+          "format": {
+            "type": "groups",
+            "groups": 8,
+            "advance": 2,
+            "regional": true
+          },
+          "slots": {
+            "ksa": 1,
+            "jpn": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "concacaf",
+      "name": "Nord America",
+      "countries": [
+        "usa"
+      ],
+      "competitions": [
+        {
+          "id": "na1",
+          "name": "Coppa Élite nordamericana",
+          "tier": 1,
+          "format": {
+            "type": "knockout",
+            "teams": 27,
+            "byes": 5
+          },
+          "slots": {
+            "usa": 7
+          }
+        }
+      ]
+    }
+  ],
+  "intercontinental": {
+    "id": "ic",
+    "name": "Trofeo Intercontinentale"
+  },
+  "clubWorldCup": {
+    "id": "cwc",
+    "name": "Mondiale per club",
+    "every": 4,
+    "firstYear": 2029,
+    "quotas": {
+      "uefa": 12,
+      "conmebol": 6,
+      "afc": 4,
+      "caf": 4,
+      "concacaf": 5,
+      "ofc": 1
+    }
+  },
+  "pool": [
+    {
+      "id": "x-bel-club-brugge",
+      "name": "Club Brugge",
+      "country": "bel",
+      "confed": "uefa",
+      "rating": 76
+    },
+    {
+      "id": "x-bel-union-saint-gilloise",
+      "name": "Union Saint-Gilloise",
+      "country": "bel",
+      "confed": "uefa",
+      "rating": 74
+    },
+    {
+      "id": "x-bel-anderlecht",
+      "name": "Anderlecht",
+      "country": "bel",
+      "confed": "uefa",
+      "rating": 73
+    },
+    {
+      "id": "x-bel-genk",
+      "name": "Genk",
+      "country": "bel",
+      "confed": "uefa",
+      "rating": 72
+    },
+    {
+      "id": "x-bel-gent",
+      "name": "Gent",
+      "country": "bel",
+      "confed": "uefa",
+      "rating": 70
+    },
+    {
+      "id": "x-bel-antwerp",
+      "name": "Antwerp",
+      "country": "bel",
+      "confed": "uefa",
+      "rating": 70
+    },
+    {
+      "id": "x-bel-standard-liege",
+      "name": "Standard Liège",
+      "country": "bel",
+      "confed": "uefa",
+      "rating": 67
+    },
+    {
+      "id": "x-tur-galatasaray",
+      "name": "Galatasaray",
+      "country": "tur",
+      "confed": "uefa",
+      "rating": 78
+    },
+    {
+      "id": "x-tur-fenerbahce",
+      "name": "Fenerbahçe",
+      "country": "tur",
+      "confed": "uefa",
+      "rating": 77
+    },
+    {
+      "id": "x-tur-besiktas",
+      "name": "Beşiktaş",
+      "country": "tur",
+      "confed": "uefa",
+      "rating": 74
+    },
+    {
+      "id": "x-tur-trabzonspor",
+      "name": "Trabzonspor",
+      "country": "tur",
+      "confed": "uefa",
+      "rating": 72
+    },
+    {
+      "id": "x-tur-basaksehir",
+      "name": "Başakşehir",
+      "country": "tur",
+      "confed": "uefa",
+      "rating": 70
+    },
+    {
+      "id": "x-tur-samsunspor",
+      "name": "Samsunspor",
+      "country": "tur",
+      "confed": "uefa",
+      "rating": 68
+    },
+    {
+      "id": "x-sco-celtic",
+      "name": "Celtic",
+      "country": "sco",
+      "confed": "uefa",
+      "rating": 74
+    },
+    {
+      "id": "x-sco-rangers",
+      "name": "Rangers",
+      "country": "sco",
+      "confed": "uefa",
+      "rating": 72
+    },
+    {
+      "id": "x-sco-hearts",
+      "name": "Hearts",
+      "country": "sco",
+      "confed": "uefa",
+      "rating": 67
+    },
+    {
+      "id": "x-sco-aberdeen",
+      "name": "Aberdeen",
+      "country": "sco",
+      "confed": "uefa",
+      "rating": 66
+    },
+    {
+      "id": "x-sco-hibernian",
+      "name": "Hibernian",
+      "country": "sco",
+      "confed": "uefa",
+      "rating": 65
+    },
+    {
+      "id": "x-aut-red-bull-salzburg",
+      "name": "Red Bull Salzburg",
+      "country": "aut",
+      "confed": "uefa",
+      "rating": 73
+    },
+    {
+      "id": "x-aut-sturm-graz",
+      "name": "Sturm Graz",
+      "country": "aut",
+      "confed": "uefa",
+      "rating": 70
+    },
+    {
+      "id": "x-aut-rapid-wien",
+      "name": "Rapid Wien",
+      "country": "aut",
+      "confed": "uefa",
+      "rating": 68
+    },
+    {
+      "id": "x-aut-lask",
+      "name": "LASK",
+      "country": "aut",
+      "confed": "uefa",
+      "rating": 67
+    },
+    {
+      "id": "x-aut-austria-wien",
+      "name": "Austria Wien",
+      "country": "aut",
+      "confed": "uefa",
+      "rating": 66
+    },
+    {
+      "id": "x-sui-young-boys",
+      "name": "Young Boys",
+      "country": "sui",
+      "confed": "uefa",
+      "rating": 71
+    },
+    {
+      "id": "x-sui-basel",
+      "name": "Basel",
+      "country": "sui",
+      "confed": "uefa",
+      "rating": 71
+    },
+    {
+      "id": "x-sui-lugano",
+      "name": "Lugano",
+      "country": "sui",
+      "confed": "uefa",
+      "rating": 68
+    },
+    {
+      "id": "x-sui-servette",
+      "name": "Servette",
+      "country": "sui",
+      "confed": "uefa",
+      "rating": 67
+    },
+    {
+      "id": "x-sui-st-gallen",
+      "name": "St. Gallen",
+      "country": "sui",
+      "confed": "uefa",
+      "rating": 65
+    },
+    {
+      "id": "x-gre-olympiacos",
+      "name": "Olympiacos",
+      "country": "gre",
+      "confed": "uefa",
+      "rating": 74
+    },
+    {
+      "id": "x-gre-paok",
+      "name": "PAOK",
+      "country": "gre",
+      "confed": "uefa",
+      "rating": 72
+    },
+    {
+      "id": "x-gre-aek-athens",
+      "name": "AEK Athens",
+      "country": "gre",
+      "confed": "uefa",
+      "rating": 72
+    },
+    {
+      "id": "x-gre-panathinaikos",
+      "name": "Panathinaikos",
+      "country": "gre",
+      "confed": "uefa",
+      "rating": 71
+    },
+    {
+      "id": "x-gre-aris",
+      "name": "Aris",
+      "country": "gre",
+      "confed": "uefa",
+      "rating": 66
+    },
+    {
+      "id": "x-den-copenhagen",
+      "name": "Copenhagen",
+      "country": "den",
+      "confed": "uefa",
+      "rating": 72
+    },
+    {
+      "id": "x-den-midtjylland",
+      "name": "Midtjylland",
+      "country": "den",
+      "confed": "uefa",
+      "rating": 71
+    },
+    {
+      "id": "x-den-brndby",
+      "name": "Brøndby",
+      "country": "den",
+      "confed": "uefa",
+      "rating": 68
+    },
+    {
+      "id": "x-den-nordsjlland",
+      "name": "Nordsjælland",
+      "country": "den",
+      "confed": "uefa",
+      "rating": 66
+    },
+    {
+      "id": "x-cze-slavia-prague",
+      "name": "Slavia Prague",
+      "country": "cze",
+      "confed": "uefa",
+      "rating": 72
+    },
+    {
+      "id": "x-cze-sparta-prague",
+      "name": "Sparta Prague",
+      "country": "cze",
+      "confed": "uefa",
+      "rating": 71
+    },
+    {
+      "id": "x-cze-viktoria-plzen",
+      "name": "Viktoria Plzeň",
+      "country": "cze",
+      "confed": "uefa",
+      "rating": 69
+    },
+    {
+      "id": "x-cze-banik-ostrava",
+      "name": "Baník Ostrava",
+      "country": "cze",
+      "confed": "uefa",
+      "rating": 65
+    },
+    {
+      "id": "x-nor-bod-glimt",
+      "name": "Bodø/Glimt",
+      "country": "nor",
+      "confed": "uefa",
+      "rating": 72
+    },
+    {
+      "id": "x-nor-molde",
+      "name": "Molde",
+      "country": "nor",
+      "confed": "uefa",
+      "rating": 67
+    },
+    {
+      "id": "x-nor-brann",
+      "name": "Brann",
+      "country": "nor",
+      "confed": "uefa",
+      "rating": 67
+    },
+    {
+      "id": "x-nor-rosenborg",
+      "name": "Rosenborg",
+      "country": "nor",
+      "confed": "uefa",
+      "rating": 65
+    },
+    {
+      "id": "x-cro-dinamo-zagreb",
+      "name": "Dinamo Zagreb",
+      "country": "cro",
+      "confed": "uefa",
+      "rating": 71
+    },
+    {
+      "id": "x-cro-hajduk-split",
+      "name": "Hajduk Split",
+      "country": "cro",
+      "confed": "uefa",
+      "rating": 68
+    },
+    {
+      "id": "x-cro-rijeka",
+      "name": "Rijeka",
+      "country": "cro",
+      "confed": "uefa",
+      "rating": 67
+    },
+    {
+      "id": "x-cro-osijek",
+      "name": "Osijek",
+      "country": "cro",
+      "confed": "uefa",
+      "rating": 64
+    },
+    {
+      "id": "x-srb-red-star-belgrade",
+      "name": "Red Star Belgrade",
+      "country": "srb",
+      "confed": "uefa",
+      "rating": 71
+    },
+    {
+      "id": "x-srb-partizan",
+      "name": "Partizan",
+      "country": "srb",
+      "confed": "uefa",
+      "rating": 67
+    },
+    {
+      "id": "x-srb-tsc-backa-topola",
+      "name": "TSC Bačka Topola",
+      "country": "srb",
+      "confed": "uefa",
+      "rating": 63
+    },
+    {
+      "id": "x-ukr-shakhtar-donetsk",
+      "name": "Shakhtar Donetsk",
+      "country": "ukr",
+      "confed": "uefa",
+      "rating": 72
+    },
+    {
+      "id": "x-ukr-dynamo-kyiv",
+      "name": "Dynamo Kyiv",
+      "country": "ukr",
+      "confed": "uefa",
+      "rating": 70
+    },
+    {
+      "id": "x-ukr-polissya-zhytomyr",
+      "name": "Polissya Zhytomyr",
+      "country": "ukr",
+      "confed": "uefa",
+      "rating": 64
+    },
+    {
+      "id": "x-pol-lech-poznan",
+      "name": "Lech Poznań",
+      "country": "pol",
+      "confed": "uefa",
+      "rating": 68
+    },
+    {
+      "id": "x-pol-legia-warsaw",
+      "name": "Legia Warsaw",
+      "country": "pol",
+      "confed": "uefa",
+      "rating": 68
+    },
+    {
+      "id": "x-pol-jagiellonia",
+      "name": "Jagiellonia",
+      "country": "pol",
+      "confed": "uefa",
+      "rating": 66
+    },
+    {
+      "id": "x-pol-rakow-czestochowa",
+      "name": "Raków Częstochowa",
+      "country": "pol",
+      "confed": "uefa",
+      "rating": 67
+    },
+    {
+      "id": "x-swe-malmo-ff",
+      "name": "Malmö FF",
+      "country": "swe",
+      "confed": "uefa",
+      "rating": 68
+    },
+    {
+      "id": "x-swe-djurgarden",
+      "name": "Djurgården",
+      "country": "swe",
+      "confed": "uefa",
+      "rating": 66
+    },
+    {
+      "id": "x-swe-hammarby",
+      "name": "Hammarby",
+      "country": "swe",
+      "confed": "uefa",
+      "rating": 66
+    },
+    {
+      "id": "x-swe-aik",
+      "name": "AIK",
+      "country": "swe",
+      "confed": "uefa",
+      "rating": 65
+    },
+    {
+      "id": "x-cyp-apoel",
+      "name": "APOEL",
+      "country": "cyp",
+      "confed": "uefa",
+      "rating": 66
+    },
+    {
+      "id": "x-cyp-pafos",
+      "name": "Pafos",
+      "country": "cyp",
+      "confed": "uefa",
+      "rating": 67
+    },
+    {
+      "id": "x-cyp-aek-larnaca",
+      "name": "AEK Larnaca",
+      "country": "cyp",
+      "confed": "uefa",
+      "rating": 65
+    },
+    {
+      "id": "x-cyp-omonia",
+      "name": "Omonia",
+      "country": "cyp",
+      "confed": "uefa",
+      "rating": 65
+    },
+    {
+      "id": "x-isr-maccabi-tel-aviv",
+      "name": "Maccabi Tel Aviv",
+      "country": "isr",
+      "confed": "uefa",
+      "rating": 67
+    },
+    {
+      "id": "x-isr-maccabi-haifa",
+      "name": "Maccabi Haifa",
+      "country": "isr",
+      "confed": "uefa",
+      "rating": 66
+    },
+    {
+      "id": "x-isr-hapoel-be-er-sheva",
+      "name": "Hapoel Be'er Sheva",
+      "country": "isr",
+      "confed": "uefa",
+      "rating": 65
+    },
+    {
+      "id": "x-hun-ferencvaros",
+      "name": "Ferencváros",
+      "country": "hun",
+      "confed": "uefa",
+      "rating": 69
+    },
+    {
+      "id": "x-hun-puskas-akademia",
+      "name": "Puskás Akadémia",
+      "country": "hun",
+      "confed": "uefa",
+      "rating": 63
+    },
+    {
+      "id": "x-rou-fcsb",
+      "name": "FCSB",
+      "country": "rou",
+      "confed": "uefa",
+      "rating": 67
+    },
+    {
+      "id": "x-rou-cfr-cluj",
+      "name": "CFR Cluj",
+      "country": "rou",
+      "confed": "uefa",
+      "rating": 65
+    },
+    {
+      "id": "x-rou-universitatea-craiova",
+      "name": "Universitatea Craiova",
+      "country": "rou",
+      "confed": "uefa",
+      "rating": 65
+    },
+    {
+      "id": "x-bul-ludogorets",
+      "name": "Ludogorets",
+      "country": "bul",
+      "confed": "uefa",
+      "rating": 68
+    },
+    {
+      "id": "x-bul-cska-sofia",
+      "name": "CSKA Sofia",
+      "country": "bul",
+      "confed": "uefa",
+      "rating": 62
+    },
+    {
+      "id": "x-svk-slovan-bratislava",
+      "name": "Slovan Bratislava",
+      "country": "svk",
+      "confed": "uefa",
+      "rating": 66
+    },
+    {
+      "id": "x-svk-spartak-trnava",
+      "name": "Spartak Trnava",
+      "country": "svk",
+      "confed": "uefa",
+      "rating": 62
+    },
+    {
+      "id": "x-slo-celje",
+      "name": "Celje",
+      "country": "slo",
+      "confed": "uefa",
+      "rating": 65
+    },
+    {
+      "id": "x-slo-olimpija-ljubljana",
+      "name": "Olimpija Ljubljana",
+      "country": "slo",
+      "confed": "uefa",
+      "rating": 64
+    },
+    {
+      "id": "x-aze-qarabag",
+      "name": "Qarabağ",
+      "country": "aze",
+      "confed": "uefa",
+      "rating": 69
+    },
+    {
+      "id": "x-aze-sabah",
+      "name": "Sabah",
+      "country": "aze",
+      "confed": "uefa",
+      "rating": 62
+    },
+    {
+      "id": "x-kaz-astana",
+      "name": "Astana",
+      "country": "kaz",
+      "confed": "uefa",
+      "rating": 63
+    },
+    {
+      "id": "x-kaz-kairat",
+      "name": "Kairat",
+      "country": "kaz",
+      "confed": "uefa",
+      "rating": 63
+    },
+    {
+      "id": "x-mda-sheriff-tiraspol",
+      "name": "Sheriff Tiraspol",
+      "country": "mda",
+      "confed": "uefa",
+      "rating": 62
+    },
+    {
+      "id": "x-irl-shamrock-rovers",
+      "name": "Shamrock Rovers",
+      "country": "irl",
+      "confed": "uefa",
+      "rating": 63
+    },
+    {
+      "id": "x-irl-shelbourne",
+      "name": "Shelbourne",
+      "country": "irl",
+      "confed": "uefa",
+      "rating": 60
+    },
+    {
+      "id": "x-fin-hjk",
+      "name": "HJK",
+      "country": "fin",
+      "confed": "uefa",
+      "rating": 61
+    },
+    {
+      "id": "x-fin-kups",
+      "name": "KuPS",
+      "country": "fin",
+      "confed": "uefa",
+      "rating": 61
+    },
+    {
+      "id": "x-isl-vikingur-reykjavik",
+      "name": "Víkingur Reykjavík",
+      "country": "isl",
+      "confed": "uefa",
+      "rating": 60
+    },
+    {
+      "id": "x-isl-breiablik",
+      "name": "Breiðablik",
+      "country": "isl",
+      "confed": "uefa",
+      "rating": 60
+    },
+    {
+      "id": "x-arm-noah",
+      "name": "Noah",
+      "country": "arm",
+      "confed": "uefa",
+      "rating": 61
+    },
+    {
+      "id": "x-arm-pyunik",
+      "name": "Pyunik",
+      "country": "arm",
+      "confed": "uefa",
+      "rating": 59
+    },
+    {
+      "id": "x-bih-zrinjski-mostar",
+      "name": "Zrinjski Mostar",
+      "country": "bih",
+      "confed": "uefa",
+      "rating": 61
+    },
+    {
+      "id": "x-bih-borac-banja-luka",
+      "name": "Borac Banja Luka",
+      "country": "bih",
+      "confed": "uefa",
+      "rating": 61
+    },
+    {
+      "id": "x-mne-buducnost-podgorica",
+      "name": "Budućnost Podgorica",
+      "country": "mne",
+      "confed": "uefa",
+      "rating": 58
+    },
+    {
+      "id": "x-mkd-shkendija",
+      "name": "Shkëndija",
+      "country": "mkd",
+      "confed": "uefa",
+      "rating": 59
+    },
+    {
+      "id": "x-alb-egnatia",
+      "name": "Egnatia",
+      "country": "alb",
+      "confed": "uefa",
+      "rating": 58
+    },
+    {
+      "id": "x-lva-rfs",
+      "name": "RFS",
+      "country": "lva",
+      "confed": "uefa",
+      "rating": 61
+    },
+    {
+      "id": "x-lva-riga-fc",
+      "name": "Riga FC",
+      "country": "lva",
+      "confed": "uefa",
+      "rating": 59
+    },
+    {
+      "id": "x-ltu-zalgiris",
+      "name": "Žalgiris",
+      "country": "ltu",
+      "confed": "uefa",
+      "rating": 60
+    },
+    {
+      "id": "x-geo-dinamo-tbilisi",
+      "name": "Dinamo Tbilisi",
+      "country": "geo",
+      "confed": "uefa",
+      "rating": 58
+    },
+    {
+      "id": "x-geo-iberia-1999",
+      "name": "Iberia 1999",
+      "country": "geo",
+      "confed": "uefa",
+      "rating": 58
+    },
+    {
+      "id": "x-blr-dinamo-minsk",
+      "name": "Dinamo Minsk",
+      "country": "blr",
+      "confed": "uefa",
+      "rating": 59
+    },
+    {
+      "id": "x-lux-differdange-03",
+      "name": "Differdange 03",
+      "country": "lux",
+      "confed": "uefa",
+      "rating": 56
+    },
+    {
+      "id": "x-kos-drita",
+      "name": "Drita",
+      "country": "kos",
+      "confed": "uefa",
+      "rating": 59
+    },
+    {
+      "id": "x-kos-ballkani",
+      "name": "Ballkani",
+      "country": "kos",
+      "confed": "uefa",
+      "rating": 59
+    },
+    {
+      "id": "x-wal-the-new-saints",
+      "name": "The New Saints",
+      "country": "wal",
+      "confed": "uefa",
+      "rating": 58
+    },
+    {
+      "id": "x-col-atletico-nacional",
+      "name": "Atlético Nacional",
+      "country": "col",
+      "confed": "conmebol",
+      "rating": 72
+    },
+    {
+      "id": "x-col-millonarios",
+      "name": "Millonarios",
+      "country": "col",
+      "confed": "conmebol",
+      "rating": 70
+    },
+    {
+      "id": "x-col-america-de-cali",
+      "name": "América de Cali",
+      "country": "col",
+      "confed": "conmebol",
+      "rating": 69
+    },
+    {
+      "id": "x-col-junior",
+      "name": "Junior",
+      "country": "col",
+      "confed": "conmebol",
+      "rating": 69
+    },
+    {
+      "id": "x-col-independiente-santa-fe",
+      "name": "Independiente Santa Fe",
+      "country": "col",
+      "confed": "conmebol",
+      "rating": 68
+    },
+    {
+      "id": "x-col-deportes-tolima",
+      "name": "Deportes Tolima",
+      "country": "col",
+      "confed": "conmebol",
+      "rating": 68
+    },
+    {
+      "id": "x-col-independiente-medellin",
+      "name": "Independiente Medellín",
+      "country": "col",
+      "confed": "conmebol",
+      "rating": 68
+    },
+    {
+      "id": "x-col-once-caldas",
+      "name": "Once Caldas",
+      "country": "col",
+      "confed": "conmebol",
+      "rating": 66
+    },
+    {
+      "id": "x-uru-penarol",
+      "name": "Peñarol",
+      "country": "uru",
+      "confed": "conmebol",
+      "rating": 71
+    },
+    {
+      "id": "x-uru-nacional",
+      "name": "Nacional",
+      "country": "uru",
+      "confed": "conmebol",
+      "rating": 71
+    },
+    {
+      "id": "x-uru-defensor-sporting",
+      "name": "Defensor Sporting",
+      "country": "uru",
+      "confed": "conmebol",
+      "rating": 67
+    },
+    {
+      "id": "x-uru-liverpool-montevideo",
+      "name": "Liverpool Montevideo",
+      "country": "uru",
+      "confed": "conmebol",
+      "rating": 66
+    },
+    {
+      "id": "x-uru-boston-river",
+      "name": "Boston River",
+      "country": "uru",
+      "confed": "conmebol",
+      "rating": 64
+    },
+    {
+      "id": "x-uru-juventud",
+      "name": "Juventud",
+      "country": "uru",
+      "confed": "conmebol",
+      "rating": 63
+    },
+    {
+      "id": "x-chi-colo-colo",
+      "name": "Colo-Colo",
+      "country": "chi",
+      "confed": "conmebol",
+      "rating": 70
+    },
+    {
+      "id": "x-chi-universidad-de-chile",
+      "name": "Universidad de Chile",
+      "country": "chi",
+      "confed": "conmebol",
+      "rating": 70
+    },
+    {
+      "id": "x-chi-universidad-catolica",
+      "name": "Universidad Católica",
+      "country": "chi",
+      "confed": "conmebol",
+      "rating": 69
+    },
+    {
+      "id": "x-chi-palestino",
+      "name": "Palestino",
+      "country": "chi",
+      "confed": "conmebol",
+      "rating": 66
+    },
+    {
+      "id": "x-chi-o-higgins",
+      "name": "O'Higgins",
+      "country": "chi",
+      "confed": "conmebol",
+      "rating": 65
+    },
+    {
+      "id": "x-chi-coquimbo-unido",
+      "name": "Coquimbo Unido",
+      "country": "chi",
+      "confed": "conmebol",
+      "rating": 65
+    },
+    {
+      "id": "x-ecu-ldu-quito",
+      "name": "LDU Quito",
+      "country": "ecu",
+      "confed": "conmebol",
+      "rating": 72
+    },
+    {
+      "id": "x-ecu-independiente-del-valle",
+      "name": "Independiente del Valle",
+      "country": "ecu",
+      "confed": "conmebol",
+      "rating": 72
+    },
+    {
+      "id": "x-ecu-barcelona-sc",
+      "name": "Barcelona SC",
+      "country": "ecu",
+      "confed": "conmebol",
+      "rating": 70
+    },
+    {
+      "id": "x-ecu-emelec",
+      "name": "Emelec",
+      "country": "ecu",
+      "confed": "conmebol",
+      "rating": 67
+    },
+    {
+      "id": "x-ecu-aucas",
+      "name": "Aucas",
+      "country": "ecu",
+      "confed": "conmebol",
+      "rating": 65
+    },
+    {
+      "id": "x-ecu-universidad-catolica-ecu",
+      "name": "Universidad Católica (ECU)",
+      "country": "ecu",
+      "confed": "conmebol",
+      "rating": 65
+    },
+    {
+      "id": "x-par-olimpia",
+      "name": "Olimpia",
+      "country": "par",
+      "confed": "conmebol",
+      "rating": 69
+    },
+    {
+      "id": "x-par-cerro-porteno",
+      "name": "Cerro Porteño",
+      "country": "par",
+      "confed": "conmebol",
+      "rating": 69
+    },
+    {
+      "id": "x-par-libertad",
+      "name": "Libertad",
+      "country": "par",
+      "confed": "conmebol",
+      "rating": 69
+    },
+    {
+      "id": "x-par-guarani",
+      "name": "Guaraní",
+      "country": "par",
+      "confed": "conmebol",
+      "rating": 66
+    },
+    {
+      "id": "x-par-nacional-par",
+      "name": "Nacional (PAR)",
+      "country": "par",
+      "confed": "conmebol",
+      "rating": 64
+    },
+    {
+      "id": "x-par-sportivo-luqueno",
+      "name": "Sportivo Luqueño",
+      "country": "par",
+      "confed": "conmebol",
+      "rating": 63
+    },
+    {
+      "id": "x-per-universitario",
+      "name": "Universitario",
+      "country": "per",
+      "confed": "conmebol",
+      "rating": 68
+    },
+    {
+      "id": "x-per-alianza-lima",
+      "name": "Alianza Lima",
+      "country": "per",
+      "confed": "conmebol",
+      "rating": 68
+    },
+    {
+      "id": "x-per-sporting-cristal",
+      "name": "Sporting Cristal",
+      "country": "per",
+      "confed": "conmebol",
+      "rating": 68
+    },
+    {
+      "id": "x-per-melgar",
+      "name": "Melgar",
+      "country": "per",
+      "confed": "conmebol",
+      "rating": 65
+    },
+    {
+      "id": "x-per-cusco-fc",
+      "name": "Cusco FC",
+      "country": "per",
+      "confed": "conmebol",
+      "rating": 63
+    },
+    {
+      "id": "x-per-cienciano",
+      "name": "Cienciano",
+      "country": "per",
+      "confed": "conmebol",
+      "rating": 63
+    },
+    {
+      "id": "x-bol-bolivar",
+      "name": "Bolívar",
+      "country": "bol",
+      "confed": "conmebol",
+      "rating": 67
+    },
+    {
+      "id": "x-bol-the-strongest",
+      "name": "The Strongest",
+      "country": "bol",
+      "confed": "conmebol",
+      "rating": 66
+    },
+    {
+      "id": "x-bol-always-ready",
+      "name": "Always Ready",
+      "country": "bol",
+      "confed": "conmebol",
+      "rating": 64
+    },
+    {
+      "id": "x-bol-blooming",
+      "name": "Blooming",
+      "country": "bol",
+      "confed": "conmebol",
+      "rating": 62
+    },
+    {
+      "id": "x-bol-san-antonio-bulo-bulo",
+      "name": "San Antonio Bulo Bulo",
+      "country": "bol",
+      "confed": "conmebol",
+      "rating": 60
+    },
+    {
+      "id": "x-ven-deportivo-tachira",
+      "name": "Deportivo Táchira",
+      "country": "ven",
+      "confed": "conmebol",
+      "rating": 64
+    },
+    {
+      "id": "x-ven-caracas",
+      "name": "Caracas",
+      "country": "ven",
+      "confed": "conmebol",
+      "rating": 63
+    },
+    {
+      "id": "x-ven-monagas",
+      "name": "Monagas",
+      "country": "ven",
+      "confed": "conmebol",
+      "rating": 62
+    },
+    {
+      "id": "x-ven-carabobo",
+      "name": "Carabobo",
+      "country": "ven",
+      "confed": "conmebol",
+      "rating": 62
+    },
+    {
+      "id": "x-ven-universidad-central",
+      "name": "Universidad Central",
+      "country": "ven",
+      "confed": "conmebol",
+      "rating": 61
+    },
+    {
+      "id": "x-qat-al-sadd",
+      "name": "Al-Sadd",
+      "country": "qat",
+      "confed": "afc",
+      "rating": 71,
+      "region": "west"
+    },
+    {
+      "id": "x-qat-al-duhail",
+      "name": "Al-Duhail",
+      "country": "qat",
+      "confed": "afc",
+      "rating": 69,
+      "region": "west"
+    },
+    {
+      "id": "x-qat-al-gharafa",
+      "name": "Al-Gharafa",
+      "country": "qat",
+      "confed": "afc",
+      "rating": 67,
+      "region": "west"
+    },
+    {
+      "id": "x-qat-al-rayyan",
+      "name": "Al-Rayyan",
+      "country": "qat",
+      "confed": "afc",
+      "rating": 67,
+      "region": "west"
+    },
+    {
+      "id": "x-qat-al-wakrah",
+      "name": "Al-Wakrah",
+      "country": "qat",
+      "confed": "afc",
+      "rating": 64,
+      "region": "west"
+    },
+    {
+      "id": "x-uae-al-ain",
+      "name": "Al-Ain",
+      "country": "uae",
+      "confed": "afc",
+      "rating": 70,
+      "region": "west"
+    },
+    {
+      "id": "x-uae-shabab-al-ahli",
+      "name": "Shabab Al-Ahli",
+      "country": "uae",
+      "confed": "afc",
+      "rating": 70,
+      "region": "west"
+    },
+    {
+      "id": "x-uae-al-wahda",
+      "name": "Al-Wahda",
+      "country": "uae",
+      "confed": "afc",
+      "rating": 68,
+      "region": "west"
+    },
+    {
+      "id": "x-uae-al-wasl",
+      "name": "Al-Wasl",
+      "country": "uae",
+      "confed": "afc",
+      "rating": 67,
+      "region": "west"
+    },
+    {
+      "id": "x-uae-sharjah",
+      "name": "Sharjah",
+      "country": "uae",
+      "confed": "afc",
+      "rating": 67,
+      "region": "west"
+    },
+    {
+      "id": "x-uae-al-jazira",
+      "name": "Al-Jazira",
+      "country": "uae",
+      "confed": "afc",
+      "rating": 65,
+      "region": "west"
+    },
+    {
+      "id": "x-irn-persepolis",
+      "name": "Persepolis",
+      "country": "irn",
+      "confed": "afc",
+      "rating": 68,
+      "region": "west"
+    },
+    {
+      "id": "x-irn-esteghlal",
+      "name": "Esteghlal",
+      "country": "irn",
+      "confed": "afc",
+      "rating": 67,
+      "region": "west"
+    },
+    {
+      "id": "x-irn-sepahan",
+      "name": "Sepahan",
+      "country": "irn",
+      "confed": "afc",
+      "rating": 66,
+      "region": "west"
+    },
+    {
+      "id": "x-irn-tractor",
+      "name": "Tractor",
+      "country": "irn",
+      "confed": "afc",
+      "rating": 66,
+      "region": "west"
+    },
+    {
+      "id": "x-irn-foolad",
+      "name": "Foolad",
+      "country": "irn",
+      "confed": "afc",
+      "rating": 63,
+      "region": "west"
+    },
+    {
+      "id": "x-irq-al-shorta",
+      "name": "Al-Shorta",
+      "country": "irq",
+      "confed": "afc",
+      "rating": 64,
+      "region": "west"
+    },
+    {
+      "id": "x-irq-al-zawraa",
+      "name": "Al-Zawraa",
+      "country": "irq",
+      "confed": "afc",
+      "rating": 63,
+      "region": "west"
+    },
+    {
+      "id": "x-irq-al-quwa-al-jawiya",
+      "name": "Al-Quwa Al-Jawiya",
+      "country": "irq",
+      "confed": "afc",
+      "rating": 62,
+      "region": "west"
+    },
+    {
+      "id": "x-uzb-pakhtakor",
+      "name": "Pakhtakor",
+      "country": "uzb",
+      "confed": "afc",
+      "rating": 65,
+      "region": "west"
+    },
+    {
+      "id": "x-uzb-nasaf",
+      "name": "Nasaf",
+      "country": "uzb",
+      "confed": "afc",
+      "rating": 64,
+      "region": "west"
+    },
+    {
+      "id": "x-uzb-navbahor",
+      "name": "Navbahor",
+      "country": "uzb",
+      "confed": "afc",
+      "rating": 62,
+      "region": "west"
+    },
+    {
+      "id": "x-uzb-neftchi-fergana",
+      "name": "Neftchi Fergana",
+      "country": "uzb",
+      "confed": "afc",
+      "rating": 61,
+      "region": "west"
+    },
+    {
+      "id": "x-jor-al-hussein",
+      "name": "Al-Hussein",
+      "country": "jor",
+      "confed": "afc",
+      "rating": 62,
+      "region": "west"
+    },
+    {
+      "id": "x-jor-al-wehdat",
+      "name": "Al-Wehdat",
+      "country": "jor",
+      "confed": "afc",
+      "rating": 61,
+      "region": "west"
+    },
+    {
+      "id": "x-jor-al-faisaly-jor",
+      "name": "Al-Faisaly (JOR)",
+      "country": "jor",
+      "confed": "afc",
+      "rating": 60,
+      "region": "west"
+    },
+    {
+      "id": "x-kuw-kuwait-sc",
+      "name": "Kuwait SC",
+      "country": "kuw",
+      "confed": "afc",
+      "rating": 60,
+      "region": "west"
+    },
+    {
+      "id": "x-kuw-al-arabi-kuw",
+      "name": "Al-Arabi (KUW)",
+      "country": "kuw",
+      "confed": "afc",
+      "rating": 59,
+      "region": "west"
+    },
+    {
+      "id": "x-bhr-al-khaldiya",
+      "name": "Al-Khaldiya",
+      "country": "bhr",
+      "confed": "afc",
+      "rating": 59,
+      "region": "west"
+    },
+    {
+      "id": "x-bhr-al-muharraq",
+      "name": "Al-Muharraq",
+      "country": "bhr",
+      "confed": "afc",
+      "rating": 59,
+      "region": "west"
+    },
+    {
+      "id": "x-oma-al-seeb",
+      "name": "Al-Seeb",
+      "country": "oma",
+      "confed": "afc",
+      "rating": 58,
+      "region": "west"
+    },
+    {
+      "id": "x-oma-al-nahda",
+      "name": "Al-Nahda",
+      "country": "oma",
+      "confed": "afc",
+      "rating": 57,
+      "region": "west"
+    },
+    {
+      "id": "x-ind-mohun-bagan",
+      "name": "Mohun Bagan",
+      "country": "ind",
+      "confed": "afc",
+      "rating": 60,
+      "region": "west"
+    },
+    {
+      "id": "x-ind-goa",
+      "name": "Goa",
+      "country": "ind",
+      "confed": "afc",
+      "rating": 58,
+      "region": "west"
+    },
+    {
+      "id": "x-ind-mumbai-city",
+      "name": "Mumbai City",
+      "country": "ind",
+      "confed": "afc",
+      "rating": 58,
+      "region": "west"
+    },
+    {
+      "id": "x-tjk-istiklol",
+      "name": "Istiklol",
+      "country": "tjk",
+      "confed": "afc",
+      "rating": 59,
+      "region": "west"
+    },
+    {
+      "id": "x-tkm-arkadag",
+      "name": "Arkadag",
+      "country": "tkm",
+      "confed": "afc",
+      "rating": 58,
+      "region": "west"
+    },
+    {
+      "id": "x-syr-al-karamah",
+      "name": "Al-Karamah",
+      "country": "syr",
+      "confed": "afc",
+      "rating": 56,
+      "region": "west"
+    },
+    {
+      "id": "x-kor-ulsan-hd",
+      "name": "Ulsan HD",
+      "country": "kor",
+      "confed": "afc",
+      "rating": 71,
+      "region": "east"
+    },
+    {
+      "id": "x-kor-jeonbuk-hyundai-motors",
+      "name": "Jeonbuk Hyundai Motors",
+      "country": "kor",
+      "confed": "afc",
+      "rating": 71,
+      "region": "east"
+    },
+    {
+      "id": "x-kor-pohang-steelers",
+      "name": "Pohang Steelers",
+      "country": "kor",
+      "confed": "afc",
+      "rating": 69,
+      "region": "east"
+    },
+    {
+      "id": "x-kor-fc-seoul",
+      "name": "FC Seoul",
+      "country": "kor",
+      "confed": "afc",
+      "rating": 69,
+      "region": "east"
+    },
+    {
+      "id": "x-kor-gangwon",
+      "name": "Gangwon",
+      "country": "kor",
+      "confed": "afc",
+      "rating": 67,
+      "region": "east"
+    },
+    {
+      "id": "x-kor-gimcheon-sangmu",
+      "name": "Gimcheon Sangmu",
+      "country": "kor",
+      "confed": "afc",
+      "rating": 66,
+      "region": "east"
+    },
+    {
+      "id": "x-chn-shanghai-port",
+      "name": "Shanghai Port",
+      "country": "chn",
+      "confed": "afc",
+      "rating": 69,
+      "region": "east"
+    },
+    {
+      "id": "x-chn-shanghai-shenhua",
+      "name": "Shanghai Shenhua",
+      "country": "chn",
+      "confed": "afc",
+      "rating": 69,
+      "region": "east"
+    },
+    {
+      "id": "x-chn-shandong-taishan",
+      "name": "Shandong Taishan",
+      "country": "chn",
+      "confed": "afc",
+      "rating": 67,
+      "region": "east"
+    },
+    {
+      "id": "x-chn-chengdu-rongcheng",
+      "name": "Chengdu Rongcheng",
+      "country": "chn",
+      "confed": "afc",
+      "rating": 67,
+      "region": "east"
+    },
+    {
+      "id": "x-chn-beijing-guoan",
+      "name": "Beijing Guoan",
+      "country": "chn",
+      "confed": "afc",
+      "rating": 66,
+      "region": "east"
+    },
+    {
+      "id": "x-aus-melbourne-city",
+      "name": "Melbourne City",
+      "country": "aus",
+      "confed": "afc",
+      "rating": 66,
+      "region": "east"
+    },
+    {
+      "id": "x-aus-central-coast-mariners",
+      "name": "Central Coast Mariners",
+      "country": "aus",
+      "confed": "afc",
+      "rating": 64,
+      "region": "east"
+    },
+    {
+      "id": "x-aus-sydney-fc",
+      "name": "Sydney FC",
+      "country": "aus",
+      "confed": "afc",
+      "rating": 65,
+      "region": "east"
+    },
+    {
+      "id": "x-aus-auckland-fc",
+      "name": "Auckland FC",
+      "country": "aus",
+      "confed": "afc",
+      "rating": 64,
+      "region": "east"
+    },
+    {
+      "id": "x-aus-western-united",
+      "name": "Western United",
+      "country": "aus",
+      "confed": "afc",
+      "rating": 62,
+      "region": "east"
+    },
+    {
+      "id": "x-tha-buriram-united",
+      "name": "Buriram United",
+      "country": "tha",
+      "confed": "afc",
+      "rating": 66,
+      "region": "east"
+    },
+    {
+      "id": "x-tha-bangkok-united",
+      "name": "Bangkok United",
+      "country": "tha",
+      "confed": "afc",
+      "rating": 63,
+      "region": "east"
+    },
+    {
+      "id": "x-tha-port-fc",
+      "name": "Port FC",
+      "country": "tha",
+      "confed": "afc",
+      "rating": 62,
+      "region": "east"
+    },
+    {
+      "id": "x-mas-johor-darul-ta-zim",
+      "name": "Johor Darul Ta'zim",
+      "country": "mas",
+      "confed": "afc",
+      "rating": 66,
+      "region": "east"
+    },
+    {
+      "id": "x-mas-selangor",
+      "name": "Selangor",
+      "country": "mas",
+      "confed": "afc",
+      "rating": 61,
+      "region": "east"
+    },
+    {
+      "id": "x-vie-nam-inh",
+      "name": "Nam Định",
+      "country": "vie",
+      "confed": "afc",
+      "rating": 62,
+      "region": "east"
+    },
+    {
+      "id": "x-vie-cong-an-ha-noi",
+      "name": "Công An Hà Nội",
+      "country": "vie",
+      "confed": "afc",
+      "rating": 62,
+      "region": "east"
+    },
+    {
+      "id": "x-idn-persib-bandung",
+      "name": "Persib Bandung",
+      "country": "idn",
+      "confed": "afc",
+      "rating": 61,
+      "region": "east"
+    },
+    {
+      "id": "x-idn-dewa-united",
+      "name": "Dewa United",
+      "country": "idn",
+      "confed": "afc",
+      "rating": 58,
+      "region": "east"
+    },
+    {
+      "id": "x-phi-kaya-iloilo",
+      "name": "Kaya-Iloilo",
+      "country": "phi",
+      "confed": "afc",
+      "rating": 56,
+      "region": "east"
+    },
+    {
+      "id": "x-sgp-lion-city-sailors",
+      "name": "Lion City Sailors",
+      "country": "sgp",
+      "confed": "afc",
+      "rating": 61,
+      "region": "east"
+    },
+    {
+      "id": "x-sgp-tampines-rovers",
+      "name": "Tampines Rovers",
+      "country": "sgp",
+      "confed": "afc",
+      "rating": 58,
+      "region": "east"
+    },
+    {
+      "id": "x-hkg-eastern",
+      "name": "Eastern",
+      "country": "hkg",
+      "confed": "afc",
+      "rating": 57,
+      "region": "east"
+    },
+    {
+      "id": "x-hkg-lee-man",
+      "name": "Lee Man",
+      "country": "hkg",
+      "confed": "afc",
+      "rating": 57,
+      "region": "east"
+    },
+    {
+      "id": "x-tpe-tainan-city",
+      "name": "Tainan City",
+      "country": "tpe",
+      "confed": "afc",
+      "rating": 54,
+      "region": "east"
+    },
+    {
+      "id": "x-mex-monterrey",
+      "name": "Monterrey",
+      "country": "mex",
+      "confed": "concacaf",
+      "rating": 74
+    },
+    {
+      "id": "x-mex-america",
+      "name": "América",
+      "country": "mex",
+      "confed": "concacaf",
+      "rating": 74
+    },
+    {
+      "id": "x-mex-tigres-uanl",
+      "name": "Tigres UANL",
+      "country": "mex",
+      "confed": "concacaf",
+      "rating": 74
+    },
+    {
+      "id": "x-mex-cruz-azul",
+      "name": "Cruz Azul",
+      "country": "mex",
+      "confed": "concacaf",
+      "rating": 73
+    },
+    {
+      "id": "x-mex-toluca",
+      "name": "Toluca",
+      "country": "mex",
+      "confed": "concacaf",
+      "rating": 73
+    },
+    {
+      "id": "x-mex-guadalajara",
+      "name": "Guadalajara",
+      "country": "mex",
+      "confed": "concacaf",
+      "rating": 71
+    },
+    {
+      "id": "x-mex-pachuca",
+      "name": "Pachuca",
+      "country": "mex",
+      "confed": "concacaf",
+      "rating": 71
+    },
+    {
+      "id": "x-mex-pumas-unam",
+      "name": "Pumas UNAM",
+      "country": "mex",
+      "confed": "concacaf",
+      "rating": 70
+    },
+    {
+      "id": "x-mex-leon",
+      "name": "León",
+      "country": "mex",
+      "confed": "concacaf",
+      "rating": 70
+    },
+    {
+      "id": "x-mex-santos-laguna",
+      "name": "Santos Laguna",
+      "country": "mex",
+      "confed": "concacaf",
+      "rating": 68
+    },
+    {
+      "id": "x-crc-saprissa",
+      "name": "Saprissa",
+      "country": "crc",
+      "confed": "concacaf",
+      "rating": 64
+    },
+    {
+      "id": "x-crc-alajuelense",
+      "name": "Alajuelense",
+      "country": "crc",
+      "confed": "concacaf",
+      "rating": 64
+    },
+    {
+      "id": "x-crc-herediano",
+      "name": "Herediano",
+      "country": "crc",
+      "confed": "concacaf",
+      "rating": 62
+    },
+    {
+      "id": "x-hon-olimpia",
+      "name": "Olimpia",
+      "country": "hon",
+      "confed": "concacaf",
+      "rating": 62
+    },
+    {
+      "id": "x-hon-motagua",
+      "name": "Motagua",
+      "country": "hon",
+      "confed": "concacaf",
+      "rating": 60
+    },
+    {
+      "id": "x-gua-municipal",
+      "name": "Municipal",
+      "country": "gua",
+      "confed": "concacaf",
+      "rating": 59
+    },
+    {
+      "id": "x-gua-comunicaciones",
+      "name": "Comunicaciones",
+      "country": "gua",
+      "confed": "concacaf",
+      "rating": 59
+    },
+    {
+      "id": "x-pan-plaza-amador",
+      "name": "Plaza Amador",
+      "country": "pan",
+      "confed": "concacaf",
+      "rating": 59
+    },
+    {
+      "id": "x-pan-independiente-pan",
+      "name": "Independiente (PAN)",
+      "country": "pan",
+      "confed": "concacaf",
+      "rating": 58
+    },
+    {
+      "id": "x-slv-alianza-slv",
+      "name": "Alianza (SLV)",
+      "country": "slv",
+      "confed": "concacaf",
+      "rating": 57
+    },
+    {
+      "id": "x-can-forge-fc",
+      "name": "Forge FC",
+      "country": "can",
+      "confed": "concacaf",
+      "rating": 60
+    },
+    {
+      "id": "x-can-cavalry-fc",
+      "name": "Cavalry FC",
+      "country": "can",
+      "confed": "concacaf",
+      "rating": 60
+    },
+    {
+      "id": "x-can-atletico-ottawa",
+      "name": "Atlético Ottawa",
+      "country": "can",
+      "confed": "concacaf",
+      "rating": 58
+    },
+    {
+      "id": "x-jam-cavalier",
+      "name": "Cavalier",
+      "country": "jam",
+      "confed": "concacaf",
+      "rating": 56
+    },
+    {
+      "id": "x-jam-mount-pleasant",
+      "name": "Mount Pleasant",
+      "country": "jam",
+      "confed": "concacaf",
+      "rating": 56
+    },
+    {
+      "id": "x-dom-moca",
+      "name": "Moca",
+      "country": "dom",
+      "confed": "concacaf",
+      "rating": 54
+    },
+    {
+      "id": "x-sur-robinhood",
+      "name": "Robinhood",
+      "country": "sur",
+      "confed": "concacaf",
+      "rating": 52
+    },
+    {
+      "id": "x-egy-al-ahly",
+      "name": "Al Ahly",
+      "country": "egy",
+      "confed": "caf",
+      "rating": 72
+    },
+    {
+      "id": "x-egy-pyramids",
+      "name": "Pyramids",
+      "country": "egy",
+      "confed": "caf",
+      "rating": 69
+    },
+    {
+      "id": "x-egy-zamalek",
+      "name": "Zamalek",
+      "country": "egy",
+      "confed": "caf",
+      "rating": 68
+    },
+    {
+      "id": "x-tun-esperance-de-tunis",
+      "name": "Espérance de Tunis",
+      "country": "tun",
+      "confed": "caf",
+      "rating": 68
+    },
+    {
+      "id": "x-mar-wydad-casablanca",
+      "name": "Wydad Casablanca",
+      "country": "mar",
+      "confed": "caf",
+      "rating": 67
+    },
+    {
+      "id": "x-mar-rs-berkane",
+      "name": "RS Berkane",
+      "country": "mar",
+      "confed": "caf",
+      "rating": 67
+    },
+    {
+      "id": "x-rsa-mamelodi-sundowns",
+      "name": "Mamelodi Sundowns",
+      "country": "rsa",
+      "confed": "caf",
+      "rating": 70
+    },
+    {
+      "id": "x-rsa-orlando-pirates",
+      "name": "Orlando Pirates",
+      "country": "rsa",
+      "confed": "caf",
+      "rating": 66
+    },
+    {
+      "id": "x-nzl-auckland-city",
+      "name": "Auckland City",
+      "country": "nzl",
+      "confed": "ofc",
+      "rating": 56
+    },
+    {
+      "id": "x-png-hekari-united",
+      "name": "Hekari United",
+      "country": "png",
+      "confed": "ofc",
+      "rating": 50
+    }
+  ]
+}

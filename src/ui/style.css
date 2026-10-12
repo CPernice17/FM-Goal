@@ -809,3 +809,12 @@ select {
   font-size: var(--step--1);
   color: var(--ink-soft);
 }
+
+.competitions {
+  margin: -0.5rem 0 0;
+  font-size: var(--step--1);
+}
+
+.competitions span {
+  color: var(--ink-soft);
+}

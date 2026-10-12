@@ -2,6 +2,7 @@ import { preseason } from '../engine/career';
 import type { EventDef } from '../engine/events/schema';
 import { renderText } from '../engine/events/runtime';
 import type { CareerOption, Difficulty, GameState, KeyPlayer, Lang, Pending, SeasonReport, Style } from '../engine/types';
+import { compInfo } from '../engine/continental';
 import { divisionOf, tierInLeague, topLeagueId } from '../engine/world';
 import { headlineText, styleLabel, t, trophyText } from '../i18n/index';
 import type { Strings } from '../i18n/it';
@@ -163,6 +164,7 @@ export function renderSheet(state: GameState): string {
       <strong>${tt(lang, `objective_${pre?.objective ?? 'mid_table'}` as keyof Strings)}</strong>
       <span class="objective-note">${tt(lang, 'ui_expected', { pos: pre?.expectedPosition ?? '-', teams: pre?.teams ?? '-' })}</span>
     </section>
+    ${competitionsBlock(state)}
     <section class="meters">
       ${meter(lang, 'var_board', job.board)}
       ${meter(lang, 'var_dressing', job.dressing)}
@@ -183,6 +185,19 @@ export function renderSheet(state: GameState): string {
     ${styleBlock(state)}
     ${actionBar(`<button class="btn btn-primary" data-action="play">${tt(lang, 'ui_play_season')}</button>`, t(lang, 'ui_quit_short'))}
   </main>`;
+}
+
+/** Coppe internazionali a cui il club allenato è qualificato in questa stagione. */
+function competitionsBlock(state: GameState): string {
+  const job = state.job;
+  const cont = state.world.continental;
+  if (!job || job.role !== 'first' || !cont) return '';
+  const names = Object.entries(cont.qualified)
+    .filter(([, ids]) => ids.includes(job.clubId))
+    .map(([id]) => compInfo(state.world, id)?.name)
+    .filter((n): n is string => !!n);
+  if (names.length === 0) return '';
+  return `<p class="competitions"><span>${tt(state.lang, 'ui_competitions')}:</span> ${esc(names.join(', '))}</p>`;
 }
 
 function styleBlock(state: GameState): string {
@@ -368,6 +383,9 @@ export function renderReport(state: GameState): string {
         <span class="front-pos-note">${esc(r.clubName)}<br>${tt(lang, 'ui_position_of', { teams: r.teams, expected: r.expectedPosition })}<br>${tt(lang, 'ui_points', { points: r.points })}</span>
       </div>
       ${r.cup ? `<p class="front-cup">${tt(lang, 'ui_cup', { cup: state.world.countries[state.world.clubs[r.clubId]?.country ?? '']?.cupName ?? '', stage: t(lang, `stage_${r.cup.reached}` as keyof Strings) })}</p>` : ''}
+      ${r.continental
+        .map((c) => `<p class="front-cup">${tt(lang, 'ui_cup', { cup: c.name, stage: t(lang, `stage_${c.reached}` as keyof Strings) })}</p>`)
+        .join('')}
       ${miniTable(lang, r)}
     </article>
     <section class="meters">

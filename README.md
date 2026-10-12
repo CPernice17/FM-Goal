@@ -2,7 +2,7 @@
 
 Simulatore web della carriera di un allenatore di calcio, a decisioni stagionali: una carriera completa in pochi minuti, dalla Primavera alle grandi panchine.
 
-Stato: **fetta verticale giocabile.** Si gioca su https://cpernice17.github.io/FM-Goal/ (dopo l'attivazione di GitHub Pages). Campionati: Italia, Inghilterra, Spagna, Germania e Francia (prima e seconda divisione), Portogallo, Paesi Bassi, Brasile, Argentina, Arabia Saudita, Giappone e MLS, con coppe nazionali e campionati giovanili. Eventi in italiano.
+Stato: **fetta verticale giocabile.** Si gioca su https://cpernice17.github.io/FM-Goal/ (dopo l'attivazione di GitHub Pages). Campionati: Italia, Inghilterra, Spagna, Germania e Francia (prima e seconda divisione), Portogallo, Paesi Bassi, Brasile, Argentina, Arabia Saudita, Giappone e MLS, con coppe nazionali e campionati giovanili. Coppe continentali con i formati reali 2026/27 (nomi inventati), supercoppe, trofeo intercontinentale e mondiale per club ogni quattro anni. Eventi in italiano.
 
 ## Comandi
 
@@ -19,7 +19,7 @@ npm run sim -- --n=500 --seed=3 --policy=random --difficulty=hard
 
 ## Senza installare nulla
 
-Ogni push su `main` esegue tipi, test, controllo degli eventi e una simulazione di 1000 carriere (scheda **Actions** del repository, poi l'ultima esecuzione: i risultati sono nel riepilogo). Per una simulazione con parametri diversi: **Actions → Test e simulazione → Run workflow**.
+Ogni push su `main` esegue tipi, test, controllo degli eventi e una simulazione di 300 carriere (scheda **Actions** del repository, poi l'ultima esecuzione: i risultati sono nel riepilogo). Per una simulazione con parametri diversi: **Actions → Test e simulazione → Run workflow**.
 
 Ogni push su `main` pubblica anche il gioco su GitHub Pages (workflow **Pubblica il gioco**). Va attivato una volta: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
@@ -32,6 +32,7 @@ src/
     match.ts         modello partita (gol come estrazioni di Poisson)
     competition.ts   campionato all'italiana e coppa a eliminazione diretta
     world.ts         mondo: club, campionati, Primavera, promozioni, evoluzione dei rating
+    continental.ts   coppe continentali, supercoppe, intercontinentale, mondiale per club
     squad.ts         giocatori chiave generati
     career.ts        ciclo della stagione, variabili, offerte, esonero, riepilogo finale
     events/          formato degli eventi, esecuzione, validatore
@@ -40,6 +41,7 @@ src/
     events/*.json    pacchetti di eventi
   data/
     countries/*.json club e campionati per paese (istantanea 2026/27)
+    continental.json coppe internazionali, posti per paese, club esterni dei paesi non simulati
     names.json       nomi per i giocatori generati
   i18n/              testi dell'interfaccia
   ui/                interfaccia (TypeScript senza framework) e foglio di stile

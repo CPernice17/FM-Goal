@@ -60,6 +60,54 @@ export interface CountryData {
   external: ClubData[];
 }
 
+/** Formati reali 2026/27, senza i turni preliminari. */
+export type CompFormat =
+  /** Fase campionato (Champions, Europa, Conference League): classifica unica, playoff, eliminazione diretta. */
+  | { type: 'league'; teams: number; matches: number; direct: number; playoffTo: number }
+  /** Gironi da quattro (Libertadores, Sudamericana, ACL Two, Mondiale per club). */
+  | {
+      type: 'groups';
+      groups: number;
+      advance: 1 | 2;
+      /** Le seconde affrontano ai playoff le terze dei gironi di un'altra coppa (Sudamericana). */
+      playoffWithThirdsOf?: string;
+      /** Metà gironi per regione (Asia). */
+      regional?: boolean;
+      /** Gironi a sola andata e partite secche (Mondiale per club). */
+      singleLeg?: boolean;
+    }
+  /** Fase campionato divisa per regione (AFC Champions League Elite). */
+  | { type: 'regionalLeague'; teamsPerRegion: number; matches: number; advance: number }
+  /** Sola eliminazione diretta con ammesse direttamente agli ottavi (CONCACAF). */
+  | { type: 'knockout'; teams: number; byes: number };
+
+export interface ContinentalComp {
+  id: string;
+  name: string;
+  tier: number;
+  format: CompFormat;
+  /** Posti per paese simulato; il resto va ai club esterni. */
+  slots: Record<string, number>;
+}
+
+export interface Confederation {
+  id: string;
+  name: string;
+  countries: string[];
+  /** Regioni (Asia): paesi simulati di ciascuna regione. */
+  regions?: Record<string, string[]>;
+  competitions: ContinentalComp[];
+  supercup?: { id: string; name: string; from: [string, string] };
+}
+
+export interface ContinentalData {
+  confederations: Confederation[];
+  intercontinental: { id: string; name: string };
+  clubWorldCup: { id: string; name: string; every: number; firstYear: number; quotas: Record<string, number> };
+  /** Club esterni dei paesi non simulati: giocano solo le coppe continentali. */
+  pool: { id: string; name: string; country: string; confed: string; region?: string; rating: number }[];
+}
+
 // ---------------------------------------------------------------------------
 // Stato del mondo
 // ---------------------------------------------------------------------------
@@ -94,6 +142,15 @@ export interface WorldState {
   countries: Record<string, { name: string; cupName: string; youthLeagueName: string; leagueIds: string[] }>;
   /** Rating delle Primavera, rigenerati a ogni stagione. */
   youthRatings: Record<string, number>;
+  /** Coppe continentali: definizioni, qualificate alla prossima stagione, ultimi vincitori. */
+  continental?: {
+    defs: Omit<ContinentalData, 'pool'>;
+    /** Confederazione e regione di ogni club esterno del pool. */
+    poolConfed: Record<string, string>;
+    poolRegion: Record<string, string>;
+    qualified: Record<string, string[]>;
+    lastWinners: Record<string, string>;
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -193,7 +250,10 @@ export type HeadlineId =
   | 'above_expectations'
   | 'below_expectations'
   | 'fired'
-  | 'top_scorer';
+  | 'top_scorer'
+  | 'continental_winner'
+  | 'continental_final'
+  | 'continental_semi';
 
 export interface Headline {
   id: HeadlineId;
@@ -214,6 +274,8 @@ export interface SeasonReport {
   points: number;
   table: { clubId: string; name: string; points: number; gf: number; ga: number }[];
   cup: { reached: string; won: boolean } | null;
+  /** Coppe continentali e mondiali giocate in stagione. */
+  continental: { id: string; name: string; reached: string; won: boolean }[];
   headlines: Headline[];
   firedAtMatchday: number | null;
   matchdays: number;

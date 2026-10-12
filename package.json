@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "test": "tsx tests/run.ts",
     "sim": "tsx scripts/simulate-careers.ts",
-    "validate": "tsx scripts/validate-events.ts"
+    "validate": "tsx scripts/validate-events.ts",
+    "demo-save": "tsx scripts/make-demo-save.ts"
   },
   "devDependencies": {
     "tsx": "^4.19.0",

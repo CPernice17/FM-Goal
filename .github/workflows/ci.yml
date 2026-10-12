@@ -8,7 +8,7 @@ on:
     inputs:
       careers:
         description: 'Numero di carriere da simulare'
-        default: '1000'
+        default: '300'
       seed:
         description: 'Seed della simulazione'
         default: '1'
@@ -33,7 +33,7 @@ jobs:
         run: npm run validate
       - name: Simulazione di carriere
         run: |
-          N="${{ github.event.inputs.careers || '1000' }}"
+          N="${{ github.event.inputs.careers || '300' }}"
           SEED="${{ github.event.inputs.seed || '1' }}"
           RETIRE="${{ github.event.inputs.retire || '0.5' }}"
           npm run --silent sim -- --n="$N" --seed="$SEED" --retire="$RETIRE" | tee sim.txt

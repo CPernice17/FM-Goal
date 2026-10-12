@@ -1,4 +1,4 @@
-import { COUNTRIES, EVENTS } from '../content/index';
+import { CONTINENTAL, COUNTRIES, EVENTS } from '../content/index';
 import { choose, createCareer, nextSeason, playSeason, prepareEnd, startSeason } from '../engine/career';
 import type { Difficulty, GameState, Lang } from '../engine/types';
 import { t } from '../i18n/index';
@@ -159,7 +159,7 @@ root.addEventListener('submit', (e) => {
   }
   const seed = Math.floor(Math.random() * 2 ** 31);
   copied = false;
-  commit(createCareer({ name, nationality: draft.nationality, style: draft.style, difficulty: draft.difficulty, seed, lang: LANG, countries: COUNTRIES }));
+  commit(createCareer({ name, nationality: draft.nationality, style: draft.style, difficulty: draft.difficulty, seed, lang: LANG, countries: COUNTRIES, continental: CONTINENTAL }));
 });
 
 // La difficoltà scelta resta nella bozza, così sopravvive ai ridisegni.

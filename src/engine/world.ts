@@ -1,6 +1,7 @@
 import { simulateCup, simulateLeague, type CupResult, type Entrant, type LeagueResult } from './competition';
 import { clamp, Rng } from './rng';
-import type { Club, CountryData, WorldState } from './types';
+import { attachContinental, qualifyContinental, recordWinners, simulateContinental } from './continental';
+import type { Club, ContinentalData, CountryData, WorldState } from './types';
 
 export const WORLD = {
   minRating: 45,
@@ -16,7 +17,7 @@ export const WORLD = {
   relegationHit: 1.5,
 };
 
-export function createWorld(countries: CountryData[], season: number): WorldState {
+export function createWorld(countries: CountryData[], season: number, continental?: ContinentalData): WorldState {
   const world: WorldState = { season, clubs: {}, leagues: {}, countries: {}, youthRatings: {} };
   for (const country of countries) {
     world.countries[country.id] = {
@@ -32,6 +33,7 @@ export function createWorld(countries: CountryData[], season: number): WorldStat
     }
     for (const c of country.external) addClub(world, c.id, c.name, country.id, null, c.rating, c.profile);
   }
+  if (continental) attachContinental(world, continental);
   return world;
 }
 
@@ -121,6 +123,8 @@ export interface WorldSeasonResult {
   playoffWinners: Record<string, string>;
   /** Vincitori del titolo nei campionati che lo assegnano con un playoff. */
   titleWinners: Record<string, string>;
+  /** Coppe continentali, supercoppe e competizioni mondiali della stagione. */
+  continental: Record<string, CupResult>;
 }
 
 /**
@@ -142,6 +146,7 @@ export function simulateWorldSeason(
     youthExpected: {},
     playoffWinners: {},
     titleWinners: {},
+    continental: {},
   };
 
   for (const league of Object.values(world.leagues)) {
@@ -174,6 +179,8 @@ export function simulateWorldSeason(
     const contenders = table.slice(po.from - 1, po.to).map((r) => ({ id: r.id, rating: ratingOf(r.id) }));
     if (contenders.length >= 2) result.playoffWinners[league.config.id] = simulateCup(rng, contenders).winner;
   }
+
+  result.continental = simulateContinental(world, rng, ratingOf);
 
   // Playoff per il titolo: eliminazione diretta tra le prime N.
   for (const league of Object.values(world.leagues)) {
@@ -239,6 +246,11 @@ export function endOfSeason(world: WorldState, rng: Rng, season: WorldSeasonResu
     const goingUp = m.to !== null && (m.from === null || (world.leagues[m.to]?.config.division ?? 9) < (world.leagues[m.from]?.config.division ?? 9));
     c.rating += goingUp ? WORLD.promotionBoost : -WORLD.relegationHit;
   }
+
+  // Coppe continentali: ultimi vincitori e qualificate alla prossima stagione.
+  recordWinners(world, season.continental);
+  const cupWinners = Object.fromEntries(Object.entries(season.cups).map(([country, cup]) => [country, cup.winner]));
+  qualifyContinental(world, rng, cupWinners);
 
   evolveRatings(world, rng, season);
   world.season += 1;
