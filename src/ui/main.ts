@@ -1,6 +1,6 @@
 import { COUNTRIES, EVENTS } from '../content/index';
 import { choose, createCareer, nextSeason, playSeason, prepareEnd, startSeason } from '../engine/career';
-import type { GameState, Lang } from '../engine/types';
+import type { Difficulty, GameState, Lang } from '../engine/types';
 import { t } from '../i18n/index';
 import { clearGame, loadGame, saveGame } from './storage';
 import {
@@ -20,7 +20,7 @@ const LANG: Lang = 'it';
 const root = document.getElementById('app') as HTMLElement;
 
 let state: GameState | null = null;
-let draft: Draft = { name: '', style: { build: 30, press: 40 }, error: null };
+let draft: Draft = { name: '', style: { build: 30, press: 40 }, difficulty: 'normal', error: null };
 let copied = false;
 
 /** Avanza da sola le fasi senza schermata (simulazione e passaggio di stagione). */
@@ -129,7 +129,7 @@ root.addEventListener('click', (e) => {
       clearGame();
       state = null;
       copied = false;
-      draft = { name: '', style: { build: 30, press: 40 }, error: null };
+      draft = { name: '', style: { build: 30, press: 40 }, difficulty: draft.difficulty, error: null };
       render(true);
       break;
     case 'quit':
@@ -157,7 +157,13 @@ root.addEventListener('submit', (e) => {
   }
   const seed = Math.floor(Math.random() * 2 ** 31);
   copied = false;
-  commit(createCareer({ name, nationality: 'ita', style: draft.style, seed, lang: LANG, countries: COUNTRIES }));
+  commit(createCareer({ name, nationality: 'ita', style: draft.style, difficulty: draft.difficulty, seed, lang: LANG, countries: COUNTRIES }));
+});
+
+// La difficoltà scelta resta nella bozza, così sopravvive ai ridisegni.
+root.addEventListener('change', (e) => {
+  const input = e.target as HTMLInputElement;
+  if (input.name === 'difficulty') draft = { ...draft, name: currentName(), difficulty: input.value as Difficulty };
 });
 
 // Tastiera sul quadrato dello stile: frecce per spostare il punto.

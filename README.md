@@ -14,7 +14,7 @@ npm test             # test del motore
 npm run typecheck    # controllo dei tipi
 npm run validate     # controllo dei pacchetti di eventi (--strict: anche en/es)
 npm run sim          # simula 2000 carriere e stampa le statistiche
-npm run sim -- --n=500 --seed=3 --policy=random
+npm run sim -- --n=500 --seed=3 --policy=random --difficulty=hard
 ```
 
 ## Senza installare nulla

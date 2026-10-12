@@ -1,7 +1,7 @@
 import { preseason } from '../engine/career';
 import type { EventDef } from '../engine/events/schema';
 import { renderText } from '../engine/events/runtime';
-import type { CareerOption, GameState, KeyPlayer, Lang, Pending, SeasonReport, Style } from '../engine/types';
+import type { CareerOption, Difficulty, GameState, KeyPlayer, Lang, Pending, SeasonReport, Style } from '../engine/types';
 import { divisionOf, tierInLeague } from '../engine/world';
 import { headlineText, styleLabel, t, trophyText } from '../i18n/index';
 import type { Strings } from '../i18n/it';
@@ -54,7 +54,25 @@ export function styleSquare(lang: Lang, style: Style, interactive: boolean): str
 export interface Draft {
   name: string;
   style: Style;
+  difficulty: Difficulty;
   error: string | null;
+}
+
+const DIFFICULTIES: Difficulty[] = ['easy', 'normal', 'hard'];
+
+function difficultyField(lang: Lang, current: Difficulty): string {
+  return `
+  <fieldset class="field difficulty">
+    <legend class="field-label">${tt(lang, 'ui_difficulty')}</legend>
+    ${DIFFICULTIES.map(
+      (d) => `
+      <label class="difficulty-option">
+        <input type="radio" name="difficulty" value="${d}" ${d === current ? 'checked' : ''} />
+        <span class="difficulty-name">${tt(lang, `difficulty_${d}` as keyof Strings)}</span>
+        <span class="difficulty-note">${tt(lang, `difficulty_${d}_note` as keyof Strings)}</span>
+      </label>`,
+    ).join('')}
+  </fieldset>`;
 }
 
 export function renderHome(lang: Lang, hasSave: boolean, draft: Draft): string {
@@ -77,6 +95,7 @@ export function renderHome(lang: Lang, hasSave: boolean, draft: Draft): string {
         ${styleSquare(lang, draft.style, true)}
         <p class="style-name">${esc(styleLabel(lang, draft.style))}</p>
       </div>
+      ${difficultyField(lang, draft.difficulty)}
       ${draft.error ? `<p class="error" role="alert">${esc(draft.error)}</p>` : ''}
       <button class="btn ${hasSave ? 'btn-secondary' : 'btn-primary'}" type="submit">${tt(lang, 'ui_start')}</button>
     </form>

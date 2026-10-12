@@ -1,6 +1,7 @@
 /** Tipi condivisi da motore, contenuti e interfaccia. */
 
 export type Lang = 'it' | 'en' | 'es';
+export type Difficulty = 'easy' | 'normal' | 'hard';
 export type Localized = Partial<Record<Lang, string>> & { it: string };
 
 /** Stile su due assi, ciascuno da -100 a +100. */
@@ -238,6 +239,8 @@ export interface CareerSummary {
 export interface GameState {
   version: number;
   lang: Lang;
+  /** Assente nei salvataggi precedenti: vale come 'normal'. */
+  difficulty?: Difficulty;
   rng: number;
   turn: number;
   world: WorldState;

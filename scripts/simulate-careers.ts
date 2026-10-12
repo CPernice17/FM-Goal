@@ -6,7 +6,7 @@
 import { COUNTRIES, EVENTS } from '../src/content/index';
 import { choose, createCareer, nextSeason, playSeason, prepareEnd, startSeason } from '../src/engine/career';
 import { Rng } from '../src/engine/rng';
-import type { CareerOption, GameState } from '../src/engine/types';
+import type { CareerOption, Difficulty, GameState } from '../src/engine/types';
 import { divisionOf } from '../src/engine/world';
 
 const arg = (name: string, fallback: number) => {
@@ -24,6 +24,7 @@ const SEED = arg('seed', 1);
 const POLICY = process.argv.includes('--policy=random') ? 'random' : 'sensible';
 /** Probabilità che la strategia sensata accetti una proposta di ritiro. */
 const RETIRE_P = arg('retire', 0.5);
+const DIFF = (process.argv.find((x) => x.startsWith('--difficulty='))?.split('=')[1] ?? 'normal') as Difficulty;
 
 /** Secondi stimati per schermata: scheda, resoconto, ogni decisione. */
 const SECONDS = { sheet: 3, report: 5, decision: 5 };
@@ -91,6 +92,7 @@ function runCareer(seed: number, pick: Rng): CareerStats {
     style: { build: pick.int(-80, 80), press: pick.int(-80, 80) },
     seed,
     countries: COUNTRIES,
+    difficulty: DIFF,
   });
   let seconds = 0;
   let reachedTop = false;
@@ -164,6 +166,7 @@ const quant = (f: (s: CareerStats) => number, q: number) => {
 const reasons: Record<string, number> = {};
 for (const r of results) reasons[r.reason] = (reasons[r.reason] ?? 0) + 1;
 
+console.log(`Difficoltà: ${DIFF}`);
 console.log(`Strategia: ${POLICY}${POLICY === 'sensible' ? ` (accetta il ritiro con probabilità ${RETIRE_P})` : ''}`);
 console.log(`Carriere simulate: ${N} in ${elapsed.toFixed(1)} s (${((elapsed / N) * 1000).toFixed(1)} ms ciascuna)\n`);
 console.log('Durata');

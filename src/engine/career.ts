@@ -8,6 +8,7 @@ import {
   type CareerOption,
   type CareerSummary,
   type Coach,
+  type Difficulty,
   type CountryData,
   type GameState,
   type Headline,
@@ -65,6 +66,8 @@ export const BALANCE = {
   experienceMax: 2,
   /** Fiducia iniziale della dirigenza in un nuovo incarico. */
   startBoard: 55,
+  /** Fiducia della dirigenza persa con una retrocessione. */
+  relegationBoard: 10,
   renewalBoard: 50,
   /** Ritorno verso 50 delle variabili d'incarico a ogni stagione. */
   meanReversion: 0.1,
@@ -76,6 +79,41 @@ export const BALANCE = {
   offerSpread: 4,
 };
 
+/**
+ * Livelli di difficoltà: sostituiscono solo alcuni valori di BALANCE.
+ * Difficile corrisponde al bilanciamento originale.
+ */
+export const DIFFICULTY: Record<Difficulty, Partial<typeof BALANCE>> = {
+  easy: {
+    experiencePerSeason: 0.35,
+    experienceMax: 4,
+    midSeasonFireBoard: 6,
+    endSeasonFireBoard: 10,
+    offerTargetBase: 59,
+    reputationPerPosition: 3,
+    experienceReputation: 1.2,
+    startBoard: 60,
+    relegationBoard: 5,
+  },
+  normal: {
+    experiencePerSeason: 0.25,
+    experienceMax: 3,
+    midSeasonFireBoard: 10,
+    endSeasonFireBoard: 15,
+    offerTargetBase: 57,
+    reputationPerPosition: 2.4,
+    experienceReputation: 0.8,
+    startBoard: 58,
+    relegationBoard: 8,
+  },
+  hard: {},
+};
+
+/** Parametri effettivi della carriera, secondo la difficoltà scelta. */
+export function bal(state: GameState): typeof BALANCE {
+  return { ...BALANCE, ...DIFFICULTY[state.difficulty ?? 'normal'] };
+}
+
 export interface NewCareerOptions {
   name: string;
   nationality: string;
@@ -83,6 +121,7 @@ export interface NewCareerOptions {
   seed: number;
   lang?: Lang;
   countries: CountryData[];
+  difficulty?: Difficulty;
   /** Paese della prima Primavera. */
   startCountry?: string;
 }
@@ -107,6 +146,7 @@ export function createCareer(opts: NewCareerOptions): GameState {
   const state: GameState = {
     version: SAVE_VERSION,
     lang: opts.lang ?? 'it',
+    difficulty: opts.difficulty ?? 'normal',
     rng: 0,
     turn: 1,
     world,
@@ -149,13 +189,13 @@ function withRng<T>(state: GameState, fn: (rng: Rng) => T): T {
 
 function takeJob(state: GameState, rng: Rng, offer: Offer): void {
   const c = club(state.world, offer.clubId);
-  const fitRating = (state.coach.reputation * BALANCE.offerTargetSlope + BALANCE.offerTargetBase - c.rating) * 1.5;
+  const fitRating = (state.coach.reputation * BALANCE.offerTargetSlope + bal(state).offerTargetBase - c.rating) * 1.5;
   const job: Job = {
     clubId: offer.clubId,
     role: offer.role,
     contractYears: offer.years,
     seasons: 0,
-    board: clamp(Math.round(BALANCE.startBoard + clamp(fitRating, -15, 15)), 35, 75),
+    board: clamp(Math.round(bal(state).startBoard + clamp(fitRating, -15, 15)), 35, 75),
     dressing: 50,
     environment: offer.challenge ? 40 : 50,
     keyPlayers: [],
@@ -195,7 +235,7 @@ export function teamStrength(state: GameState, rng?: Rng): number {
 
 /** Bonus del mestiere: cresce con le stagioni allenate, fino a un tetto. */
 export function coachBonus(state: GameState): number {
-  return Math.min(BALANCE.experienceMax, state.history.length * BALANCE.experiencePerSeason);
+  return Math.min(bal(state).experienceMax, state.history.length * bal(state).experiencePerSeason);
 }
 
 function competitionEntrants(state: GameState): { ids: string[]; rating: (id: string) => number; name: string } | null {
@@ -410,7 +450,7 @@ function buildReport(state: GameState, rng: Rng, season: WorldSeasonResult, pre:
   const halfJudgment = pre.expectedPosition - halfPos;
   const boardMid = job.board + clamp(halfJudgment * BALANCE.boardPerPosition, -25, 20);
   let firedAt: number | null = null;
-  if (boardMid < BALANCE.midSeasonFireBoard && halfJudgment <= BALANCE.midSeasonFireJudgment) {
+  if (boardMid < bal(state).midSeasonFireBoard && halfJudgment <= BALANCE.midSeasonFireJudgment) {
     firedAt = clamp(half + rng.int(-4, 4), 8, ctx.res.matchdays - 6);
   }
 
@@ -488,12 +528,12 @@ function applyOutcome(state: GameState, rng: Rng, report: SeasonReport): void {
   const has = (id: Headline['id']) => report.headlines.some((h) => h.id === id);
   const before = { board: job.board, dressing: job.dressing, environment: job.environment, reputation: state.coach.reputation };
 
-  let repGain = BALANCE.experienceReputation;
+  let repGain = bal(state).experienceReputation;
   if (report.firedAtMatchday !== null) {
     repGain += -6 * ctx.prestige;
     job.board = 0;
   } else {
-    repGain += clamp(judgment * BALANCE.reputationPerPosition, -8, 10) * ctx.prestige;
+    repGain += clamp(judgment * bal(state).reputationPerPosition, -8, 10) * ctx.prestige;
     if (has('champion')) {
       const division = divisionOf(state.world, job.clubId);
       repGain += job.role === 'youth' ? TROPHY_REPUTATION.youth : division === 1 ? TROPHY_REPUTATION.league1 : TROPHY_REPUTATION.league2;
@@ -506,7 +546,7 @@ function applyOutcome(state: GameState, rng: Rng, report: SeasonReport): void {
     if (has('champion')) board += 10;
     if (has('cup_winner')) board += 6;
     if (has('promoted')) board += 10;
-    if (has('relegated')) board -= 10;
+    if (has('relegated')) board -= bal(state).relegationBoard;
     job.board = clamp(job.board + board, 0, 100);
 
     let env = clamp(judgment * BALANCE.environmentPerPosition, -20, 15);
@@ -531,7 +571,7 @@ function applyOutcome(state: GameState, rng: Rng, report: SeasonReport): void {
   job.seasons += 1;
   job.contractYears -= 1;
 
-  const endFired = report.firedAtMatchday === null && job.board < BALANCE.endSeasonFireBoard;
+  const endFired = report.firedAtMatchday === null && job.board < bal(state).endSeasonFireBoard;
   if (report.firedAtMatchday !== null || endFired) {
     if (endFired) {
       report.firedAtMatchday = report.table.length * 2 - 2;
@@ -688,7 +728,7 @@ export function generateOffers(state: GameState, rng: Rng, mode: 'employed' | 'u
   if (job?.role === 'youth' && job.seasons >= 3) count = Math.max(count, 1);
   if (count === 0) return [];
 
-  const target = BALANCE.offerTargetBase + coach.reputation * BALANCE.offerTargetSlope - (mode === 'fired' ? 4 : 0);
+  const target = bal(state).offerTargetBase + coach.reputation * BALANCE.offerTargetSlope - (mode === 'fired' ? 4 : 0);
   const eligible = Object.values(world.clubs).filter((c) => {
     if (!c.leagueId || c.id === job?.clubId) return false;
     if (coach.license === 'A') {
