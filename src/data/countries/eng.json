@@ -36,7 +36,11 @@
         "profile": {
           "build": 35,
           "press": 50
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-liverpool",
@@ -45,7 +49,11 @@
         "profile": {
           "build": 30,
           "press": 60
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-manchester-city",
@@ -54,7 +62,11 @@
         "profile": {
           "build": 60,
           "press": 60
-        }
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-chelsea",
@@ -63,7 +75,11 @@
         "profile": {
           "build": 45,
           "press": 45
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-newcastle-united",
@@ -72,7 +88,11 @@
         "profile": {
           "build": 0,
           "press": 60
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-manchester-united",
@@ -81,7 +101,11 @@
         "profile": {
           "build": 10,
           "press": 30
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "eng-tottenham-hotspur",
@@ -90,7 +114,11 @@
         "profile": {
           "build": 20,
           "press": 50
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#0c2340"
+        ]
       },
       {
         "id": "eng-aston-villa",
@@ -99,7 +127,11 @@
         "profile": {
           "build": 30,
           "press": 40
-        }
+        },
+        "colors": [
+          "#6c1d45",
+          "#75aadb"
+        ]
       },
       {
         "id": "eng-brighton-hove-albion",
@@ -108,7 +140,11 @@
         "profile": {
           "build": 60,
           "press": 50
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-nottingham-forest",
@@ -117,7 +153,11 @@
         "profile": {
           "build": -40,
           "press": 0
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-crystal-palace",
@@ -126,7 +166,11 @@
         "profile": {
           "build": -20,
           "press": 40
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#c8102e"
+        ]
       },
       {
         "id": "eng-bournemouth",
@@ -135,7 +179,11 @@
         "profile": {
           "build": -10,
           "press": 70
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "eng-brentford",
@@ -144,7 +192,11 @@
         "profile": {
           "build": -20,
           "press": 30
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-fulham",
@@ -153,7 +205,11 @@
         "profile": {
           "build": 30,
           "press": 20
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "eng-everton",
@@ -162,7 +218,11 @@
         "profile": {
           "build": -20,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-leeds-united",
@@ -171,7 +231,11 @@
         "profile": {
           "build": 10,
           "press": 50
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#ffd100"
+        ]
       },
       {
         "id": "eng-sunderland",
@@ -180,7 +244,11 @@
         "profile": {
           "build": 0,
           "press": 20
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-ipswich-town",
@@ -189,7 +257,11 @@
         "profile": {
           "build": 30,
           "press": 30
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-coventry-city",
@@ -198,7 +270,11 @@
         "profile": {
           "build": 10,
           "press": 40
-        }
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-hull-city",
@@ -207,7 +283,11 @@
         "profile": {
           "build": 20,
           "press": 10
-        }
+        },
+        "colors": [
+          "#f37021",
+          "#1a1a1a"
+        ]
       }
     ],
     "eng2": [
@@ -218,7 +298,11 @@
         "profile": {
           "build": -10,
           "press": 20
-        }
+        },
+        "colors": [
+          "#6c1d45",
+          "#75aadb"
+        ]
       },
       {
         "id": "eng-wolverhampton-wanderers",
@@ -227,7 +311,11 @@
         "profile": {
           "build": -10,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c5a253",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "eng-burnley",
@@ -236,7 +324,11 @@
         "profile": {
           "build": 10,
           "press": 10
-        }
+        },
+        "colors": [
+          "#6c1d45",
+          "#75aadb"
+        ]
       },
       {
         "id": "eng-southampton",
@@ -245,7 +337,11 @@
         "profile": {
           "build": 40,
           "press": 20
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-sheffield-united",
@@ -254,7 +350,11 @@
         "profile": {
           "build": -10,
           "press": 30
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-middlesbrough",
@@ -263,7 +363,11 @@
         "profile": {
           "build": 20,
           "press": 30
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-norwich-city",
@@ -272,7 +376,11 @@
         "profile": {
           "build": 30,
           "press": 20
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#00843d"
+        ]
       },
       {
         "id": "eng-west-bromwich-albion",
@@ -281,7 +389,11 @@
         "profile": {
           "build": 10,
           "press": 20
-        }
+        },
+        "colors": [
+          "#0c2340",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-watford",
@@ -290,7 +402,11 @@
         "profile": {
           "build": 0,
           "press": 20
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "eng-bristol-city",
@@ -299,7 +415,11 @@
         "profile": {
           "build": 10,
           "press": 20
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-birmingham-city",
@@ -308,7 +428,11 @@
         "profile": {
           "build": 0,
           "press": 30
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-stoke-city",
@@ -317,7 +441,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-millwall",
@@ -326,7 +454,11 @@
         "profile": {
           "build": -40,
           "press": 20
-        }
+        },
+        "colors": [
+          "#0c2340",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-swansea-city",
@@ -335,7 +467,11 @@
         "profile": {
           "build": 40,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "eng-wrexham",
@@ -344,7 +480,11 @@
         "profile": {
           "build": -10,
           "press": 30
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-derby-county",
@@ -353,7 +493,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "eng-queens-park-rangers",
@@ -362,7 +506,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-preston-north-end",
@@ -371,7 +519,11 @@
         "profile": {
           "build": -20,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#0c2340"
+        ]
       },
       {
         "id": "eng-blackburn-rovers",
@@ -380,7 +532,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-portsmouth",
@@ -389,7 +545,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-charlton-athletic",
@@ -398,7 +558,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-cardiff-city",
@@ -407,7 +571,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "eng-bolton-wanderers",
@@ -416,7 +584,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#0c2340"
+        ]
       },
       {
         "id": "eng-lincoln-city",
@@ -425,7 +597,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       }
     ]
   },
@@ -437,7 +613,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "eng-luton-town",
@@ -446,7 +626,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#f37021",
+        "#0c2340"
+      ]
     },
     {
       "id": "eng-oxford-united",
@@ -455,7 +639,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#ffd100",
+        "#0c2340"
+      ]
     },
     {
       "id": "eng-huddersfield-town",
@@ -464,7 +652,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "eng-sheffield-wednesday",
@@ -473,7 +665,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "eng-reading",
@@ -482,7 +678,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     }
   ]
 }

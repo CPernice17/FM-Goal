@@ -2,7 +2,7 @@
 
 Simulatore web della carriera di un allenatore di calcio, a decisioni stagionali: una carriera completa in pochi minuti, dalla Primavera alle grandi panchine.
 
-Stato: **fetta verticale giocabile.** Si gioca su https://cpernice17.github.io/FM-Goal/ (dopo l'attivazione di GitHub Pages). Campionati: Italia, Inghilterra, Spagna, Germania e Francia (prima e seconda divisione), Portogallo, Paesi Bassi, Brasile, Argentina, Arabia Saudita, Giappone e MLS, con coppe nazionali e campionati giovanili. Coppe continentali con i formati reali 2026/27 (nomi inventati), supercoppe, trofeo intercontinentale e mondiale per club ogni quattro anni. Eventi in italiano.
+Stato: **fetta verticale giocabile.** Si gioca su https://cpernice17.github.io/FM-Goal/ (dopo l'attivazione di GitHub Pages). Campionati: Italia, Inghilterra, Spagna, Germania e Francia (prima e seconda divisione), Portogallo, Paesi Bassi, Brasile, Argentina, Arabia Saudita, Giappone e MLS, con coppe nazionali e campionati giovanili. Coppe continentali con i formati reali 2026/27 (nomi inventati), supercoppe, trofeo intercontinentale e mondiale per club ogni quattro anni. Imprevisti al mercato di gennaio, conseguenze mostrate dopo ogni scelta, colori sociali di tutti i club, tema chiaro e scuro. Eventi in italiano.
 
 ## Comandi
 
@@ -62,10 +62,12 @@ createCareer → startSeason → [choose]* → playSeason → prepareEnd → [ch
 - **Un pacchetto di eventi**: crea `src/content/events/<nome>.json` e aggiungilo in `src/content/index.ts`, poi `npm run validate`.
 - **Un paese**: crea `src/data/countries/<id>.json` con campionati, club e club esterni, e aggiungilo in `src/content/index.ts`.
 
+Momenti degli eventi: `start` (inizio stagione), `mid` (mercato di gennaio: gli effetti sulla squadra valgono per il girone di ritorno), `end` (fine stagione), `unemployed` (senza panchina).
+
 Regole di scrittura degli eventi: corpo di massimo due righe, opzioni di massimo otto parole, mai un articolo davanti a `{club}` o `{giocatore}`, ogni opzione è un compromesso.
 
 ## Bilanciamento
 
 Tutti i parametri sono in `BALANCE` (`career.ts`), `MATCH` (`match.ts`), `WORLD` (`world.ts`) e `SQUAD` (`squad.ts`). Si modificano e si verifica l'effetto con `npm run sim`.
 
-Rating e profili di stile dei club sono stime iniziali, da rivedere.
+Rating, profili di stile e colori sociali dei club sono stime iniziali, da rivedere (i colori sono in `colors` nei file dati).

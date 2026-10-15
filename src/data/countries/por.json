@@ -22,7 +22,11 @@
         "profile": {
           "build": 40,
           "press": 50
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "por-benfica",
@@ -31,7 +35,11 @@
         "profile": {
           "build": 30,
           "press": 50
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "por-porto",
@@ -40,7 +48,11 @@
         "profile": {
           "build": 20,
           "press": 50
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "por-braga",
@@ -49,7 +61,11 @@
         "profile": {
           "build": 30,
           "press": 40
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "por-vitoria-de-guimaraes",
@@ -58,7 +74,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "por-famalicao",
@@ -67,7 +87,11 @@
         "profile": {
           "build": 20,
           "press": 30
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "por-santa-clara",
@@ -76,7 +100,11 @@
         "profile": {
           "build": -30,
           "press": 20
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "por-gil-vicente",
@@ -85,7 +113,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#0046ad"
+        ]
       },
       {
         "id": "por-moreirense",
@@ -94,7 +126,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "por-rio-ave",
@@ -103,7 +139,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "por-estoril-praia",
@@ -112,7 +152,11 @@
         "profile": {
           "build": 40,
           "press": 30
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
       },
       {
         "id": "por-arouca",
@@ -121,7 +165,11 @@
         "profile": {
           "build": 30,
           "press": 20
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
       },
       {
         "id": "por-casa-pia",
@@ -130,7 +178,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
       },
       {
         "id": "por-alverca",
@@ -139,7 +191,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "por-nacional",
@@ -148,7 +204,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
       },
       {
         "id": "por-estrela-da-amadora",
@@ -157,7 +217,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#00843d"
+        ]
       },
       {
         "id": "por-maritimo",
@@ -166,7 +230,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#c8102e"
+        ]
       },
       {
         "id": "por-academico-de-viseu",
@@ -175,7 +243,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
       }
     ]
   },
@@ -187,7 +259,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "por-tondela",
@@ -196,7 +272,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#ffd100",
+        "#00843d"
+      ]
     },
     {
       "id": "por-vizela",
@@ -205,7 +285,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "por-chaves",
@@ -214,7 +298,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#c8102e"
+      ]
     },
     {
       "id": "por-feirense",
@@ -223,7 +311,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     }
   ]
 }

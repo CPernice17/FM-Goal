@@ -24,7 +24,11 @@
         "profile": {
           "build": 40,
           "press": 30
-        }
+        },
+        "colors": [
+          "#f5a3c7",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "usa-los-angeles-fc",
@@ -33,7 +37,11 @@
         "profile": {
           "build": -10,
           "press": 50
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#c5a253"
+        ]
       },
       {
         "id": "usa-columbus-crew",
@@ -42,7 +50,11 @@
         "profile": {
           "build": 50,
           "press": 40
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "usa-fc-cincinnati",
@@ -51,7 +63,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#f37021",
+          "#0046ad"
+        ]
       },
       {
         "id": "usa-philadelphia-union",
@@ -60,7 +76,11 @@
         "profile": {
           "build": -10,
           "press": 60
-        }
+        },
+        "colors": [
+          "#0c2340",
+          "#c5a253"
+        ]
       },
       {
         "id": "usa-san-diego-fc",
@@ -69,7 +89,11 @@
         "profile": {
           "build": 50,
           "press": 40
-        }
+        },
+        "colors": [
+          "#0c2340",
+          "#00a3ad"
+        ]
       },
       {
         "id": "usa-seattle-sounders-fc",
@@ -78,7 +102,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#0046ad"
+        ]
       },
       {
         "id": "usa-vancouver-whitecaps-fc",
@@ -87,7 +115,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0c2340",
+          "#ffffff"
+        ]
       },
       {
         "id": "usa-la-galaxy",
@@ -96,7 +128,11 @@
         "profile": {
           "build": 30,
           "press": 20
-        }
+        },
+        "colors": [
+          "#0c2340",
+          "#c5a253"
+        ]
       },
       {
         "id": "usa-minnesota-united-fc",
@@ -105,7 +141,11 @@
         "profile": {
           "build": -30,
           "press": 30
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#75aadb"
+        ]
       },
       {
         "id": "usa-charlotte-fc",
@@ -114,7 +154,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#4fb3e8",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "usa-new-york-city-fc",
@@ -123,7 +167,11 @@
         "profile": {
           "build": 30,
           "press": 30
-        }
+        },
+        "colors": [
+          "#75aadb",
+          "#0c2340"
+        ]
       },
       {
         "id": "usa-nashville-sc",
@@ -132,7 +180,11 @@
         "profile": {
           "build": -20,
           "press": 20
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#0c2340"
+        ]
       },
       {
         "id": "usa-orlando-city-sc",
@@ -141,7 +193,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#4f2683",
+          "#ffffff"
+        ]
       },
       {
         "id": "usa-chicago-fire-fc",
@@ -150,7 +206,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#0c2340"
+        ]
       },
       {
         "id": "usa-portland-timbers",
@@ -159,7 +219,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#c5a253"
+        ]
       },
       {
         "id": "usa-austin-fc",
@@ -168,7 +232,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "usa-real-salt-lake",
@@ -177,7 +245,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#6c1d45",
+          "#0046ad"
+        ]
       },
       {
         "id": "usa-houston-dynamo-fc",
@@ -186,7 +258,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#f37021",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "usa-colorado-rapids",
@@ -195,7 +271,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#6c1d45",
+          "#75aadb"
+        ]
       },
       {
         "id": "usa-atlanta-united-fc",
@@ -204,7 +284,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "usa-new-york-red-bulls",
@@ -213,7 +297,11 @@
         "profile": {
           "build": -20,
           "press": 70
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "usa-fc-dallas",
@@ -222,7 +310,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#0046ad"
+        ]
       },
       {
         "id": "usa-st-louis-city-sc",
@@ -231,7 +323,11 @@
         "profile": {
           "build": -20,
           "press": 60
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#0c2340"
+        ]
       },
       {
         "id": "usa-sporting-kansas-city",
@@ -240,7 +336,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#75aadb",
+          "#0c2340"
+        ]
       },
       {
         "id": "usa-new-england-revolution",
@@ -249,7 +349,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0c2340",
+          "#c8102e"
+        ]
       },
       {
         "id": "usa-toronto-fc",
@@ -258,7 +362,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#8d9093"
+        ]
       },
       {
         "id": "usa-san-jose-earthquakes",
@@ -267,7 +375,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "usa-d-c-united",
@@ -276,7 +388,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#c8102e"
+        ]
       },
       {
         "id": "usa-cf-montreal",
@@ -285,7 +401,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#1a1a1a"
+        ]
       }
     ]
   },

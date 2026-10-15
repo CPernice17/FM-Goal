@@ -1,7 +1,8 @@
 import { clamp, Rng } from '../rng';
-import { LICENSE_ORDER, type Bindings, type GameState, type Lang, type Localized } from '../types';
+import { newMarketPlayer, SQUAD } from '../squad';
+import { LICENSE_ORDER, type Bindings, type GameState, type Lang, type Localized, type OutcomeLine } from '../types';
 import { club, divisionOf, tierInLeague } from '../world';
-import type { Comparator, Condition, Effect, EventDef, Moment } from './schema';
+import type { Comparator, Condition, Effect, EventDef, Moment, StateVar } from './schema';
 
 export function compare(a: number, op: Comparator, b: number): boolean {
   switch (op) {
@@ -133,19 +134,50 @@ function withRival(state: GameState, rng: Rng, bindings: Bindings): Bindings {
 export interface EffectOutcome {
   endJob: boolean;
   retire: boolean;
+  /** Conseguenze leggibili della scelta, nell'ordine in cui avvengono. */
+  lines: OutcomeLine[];
 }
 
-export function applyEffects(state: GameState, effects: readonly Effect[], bindings: Bindings): EffectOutcome {
-  const out: EffectOutcome = { endJob: false, retire: false };
+/**
+ * Cambia la forza della squadra allenata. Per la prima squadra il cambio è
+ * permanente (rating del club); durante il mercato di gennaio vale solo per il
+ * girone di ritorno, quindi il girone d'andata viene compensato.
+ */
+export function shiftRating(state: GameState, delta: number, permanent: boolean): void {
   const job = state.job;
+  if (!job || delta === 0) return;
+  const mid = state.phase === 'mid_decision';
+  if (permanent && job.role === 'first') {
+    club(state.world, job.clubId).rating += delta;
+    if (mid) {
+      job.seasonBoost -= delta;
+      job.midBoost = (job.midBoost ?? 0) + delta;
+    }
+    return;
+  }
+  if (mid) job.midBoost = (job.midBoost ?? 0) + delta;
+  else job.seasonBoost += delta;
+}
+
+export function applyEffects(state: GameState, effects: readonly Effect[], bindings: Bindings, rng: Rng): EffectOutcome {
+  const out: EffectOutcome = { endJob: false, retire: false, lines: [] };
+  const job = state.job;
+  const mid = state.phase === 'mid_decision';
+  const addVar = (name: StateVar, delta: number) => {
+    const line = out.lines.find((l) => l.kind === 'var' && l.var === name);
+    if (line && line.kind === 'var') line.delta += delta;
+    else out.lines.push({ kind: 'var', var: name, delta });
+  };
   for (const e of effects) {
     switch (e.type) {
       case 'var':
         if (e.var === 'reputation') {
           state.coach.reputation = clamp(state.coach.reputation + e.delta, 0, 100);
           state.coach.peakReputation = Math.max(state.coach.peakReputation, state.coach.reputation);
+          addVar('reputation', e.delta);
         } else if (job) {
           job[e.var] = clamp(job[e.var] + e.delta, 0, 100);
+          addVar(e.var, e.delta);
         }
         break;
       case 'flag':
@@ -154,38 +186,66 @@ export function applyEffects(state: GameState, effects: readonly Effect[], bindi
         break;
       case 'style':
         state.coach.style[e.axis] = clamp(state.coach.style[e.axis] + e.delta, -100, 100);
+        out.lines.push({ kind: 'style', axis: e.axis, delta: e.delta });
         break;
       case 'keyPlayer': {
         if (!job || !bindings.playerId) break;
         const p = job.keyPlayers.find((x) => x.id === bindings.playerId);
         if (!p) break;
-        if (e.satisfaction) p.satisfaction = clamp(p.satisfaction + e.satisfaction, 0, 100);
+        if (e.satisfaction) {
+          p.satisfaction = clamp(p.satisfaction + e.satisfaction, 0, 100);
+          out.lines.push({ kind: 'satisfaction', name: p.name, delta: e.satisfaction });
+        }
         if (e.leave) {
           job.keyPlayers = job.keyPlayers.filter((x) => x !== p);
-          job.seasonBoost -= p.contribution;
-          if (job.role === 'first') club(state.world, job.clubId).rating -= p.contribution * 0.5;
+          shiftRating(state, -p.contribution * SQUAD.ratingShare, true);
+          out.lines.push({ kind: 'playerLeft', name: p.name });
         }
         break;
       }
+      case 'newPlayer': {
+        if (!job) break;
+        if (job.keyPlayers.length >= SQUAD.maxAfterMarket) {
+          // Rosa piena: esce il giocatore chiave che rende meno.
+          const weakest = [...job.keyPlayers].sort((a, b) => a.contribution - b.contribution)[0];
+          if (weakest) {
+            job.keyPlayers = job.keyPlayers.filter((x) => x !== weakest);
+            out.lines.push({ kind: 'playerLeft', name: weakest.name });
+          }
+        }
+        const p = newMarketPlayer(rng, club(state.world, job.clubId).country, e.profile);
+        job.keyPlayers.push(p);
+        shiftRating(state, p.contribution * SQUAD.ratingShare, true);
+        out.lines.push({ kind: 'playerJoined', name: p.name, profile: e.profile, age: p.age });
+        break;
+      }
       case 'teamRating':
-        if (job) job.seasonBoost += e.delta;
+        if (job) {
+          shiftRating(state, e.delta, false);
+          out.lines.push({ kind: 'team', delta: e.delta, secondHalf: mid });
+        }
         break;
       case 'schedule':
         state.scheduled.push({ eventId: e.event, turn: state.turn + e.inTurns });
+        out.lines.push({ kind: 'later' });
         break;
       case 'license': {
         const i = LICENSE_ORDER.indexOf(state.coach.license);
         state.coach.license = LICENSE_ORDER[Math.min(i + 1, LICENSE_ORDER.length - 1)] ?? state.coach.license;
+        out.lines.push({ kind: 'license', license: state.coach.license });
         break;
       }
       case 'skipOffers':
         state.skipOffers = true;
+        out.lines.push({ kind: 'skipOffers' });
         break;
       case 'endJob':
         out.endJob = true;
+        out.lines.push({ kind: 'resign' });
         break;
       case 'retire':
         out.retire = true;
+        out.lines.push({ kind: 'retire' });
         break;
     }
   }

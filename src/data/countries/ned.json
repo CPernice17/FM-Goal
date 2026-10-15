@@ -22,7 +22,11 @@
         "profile": {
           "build": 40,
           "press": 60
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "ned-ajax",
@@ -31,7 +35,11 @@
         "profile": {
           "build": 60,
           "press": 50
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#c8102e"
+        ]
       },
       {
         "id": "ned-feyenoord",
@@ -40,7 +48,11 @@
         "profile": {
           "build": 30,
           "press": 60
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "ned-az",
@@ -49,7 +61,11 @@
         "profile": {
           "build": 40,
           "press": 50
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "ned-twente",
@@ -58,7 +74,11 @@
         "profile": {
           "build": 10,
           "press": 40
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "ned-utrecht",
@@ -67,7 +87,11 @@
         "profile": {
           "build": 0,
           "press": 50
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "ned-nec",
@@ -76,7 +100,11 @@
         "profile": {
           "build": 20,
           "press": 40
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#00843d"
+        ]
       },
       {
         "id": "ned-go-ahead-eagles",
@@ -85,7 +113,11 @@
         "profile": {
           "build": 20,
           "press": 40
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffd100"
+        ]
       },
       {
         "id": "ned-heerenveen",
@@ -94,7 +126,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "ned-groningen",
@@ -103,7 +139,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "ned-sparta-rotterdam",
@@ -112,7 +152,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "ned-fortuna-sittard",
@@ -121,7 +165,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#00843d"
+        ]
       },
       {
         "id": "ned-pec-zwolle",
@@ -130,7 +178,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "ned-excelsior",
@@ -139,7 +191,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "ned-telstar",
@@ -148,7 +204,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#c8102e"
+        ]
       },
       {
         "id": "ned-willem-ii",
@@ -157,7 +217,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#0046ad"
+        ]
       },
       {
         "id": "ned-cambuur",
@@ -166,7 +230,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
       },
       {
         "id": "ned-ado-den-haag",
@@ -175,7 +243,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffd100"
+        ]
       }
     ]
   },
@@ -187,7 +259,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#f37021",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "ned-nac-breda",
@@ -196,7 +272,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "ned-heracles-almelo",
@@ -205,7 +285,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
     },
     {
       "id": "ned-roda-jc",
@@ -214,7 +298,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "ned-de-graafschap",
@@ -223,7 +311,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     }
   ]
 }

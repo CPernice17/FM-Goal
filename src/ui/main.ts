@@ -1,18 +1,20 @@
 import { CONTINENTAL, COUNTRIES, EVENTS } from '../content/index';
 import { choose, createCareer, nextSeason, playSeason, prepareEnd, startSeason } from '../engine/career';
-import type { Difficulty, GameState, Lang } from '../engine/types';
+import type { Difficulty, GameState, Lang, OutcomeLine } from '../engine/types';
 import { t } from '../i18n/index';
-import { clearGame, loadGame, saveGame } from './storage';
+import { clearGame, loadGame, loadTheme, saveGame, saveTheme } from './storage';
 import {
   renderCareerDecision,
   renderEvent,
   renderFinal,
   renderHome,
+  renderOutcome,
   renderReport,
   renderSheet,
   renderSidebar,
   summaryText,
   type Draft,
+  type ThemeChoice,
 } from './views';
 import './style.css';
 
@@ -23,6 +25,31 @@ const root = document.getElementById('app') as HTMLElement;
 let state: GameState | null = null;
 let draft: Draft = { name: '', style: { build: 30, press: 40 }, difficulty: 'normal', nationality: 'ita', error: null };
 let copied = false;
+/** Ultima scelta e sue conseguenze, mostrate nella schermata successiva. */
+let outcome: { choice: string; lines: OutcomeLine[] } | null = null;
+let theme: ThemeChoice = loadTheme();
+
+const THEMES: ThemeChoice[] = ['auto', 'light', 'dark'];
+
+function applyTheme(): void {
+  const html = document.documentElement;
+  if (theme === 'auto') delete html.dataset.theme;
+  else html.dataset.theme = theme;
+  const dark = theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#16141d' : '#fbf7f4');
+}
+
+/** Salvataggi precedenti ai colori sociali: li recupera dai file dati. */
+function withClubColors(s: GameState): GameState {
+  const colors = new Map<string, [string, string]>();
+  for (const c of COUNTRIES) {
+    for (const list of Object.values(c.clubs)) for (const club of list) if (club.colors) colors.set(club.id, club.colors);
+    for (const club of c.external) if (club.colors) colors.set(club.id, club.colors);
+  }
+  for (const club of CONTINENTAL.pool) if (club.colors) colors.set(club.id, club.colors);
+  for (const club of Object.values(s.world.clubs)) if (!club.colors) club.colors = colors.get(club.id);
+  return s;
+}
 
 /** Avanza da sola le fasi senza schermata (simulazione e passaggio di stagione). */
 function settle(s: GameState): GameState {
@@ -42,7 +69,7 @@ function commit(next: GameState): void {
 function render(newScreen = false): void {
   if (!state) {
     root.className = 'is-home';
-    root.innerHTML = renderHome(LANG, loadGame() !== null, draft, COUNTRY_LIST);
+    root.innerHTML = renderHome(LANG, loadGame() !== null, draft, COUNTRY_LIST, theme);
   } else {
     let main = '';
     switch (state.phase) {
@@ -51,6 +78,7 @@ function render(newScreen = false): void {
         break;
       case 'first_job':
       case 'start_decision':
+      case 'mid_decision':
       case 'end_decision': {
         const p = state.pending;
         if (p?.kind === 'event') {
@@ -68,8 +96,12 @@ function render(newScreen = false): void {
         main = renderFinal(state, copied);
         break;
     }
+    // Le conseguenze dell'ultima scelta compaiono in cima alla schermata successiva.
+    if (outcome) main = main.replace(/(<main[^>]*>)/, `$1${renderOutcome(state, outcome.choice, outcome.lines)}`);
     root.className = 'is-game';
-    root.innerHTML = `<div class="layout phase-${state.phase}">${main}${renderSidebar(state)}</div>`;
+    // La bacheca di fine carriera occupa tutta la larghezza, senza colonna laterale.
+    root.innerHTML =
+      state.phase === 'finished' ? main : `<div class="layout phase-${state.phase}">${main}${renderSidebar(state, theme)}</div>`;
   }
   if (newScreen) {
     window.scrollTo({ top: 0 });
@@ -86,8 +118,18 @@ root.addEventListener('click', (e) => {
   const target = (e.target as Element).closest<HTMLElement | SVGElement>('[data-action]');
   if (!target) return;
   const action = target.getAttribute('data-action');
+  // Le conseguenze restano visibili fino all'azione successiva.
+  if (action !== 'choose' && action !== 'theme' && action !== 'copy') outcome = null;
 
   switch (action) {
+    case 'theme':
+      theme = THEMES[(THEMES.indexOf(theme) + 1) % THEMES.length] ?? 'auto';
+      saveTheme(theme);
+      applyTheme();
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => applyTheme());
+applyTheme();
+render();
+      break;
     case 'pick-style': {
       const rect = target.getBoundingClientRect();
       const me = e as MouseEvent;
@@ -95,12 +137,14 @@ root.addEventListener('click', (e) => {
       const fy = (me.clientY - rect.top) / rect.height;
       const clampAxis = (v: number) => Math.max(-100, Math.min(100, Math.round(v / 10) * 10));
       draft = { ...draft, name: currentName(), style: { build: clampAxis((fx - 0.5) * 222), press: clampAxis((0.5 - fy) * 222) } };
-      render();
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => applyTheme());
+applyTheme();
+render();
       break;
     }
     case 'continue':
       state = loadGame();
-      if (state) state = settle(state);
+      if (state) state = settle(withClubColors(state));
       render(true);
       break;
     case 'play':
@@ -110,7 +154,10 @@ root.addEventListener('click', (e) => {
     case 'choose': {
       if (!state) return;
       const index = Number(target.getAttribute('data-index'));
-      commit(choose(state, index, EVENTS));
+      const label = (target.querySelector('.offer-club')?.textContent ?? target.textContent ?? '').trim();
+      const next = choose(state, index, EVENTS);
+      outcome = next.lastOutcome?.length ? { choice: label, lines: next.lastOutcome } : null;
+      commit(next);
       break;
     }
     case 'next':
@@ -122,7 +169,9 @@ root.addEventListener('click', (e) => {
       navigator.clipboard?.writeText(summaryText(state)).then(
         () => {
           copied = true;
-          render();
+          window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => applyTheme());
+applyTheme();
+render();
         },
         () => undefined,
       );
@@ -153,7 +202,9 @@ root.addEventListener('submit', (e) => {
   const name = currentName().trim();
   if (!name) {
     draft = { ...draft, name, error: t(LANG, 'ui_name_missing') };
-    render();
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => applyTheme());
+applyTheme();
+render();
     root.querySelector<HTMLInputElement>('input[name="name"]')?.focus();
     return;
   }
@@ -179,8 +230,12 @@ root.addEventListener('keydown', (e) => {
   e.preventDefault();
   const clampAxis = (v: number) => Math.max(-100, Math.min(100, v));
   draft = { ...draft, name: currentName(), style: { build: clampAxis(draft.style.build + d[0]), press: clampAxis(draft.style.press + d[1]) } };
-  render();
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => applyTheme());
+applyTheme();
+render();
   root.querySelector<SVGElement>('[data-action="pick-style"]')?.focus();
 });
 
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => applyTheme());
+applyTheme();
 render();

@@ -228,1099 +228,1727 @@
       "name": "Club Brugge",
       "country": "bel",
       "confed": "uefa",
-      "rating": 76
+      "rating": 76,
+      "colors": [
+        "#0046ad",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-bel-union-saint-gilloise",
       "name": "Union Saint-Gilloise",
       "country": "bel",
       "confed": "uefa",
-      "rating": 74
+      "rating": 74,
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-bel-anderlecht",
       "name": "Anderlecht",
       "country": "bel",
       "confed": "uefa",
-      "rating": 73
+      "rating": 73,
+      "colors": [
+        "#4f2683",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-bel-genk",
       "name": "Genk",
       "country": "bel",
       "confed": "uefa",
-      "rating": 72
+      "rating": 72,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-bel-gent",
       "name": "Gent",
       "country": "bel",
       "confed": "uefa",
-      "rating": 70
+      "rating": 70,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-bel-antwerp",
       "name": "Antwerp",
       "country": "bel",
       "confed": "uefa",
-      "rating": 70
+      "rating": 70,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-bel-standard-liege",
       "name": "Standard Liège",
       "country": "bel",
       "confed": "uefa",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-tur-galatasaray",
       "name": "Galatasaray",
       "country": "tur",
       "confed": "uefa",
-      "rating": 78
+      "rating": 78,
+      "colors": [
+        "#a50021",
+        "#ffd100"
+      ]
     },
     {
       "id": "x-tur-fenerbahce",
       "name": "Fenerbahçe",
       "country": "tur",
       "confed": "uefa",
-      "rating": 77
+      "rating": 77,
+      "colors": [
+        "#ffd100",
+        "#0c2340"
+      ]
     },
     {
       "id": "x-tur-besiktas",
       "name": "Beşiktaş",
       "country": "tur",
       "confed": "uefa",
-      "rating": 74
+      "rating": 74,
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-tur-trabzonspor",
       "name": "Trabzonspor",
       "country": "tur",
       "confed": "uefa",
-      "rating": 72
+      "rating": 72,
+      "colors": [
+        "#7b1e2b",
+        "#75aadb"
+      ]
     },
     {
       "id": "x-tur-basaksehir",
       "name": "Başakşehir",
       "country": "tur",
       "confed": "uefa",
-      "rating": 70
+      "rating": 70,
+      "colors": [
+        "#f37021",
+        "#0c2340"
+      ]
     },
     {
       "id": "x-tur-samsunspor",
       "name": "Samsunspor",
       "country": "tur",
       "confed": "uefa",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-sco-celtic",
       "name": "Celtic",
       "country": "sco",
       "confed": "uefa",
-      "rating": 74
+      "rating": 74,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-sco-rangers",
       "name": "Rangers",
       "country": "sco",
       "confed": "uefa",
-      "rating": 72
+      "rating": 72,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-sco-hearts",
       "name": "Hearts",
       "country": "sco",
       "confed": "uefa",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#7b1e2b",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-sco-aberdeen",
       "name": "Aberdeen",
       "country": "sco",
       "confed": "uefa",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-sco-hibernian",
       "name": "Hibernian",
       "country": "sco",
       "confed": "uefa",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-aut-red-bull-salzburg",
       "name": "Red Bull Salzburg",
       "country": "aut",
       "confed": "uefa",
-      "rating": 73
+      "rating": 73,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-aut-sturm-graz",
       "name": "Sturm Graz",
       "country": "aut",
       "confed": "uefa",
-      "rating": 70
+      "rating": 70,
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-aut-rapid-wien",
       "name": "Rapid Wien",
       "country": "aut",
       "confed": "uefa",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-aut-lask",
       "name": "LASK",
       "country": "aut",
       "confed": "uefa",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-aut-austria-wien",
       "name": "Austria Wien",
       "country": "aut",
       "confed": "uefa",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#4f2683",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-sui-young-boys",
       "name": "Young Boys",
       "country": "sui",
       "confed": "uefa",
-      "rating": 71
+      "rating": 71,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-sui-basel",
       "name": "Basel",
       "country": "sui",
       "confed": "uefa",
-      "rating": 71
+      "rating": 71,
+      "colors": [
+        "#c8102e",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-sui-lugano",
       "name": "Lugano",
       "country": "sui",
       "confed": "uefa",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-sui-servette",
       "name": "Servette",
       "country": "sui",
       "confed": "uefa",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#7b1e2b",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-sui-st-gallen",
       "name": "St. Gallen",
       "country": "sui",
       "confed": "uefa",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-gre-olympiacos",
       "name": "Olympiacos",
       "country": "gre",
       "confed": "uefa",
-      "rating": 74
+      "rating": 74,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-gre-paok",
       "name": "PAOK",
       "country": "gre",
       "confed": "uefa",
-      "rating": 72
+      "rating": 72,
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-gre-aek-athens",
       "name": "AEK Athens",
       "country": "gre",
       "confed": "uefa",
-      "rating": 72
+      "rating": 72,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-gre-panathinaikos",
       "name": "Panathinaikos",
       "country": "gre",
       "confed": "uefa",
-      "rating": 71
+      "rating": 71,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-gre-aris",
       "name": "Aris",
       "country": "gre",
       "confed": "uefa",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-den-copenhagen",
       "name": "Copenhagen",
       "country": "den",
       "confed": "uefa",
-      "rating": 72
+      "rating": 72,
+      "colors": [
+        "#ffffff",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-den-midtjylland",
       "name": "Midtjylland",
       "country": "den",
       "confed": "uefa",
-      "rating": 71
+      "rating": 71,
+      "colors": [
+        "#1a1a1a",
+        "#c8102e"
+      ]
     },
     {
       "id": "x-den-brndby",
       "name": "Brøndby",
       "country": "den",
       "confed": "uefa",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-den-nordsjlland",
       "name": "Nordsjælland",
       "country": "den",
       "confed": "uefa",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#c8102e",
+        "#ffd100"
+      ]
     },
     {
       "id": "x-cze-slavia-prague",
       "name": "Slavia Prague",
       "country": "cze",
       "confed": "uefa",
-      "rating": 72
+      "rating": 72,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-cze-sparta-prague",
       "name": "Sparta Prague",
       "country": "cze",
       "confed": "uefa",
-      "rating": 71
+      "rating": 71,
+      "colors": [
+        "#a50021",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-cze-viktoria-plzen",
       "name": "Viktoria Plzeň",
       "country": "cze",
       "confed": "uefa",
-      "rating": 69
+      "rating": 69,
+      "colors": [
+        "#c8102e",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-cze-banik-ostrava",
       "name": "Baník Ostrava",
       "country": "cze",
       "confed": "uefa",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#75aadb",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-nor-bod-glimt",
       "name": "Bodø/Glimt",
       "country": "nor",
       "confed": "uefa",
-      "rating": 72
+      "rating": 72,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-nor-molde",
       "name": "Molde",
       "country": "nor",
       "confed": "uefa",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-nor-brann",
       "name": "Brann",
       "country": "nor",
       "confed": "uefa",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-nor-rosenborg",
       "name": "Rosenborg",
       "country": "nor",
       "confed": "uefa",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#ffffff",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-cro-dinamo-zagreb",
       "name": "Dinamo Zagreb",
       "country": "cro",
       "confed": "uefa",
-      "rating": 71
+      "rating": 71,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-cro-hajduk-split",
       "name": "Hajduk Split",
       "country": "cro",
       "confed": "uefa",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#ffffff",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-cro-rijeka",
       "name": "Rijeka",
       "country": "cro",
       "confed": "uefa",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#ffffff",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-cro-osijek",
       "name": "Osijek",
       "country": "cro",
       "confed": "uefa",
-      "rating": 64
+      "rating": 64,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-srb-red-star-belgrade",
       "name": "Red Star Belgrade",
       "country": "srb",
       "confed": "uefa",
-      "rating": 71
+      "rating": 71,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-srb-partizan",
       "name": "Partizan",
       "country": "srb",
       "confed": "uefa",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-srb-tsc-backa-topola",
       "name": "TSC Bačka Topola",
       "country": "srb",
       "confed": "uefa",
-      "rating": 63
+      "rating": 63,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-ukr-shakhtar-donetsk",
       "name": "Shakhtar Donetsk",
       "country": "ukr",
       "confed": "uefa",
-      "rating": 72
+      "rating": 72,
+      "colors": [
+        "#f37021",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-ukr-dynamo-kyiv",
       "name": "Dynamo Kyiv",
       "country": "ukr",
       "confed": "uefa",
-      "rating": 70
+      "rating": 70,
+      "colors": [
+        "#ffffff",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-ukr-polissya-zhytomyr",
       "name": "Polissya Zhytomyr",
       "country": "ukr",
       "confed": "uefa",
-      "rating": 64
+      "rating": 64,
+      "colors": [
+        "#ffd100",
+        "#00843d"
+      ]
     },
     {
       "id": "x-pol-lech-poznan",
       "name": "Lech Poznań",
       "country": "pol",
       "confed": "uefa",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-pol-legia-warsaw",
       "name": "Legia Warsaw",
       "country": "pol",
       "confed": "uefa",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-pol-jagiellonia",
       "name": "Jagiellonia",
       "country": "pol",
       "confed": "uefa",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#ffd100",
+        "#c8102e"
+      ]
     },
     {
       "id": "x-pol-rakow-czestochowa",
       "name": "Raków Częstochowa",
       "country": "pol",
       "confed": "uefa",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#c8102e",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-swe-malmo-ff",
       "name": "Malmö FF",
       "country": "swe",
       "confed": "uefa",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#75aadb",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-swe-djurgarden",
       "name": "Djurgården",
       "country": "swe",
       "confed": "uefa",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#75aadb",
+        "#0c2340"
+      ]
     },
     {
       "id": "x-swe-hammarby",
       "name": "Hammarby",
       "country": "swe",
       "confed": "uefa",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-swe-aik",
       "name": "AIK",
       "country": "swe",
       "confed": "uefa",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#1a1a1a",
+        "#ffd100"
+      ]
     },
     {
       "id": "x-cyp-apoel",
       "name": "APOEL",
       "country": "cyp",
       "confed": "uefa",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-cyp-pafos",
       "name": "Pafos",
       "country": "cyp",
       "confed": "uefa",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#0046ad",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-cyp-aek-larnaca",
       "name": "AEK Larnaca",
       "country": "cyp",
       "confed": "uefa",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#ffd100",
+        "#00843d"
+      ]
     },
     {
       "id": "x-cyp-omonia",
       "name": "Omonia",
       "country": "cyp",
       "confed": "uefa",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-isr-maccabi-tel-aviv",
       "name": "Maccabi Tel Aviv",
       "country": "isr",
       "confed": "uefa",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-isr-maccabi-haifa",
       "name": "Maccabi Haifa",
       "country": "isr",
       "confed": "uefa",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-isr-hapoel-be-er-sheva",
       "name": "Hapoel Be'er Sheva",
       "country": "isr",
       "confed": "uefa",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-hun-ferencvaros",
       "name": "Ferencváros",
       "country": "hun",
       "confed": "uefa",
-      "rating": 69
+      "rating": 69,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-hun-puskas-akademia",
       "name": "Puskás Akadémia",
       "country": "hun",
       "confed": "uefa",
-      "rating": 63
+      "rating": 63,
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-rou-fcsb",
       "name": "FCSB",
       "country": "rou",
       "confed": "uefa",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#c8102e",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-rou-cfr-cluj",
       "name": "CFR Cluj",
       "country": "rou",
       "confed": "uefa",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#7b1e2b",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-rou-universitatea-craiova",
       "name": "Universitatea Craiova",
       "country": "rou",
       "confed": "uefa",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-bul-ludogorets",
       "name": "Ludogorets",
       "country": "bul",
       "confed": "uefa",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-bul-cska-sofia",
       "name": "CSKA Sofia",
       "country": "bul",
       "confed": "uefa",
-      "rating": 62
+      "rating": 62,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-svk-slovan-bratislava",
       "name": "Slovan Bratislava",
       "country": "svk",
       "confed": "uefa",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#75aadb",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-svk-spartak-trnava",
       "name": "Spartak Trnava",
       "country": "svk",
       "confed": "uefa",
-      "rating": 62
+      "rating": 62,
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-slo-celje",
       "name": "Celje",
       "country": "slo",
       "confed": "uefa",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-slo-olimpija-ljubljana",
       "name": "Olimpija Ljubljana",
       "country": "slo",
       "confed": "uefa",
-      "rating": 64
+      "rating": 64,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-aze-qarabag",
       "name": "Qarabağ",
       "country": "aze",
       "confed": "uefa",
-      "rating": 69
+      "rating": 69,
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-aze-sabah",
       "name": "Sabah",
       "country": "aze",
       "confed": "uefa",
-      "rating": 62
+      "rating": 62,
+      "colors": [
+        "#f37021",
+        "#0c2340"
+      ]
     },
     {
       "id": "x-kaz-astana",
       "name": "Astana",
       "country": "kaz",
       "confed": "uefa",
-      "rating": 63
+      "rating": 63,
+      "colors": [
+        "#ffd100",
+        "#75aadb"
+      ]
     },
     {
       "id": "x-kaz-kairat",
       "name": "Kairat",
       "country": "kaz",
       "confed": "uefa",
-      "rating": 63
+      "rating": 63,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-mda-sheriff-tiraspol",
       "name": "Sheriff Tiraspol",
       "country": "mda",
       "confed": "uefa",
-      "rating": 62
+      "rating": 62,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-irl-shamrock-rovers",
       "name": "Shamrock Rovers",
       "country": "irl",
       "confed": "uefa",
-      "rating": 63
+      "rating": 63,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-irl-shelbourne",
       "name": "Shelbourne",
       "country": "irl",
       "confed": "uefa",
-      "rating": 60
+      "rating": 60,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-fin-hjk",
       "name": "HJK",
       "country": "fin",
       "confed": "uefa",
-      "rating": 61
+      "rating": 61,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-fin-kups",
       "name": "KuPS",
       "country": "fin",
       "confed": "uefa",
-      "rating": 61
+      "rating": 61,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-isl-vikingur-reykjavik",
       "name": "Víkingur Reykjavík",
       "country": "isl",
       "confed": "uefa",
-      "rating": 60
+      "rating": 60,
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-isl-breiablik",
       "name": "Breiðablik",
       "country": "isl",
       "confed": "uefa",
-      "rating": 60
+      "rating": 60,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-arm-noah",
       "name": "Noah",
       "country": "arm",
       "confed": "uefa",
-      "rating": 61
+      "rating": 61,
+      "colors": [
+        "#1a1a1a",
+        "#c5a253"
+      ]
     },
     {
       "id": "x-arm-pyunik",
       "name": "Pyunik",
       "country": "arm",
       "confed": "uefa",
-      "rating": 59
+      "rating": 59,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-bih-zrinjski-mostar",
       "name": "Zrinjski Mostar",
       "country": "bih",
       "confed": "uefa",
-      "rating": 61
+      "rating": 61,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-bih-borac-banja-luka",
       "name": "Borac Banja Luka",
       "country": "bih",
       "confed": "uefa",
-      "rating": 61
+      "rating": 61,
+      "colors": [
+        "#c8102e",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-mne-buducnost-podgorica",
       "name": "Budućnost Podgorica",
       "country": "mne",
       "confed": "uefa",
-      "rating": 58
+      "rating": 58,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-mkd-shkendija",
       "name": "Shkëndija",
       "country": "mkd",
       "confed": "uefa",
-      "rating": 59
+      "rating": 59,
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-alb-egnatia",
       "name": "Egnatia",
       "country": "alb",
       "confed": "uefa",
-      "rating": 58
+      "rating": 58,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-lva-rfs",
       "name": "RFS",
       "country": "lva",
       "confed": "uefa",
-      "rating": 61
+      "rating": 61,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-lva-riga-fc",
       "name": "Riga FC",
       "country": "lva",
       "confed": "uefa",
-      "rating": 59
+      "rating": 59,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-ltu-zalgiris",
       "name": "Žalgiris",
       "country": "ltu",
       "confed": "uefa",
-      "rating": 60
+      "rating": 60,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-geo-dinamo-tbilisi",
       "name": "Dinamo Tbilisi",
       "country": "geo",
       "confed": "uefa",
-      "rating": 58
+      "rating": 58,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-geo-iberia-1999",
       "name": "Iberia 1999",
       "country": "geo",
       "confed": "uefa",
-      "rating": 58
+      "rating": 58,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-blr-dinamo-minsk",
       "name": "Dinamo Minsk",
       "country": "blr",
       "confed": "uefa",
-      "rating": 59
+      "rating": 59,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-lux-differdange-03",
       "name": "Differdange 03",
       "country": "lux",
       "confed": "uefa",
-      "rating": 56
+      "rating": 56,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-kos-drita",
       "name": "Drita",
       "country": "kos",
       "confed": "uefa",
-      "rating": 59
+      "rating": 59,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-kos-ballkani",
       "name": "Ballkani",
       "country": "kos",
       "confed": "uefa",
-      "rating": 59
+      "rating": 59,
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-wal-the-new-saints",
       "name": "The New Saints",
       "country": "wal",
       "confed": "uefa",
-      "rating": 58
+      "rating": 58,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-col-atletico-nacional",
       "name": "Atlético Nacional",
       "country": "col",
       "confed": "conmebol",
-      "rating": 72
+      "rating": 72,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-col-millonarios",
       "name": "Millonarios",
       "country": "col",
       "confed": "conmebol",
-      "rating": 70
+      "rating": 70,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-col-america-de-cali",
       "name": "América de Cali",
       "country": "col",
       "confed": "conmebol",
-      "rating": 69
+      "rating": 69,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-col-junior",
       "name": "Junior",
       "country": "col",
       "confed": "conmebol",
-      "rating": 69
+      "rating": 69,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-col-independiente-santa-fe",
       "name": "Independiente Santa Fe",
       "country": "col",
       "confed": "conmebol",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-col-deportes-tolima",
       "name": "Deportes Tolima",
       "country": "col",
       "confed": "conmebol",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#7b1e2b",
+        "#ffd100"
+      ]
     },
     {
       "id": "x-col-independiente-medellin",
       "name": "Independiente Medellín",
       "country": "col",
       "confed": "conmebol",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#c8102e",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-col-once-caldas",
       "name": "Once Caldas",
       "country": "col",
       "confed": "conmebol",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#ffffff",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-uru-penarol",
       "name": "Peñarol",
       "country": "uru",
       "confed": "conmebol",
-      "rating": 71
+      "rating": 71,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-uru-nacional",
       "name": "Nacional",
       "country": "uru",
       "confed": "conmebol",
-      "rating": 71
+      "rating": 71,
+      "colors": [
+        "#ffffff",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-uru-defensor-sporting",
       "name": "Defensor Sporting",
       "country": "uru",
       "confed": "conmebol",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#592c82",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-uru-liverpool-montevideo",
       "name": "Liverpool Montevideo",
       "country": "uru",
       "confed": "conmebol",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#0c2340",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-uru-boston-river",
       "name": "Boston River",
       "country": "uru",
       "confed": "conmebol",
-      "rating": 64
+      "rating": 64,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-uru-juventud",
       "name": "Juventud",
       "country": "uru",
       "confed": "conmebol",
-      "rating": 63
+      "rating": 63,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-chi-colo-colo",
       "name": "Colo-Colo",
       "country": "chi",
       "confed": "conmebol",
-      "rating": 70
+      "rating": 70,
+      "colors": [
+        "#ffffff",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-chi-universidad-de-chile",
       "name": "Universidad de Chile",
       "country": "chi",
       "confed": "conmebol",
-      "rating": 70
+      "rating": 70,
+      "colors": [
+        "#0046ad",
+        "#c8102e"
+      ]
     },
     {
       "id": "x-chi-universidad-catolica",
       "name": "Universidad Católica",
       "country": "chi",
       "confed": "conmebol",
-      "rating": 69
+      "rating": 69,
+      "colors": [
+        "#ffffff",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-chi-palestino",
       "name": "Palestino",
       "country": "chi",
       "confed": "conmebol",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#00843d",
+        "#c8102e"
+      ]
     },
     {
       "id": "x-chi-o-higgins",
       "name": "O'Higgins",
       "country": "chi",
       "confed": "conmebol",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#75aadb",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-chi-coquimbo-unido",
       "name": "Coquimbo Unido",
       "country": "chi",
       "confed": "conmebol",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-ecu-ldu-quito",
       "name": "LDU Quito",
       "country": "ecu",
       "confed": "conmebol",
-      "rating": 72
+      "rating": 72,
+      "colors": [
+        "#ffffff",
+        "#c8102e"
+      ]
     },
     {
       "id": "x-ecu-independiente-del-valle",
       "name": "Independiente del Valle",
       "country": "ecu",
       "confed": "conmebol",
-      "rating": 72
+      "rating": 72,
+      "colors": [
+        "#0c2340",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-ecu-barcelona-sc",
       "name": "Barcelona SC",
       "country": "ecu",
       "confed": "conmebol",
-      "rating": 70
+      "rating": 70,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-ecu-emelec",
       "name": "Emelec",
       "country": "ecu",
       "confed": "conmebol",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-ecu-aucas",
       "name": "Aucas",
       "country": "ecu",
       "confed": "conmebol",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#ffd100",
+        "#c8102e"
+      ]
     },
     {
       "id": "x-ecu-universidad-catolica-ecu",
       "name": "Universidad Católica (ECU)",
       "country": "ecu",
       "confed": "conmebol",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#75aadb",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-par-olimpia",
       "name": "Olimpia",
       "country": "par",
       "confed": "conmebol",
-      "rating": 69
+      "rating": 69,
+      "colors": [
+        "#ffffff",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-par-cerro-porteno",
       "name": "Cerro Porteño",
       "country": "par",
       "confed": "conmebol",
-      "rating": 69
+      "rating": 69,
+      "colors": [
+        "#0046ad",
+        "#c8102e"
+      ]
     },
     {
       "id": "x-par-libertad",
       "name": "Libertad",
       "country": "par",
       "confed": "conmebol",
-      "rating": 69
+      "rating": 69,
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-par-guarani",
       "name": "Guaraní",
       "country": "par",
       "confed": "conmebol",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-par-nacional-par",
       "name": "Nacional (PAR)",
       "country": "par",
       "confed": "conmebol",
-      "rating": 64
+      "rating": 64,
+      "colors": [
+        "#ffffff",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-par-sportivo-luqueno",
       "name": "Sportivo Luqueño",
       "country": "par",
       "confed": "conmebol",
-      "rating": 63
+      "rating": 63,
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-per-universitario",
       "name": "Universitario",
       "country": "per",
       "confed": "conmebol",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#ffffff",
+        "#a50021"
+      ]
     },
     {
       "id": "x-per-alianza-lima",
       "name": "Alianza Lima",
       "country": "per",
       "confed": "conmebol",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-per-sporting-cristal",
       "name": "Sporting Cristal",
       "country": "per",
       "confed": "conmebol",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#75aadb",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-per-melgar",
       "name": "Melgar",
       "country": "per",
       "confed": "conmebol",
-      "rating": 65
+      "rating": 65,
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-per-cusco-fc",
       "name": "Cusco FC",
       "country": "per",
       "confed": "conmebol",
-      "rating": 63
+      "rating": 63,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-per-cienciano",
       "name": "Cienciano",
       "country": "per",
       "confed": "conmebol",
-      "rating": 63
+      "rating": 63,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-bol-bolivar",
       "name": "Bolívar",
       "country": "bol",
       "confed": "conmebol",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#75aadb",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-bol-the-strongest",
       "name": "The Strongest",
       "country": "bol",
       "confed": "conmebol",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-bol-always-ready",
       "name": "Always Ready",
       "country": "bol",
       "confed": "conmebol",
-      "rating": 64
+      "rating": 64,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-bol-blooming",
       "name": "Blooming",
       "country": "bol",
       "confed": "conmebol",
-      "rating": 62
+      "rating": 62,
+      "colors": [
+        "#75aadb",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-bol-san-antonio-bulo-bulo",
       "name": "San Antonio Bulo Bulo",
       "country": "bol",
       "confed": "conmebol",
-      "rating": 60
+      "rating": 60,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-ven-deportivo-tachira",
       "name": "Deportivo Táchira",
       "country": "ven",
       "confed": "conmebol",
-      "rating": 64
+      "rating": 64,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-ven-caracas",
       "name": "Caracas",
       "country": "ven",
       "confed": "conmebol",
-      "rating": 63
+      "rating": 63,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-ven-monagas",
       "name": "Monagas",
       "country": "ven",
       "confed": "conmebol",
-      "rating": 62
+      "rating": 62,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-ven-carabobo",
       "name": "Carabobo",
       "country": "ven",
       "confed": "conmebol",
-      "rating": 62
+      "rating": 62,
+      "colors": [
+        "#7b1e2b",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-ven-universidad-central",
       "name": "Universidad Central",
       "country": "ven",
       "confed": "conmebol",
-      "rating": 61
+      "rating": 61,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-qat-al-sadd",
@@ -1328,7 +1956,11 @@
       "country": "qat",
       "confed": "afc",
       "rating": 71,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#ffffff",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-qat-al-duhail",
@@ -1336,7 +1968,11 @@
       "country": "qat",
       "confed": "afc",
       "rating": 69,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-qat-al-gharafa",
@@ -1344,7 +1980,11 @@
       "country": "qat",
       "confed": "afc",
       "rating": 67,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-qat-al-rayyan",
@@ -1352,7 +1992,11 @@
       "country": "qat",
       "confed": "afc",
       "rating": 67,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-qat-al-wakrah",
@@ -1360,7 +2004,11 @@
       "country": "qat",
       "confed": "afc",
       "rating": 64,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-uae-al-ain",
@@ -1368,7 +2016,11 @@
       "country": "uae",
       "confed": "afc",
       "rating": 70,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#4f2683",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-uae-shabab-al-ahli",
@@ -1376,7 +2028,11 @@
       "country": "uae",
       "confed": "afc",
       "rating": 70,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-uae-al-wahda",
@@ -1384,7 +2040,11 @@
       "country": "uae",
       "confed": "afc",
       "rating": 68,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#7b1e2b",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-uae-al-wasl",
@@ -1392,7 +2052,11 @@
       "country": "uae",
       "confed": "afc",
       "rating": 67,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-uae-sharjah",
@@ -1400,7 +2064,11 @@
       "country": "uae",
       "confed": "afc",
       "rating": 67,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#ffffff",
+        "#c8102e"
+      ]
     },
     {
       "id": "x-uae-al-jazira",
@@ -1408,7 +2076,11 @@
       "country": "uae",
       "confed": "afc",
       "rating": 65,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-irn-persepolis",
@@ -1416,7 +2088,11 @@
       "country": "irn",
       "confed": "afc",
       "rating": 68,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-irn-esteghlal",
@@ -1424,7 +2100,11 @@
       "country": "irn",
       "confed": "afc",
       "rating": 67,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-irn-sepahan",
@@ -1432,7 +2112,11 @@
       "country": "irn",
       "confed": "afc",
       "rating": 66,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-irn-tractor",
@@ -1440,7 +2124,11 @@
       "country": "irn",
       "confed": "afc",
       "rating": 66,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-irn-foolad",
@@ -1448,7 +2136,11 @@
       "country": "irn",
       "confed": "afc",
       "rating": 63,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#ffd100",
+        "#c8102e"
+      ]
     },
     {
       "id": "x-irq-al-shorta",
@@ -1456,7 +2148,11 @@
       "country": "irq",
       "confed": "afc",
       "rating": 64,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-irq-al-zawraa",
@@ -1464,7 +2160,11 @@
       "country": "irq",
       "confed": "afc",
       "rating": 63,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#ffffff",
+        "#75aadb"
+      ]
     },
     {
       "id": "x-irq-al-quwa-al-jawiya",
@@ -1472,7 +2172,11 @@
       "country": "irq",
       "confed": "afc",
       "rating": 62,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#75aadb",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-uzb-pakhtakor",
@@ -1480,7 +2184,11 @@
       "country": "uzb",
       "confed": "afc",
       "rating": 65,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-uzb-nasaf",
@@ -1488,7 +2196,11 @@
       "country": "uzb",
       "confed": "afc",
       "rating": 64,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-uzb-navbahor",
@@ -1496,7 +2208,11 @@
       "country": "uzb",
       "confed": "afc",
       "rating": 62,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-uzb-neftchi-fergana",
@@ -1504,7 +2220,11 @@
       "country": "uzb",
       "confed": "afc",
       "rating": 61,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#ffffff",
+        "#c8102e"
+      ]
     },
     {
       "id": "x-jor-al-hussein",
@@ -1512,7 +2232,11 @@
       "country": "jor",
       "confed": "afc",
       "rating": 62,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#ffd100",
+        "#c8102e"
+      ]
     },
     {
       "id": "x-jor-al-wehdat",
@@ -1520,7 +2244,11 @@
       "country": "jor",
       "confed": "afc",
       "rating": 61,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#00843d",
+        "#c8102e"
+      ]
     },
     {
       "id": "x-jor-al-faisaly-jor",
@@ -1528,7 +2256,11 @@
       "country": "jor",
       "confed": "afc",
       "rating": 60,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-kuw-kuwait-sc",
@@ -1536,7 +2268,11 @@
       "country": "kuw",
       "confed": "afc",
       "rating": 60,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#ffffff",
+        "#75aadb"
+      ]
     },
     {
       "id": "x-kuw-al-arabi-kuw",
@@ -1544,7 +2280,11 @@
       "country": "kuw",
       "confed": "afc",
       "rating": 59,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-bhr-al-khaldiya",
@@ -1552,7 +2292,11 @@
       "country": "bhr",
       "confed": "afc",
       "rating": 59,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-bhr-al-muharraq",
@@ -1560,7 +2304,11 @@
       "country": "bhr",
       "confed": "afc",
       "rating": 59,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-oma-al-seeb",
@@ -1568,7 +2316,11 @@
       "country": "oma",
       "confed": "afc",
       "rating": 58,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-oma-al-nahda",
@@ -1576,7 +2328,11 @@
       "country": "oma",
       "confed": "afc",
       "rating": 57,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-ind-mohun-bagan",
@@ -1584,7 +2340,11 @@
       "country": "ind",
       "confed": "afc",
       "rating": 60,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#7b1e2b",
+        "#00843d"
+      ]
     },
     {
       "id": "x-ind-goa",
@@ -1592,7 +2352,11 @@
       "country": "ind",
       "confed": "afc",
       "rating": 58,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#f37021",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-ind-mumbai-city",
@@ -1600,7 +2364,11 @@
       "country": "ind",
       "confed": "afc",
       "rating": 58,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#75aadb",
+        "#0c2340"
+      ]
     },
     {
       "id": "x-tjk-istiklol",
@@ -1608,7 +2376,11 @@
       "country": "tjk",
       "confed": "afc",
       "rating": 59,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-tkm-arkadag",
@@ -1616,7 +2388,11 @@
       "country": "tkm",
       "confed": "afc",
       "rating": 58,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-syr-al-karamah",
@@ -1624,7 +2400,11 @@
       "country": "syr",
       "confed": "afc",
       "rating": 56,
-      "region": "west"
+      "region": "west",
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-kor-ulsan-hd",
@@ -1632,7 +2412,11 @@
       "country": "kor",
       "confed": "afc",
       "rating": 71,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#0046ad",
+        "#ffd100"
+      ]
     },
     {
       "id": "x-kor-jeonbuk-hyundai-motors",
@@ -1640,7 +2424,11 @@
       "country": "kor",
       "confed": "afc",
       "rating": 71,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#00843d",
+        "#ffd100"
+      ]
     },
     {
       "id": "x-kor-pohang-steelers",
@@ -1648,7 +2436,11 @@
       "country": "kor",
       "confed": "afc",
       "rating": 69,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-kor-fc-seoul",
@@ -1656,7 +2448,11 @@
       "country": "kor",
       "confed": "afc",
       "rating": 69,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-kor-gangwon",
@@ -1664,7 +2460,11 @@
       "country": "kor",
       "confed": "afc",
       "rating": 67,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#f37021",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-kor-gimcheon-sangmu",
@@ -1672,7 +2472,11 @@
       "country": "kor",
       "confed": "afc",
       "rating": 66,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-chn-shanghai-port",
@@ -1680,7 +2484,11 @@
       "country": "chn",
       "confed": "afc",
       "rating": 69,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-chn-shanghai-shenhua",
@@ -1688,7 +2496,11 @@
       "country": "chn",
       "confed": "afc",
       "rating": 69,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-chn-shandong-taishan",
@@ -1696,7 +2508,11 @@
       "country": "chn",
       "confed": "afc",
       "rating": 67,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#f37021",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-chn-chengdu-rongcheng",
@@ -1704,7 +2520,11 @@
       "country": "chn",
       "confed": "afc",
       "rating": 67,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#c8102e",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-chn-beijing-guoan",
@@ -1712,7 +2532,11 @@
       "country": "chn",
       "confed": "afc",
       "rating": 66,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-aus-melbourne-city",
@@ -1720,7 +2544,11 @@
       "country": "aus",
       "confed": "afc",
       "rating": 66,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#75aadb",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-aus-central-coast-mariners",
@@ -1728,7 +2556,11 @@
       "country": "aus",
       "confed": "afc",
       "rating": 64,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#ffd100",
+        "#0c2340"
+      ]
     },
     {
       "id": "x-aus-sydney-fc",
@@ -1736,7 +2568,11 @@
       "country": "aus",
       "confed": "afc",
       "rating": 65,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#75aadb",
+        "#0c2340"
+      ]
     },
     {
       "id": "x-aus-auckland-fc",
@@ -1744,7 +2580,11 @@
       "country": "aus",
       "confed": "afc",
       "rating": 64,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-aus-western-united",
@@ -1752,7 +2592,11 @@
       "country": "aus",
       "confed": "afc",
       "rating": 62,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#00843d",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-tha-buriram-united",
@@ -1760,7 +2604,11 @@
       "country": "tha",
       "confed": "afc",
       "rating": 66,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#0046ad",
+        "#f37021"
+      ]
     },
     {
       "id": "x-tha-bangkok-united",
@@ -1768,7 +2616,11 @@
       "country": "tha",
       "confed": "afc",
       "rating": 63,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#f37021",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-tha-port-fc",
@@ -1776,7 +2628,11 @@
       "country": "tha",
       "confed": "afc",
       "rating": 62,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#0046ad",
+        "#f37021"
+      ]
     },
     {
       "id": "x-mas-johor-darul-ta-zim",
@@ -1784,7 +2640,11 @@
       "country": "mas",
       "confed": "afc",
       "rating": 66,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#c8102e",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-mas-selangor",
@@ -1792,7 +2652,11 @@
       "country": "mas",
       "confed": "afc",
       "rating": 61,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#c8102e",
+        "#ffd100"
+      ]
     },
     {
       "id": "x-vie-nam-inh",
@@ -1800,7 +2664,11 @@
       "country": "vie",
       "confed": "afc",
       "rating": 62,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-vie-cong-an-ha-noi",
@@ -1808,7 +2676,11 @@
       "country": "vie",
       "confed": "afc",
       "rating": 62,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#c8102e",
+        "#ffd100"
+      ]
     },
     {
       "id": "x-idn-persib-bandung",
@@ -1816,7 +2688,11 @@
       "country": "idn",
       "confed": "afc",
       "rating": 61,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-idn-dewa-united",
@@ -1824,7 +2700,11 @@
       "country": "idn",
       "confed": "afc",
       "rating": 58,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#1a1a1a",
+        "#ffd100"
+      ]
     },
     {
       "id": "x-phi-kaya-iloilo",
@@ -1832,7 +2712,11 @@
       "country": "phi",
       "confed": "afc",
       "rating": 56,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-sgp-lion-city-sailors",
@@ -1840,7 +2724,11 @@
       "country": "sgp",
       "confed": "afc",
       "rating": 61,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-sgp-tampines-rovers",
@@ -1848,7 +2736,11 @@
       "country": "sgp",
       "confed": "afc",
       "rating": 58,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#ffd100",
+        "#c8102e"
+      ]
     },
     {
       "id": "x-hkg-eastern",
@@ -1856,7 +2748,11 @@
       "country": "hkg",
       "confed": "afc",
       "rating": 57,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-hkg-lee-man",
@@ -1864,7 +2760,11 @@
       "country": "hkg",
       "confed": "afc",
       "rating": 57,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#f37021",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-tpe-tainan-city",
@@ -1872,266 +2772,418 @@
       "country": "tpe",
       "confed": "afc",
       "rating": 54,
-      "region": "east"
+      "region": "east",
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-mex-monterrey",
       "name": "Monterrey",
       "country": "mex",
       "confed": "concacaf",
-      "rating": 74
+      "rating": 74,
+      "colors": [
+        "#0c2340",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-mex-america",
       "name": "América",
       "country": "mex",
       "confed": "concacaf",
-      "rating": 74
+      "rating": 74,
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-mex-tigres-uanl",
       "name": "Tigres UANL",
       "country": "mex",
       "confed": "concacaf",
-      "rating": 74
+      "rating": 74,
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-mex-cruz-azul",
       "name": "Cruz Azul",
       "country": "mex",
       "confed": "concacaf",
-      "rating": 73
+      "rating": 73,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-mex-toluca",
       "name": "Toluca",
       "country": "mex",
       "confed": "concacaf",
-      "rating": 73
+      "rating": 73,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-mex-guadalajara",
       "name": "Guadalajara",
       "country": "mex",
       "confed": "concacaf",
-      "rating": 71
+      "rating": 71,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-mex-pachuca",
       "name": "Pachuca",
       "country": "mex",
       "confed": "concacaf",
-      "rating": 71
+      "rating": 71,
+      "colors": [
+        "#0c2340",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-mex-pumas-unam",
       "name": "Pumas UNAM",
       "country": "mex",
       "confed": "concacaf",
-      "rating": 70
+      "rating": 70,
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-mex-leon",
       "name": "León",
       "country": "mex",
       "confed": "concacaf",
-      "rating": 70
+      "rating": 70,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-mex-santos-laguna",
       "name": "Santos Laguna",
       "country": "mex",
       "confed": "concacaf",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-crc-saprissa",
       "name": "Saprissa",
       "country": "crc",
       "confed": "concacaf",
-      "rating": 64
+      "rating": 64,
+      "colors": [
+        "#4f2683",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-crc-alajuelense",
       "name": "Alajuelense",
       "country": "crc",
       "confed": "concacaf",
-      "rating": 64
+      "rating": 64,
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-crc-herediano",
       "name": "Herediano",
       "country": "crc",
       "confed": "concacaf",
-      "rating": 62
+      "rating": 62,
+      "colors": [
+        "#c8102e",
+        "#ffd100"
+      ]
     },
     {
       "id": "x-hon-olimpia",
       "name": "Olimpia",
       "country": "hon",
       "confed": "concacaf",
-      "rating": 62
+      "rating": 62,
+      "colors": [
+        "#ffffff",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-hon-motagua",
       "name": "Motagua",
       "country": "hon",
       "confed": "concacaf",
-      "rating": 60
+      "rating": 60,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-gua-municipal",
       "name": "Municipal",
       "country": "gua",
       "confed": "concacaf",
-      "rating": 59
+      "rating": 59,
+      "colors": [
+        "#c8102e",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-gua-comunicaciones",
       "name": "Comunicaciones",
       "country": "gua",
       "confed": "concacaf",
-      "rating": 59
+      "rating": 59,
+      "colors": [
+        "#ffffff",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-pan-plaza-amador",
       "name": "Plaza Amador",
       "country": "pan",
       "confed": "concacaf",
-      "rating": 59
+      "rating": 59,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-pan-independiente-pan",
       "name": "Independiente (PAN)",
       "country": "pan",
       "confed": "concacaf",
-      "rating": 58
+      "rating": 58,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-slv-alianza-slv",
       "name": "Alianza (SLV)",
       "country": "slv",
       "confed": "concacaf",
-      "rating": 57
+      "rating": 57,
+      "colors": [
+        "#ffffff",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-can-forge-fc",
       "name": "Forge FC",
       "country": "can",
       "confed": "concacaf",
-      "rating": 60
+      "rating": 60,
+      "colors": [
+        "#f37021",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-can-cavalry-fc",
       "name": "Cavalry FC",
       "country": "can",
       "confed": "concacaf",
-      "rating": 60
+      "rating": 60,
+      "colors": [
+        "#c8102e",
+        "#00843d"
+      ]
     },
     {
       "id": "x-can-atletico-ottawa",
       "name": "Atlético Ottawa",
       "country": "can",
       "confed": "concacaf",
-      "rating": 58
+      "rating": 58,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-jam-cavalier",
       "name": "Cavalier",
       "country": "jam",
       "confed": "concacaf",
-      "rating": 56
+      "rating": 56,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-jam-mount-pleasant",
       "name": "Mount Pleasant",
       "country": "jam",
       "confed": "concacaf",
-      "rating": 56
+      "rating": 56,
+      "colors": [
+        "#ffd100",
+        "#00843d"
+      ]
     },
     {
       "id": "x-dom-moca",
       "name": "Moca",
       "country": "dom",
       "confed": "concacaf",
-      "rating": 54
+      "rating": 54,
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-sur-robinhood",
       "name": "Robinhood",
       "country": "sur",
       "confed": "concacaf",
-      "rating": 52
+      "rating": 52,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-egy-al-ahly",
       "name": "Al Ahly",
       "country": "egy",
       "confed": "caf",
-      "rating": 72
+      "rating": 72,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-egy-pyramids",
       "name": "Pyramids",
       "country": "egy",
       "confed": "caf",
-      "rating": 69
+      "rating": 69,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-egy-zamalek",
       "name": "Zamalek",
       "country": "egy",
       "confed": "caf",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#ffffff",
+        "#c8102e"
+      ]
     },
     {
       "id": "x-tun-esperance-de-tunis",
       "name": "Espérance de Tunis",
       "country": "tun",
       "confed": "caf",
-      "rating": 68
+      "rating": 68,
+      "colors": [
+        "#c8102e",
+        "#ffd100"
+      ]
     },
     {
       "id": "x-mar-wydad-casablanca",
       "name": "Wydad Casablanca",
       "country": "mar",
       "confed": "caf",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-mar-rs-berkane",
       "name": "RS Berkane",
       "country": "mar",
       "confed": "caf",
-      "rating": 67
+      "rating": 67,
+      "colors": [
+        "#f37021",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "x-rsa-mamelodi-sundowns",
       "name": "Mamelodi Sundowns",
       "country": "rsa",
       "confed": "caf",
-      "rating": 70
+      "rating": 70,
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "x-rsa-orlando-pirates",
       "name": "Orlando Pirates",
       "country": "rsa",
       "confed": "caf",
-      "rating": 66
+      "rating": 66,
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-nzl-auckland-city",
       "name": "Auckland City",
       "country": "nzl",
       "confed": "ofc",
-      "rating": 56
+      "rating": 56,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "x-png-hekari-united",
       "name": "Hekari United",
       "country": "png",
       "confed": "ofc",
-      "rating": 50
+      "rating": 50,
+      "colors": [
+        "#c8102e",
+        "#ffd100"
+      ]
     }
   ]
 }

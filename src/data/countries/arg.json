@@ -23,7 +23,11 @@
         "profile": {
           "build": 40,
           "press": 50
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#c8102e"
+        ]
       },
       {
         "id": "arg-boca-juniors",
@@ -32,7 +36,11 @@
         "profile": {
           "build": 0,
           "press": 40
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffd100"
+        ]
       },
       {
         "id": "arg-racing-club",
@@ -41,7 +49,11 @@
         "profile": {
           "build": -10,
           "press": 50
-        }
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-velez-sarsfield",
@@ -50,7 +62,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#0046ad"
+        ]
       },
       {
         "id": "arg-estudiantes-de-la-plata",
@@ -59,7 +75,11 @@
         "profile": {
           "build": -20,
           "press": 40
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-talleres",
@@ -68,7 +88,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-independiente",
@@ -77,7 +101,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-lanus",
@@ -86,7 +114,11 @@
         "profile": {
           "build": 20,
           "press": 40
-        }
+        },
+        "colors": [
+          "#7b1e2b",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-rosario-central",
@@ -95,7 +127,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
       },
       {
         "id": "arg-argentinos-juniors",
@@ -104,7 +140,11 @@
         "profile": {
           "build": 20,
           "press": 40
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-san-lorenzo",
@@ -113,7 +153,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#c8102e"
+        ]
       },
       {
         "id": "arg-huracan",
@@ -122,7 +166,11 @@
         "profile": {
           "build": -20,
           "press": 30
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#c8102e"
+        ]
       },
       {
         "id": "arg-belgrano",
@@ -131,7 +179,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-defensa-y-justicia",
@@ -140,7 +192,11 @@
         "profile": {
           "build": 30,
           "press": 40
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#00843d"
+        ]
       },
       {
         "id": "arg-newell-s-old-boys",
@@ -149,7 +205,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "arg-tigre",
@@ -158,7 +218,11 @@
         "profile": {
           "build": -10,
           "press": 40
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#c8102e"
+        ]
       },
       {
         "id": "arg-union",
@@ -167,7 +231,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-platense",
@@ -176,7 +244,11 @@
         "profile": {
           "build": -30,
           "press": 20
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#5b3a29"
+        ]
       },
       {
         "id": "arg-instituto",
@@ -185,7 +257,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-gimnasia-y-esgrima-de-la-plata",
@@ -194,7 +270,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#0c2340"
+        ]
       },
       {
         "id": "arg-banfield",
@@ -203,7 +283,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-independiente-rivadavia",
@@ -212,7 +296,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-atletico-tucuman",
@@ -221,7 +309,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-barracas-central",
@@ -230,7 +322,11 @@
         "profile": {
           "build": -30,
           "press": 20
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-central-cordoba",
@@ -239,7 +335,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-sarmiento",
@@ -248,7 +348,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-deportivo-riestra",
@@ -257,7 +361,11 @@
         "profile": {
           "build": -40,
           "press": 30
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
       },
       {
         "id": "arg-aldosivi",
@@ -266,7 +374,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#00843d"
+        ]
       },
       {
         "id": "arg-gimnasia-y-esgrima-de-mendoza",
@@ -275,7 +387,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "arg-estudiantes-de-rio-cuarto",
@@ -284,7 +400,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#75aadb"
+        ]
       }
     ]
   },
@@ -296,7 +416,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "arg-san-martin-de-san-juan",
@@ -305,7 +429,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#00843d",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "arg-colon",
@@ -314,7 +442,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "arg-quilmes",
@@ -323,7 +455,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#ffffff",
+        "#0046ad"
+      ]
     },
     {
       "id": "arg-chacarita-juniors",
@@ -332,7 +468,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     }
   ]
 }

@@ -1,0 +1,666 @@
+{
+  "pack": "mercato",
+  "events": [
+    {
+      "id": "mercato_cessione_sostituto",
+      "moment": "mid",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "first"
+          ]
+        },
+        {
+          "type": "keyPlayer"
+        }
+      ],
+      "weight": 14,
+      "cooldown": 2,
+      "title": {
+        "it": "{giocatore} ceduto a gennaio"
+      },
+      "body": {
+        "it": "Un club straniero paga la clausola di {giocatore}. Il direttore sportivo ha due nomi per sostituirlo."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Il giovane promettente"
+          },
+          "effects": [
+            {
+              "type": "keyPlayer",
+              "leave": true
+            },
+            {
+              "type": "newPlayer",
+              "profile": "young"
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 4
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Il bomber esperto"
+          },
+          "effects": [
+            {
+              "type": "keyPlayer",
+              "leave": true
+            },
+            {
+              "type": "newPlayer",
+              "profile": "veteran"
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -3
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Nessuno: fiducia al gruppo"
+          },
+          "effects": [
+            {
+              "type": "keyPlayer",
+              "leave": true
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 8
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mercato_infortunio_lungo",
+      "moment": "mid",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "first"
+          ]
+        },
+        {
+          "type": "keyPlayer"
+        }
+      ],
+      "weight": 10,
+      "cooldown": 3,
+      "title": {
+        "it": "{giocatore} si rompe il crociato"
+      },
+      "body": {
+        "it": "Stagione finita per {giocatore}. La società ti lascia scegliere come tappare il buco."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Un giovane di prospettiva"
+          },
+          "effects": [
+            {
+              "type": "teamRating",
+              "delta": -2
+            },
+            {
+              "type": "newPlayer",
+              "profile": "young"
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Uno svincolato di esperienza"
+          },
+          "effects": [
+            {
+              "type": "teamRating",
+              "delta": -2
+            },
+            {
+              "type": "newPlayer",
+              "profile": "veteran"
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -5
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Ci si arrangia con la rosa"
+          },
+          "effects": [
+            {
+              "type": "teamRating",
+              "delta": -2
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 4
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mercato_offerta_irrinunciabile",
+      "moment": "mid",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "first"
+          ]
+        },
+        {
+          "type": "keyPlayer",
+          "satisfaction": {
+            "op": ">=",
+            "value": 40
+          }
+        }
+      ],
+      "weight": 9,
+      "cooldown": 3,
+      "title": {
+        "it": "Offerta fuori mercato per {giocatore}"
+      },
+      "body": {
+        "it": "Un club ricchissimo offre una cifra enorme per {giocatore}. La dirigenza vuole sapere cosa ne pensi."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Vendilo"
+          },
+          "effects": [
+            {
+              "type": "keyPlayer",
+              "leave": true
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 10
+            },
+            {
+              "type": "var",
+              "var": "environment",
+              "delta": -5
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Tienilo a tutti i costi"
+          },
+          "effects": [
+            {
+              "type": "keyPlayer",
+              "satisfaction": -10
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mercato_ultimatum",
+      "moment": "mid",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "first"
+          ]
+        },
+        {
+          "type": "var",
+          "var": "board",
+          "op": "<=",
+          "value": 35
+        }
+      ],
+      "weight": 16,
+      "cooldown": 2,
+      "title": {
+        "it": "Ultimatum a metà stagione"
+      },
+      "body": {
+        "it": "La dirigenza è preoccupata: o il girone di ritorno cambia passo, o si cambia allenatore."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Squadra più coperta"
+          },
+          "effects": [
+            {
+              "type": "style",
+              "axis": "press",
+              "delta": -20
+            },
+            {
+              "type": "teamRating",
+              "delta": 1
+            },
+            {
+              "type": "var",
+              "var": "environment",
+              "delta": -4
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Avanti con le tue idee"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -4
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Chiedi un rinforzo esperto"
+          },
+          "effects": [
+            {
+              "type": "newPlayer",
+              "profile": "veteran"
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mercato_talento_scartato",
+      "moment": "mid",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "first"
+          ]
+        },
+        {
+          "type": "tier",
+          "op": ">=",
+          "value": 3
+        }
+      ],
+      "weight": 9,
+      "cooldown": 3,
+      "title": {
+        "it": "Un talento scartato da un big"
+      },
+      "body": {
+        "it": "Un club di vertice vuole liberarsi di un ragazzo che non trova spazio. Costa poco, ma è acerbo."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Prendilo"
+          },
+          "effects": [
+            {
+              "type": "newPlayer",
+              "profile": "young"
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -2
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Lascia perdere"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mercato_leader_parla",
+      "moment": "mid",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "first"
+          ]
+        },
+        {
+          "type": "keyPlayer",
+          "trait": "leader"
+        }
+      ],
+      "weight": 8,
+      "cooldown": 3,
+      "title": {
+        "it": "{giocatore} vuole parlare alla squadra"
+      },
+      "body": {
+        "it": "Dopo una brutta sconfitta {giocatore} chiede di parlare al gruppo, senza di te."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Lascialo fare"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 8
+            },
+            {
+              "type": "keyPlayer",
+              "satisfaction": 5
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -2
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Parli tu per primo"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": -3
+            },
+            {
+              "type": "var",
+              "var": "environment",
+              "delta": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mercato_ritiro_invernale",
+      "moment": "mid",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "first"
+          ]
+        }
+      ],
+      "weight": 7,
+      "cooldown": 3,
+      "title": {
+        "it": "Ritiro invernale: dove?"
+      },
+      "body": {
+        "it": "La pausa di gennaio è l'occasione per lavorare. Il preparatore vuole il caldo, la dirigenza vuole risparmiare."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Ritiro al caldo"
+          },
+          "effects": [
+            {
+              "type": "teamRating",
+              "delta": 1
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -4
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Si resta a casa"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mercato_astinenza_gol",
+      "moment": "mid",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "first"
+          ]
+        }
+      ],
+      "weight": 8,
+      "cooldown": 3,
+      "title": {
+        "it": "Tre partite senza segnare"
+      },
+      "body": {
+        "it": "In città si invoca un centravanti di peso. I giornali hanno già pronto il nome di un veterano."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Prendi il bomber esperto"
+          },
+          "effects": [
+            {
+              "type": "newPlayer",
+              "profile": "veteran"
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -6
+            },
+            {
+              "type": "var",
+              "var": "environment",
+              "delta": 4
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Fiducia agli attaccanti in rosa"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "environment",
+              "delta": -4
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mercato_primavera_offerta_estero",
+      "moment": "mid",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "youth"
+          ]
+        },
+        {
+          "type": "keyPlayer"
+        }
+      ],
+      "weight": 10,
+      "cooldown": 2,
+      "title": {
+        "it": "Un club straniero vuole {giocatore}"
+      },
+      "body": {
+        "it": "Offrono un contratto da professionista a {giocatore}. Il club incasserebbe subito, ma la squadra perde un pezzo."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Lascialo partire"
+          },
+          "effects": [
+            {
+              "type": "keyPlayer",
+              "leave": true
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 6
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Convincilo a restare"
+          },
+          "effects": [
+            {
+              "type": "keyPlayer",
+              "satisfaction": -10
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mercato_primavera_ripescaggio",
+      "moment": "mid",
+      "category": "management",
+      "conditions": [
+        {
+          "type": "role",
+          "is": [
+            "youth"
+          ]
+        }
+      ],
+      "weight": 8,
+      "cooldown": 3,
+      "title": {
+        "it": "Un ragazzo scartato da un'altra Primavera"
+      },
+      "body": {
+        "it": "Un osservatore ti segnala un ragazzo lasciato a casa da un altro club. Potrebbe sorprendere."
+      },
+      "options": [
+        {
+          "text": {
+            "it": "Fallo provare"
+          },
+          "effects": [
+            {
+              "type": "newPlayer",
+              "profile": "young"
+            },
+            {
+              "type": "var",
+              "var": "board",
+              "delta": -2
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "La rosa è al completo"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

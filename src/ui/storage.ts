@@ -28,3 +28,23 @@ export function clearGame(): void {
     // niente da fare
   }
 }
+
+const THEME_KEY = 'fm-goal:theme';
+
+/** Tema scelto: automatico (segue il sistema), chiaro o scuro. */
+export function loadTheme(): 'auto' | 'light' | 'dark' {
+  try {
+    const v = localStorage.getItem(THEME_KEY);
+    return v === 'light' || v === 'dark' ? v : 'auto';
+  } catch {
+    return 'auto';
+  }
+}
+
+export function saveTheme(theme: 'auto' | 'light' | 'dark'): void {
+  try {
+    localStorage.setItem(THEME_KEY, theme);
+  } catch {
+    // Archiviazione non disponibile: il tema vale solo per questa sessione.
+  }
+}

@@ -58,7 +58,9 @@ function note(state: GameState): void {
 }
 
 function sensibleCareerChoice(state: GameState, options: CareerOption[], pick: Rng): number {
-  if (options[0]?.kind === 'retire') return pick.chance(RETIRE_P) ? 0 : 1;
+  // Il ritiro è una delle opzioni: la strategia lo sceglie con probabilità RETIRE_P.
+  const retire = options.findIndex((o) => o.kind === 'retire');
+  if (retire >= 0 && pick.chance(RETIRE_P)) return retire;
   const score = (o: CareerOption): number => {
     switch (o.kind) {
       case 'accept': {
@@ -77,7 +79,6 @@ function sensibleCareerChoice(state: GameState, options: CareerOption[], pick: R
         return 20;
       case 'leave':
       case 'retire':
-      case 'continue':
         return 0;
     }
   };
@@ -107,7 +108,7 @@ function runCareer(seed: number, pick: Rng): CareerStats {
     if (++guard > 80) throw new Error(`Carriera senza fine (seed ${seed})`);
     state = startSeason(state, EVENTS);
     seconds += SECONDS.sheet;
-    while (state.phase === 'start_decision') {
+    while (state.phase === 'start_decision' || state.phase === 'mid_decision') {
       note(state);
       seconds += SECONDS.decision;
       const n = state.pending?.kind === 'event' ? (EVENTS.find((e) => e.id === (state.pending as { eventId: string }).eventId)?.options.length ?? 1) : 1;

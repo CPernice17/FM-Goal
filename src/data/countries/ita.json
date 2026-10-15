@@ -4,63 +4,659 @@
   "cupName": "Coppa Italia",
   "youthLeagueName": "Campionato Primavera",
   "leagues": [
-    { "id": "ita1", "name": "Serie A", "division": 1, "prestige": 1.0, "relegated": 3, "promotedDirect": 0, "down": "ita2" },
-    { "id": "ita2", "name": "Serie B", "division": 2, "prestige": 0.6, "relegated": 3, "promotedDirect": 2, "playoff": { "from": 3, "to": 8 }, "up": "ita1" }
+    {
+      "id": "ita1",
+      "name": "Serie A",
+      "division": 1,
+      "prestige": 1.0,
+      "relegated": 3,
+      "promotedDirect": 0,
+      "down": "ita2"
+    },
+    {
+      "id": "ita2",
+      "name": "Serie B",
+      "division": 2,
+      "prestige": 0.6,
+      "relegated": 3,
+      "promotedDirect": 2,
+      "playoff": {
+        "from": 3,
+        "to": 8
+      },
+      "up": "ita1"
+    }
   ],
   "clubs": {
     "ita1": [
-      { "id": "inter", "name": "Inter", "rating": 86, "profile": { "build": 30, "press": 40 } },
-      { "id": "napoli", "name": "Napoli", "rating": 84, "profile": { "build": 35, "press": 35 } },
-      { "id": "juventus", "name": "Juventus", "rating": 83, "profile": { "build": 20, "press": 20 } },
-      { "id": "milan", "name": "Milan", "rating": 83, "profile": { "build": 15, "press": 25 } },
-      { "id": "atalanta", "name": "Atalanta", "rating": 80, "profile": { "build": -10, "press": 80 } },
-      { "id": "roma", "name": "Roma", "rating": 80, "profile": { "build": 0, "press": 45 } },
-      { "id": "como", "name": "Como", "rating": 79, "profile": { "build": 60, "press": 40 } },
-      { "id": "bologna", "name": "Bologna", "rating": 77, "profile": { "build": 30, "press": 55 } },
-      { "id": "lazio", "name": "Lazio", "rating": 77, "profile": { "build": 35, "press": 20 } },
-      { "id": "fiorentina", "name": "Fiorentina", "rating": 75, "profile": { "build": 10, "press": 10 } },
-      { "id": "torino", "name": "Torino", "rating": 73, "profile": { "build": -20, "press": 30 } },
-      { "id": "udinese", "name": "Udinese", "rating": 72, "profile": { "build": -30, "press": 0 } },
-      { "id": "genoa", "name": "Genoa", "rating": 72, "profile": { "build": -10, "press": 35 } },
-      { "id": "sassuolo", "name": "Sassuolo", "rating": 71, "profile": { "build": 30, "press": 10 } },
-      { "id": "parma", "name": "Parma", "rating": 71, "profile": { "build": 0, "press": 20 } },
-      { "id": "cagliari", "name": "Cagliari", "rating": 70, "profile": { "build": -30, "press": -10 } },
-      { "id": "monza", "name": "Monza", "rating": 69, "profile": { "build": 20, "press": 0 } },
-      { "id": "lecce", "name": "Lecce", "rating": 68, "profile": { "build": -20, "press": 20 } },
-      { "id": "venezia", "name": "Venezia", "rating": 68, "profile": { "build": 25, "press": -10 } },
-      { "id": "frosinone", "name": "Frosinone", "rating": 67, "profile": { "build": 10, "press": 15 } }
+      {
+        "id": "inter",
+        "name": "Inter",
+        "rating": 86,
+        "profile": {
+          "build": 30,
+          "press": 40
+        },
+        "colors": [
+          "#1a1a1a",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "napoli",
+        "name": "Napoli",
+        "rating": 84,
+        "profile": {
+          "build": 35,
+          "press": 35
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "juventus",
+        "name": "Juventus",
+        "rating": 83,
+        "profile": {
+          "build": 20,
+          "press": 20
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "milan",
+        "name": "Milan",
+        "rating": 83,
+        "profile": {
+          "build": 15,
+          "press": 25
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "atalanta",
+        "name": "Atalanta",
+        "rating": 80,
+        "profile": {
+          "build": -10,
+          "press": 80
+        },
+        "colors": [
+          "#1a1a1a",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "roma",
+        "name": "Roma",
+        "rating": 80,
+        "profile": {
+          "build": 0,
+          "press": 45
+        },
+        "colors": [
+          "#7b1e2b",
+          "#ffd100"
+        ]
+      },
+      {
+        "id": "como",
+        "name": "Como",
+        "rating": 79,
+        "profile": {
+          "build": 60,
+          "press": 40
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "bologna",
+        "name": "Bologna",
+        "rating": 77,
+        "profile": {
+          "build": 30,
+          "press": 55
+        },
+        "colors": [
+          "#c8102e",
+          "#0c2340"
+        ]
+      },
+      {
+        "id": "lazio",
+        "name": "Lazio",
+        "rating": 77,
+        "profile": {
+          "build": 35,
+          "press": 20
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "fiorentina",
+        "name": "Fiorentina",
+        "rating": 75,
+        "profile": {
+          "build": 10,
+          "press": 10
+        },
+        "colors": [
+          "#592c82",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "torino",
+        "name": "Torino",
+        "rating": 73,
+        "profile": {
+          "build": -20,
+          "press": 30
+        },
+        "colors": [
+          "#7b1e2b",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "udinese",
+        "name": "Udinese",
+        "rating": 72,
+        "profile": {
+          "build": -30,
+          "press": 0
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "genoa",
+        "name": "Genoa",
+        "rating": 72,
+        "profile": {
+          "build": -10,
+          "press": 35
+        },
+        "colors": [
+          "#c8102e",
+          "#0c2340"
+        ]
+      },
+      {
+        "id": "sassuolo",
+        "name": "Sassuolo",
+        "rating": 71,
+        "profile": {
+          "build": 30,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "parma",
+        "name": "Parma",
+        "rating": 71,
+        "profile": {
+          "build": 0,
+          "press": 20
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "cagliari",
+        "name": "Cagliari",
+        "rating": 70,
+        "profile": {
+          "build": -30,
+          "press": -10
+        },
+        "colors": [
+          "#c8102e",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "monza",
+        "name": "Monza",
+        "rating": 69,
+        "profile": {
+          "build": 20,
+          "press": 0
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "lecce",
+        "name": "Lecce",
+        "rating": 68,
+        "profile": {
+          "build": -20,
+          "press": 20
+        },
+        "colors": [
+          "#ffd100",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "venezia",
+        "name": "Venezia",
+        "rating": 68,
+        "profile": {
+          "build": 25,
+          "press": -10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#f37021"
+        ]
+      },
+      {
+        "id": "frosinone",
+        "name": "Frosinone",
+        "rating": 67,
+        "profile": {
+          "build": 10,
+          "press": 15
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
+      }
     ],
     "ita2": [
-      { "id": "palermo", "name": "Palermo", "rating": 67, "profile": { "build": 25, "press": 20 } },
-      { "id": "hellas-verona", "name": "Hellas Verona", "rating": 66, "profile": { "build": -20, "press": 30 } },
-      { "id": "pisa", "name": "Pisa", "rating": 66, "profile": { "build": 0, "press": 25 } },
-      { "id": "cremonese", "name": "Cremonese", "rating": 66, "profile": { "build": -10, "press": 0 } },
-      { "id": "sampdoria", "name": "Sampdoria", "rating": 65, "profile": { "build": 20, "press": 0 } },
-      { "id": "empoli", "name": "Empoli", "rating": 64, "profile": { "build": 20, "press": 10 } },
-      { "id": "modena", "name": "Modena", "rating": 63, "profile": { "build": 10, "press": 10 } },
-      { "id": "catanzaro", "name": "Catanzaro", "rating": 63, "profile": { "build": 40, "press": 30 } },
-      { "id": "cesena", "name": "Cesena", "rating": 62, "profile": { "build": 0, "press": 30 } },
-      { "id": "padova", "name": "Padova", "rating": 60, "profile": { "build": -10, "press": 10 } },
-      { "id": "mantova", "name": "Mantova", "rating": 60, "profile": { "build": 40, "press": 20 } },
-      { "id": "sudtirol", "name": "Südtirol", "rating": 60, "profile": { "build": -30, "press": 0 } },
-      { "id": "benevento", "name": "Benevento", "rating": 60, "profile": { "build": 0, "press": 15 } },
-      { "id": "juve-stabia", "name": "Juve Stabia", "rating": 59, "profile": { "build": 10, "press": 25 } },
-      { "id": "carrarese", "name": "Carrarese", "rating": 59, "profile": { "build": -20, "press": 10 } },
-      { "id": "avellino", "name": "Avellino", "rating": 59, "profile": { "build": -10, "press": 20 } },
-      { "id": "vicenza", "name": "Vicenza", "rating": 59, "profile": { "build": 10, "press": 20 } },
-      { "id": "ascoli", "name": "Ascoli", "rating": 58, "profile": { "build": -10, "press": 0 } },
-      { "id": "arezzo", "name": "Arezzo", "rating": 57, "profile": { "build": 0, "press": 10 } },
-      { "id": "virtus-entella", "name": "Virtus Entella", "rating": 57, "profile": { "build": -20, "press": -10 } }
+      {
+        "id": "palermo",
+        "name": "Palermo",
+        "rating": 67,
+        "profile": {
+          "build": 25,
+          "press": 20
+        },
+        "colors": [
+          "#f5a3c7",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "hellas-verona",
+        "name": "Hellas Verona",
+        "rating": 66,
+        "profile": {
+          "build": -20,
+          "press": 30
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "pisa",
+        "name": "Pisa",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 25
+        },
+        "colors": [
+          "#0c2340",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "cremonese",
+        "name": "Cremonese",
+        "rating": 66,
+        "profile": {
+          "build": -10,
+          "press": 0
+        },
+        "colors": [
+          "#8d9093",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "sampdoria",
+        "name": "Sampdoria",
+        "rating": 65,
+        "profile": {
+          "build": 20,
+          "press": 0
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "empoli",
+        "name": "Empoli",
+        "rating": 64,
+        "profile": {
+          "build": 20,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "modena",
+        "name": "Modena",
+        "rating": 63,
+        "profile": {
+          "build": 10,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "catanzaro",
+        "name": "Catanzaro",
+        "rating": 63,
+        "profile": {
+          "build": 40,
+          "press": 30
+        },
+        "colors": [
+          "#ffd100",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "cesena",
+        "name": "Cesena",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 30
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "padova",
+        "name": "Padova",
+        "rating": 60,
+        "profile": {
+          "build": -10,
+          "press": 10
+        },
+        "colors": [
+          "#ffffff",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "mantova",
+        "name": "Mantova",
+        "rating": 60,
+        "profile": {
+          "build": 40,
+          "press": 20
+        },
+        "colors": [
+          "#ffffff",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "sudtirol",
+        "name": "Südtirol",
+        "rating": 60,
+        "profile": {
+          "build": -30,
+          "press": 0
+        },
+        "colors": [
+          "#ffffff",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "benevento",
+        "name": "Benevento",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 15
+        },
+        "colors": [
+          "#ffd100",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "juve-stabia",
+        "name": "Juve Stabia",
+        "rating": 59,
+        "profile": {
+          "build": 10,
+          "press": 25
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "carrarese",
+        "name": "Carrarese",
+        "rating": 59,
+        "profile": {
+          "build": -20,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "avellino",
+        "name": "Avellino",
+        "rating": 59,
+        "profile": {
+          "build": -10,
+          "press": 20
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "vicenza",
+        "name": "Vicenza",
+        "rating": 59,
+        "profile": {
+          "build": 10,
+          "press": 20
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "ascoli",
+        "name": "Ascoli",
+        "rating": 58,
+        "profile": {
+          "build": -10,
+          "press": 0
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arezzo",
+        "name": "Arezzo",
+        "rating": 57,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#7b1e2b",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "virtus-entella",
+        "name": "Virtus Entella",
+        "rating": 57,
+        "profile": {
+          "build": -20,
+          "press": -10
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
+      }
     ]
   },
   "external": [
-    { "id": "bari", "name": "Bari", "rating": 58, "profile": { "build": 0, "press": 10 } },
-    { "id": "spezia", "name": "Spezia", "rating": 58, "profile": { "build": 10, "press": 10 } },
-    { "id": "pescara", "name": "Pescara", "rating": 56, "profile": { "build": 30, "press": 20 } },
-    { "id": "salernitana", "name": "Salernitana", "rating": 56, "profile": { "build": -10, "press": 0 } },
-    { "id": "catania", "name": "Catania", "rating": 55, "profile": { "build": 0, "press": 20 } },
-    { "id": "reggiana", "name": "Reggiana", "rating": 55, "profile": { "build": -10, "press": 10 } },
-    { "id": "ternana", "name": "Ternana", "rating": 54, "profile": { "build": 10, "press": 0 } },
-    { "id": "perugia", "name": "Perugia", "rating": 53, "profile": { "build": 0, "press": 0 } }
+    {
+      "id": "bari",
+      "name": "Bari",
+      "rating": 58,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "spezia",
+      "name": "Spezia",
+      "rating": 58,
+      "profile": {
+        "build": 10,
+        "press": 10
+      },
+      "colors": [
+        "#ffffff",
+        "#1a1a1a"
+      ]
+    },
+    {
+      "id": "pescara",
+      "name": "Pescara",
+      "rating": 56,
+      "profile": {
+        "build": 30,
+        "press": 20
+      },
+      "colors": [
+        "#75aadb",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "salernitana",
+      "name": "Salernitana",
+      "rating": 56,
+      "profile": {
+        "build": -10,
+        "press": 0
+      },
+      "colors": [
+        "#7b1e2b",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "catania",
+      "name": "Catania",
+      "rating": 55,
+      "profile": {
+        "build": 0,
+        "press": 20
+      },
+      "colors": [
+        "#c8102e",
+        "#0046ad"
+      ]
+    },
+    {
+      "id": "reggiana",
+      "name": "Reggiana",
+      "rating": 55,
+      "profile": {
+        "build": -10,
+        "press": 10
+      },
+      "colors": [
+        "#7b1e2b",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "ternana",
+      "name": "Ternana",
+      "rating": 54,
+      "profile": {
+        "build": 10,
+        "press": 0
+      },
+      "colors": [
+        "#c8102e",
+        "#00843d"
+      ]
+    },
+    {
+      "id": "perugia",
+      "name": "Perugia",
+      "rating": 53,
+      "profile": {
+        "build": 0,
+        "press": 0
+      },
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    }
   ]
 }

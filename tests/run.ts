@@ -14,6 +14,7 @@ import {
 } from '../src/engine/career';
 import { roundRobin, simulateCup, simulateLeague } from '../src/engine/competition';
 import type { EventPack } from '../src/engine/events/schema';
+import { applyEffects } from '../src/engine/events/runtime';
 import { validatePacks } from '../src/engine/events/validate';
 import { Rng } from '../src/engine/rng';
 import type { GameState } from '../src/engine/types';
@@ -103,7 +104,7 @@ function playToEnd(seed: number): GameState {
   let guard = 0;
   while (state.phase !== 'finished' && guard++ < 80) {
     state = startSeason(state, EVENTS);
-    while (state.phase === 'start_decision') state = choose(state, 0, EVENTS);
+    while (state.phase === 'start_decision' || state.phase === 'mid_decision') state = choose(state, 0, EVENTS);
     state = playSeason(state);
     state = prepareEnd(state, EVENTS);
     while (state.phase === 'end_decision') {
@@ -134,7 +135,7 @@ test('salvataggio: un salvataggio a metà carriera riprende identico', () => {
   let state = createCareer({ name: 'Test', nationality: 'ita', style: { build: 0, press: 0 }, seed: 9, countries: COUNTRIES });
   state = choose(state, 0, EVENTS);
   state = startSeason(state, EVENTS);
-  while (state.phase === 'start_decision') state = choose(state, 0, EVENTS);
+  while (state.phase === 'start_decision' || state.phase === 'mid_decision') state = choose(state, 0, EVENTS);
   const copy = deserialize(serialize(state));
   const a = playSeason(state);
   const b = playSeason(copy);
@@ -156,7 +157,7 @@ test('primavera: la squadra allenata gioca anche se la prima squadra retrocede',
   (state.world.clubs[swap] as { leagueId: string | null }).leagueId = 'ita1';
 
   state = startSeason(state, EVENTS);
-  while (state.phase === 'start_decision') state = choose(state, 0, EVENTS);
+  while (state.phase === 'start_decision' || state.phase === 'mid_decision') state = choose(state, 0, EVENTS);
   state = playSeason(state);
   const r = state.lastReport;
   if (!r) throw new Error('nessun resoconto');
@@ -249,7 +250,7 @@ test('coppe continentali: la squadra allenata le gioca e le ritrova nel resocont
     let guard = 0;
     while (state.phase !== 'finished' && guard++ < 80) {
       state = startSeason(state, EVENTS);
-      while (state.phase === 'start_decision') state = choose(state, 0, EVENTS);
+      while (state.phase === 'start_decision' || state.phase === 'mid_decision') state = choose(state, 0, EVENTS);
       state = playSeason(state);
       if ((state.lastReport?.continental.length ?? 0) > 0) found = true;
       state = prepareEnd(state, EVENTS);
@@ -261,6 +262,127 @@ test('coppe continentali: la squadra allenata le gioca e le ritrova nel resocont
     }
   }
   assert(found, 'nessuna carriera ha giocato una coppa internazionale');
+});
+
+function firstTeamCareer(seed: number, clubId: string): GameState {
+  let state = createCareer({ name: 'Test', nationality: 'ita', style: { build: 0, press: 0 }, seed, countries: COUNTRIES, continental: CONTINENTAL });
+  state = choose(state, 0, EVENTS);
+  const job = state.job;
+  if (!job) throw new Error('nessun incarico');
+  job.clubId = clubId;
+  job.role = 'first';
+  job.contractYears = 3;
+  state.coach.license = 'PRO';
+  return state;
+}
+
+test('retrocessione in una serie non simulata: incarico finito, niente stagione da spettatore', () => {
+  let found = false;
+  for (let seed = 1; seed <= 40 && !found; seed++) {
+    // Club più debole della Serie B: alta probabilità di retrocedere tra i club esterni.
+    const weakest = 'virtus-entella';
+    let state = firstTeamCareer(seed, weakest);
+    const club = state.world.clubs[weakest];
+    if (club) club.rating = 45;
+    state = startSeason(state, EVENTS);
+    while (state.phase === 'start_decision' || state.phase === 'mid_decision') state = choose(state, 0, EVENTS);
+    state = playSeason(state);
+    if (state.world.clubs[weakest]?.leagueId !== null) continue;
+    found = true;
+    const r = state.lastReport;
+    assert(r && r.headlines.some((h) => h.id === 'released' || h.id === 'fired'), 'manca il titolo di fine incarico');
+    assert(state.job === null, "l'allenatore è ancora sulla panchina di un club non simulato");
+  }
+  assert(found, 'nessuna retrocessione tra i club esterni in 40 tentativi');
+});
+
+test('ultima stagione: niente decisioni, si passa al ritiro', () => {
+  let state = firstTeamCareer(3, 'como');
+  state.coach.age = 69;
+  state = startSeason(state, EVENTS);
+  while (state.phase === 'start_decision' || state.phase === 'mid_decision') state = choose(state, 0, EVENTS);
+  state = playSeason(state);
+  state = prepareEnd(state, EVENTS);
+  assert(state.phase === 'season_over', `fase ${state.phase} invece della fine stagione`);
+  state = nextSeason(state);
+  assert(state.phase === 'finished' && state.summary?.reason === 'age', 'carriera non conclusa per età');
+});
+
+test('ritiro: solo tra le scelte di carriera, dai 50 anni', () => {
+  let seenRetire = false;
+  for (let seed = 1; seed <= 20; seed++) {
+    let state = firstTeamCareer(seed, 'como');
+    state.coach.age = 55;
+    if (state.job) state.job.contractYears = 1;
+    state = startSeason(state, EVENTS);
+    while (state.phase === 'start_decision' || state.phase === 'mid_decision') state = choose(state, 0, EVENTS);
+    state = playSeason(state);
+    state = prepareEnd(state, EVENTS);
+    while (state.phase === 'end_decision') {
+      const p = state.pending;
+      if (p?.kind === 'career') {
+        assert((p.context as string) !== 'retirement', 'esiste ancora la schermata di ritiro');
+        if (p.options.some((o) => o.kind === 'retire')) seenRetire = true;
+      }
+      state = choose(state, 0, EVENTS);
+    }
+  }
+  assert(seenRetire, "il ritiro non compare mai tra le scelte a 55 anni");
+  let young = firstTeamCareer(2, 'como');
+  young = startSeason(young, EVENTS);
+  while (young.phase === 'start_decision' || young.phase === 'mid_decision') young = choose(young, 0, EVENTS);
+  young = playSeason(young);
+  young = prepareEnd(young, EVENTS);
+  while (young.phase === 'end_decision') {
+    const p = young.pending;
+    assert(!(p?.kind === 'career' && p.options.some((o) => o.kind === 'retire')), 'ritiro proposto a 35 anni');
+    young = choose(young, 0, EVENTS);
+  }
+});
+
+test('mercato di gennaio: gli effetti pesano solo sul girone di ritorno', () => {
+  let state = firstTeamCareer(5, 'bologna');
+  state.phase = 'mid_decision';
+  const club = state.world.clubs.bologna;
+  if (!club || !state.job) throw new Error('club mancante');
+  const before = club.rating;
+  const out = applyEffects(state, [{ type: 'teamRating', delta: 2 }, { type: 'newPlayer', profile: 'veteran' }], {}, new Rng(1));
+  const job = state.job;
+  const joined = job.keyPlayers.find((p) => p.profile === 'veteran');
+  assert(joined, 'il veterano non è arrivato');
+  const gain = club.rating - before;
+  assert(gain > 0, 'il veterano non migliora la squadra');
+  assert(Math.abs(job.seasonBoost + gain) < 1e-9, "il girone d'andata non è compensato");
+  assert(Math.abs((job.midBoost ?? 0) - (2 + gain)) < 1e-9, `bonus del ritorno ${job.midBoost}`);
+  assert(out.lines.some((l) => l.kind === 'team' && l.secondHalf), 'conseguenza del ritorno non descritta');
+  assert(out.lines.some((l) => l.kind === 'playerJoined'), 'arrivo del giocatore non descritto');
+});
+
+test('conseguenze: ogni scelta lascia una descrizione', () => {
+  let state = createCareer({ name: 'Test', nationality: 'ita', style: { build: 0, press: 0 }, seed: 11, countries: COUNTRIES, continental: CONTINENTAL });
+  state = choose(state, 1, EVENTS);
+  assert(state.lastOutcome?.[0]?.kind === 'job', 'la scelta del primo club non è descritta');
+  for (let i = 0; i < 6; i++) {
+    state = startSeason(state, EVENTS);
+    while (state.phase === 'start_decision' || state.phase === 'mid_decision') {
+      state = choose(state, 0, EVENTS);
+      assert((state.lastOutcome?.length ?? 0) > 0, 'evento senza conseguenze descritte');
+    }
+    state = playSeason(state);
+    state = prepareEnd(state, EVENTS);
+    while (state.phase === 'end_decision') {
+      state = choose(state, 0, EVENTS);
+      assert((state.lastOutcome?.length ?? 0) > 0, 'decisione di fine stagione senza conseguenze descritte');
+    }
+    state = nextSeason(state);
+    if (state.phase === 'finished') break;
+  }
+});
+
+test('colori sociali: ogni club del mondo ne ha due', () => {
+  const world = createWorld(COUNTRIES, 2026, CONTINENTAL);
+  const missing = Object.values(world.clubs).filter((c) => !c.colors || c.colors.length !== 2 || !c.colors.every((x) => /^#[0-9a-f]{6}$/i.test(x)));
+  assert(missing.length === 0, `club senza colori: ${missing.slice(0, 5).map((c) => c.name).join(', ')}`);
 });
 
 test('eventi: i pacchetti reali sono validi', () => {

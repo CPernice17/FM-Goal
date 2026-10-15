@@ -22,7 +22,11 @@
         "profile": {
           "build": 40,
           "press": 50
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "ksa-al-ahli",
@@ -31,7 +35,11 @@
         "profile": {
           "build": 20,
           "press": 40
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "ksa-al-nassr",
@@ -40,7 +48,11 @@
         "profile": {
           "build": 30,
           "press": 30
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
       },
       {
         "id": "ksa-al-ittihad",
@@ -49,7 +61,11 @@
         "profile": {
           "build": 10,
           "press": 30
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "ksa-al-qadsiah",
@@ -58,7 +74,11 @@
         "profile": {
           "build": 20,
           "press": 40
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffd100"
+        ]
       },
       {
         "id": "ksa-al-ettifaq",
@@ -67,7 +87,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#c8102e"
+        ]
       },
       {
         "id": "ksa-al-shabab",
@@ -76,7 +100,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "ksa-al-taawoun",
@@ -85,7 +113,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "ksa-neom",
@@ -94,7 +126,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#c5a253"
+        ]
       },
       {
         "id": "ksa-al-khaleej",
@@ -103,7 +139,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#00843d"
+        ]
       },
       {
         "id": "ksa-al-fateh",
@@ -112,7 +152,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "ksa-al-fayha",
@@ -121,7 +165,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#f37021",
+          "#0046ad"
+        ]
       },
       {
         "id": "ksa-al-kholood",
@@ -130,7 +178,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "ksa-al-riyadh",
@@ -139,7 +191,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "ksa-al-hazem",
@@ -148,7 +204,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "ksa-abha",
@@ -157,7 +217,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "ksa-al-faisaly",
@@ -166,7 +230,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "ksa-al-diriyah",
@@ -175,7 +243,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       }
     ]
   },
@@ -187,7 +259,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#c8102e",
+        "#ffd100"
+      ]
     },
     {
       "id": "ksa-al-okhdood",
@@ -196,7 +272,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0c2340",
+        "#ffffff"
+      ]
     },
     {
       "id": "ksa-al-wehda",
@@ -205,7 +285,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     },
     {
       "id": "ksa-al-raed",
@@ -214,7 +298,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "ksa-al-najma",
@@ -223,7 +311,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     }
   ]
 }

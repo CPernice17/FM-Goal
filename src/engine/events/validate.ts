@@ -11,9 +11,9 @@ const CONDITION_TYPES = new Set([
   'var', 'role', 'tier', 'division', 'style', 'flag', 'headline', 'keyPlayer', 'seasonsInJob', 'license', 'age',
 ]);
 const EFFECT_TYPES = new Set([
-  'var', 'flag', 'style', 'keyPlayer', 'teamRating', 'schedule', 'license', 'skipOffers', 'endJob', 'retire',
+  'var', 'flag', 'style', 'keyPlayer', 'newPlayer', 'teamRating', 'schedule', 'license', 'skipOffers', 'endJob', 'retire',
 ]);
-const MOMENTS = new Set(['start', 'end', 'unemployed']);
+const MOMENTS = new Set(['start', 'mid', 'end', 'unemployed']);
 
 export const LIMITS = {
   maxBodyChars: 170,
@@ -113,6 +113,7 @@ function checkEffect(e: Effect, where: string, errors: string[], warnings: strin
   if (e.type === 'style' && Math.abs(e.delta) > LIMITS.maxStyleDelta) warnings.push(`${where}: spostamento di stile fuori scala (${e.delta})`);
   if (e.type === 'teamRating' && Math.abs(e.delta) > LIMITS.maxTeamDelta) warnings.push(`${where}: variazione di rating fuori scala (${e.delta})`);
   if (e.type === 'keyPlayer' && !hasPlayer) errors.push(`${where}: effetto su un giocatore senza condizione keyPlayer`);
+  if (e.type === 'newPlayer' && e.profile !== 'young' && e.profile !== 'veteran') errors.push(`${where}: profilo del nuovo giocatore non valido`);
 }
 
 function checkContradictions(ev: EventDef, where: string, errors: string[]): void {

@@ -9,7 +9,8 @@ import { it, type Strings } from './it';
 const DICTS: Partial<Record<Lang, Partial<Strings>>> = { it };
 
 export function t(lang: Lang, key: keyof Strings, vars: Record<string, string | number> = {}): string {
-  const raw = DICTS[lang]?.[key] ?? it[key];
+  // Una chiave sconosciuta (per esempio da un salvataggio vecchio) mostra la chiave stessa.
+  const raw = DICTS[lang]?.[key] ?? it[key] ?? String(key);
   return raw.replace(/\{(\w+)\}/g, (m, k: string) => (vars[k] !== undefined ? String(vars[k]) : m));
 }
 

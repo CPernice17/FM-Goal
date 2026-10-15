@@ -26,6 +26,8 @@ export interface ClubData {
   name: string;
   rating: number;
   profile: Style;
+  /** Colori sociali: primario e secondario. */
+  colors?: [string, string];
 }
 
 export interface LeagueConfig {
@@ -105,7 +107,7 @@ export interface ContinentalData {
   intercontinental: { id: string; name: string };
   clubWorldCup: { id: string; name: string; every: number; firstYear: number; quotas: Record<string, number> };
   /** Club esterni dei paesi non simulati: giocano solo le coppe continentali. */
-  pool: { id: string; name: string; country: string; confed: string; region?: string; rating: number }[];
+  pool: { id: string; name: string; country: string; confed: string; region?: string; rating: number; colors?: [string, string] }[];
 }
 
 // ---------------------------------------------------------------------------
@@ -122,6 +124,7 @@ export interface Club {
   /** Livello verso cui il rating tende nel tempo. */
   anchor: number;
   profile: Style;
+  colors?: [string, string];
 }
 
 export interface LeagueState {
@@ -169,6 +172,8 @@ export interface KeyPlayer {
   satisfaction: number;
   /** Punti di rating che il giocatore porta alla squadra. */
   contribution: number;
+  /** Profilo dei giocatori presi sul mercato: il giovane cresce, il veterano cala. */
+  profile?: 'young' | 'veteran';
 }
 
 export type ObjectiveId =
@@ -194,6 +199,8 @@ export interface Job {
   keyPlayers: KeyPlayer[];
   /** Bonus o malus di rating dovuto agli eventi, si azzera a fine stagione. */
   seasonBoost: number;
+  /** Bonus o malus del solo girone di ritorno (imprevisti di metà stagione). */
+  midBoost?: number;
 }
 
 export interface Coach {
@@ -220,16 +227,34 @@ export type CareerOption =
   | { kind: 'leave' }
   | { kind: 'wait' }
   | { kind: 'study' }
-  | { kind: 'retire' }
-  | { kind: 'continue' };
+  | { kind: 'retire' };
 
 export type Pending =
   | { kind: 'event'; eventId: string; bindings: Bindings }
   | { kind: 'career'; options: CareerOption[]; context: CareerContext };
 
-export type EndStep = 'retirement' | 'career_event' | 'career_decision' | 'management_event';
+/** Conseguenza di una scelta, da mostrare al giocatore. */
+export type OutcomeLine =
+  | { kind: 'var'; var: 'board' | 'dressing' | 'environment' | 'reputation'; delta: number }
+  | { kind: 'style'; axis: 'build' | 'press'; delta: number }
+  | { kind: 'team'; delta: number; secondHalf: boolean }
+  | { kind: 'playerLeft'; name: string }
+  | { kind: 'playerJoined'; name: string; profile: 'young' | 'veteran'; age: number }
+  | { kind: 'satisfaction'; name: string; delta: number }
+  | { kind: 'license'; license: License }
+  | { kind: 'skipOffers' }
+  | { kind: 'later' }
+  | { kind: 'resign' }
+  | { kind: 'retire' }
+  | { kind: 'job'; clubId: string; role: Role; years: number }
+  | { kind: 'renew'; years: number }
+  | { kind: 'stay' }
+  | { kind: 'wait' }
+  | { kind: 'leave' };
 
-export type CareerContext = 'contract_running' | 'contract_ended' | 'renewal' | 'unemployed' | 'fired' | 'retirement' | 'first_job';
+export type EndStep = 'career_event' | 'career_decision' | 'management_event';
+
+export type CareerContext = 'contract_running' | 'contract_ended' | 'renewal' | 'unemployed' | 'fired' | 'first_job';
 
 export interface Bindings {
   playerId?: string;
@@ -250,6 +275,7 @@ export type HeadlineId =
   | 'above_expectations'
   | 'below_expectations'
   | 'fired'
+  | 'released'
   | 'top_scorer'
   | 'continental_winner'
   | 'continental_final'
@@ -287,6 +313,7 @@ export type Phase =
   | 'first_job'
   | 'preseason'
   | 'start_decision'
+  | 'mid_decision'
   | 'ready'
   | 'report'
   | 'end_decision'
@@ -339,4 +366,6 @@ export interface GameState {
   summary: CareerSummary | null;
   /** Numero di decisioni prese, utile per il bilanciamento. */
   decisions: number;
+  /** Conseguenze dell'ultima scelta, per l'interfaccia. */
+  lastOutcome?: OutcomeLine[];
 }

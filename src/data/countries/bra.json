@@ -22,7 +22,11 @@
         "profile": {
           "build": 40,
           "press": 50
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "bra-palmeiras",
@@ -31,7 +35,11 @@
         "profile": {
           "build": 10,
           "press": 50
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "bra-botafogo",
@@ -40,7 +48,11 @@
         "profile": {
           "build": 0,
           "press": 40
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
       },
       {
         "id": "bra-cruzeiro",
@@ -49,7 +61,11 @@
         "profile": {
           "build": 20,
           "press": 40
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "bra-fluminense",
@@ -58,7 +74,11 @@
         "profile": {
           "build": 50,
           "press": 30
-        }
+        },
+        "colors": [
+          "#7b1e2b",
+          "#005f3b"
+        ]
       },
       {
         "id": "bra-atletico-mineiro",
@@ -67,7 +87,11 @@
         "profile": {
           "build": 0,
           "press": 30
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
       },
       {
         "id": "bra-internacional",
@@ -76,7 +100,11 @@
         "profile": {
           "build": 10,
           "press": 30
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "bra-sao-paulo",
@@ -85,7 +113,11 @@
         "profile": {
           "build": 20,
           "press": 30
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#c8102e"
+        ]
       },
       {
         "id": "bra-corinthians",
@@ -94,7 +126,11 @@
         "profile": {
           "build": -10,
           "press": 30
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "bra-bahia",
@@ -103,7 +139,11 @@
         "profile": {
           "build": 40,
           "press": 30
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#c8102e"
+        ]
       },
       {
         "id": "bra-gremio",
@@ -112,7 +152,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#75aadb",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "bra-vasco-da-gama",
@@ -121,7 +165,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
       },
       {
         "id": "bra-red-bull-bragantino",
@@ -130,7 +178,11 @@
         "profile": {
           "build": 0,
           "press": 70
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#c8102e"
+        ]
       },
       {
         "id": "bra-santos",
@@ -139,7 +191,11 @@
         "profile": {
           "build": 20,
           "press": 20
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "bra-athletico-paranaense",
@@ -148,7 +204,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "bra-mirassol",
@@ -157,7 +217,11 @@
         "profile": {
           "build": -10,
           "press": 40
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#00843d"
+        ]
       },
       {
         "id": "bra-vitoria",
@@ -166,7 +230,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "bra-coritiba",
@@ -175,7 +243,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "bra-remo",
@@ -184,7 +256,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0c2340",
+          "#ffffff"
+        ]
       },
       {
         "id": "bra-chapecoense",
@@ -193,7 +269,11 @@
         "profile": {
           "build": -30,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       }
     ]
   },
@@ -205,7 +285,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#c8102e"
+      ]
     },
     {
       "id": "bra-ceara",
@@ -214,7 +298,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
     },
     {
       "id": "bra-juventude",
@@ -223,7 +311,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "bra-sport",
@@ -232,7 +324,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "bra-goias",
@@ -241,7 +337,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
     },
     {
       "id": "bra-america-mineiro",
@@ -250,7 +350,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#00843d",
+        "#1a1a1a"
+      ]
     }
   ]
 }

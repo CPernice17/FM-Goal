@@ -21,7 +21,7 @@ export function attachContinental(world: WorldState, data: ContinentalData): voi
   const poolRegion: Record<string, string> = {};
   for (const c of data.pool) {
     if (world.clubs[c.id]) throw new Error(`Club esterno duplicato: ${c.id}`);
-    world.clubs[c.id] = { id: c.id, name: c.name, country: c.country, leagueId: null, rating: c.rating, anchor: c.rating, profile: { build: 0, press: 10 } };
+    world.clubs[c.id] = { id: c.id, name: c.name, country: c.country, leagueId: null, rating: c.rating, anchor: c.rating, profile: { build: 0, press: 10 }, colors: c.colors };
     poolConfed[c.id] = c.confed;
     if (c.region) poolRegion[c.id] = c.region;
   }

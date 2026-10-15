@@ -5,7 +5,8 @@ import type { HeadlineId, License, Localized, Role, Trait } from '../types';
  * solo operatori predefiniti, così lo script di controllo può validare i pacchetti.
  */
 
-export type Moment = 'start' | 'end' | 'unemployed';
+/** start = inizio stagione, mid = mercato di gennaio, end = fine stagione, unemployed = senza panchina. */
+export type Moment = 'start' | 'mid' | 'end' | 'unemployed';
 export type Comparator = '<' | '<=' | '>' | '>=' | '==';
 export type StateVar = 'board' | 'dressing' | 'environment' | 'reputation';
 
@@ -27,6 +28,8 @@ export type Effect =
   | { type: 'flag'; set?: string; clear?: string }
   | { type: 'style'; axis: 'build' | 'press'; delta: number }
   | { type: 'keyPlayer'; satisfaction?: number; leave?: boolean }
+  /** Nuovo giocatore chiave: il giovane rende poco subito e cresce, il veterano rende subito e cala. */
+  | { type: 'newPlayer'; profile: 'young' | 'veteran' }
   | { type: 'teamRating'; delta: number }
   | { type: 'schedule'; event: string; inTurns: number }
   | { type: 'license'; upgrade: true }

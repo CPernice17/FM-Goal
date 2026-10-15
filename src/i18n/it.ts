@@ -1,6 +1,6 @@
 export const it = {
   objective_title: 'Vincere il campionato',
-  objective_europe: 'Qualificazione europea',
+  objective_europe: 'Qualificazione alle coppe {area}',
   objective_top_half: 'Parte sinistra della classifica',
   objective_mid_table: 'Metà classifica',
   objective_survival: 'Salvezza',
@@ -9,6 +9,12 @@ export const it = {
   objective_youth_growth: 'Far crescere i ragazzi',
   objective_playoffs: 'Qualificazione ai playoff',
   objective_rebuild: 'Ricostruire la squadra',
+
+  area_uefa: 'europee',
+  area_conmebol: 'sudamericane',
+  area_afc: 'asiatiche',
+  area_concacaf: 'nordamericane',
+  area_other: 'continentali',
 
   role_youth: 'Allenatore della Primavera',
   role_first: 'Allenatore',
@@ -26,6 +32,7 @@ export const it = {
   headline_above_expectations: 'Ben oltre le attese',
   headline_below_expectations: 'Molto sotto le attese',
   headline_fired: 'Esonerato alla {matchday}ª giornata',
+  headline_released: 'Il club scende di categoria e riparte senza di te',
   headline_top_scorer: '{player} trascina il miglior attacco',
   headline_continental_winner: '{cup}: trofeo conquistato',
   headline_continental_final: '{cup}: sconfitti in finale',
@@ -53,7 +60,6 @@ export const it = {
   option_wait: 'Aspetta un\'occasione migliore',
   option_study: 'Studia per il patentino successivo',
   option_retire: 'Appendi il fischietto al chiodo',
-  option_continue: 'Ancora una stagione',
 
   context_contract_running: 'Sono arrivate offerte',
   context_contract_ended: 'Il contratto non viene rinnovato',
@@ -61,7 +67,6 @@ export const it = {
   context_unemployed: 'Senza panchina',
   context_fired: 'Esonerato: si riparte',
   context_first_job: 'Scegli la tua prima panchina',
-  context_retirement: 'È arrivato il momento di dire basta?',
 
   style_dominio: 'Dominio',
   style_pressing_ripartenza: 'Pressing e ripartenza',
@@ -102,7 +107,7 @@ export const it = {
   mood_unhappy: 'scontento',
 
   tier_d1_1: 'Lotta per il titolo',
-  tier_d1_2: 'Zona Europa',
+  tier_d1_2: 'Zona coppe {area}',
   tier_d1_3: 'Metà classifica',
   tier_d1_4: 'Metà classifica bassa',
   tier_d1_5: 'Lotta salvezza',
@@ -191,6 +196,47 @@ export const it = {
   ui_side_up: 'promozione',
   ui_side_playoff: 'playoff',
   ui_side_down: 'retrocessione',
+
+  ui_moment_start_decision: 'inizio stagione',
+  ui_moment_mid_decision: 'mercato di gennaio',
+  ui_moment_end_decision: 'fine stagione',
+
+  profile_young: 'giovane in crescita',
+  profile_veteran: 'veterano',
+
+  ui_theme_auto: 'Tema: automatico',
+  ui_theme_light: 'Tema: chiaro',
+  ui_theme_dark: 'Tema: scuro',
+
+  ui_outcome_choice: 'Hai scelto:',
+  outcome_style_build_up: 'Il tuo calcio: più possesso',
+  outcome_style_build_down: 'Il tuo calcio: più verticalità',
+  outcome_style_press_up: 'Il tuo calcio: più pressing',
+  outcome_style_press_down: 'Il tuo calcio: squadra più bassa',
+  outcome_team: 'Forza della squadra in stagione',
+  outcome_team_second: 'Forza della squadra nel girone di ritorno',
+  outcome_player_left: '{name} lascia la squadra',
+  outcome_player_joined_young: 'Arriva {name}, {age} anni: rende poco subito, ma crescerà',
+  outcome_player_joined_veteran: 'Arriva {name}, {age} anni: rende subito, poi calerà',
+  outcome_satisfaction: 'Umore di {name}',
+  outcome_license: 'Ottieni il patentino {license}',
+  outcome_skipOffers: 'Niente offerte quest\'anno',
+  outcome_later: 'Potresti doverne riparlare più avanti',
+  outcome_resign: 'Ti dimetti: lasci il club',
+  outcome_retire: 'Annunci il ritiro a fine stagione',
+  outcome_job: 'Firmi con {club} per {years} anni',
+  outcome_job_one: 'Firmi con {club} per un anno',
+  outcome_job_youth: 'Guiderai la Primavera di {club}',
+  outcome_renew: 'Rinnovi per {years} anni',
+  outcome_renew_one: 'Rinnovi per un anno',
+  outcome_stay: 'Resti al tuo posto',
+  outcome_wait: 'Aspetti un\'occasione migliore',
+  outcome_leave: 'Lasci il club a fine contratto',
+
+  ui_career: 'La carriera',
+  ui_best: 'Miglior piazzamento',
+  ui_n_seasons: '{n} stagioni',
+  ui_n_seasons_one: '1 stagione',
 };
 
 export type Strings = { [K in keyof typeof it]: string };

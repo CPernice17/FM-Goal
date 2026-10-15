@@ -36,7 +36,11 @@
         "profile": {
           "build": 40,
           "press": 40
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#c5a253"
+        ]
       },
       {
         "id": "esp-barcelona",
@@ -45,7 +49,11 @@
         "profile": {
           "build": 70,
           "press": 70
-        }
+        },
+        "colors": [
+          "#a50021",
+          "#0046ad"
+        ]
       },
       {
         "id": "esp-atletico-madrid",
@@ -54,7 +62,11 @@
         "profile": {
           "build": -20,
           "press": 40
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-athletic-bilbao",
@@ -63,7 +75,11 @@
         "profile": {
           "build": 0,
           "press": 70
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-villarreal",
@@ -72,7 +88,11 @@
         "profile": {
           "build": 30,
           "press": 30
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
       },
       {
         "id": "esp-real-betis",
@@ -81,7 +101,11 @@
         "profile": {
           "build": 50,
           "press": 30
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-real-sociedad",
@@ -90,7 +114,11 @@
         "profile": {
           "build": 40,
           "press": 50
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-celta-vigo",
@@ -99,7 +127,11 @@
         "profile": {
           "build": 40,
           "press": 40
-        }
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-sevilla",
@@ -108,7 +140,11 @@
         "profile": {
           "build": 20,
           "press": 30
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#c8102e"
+        ]
       },
       {
         "id": "esp-valencia",
@@ -117,7 +153,11 @@
         "profile": {
           "build": 0,
           "press": 20
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "esp-osasuna",
@@ -126,7 +166,11 @@
         "profile": {
           "build": -20,
           "press": 30
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#0c2340"
+        ]
       },
       {
         "id": "esp-rayo-vallecano",
@@ -135,7 +179,11 @@
         "profile": {
           "build": 0,
           "press": 60
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#c8102e"
+        ]
       },
       {
         "id": "esp-espanyol",
@@ -144,7 +192,11 @@
         "profile": {
           "build": -20,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-getafe",
@@ -153,7 +205,11 @@
         "profile": {
           "build": -60,
           "press": 40
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-alaves",
@@ -162,7 +218,11 @@
         "profile": {
           "build": -20,
           "press": 30
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-elche",
@@ -171,7 +231,11 @@
         "profile": {
           "build": 40,
           "press": 20
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-levante",
@@ -180,7 +244,11 @@
         "profile": {
           "build": 20,
           "press": 10
-        }
+        },
+        "colors": [
+          "#a50021",
+          "#0c2340"
+        ]
       },
       {
         "id": "esp-deportivo-a-coruna",
@@ -189,7 +257,11 @@
         "profile": {
           "build": 30,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-malaga",
@@ -198,7 +270,11 @@
         "profile": {
           "build": 10,
           "press": 20
-        }
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-racing-santander",
@@ -207,7 +283,11 @@
         "profile": {
           "build": 30,
           "press": 20
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       }
     ],
     "esp2": [
@@ -218,7 +298,11 @@
         "profile": {
           "build": 50,
           "press": 30
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-mallorca",
@@ -227,7 +311,11 @@
         "profile": {
           "build": -30,
           "press": 20
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "esp-oviedo",
@@ -236,7 +324,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-las-palmas",
@@ -245,7 +337,11 @@
         "profile": {
           "build": 50,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
       },
       {
         "id": "esp-valladolid",
@@ -254,7 +350,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#4f2683",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-almeria",
@@ -263,7 +363,11 @@
         "profile": {
           "build": 30,
           "press": 20
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-granada",
@@ -272,7 +376,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-leganes",
@@ -281,7 +389,11 @@
         "profile": {
           "build": -20,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-sporting-gijon",
@@ -290,7 +402,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-cadiz",
@@ -299,7 +415,11 @@
         "profile": {
           "build": -30,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
       },
       {
         "id": "esp-eibar",
@@ -308,7 +428,11 @@
         "profile": {
           "build": -10,
           "press": 40
-        }
+        },
+        "colors": [
+          "#7b1e2b",
+          "#0046ad"
+        ]
       },
       {
         "id": "esp-castellon",
@@ -317,7 +441,11 @@
         "profile": {
           "build": 50,
           "press": 40
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-albacete",
@@ -326,7 +454,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "esp-burgos",
@@ -335,7 +467,11 @@
         "profile": {
           "build": -30,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "esp-cordoba",
@@ -344,7 +480,11 @@
         "profile": {
           "build": 30,
           "press": 20
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-tenerife",
@@ -353,7 +493,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-andorra",
@@ -362,7 +506,11 @@
         "profile": {
           "build": 40,
           "press": 20
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#c8102e"
+        ]
       },
       {
         "id": "esp-ceuta",
@@ -371,7 +519,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "esp-eldense",
@@ -380,7 +532,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#c8102e"
+        ]
       },
       {
         "id": "esp-sabadell",
@@ -389,7 +545,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-real-sociedad-b",
@@ -398,7 +558,11 @@
         "profile": {
           "build": 40,
           "press": 40
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "esp-celta-fortuna",
@@ -407,7 +571,11 @@
         "profile": {
           "build": 40,
           "press": 30
-        }
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
       }
     ]
   },
@@ -419,7 +587,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "esp-huesca",
@@ -428,7 +600,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#c8102e"
+      ]
     },
     {
       "id": "esp-mirandes",
@@ -437,7 +613,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "esp-cultural-leonesa",
@@ -446,7 +626,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#ffffff",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "esp-real-murcia",
@@ -455,7 +639,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     }
   ]
 }

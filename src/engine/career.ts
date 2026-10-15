@@ -18,6 +18,7 @@ import {
   type Lang,
   type ObjectiveId,
   type Offer,
+  type OutcomeLine,
   type Pending,
   type Role,
   type SeasonReport,
@@ -43,11 +44,10 @@ export const SAVE_VERSION = 2;
 export const BALANCE = {
   startAge: 35,
   retireAge: 70,
-  /** Da quest'età, a fine stagione, può arrivare la proposta di ritiro. */
+  /** Da quest'età il ritiro compare tra le scelte di carriera (offerte, rinnovo, attesa). */
   retireOfferAge: 50,
-  /** Probabilità della proposta: base + incremento per ogni anno oltre la soglia. */
-  retireOfferBase: 0.15,
-  retireOfferPerYear: 0.10,
+  /** Probabilità di un imprevisto al mercato di gennaio. */
+  midEventChance: 0.45,
   startReputation: 10,
   maxUnemployedTurns: 3,
   youthPrestige: 0.35,
@@ -255,6 +255,11 @@ export function teamStrength(state: GameState, rng?: Rng): number {
   return base + coachBonus(state) + job.seasonBoost + dressing + fit + form;
 }
 
+/** Forza nel girone di ritorno: quella dell'andata più gli effetti del mercato di gennaio. */
+export function secondHalfStrength(state: GameState, firstHalf: number): number {
+  return firstHalf + (state.job?.midBoost ?? 0);
+}
+
 /** Bonus del mestiere: cresce con le stagioni allenate, fino a un tetto. */
 export function coachBonus(state: GameState): number {
   return Math.min(bal(state).experienceMax, state.history.length * bal(state).experiencePerSeason);
@@ -340,6 +345,20 @@ export function startSeason(state: GameState, events: readonly EventDef[]): Game
     state.eventLog[picked.event.id] = state.turn;
     state.pending = { kind: 'event', eventId: picked.event.id, bindings: picked.bindings };
     state.phase = 'start_decision';
+    return state;
+  }
+  return enterMidSeason(state, events);
+}
+
+/** Mercato di gennaio: a volte un imprevisto che pesa sul girone di ritorno. */
+function enterMidSeason(state: GameState, events: readonly EventDef[]): GameState {
+  const picked = state.job
+    ? withRng(state, (rng) => (rng.chance(BALANCE.midEventChance) ? selectEvent(state, rng, events, 'mid', 'management') : null))
+    : null;
+  if (picked) {
+    state.eventLog[picked.event.id] = state.turn;
+    state.pending = { kind: 'event', eventId: picked.event.id, bindings: picked.bindings };
+    state.phase = 'mid_decision';
   } else {
     state.phase = 'ready';
   }
@@ -356,12 +375,13 @@ export function choose(state: GameState, optionIndex: number, events: readonly E
     const option = pending?.kind === 'career' ? pending.options[optionIndex] : undefined;
     if (!option) throw new Error(`Primo incarico non valido: ${optionIndex}`);
     state.decisions += 1;
-    withRng(state, (rng) => applyCareerOption(state, rng, option));
+    state.lastOutcome = withRng(state, (rng) => applyCareerOption(state, rng, option));
     state.pending = null;
     state.phase = 'preseason';
     return state;
   }
-  if (!pending || (state.phase !== 'start_decision' && state.phase !== 'end_decision')) {
+  const phases: GameState['phase'][] = ['start_decision', 'mid_decision', 'end_decision'];
+  if (!pending || !phases.includes(state.phase)) {
     throw new Error(`Nessuna decisione in sospeso (fase ${state.phase})`);
   }
   state.decisions += 1;
@@ -369,46 +389,50 @@ export function choose(state: GameState, optionIndex: number, events: readonly E
     const ev = events.find((e) => e.id === pending.eventId);
     const option = ev?.options[optionIndex];
     if (!ev || !option) throw new Error(`Opzione non valida: ${pending.eventId}#${optionIndex}`);
-    const out = applyEffects(state, option.effects, pending.bindings);
+    const out = withRng(state, (rng) => applyEffects(state, option.effects, pending.bindings, rng));
     if (out.endJob && state.job) loseJob(state);
     if (out.retire) state.retireRequested = true;
+    state.lastOutcome = out.lines;
   } else {
     const option = pending.options[optionIndex];
     if (!option) throw new Error(`Opzione di carriera non valida: ${optionIndex}`);
-    withRng(state, (rng) => applyCareerOption(state, rng, option));
+    state.lastOutcome = withRng(state, (rng) => applyCareerOption(state, rng, option));
   }
   state.pending = null;
 
-  if (state.phase === 'start_decision') {
+  if (state.phase === 'start_decision') return enterMidSeason(state, events);
+  if (state.phase === 'mid_decision') {
     state.phase = 'ready';
     return state;
   }
   return advanceEnd(state, events);
 }
 
-function applyCareerOption(state: GameState, rng: Rng, option: CareerOption): void {
+function applyCareerOption(state: GameState, rng: Rng, option: CareerOption): OutcomeLine[] {
   switch (option.kind) {
-    case 'accept':
+    case 'accept': {
       takeJob(state, rng, option.offer);
-      break;
+      const years = option.offer.years;
+      return [{ kind: 'job', clubId: option.offer.clubId, role: option.offer.role, years }];
+    }
     case 'renew':
       if (state.job) state.job.contractYears = option.years;
-      break;
+      return [{ kind: 'renew', years: option.years }];
     case 'leave':
       loseJob(state);
-      break;
+      return [{ kind: 'leave' }];
     case 'study': {
       const i = LICENSE_ORDER.indexOf(state.coach.license);
       state.coach.license = LICENSE_ORDER[Math.min(i + 1, LICENSE_ORDER.length - 1)] ?? state.coach.license;
-      break;
+      return [{ kind: 'license', license: state.coach.license }];
     }
     case 'retire':
       state.retireRequested = true;
-      break;
+      return [{ kind: 'retire' }];
     case 'stay':
+      return [{ kind: 'stay' }];
     case 'wait':
-    case 'continue':
-      break;
+      return [{ kind: 'wait' }];
   }
 }
 
@@ -425,12 +449,19 @@ export function playSeason(state: GameState): GameState {
   assertPhase(state, 'ready');
   withRng(state, (rng) => {
     const job = state.job;
-    const override = { first: {} as Record<string, number>, youth: {} as Record<string, number> };
+    const override = {
+      first: {} as Record<string, number>,
+      youth: {} as Record<string, number>,
+      secondFirst: {} as Record<string, number>,
+      secondYouth: {} as Record<string, number>,
+    };
     const pre = preseason(state);
     if (job) {
       const strength = teamStrength(state, rng);
       if (job.role === 'youth') override.youth[job.clubId] = strength;
       else override.first[job.clubId] = strength;
+      const second = job.role === 'youth' ? override.secondYouth : override.secondFirst;
+      second[job.clubId] = secondHalfStrength(state, strength);
     }
     const season = simulateWorldSeason(state.world, rng, override);
     const report = job && pre ? buildReport(state, rng, season, pre) : null;
@@ -449,6 +480,11 @@ export function playSeason(state: GameState): GameState {
         }
       }
       applyOutcome(state, rng, report);
+      // Retrocessione in una serie non simulata: la società riparte senza l'allenatore.
+      if (state.job && state.job.role === 'first' && club(state.world, state.job.clubId).leagueId === null) {
+        report.headlines.unshift({ id: 'released' });
+        loseJob(state);
+      }
       report.headlines = prioritize(report.headlines);
       state.history.push(report);
     }
@@ -683,6 +719,7 @@ function applyOutcome(state: GameState, rng: Rng, report: SeasonReport): void {
 
 const HEADLINE_PRIORITY: Headline['id'][] = [
   'fired',
+  'released',
   'champion',
   'continental_winner',
   'promoted',
@@ -712,7 +749,9 @@ function prioritize(headlines: Headline[]): Headline[] {
 
 export function prepareEnd(state: GameState, events: readonly EventDef[]): GameState {
   assertPhase(state, 'report');
-  state.endQueue = ['retirement', 'career_event', 'career_decision', 'management_event'];
+  // Ultima stagione prima del limite d'età: niente decisioni, si passa al ritiro.
+  const lastSeason = state.coach.age + 1 >= BALANCE.retireAge;
+  state.endQueue = lastSeason ? [] : ['career_event', 'career_decision', 'management_event'];
   state.careerShown = false;
   return advanceEnd(state, events);
 }
@@ -734,14 +773,6 @@ function advanceEnd(state: GameState, events: readonly EventDef[]): GameState {
 function buildEndStep(state: GameState, rng: Rng, events: readonly EventDef[], step: string | undefined): Pending | null {
   if (state.retireRequested) return null;
   const moment = state.job ? 'end' : 'unemployed';
-  if (step === 'retirement') {
-    // Proposta di ritiro sempre più probabile con l'età: la carriera finisce
-    // in modo naturale prima del limite massimo.
-    const years = state.coach.age - BALANCE.retireOfferAge;
-    if (years < 0 || !rng.chance(clamp(BALANCE.retireOfferBase + years * BALANCE.retireOfferPerYear, 0, 0.9))) return null;
-    state.careerShown = true;
-    return { kind: 'career', context: 'retirement', options: [{ kind: 'retire' }, { kind: 'continue' }] };
-  }
   if (step === 'career_event') {
     const picked = selectEvent(state, rng, events, moment, 'career');
     if (!picked) return null;
@@ -767,6 +798,13 @@ function buildEndStep(state: GameState, rng: Rng, events: readonly EventDef[], s
 }
 
 function buildCareerDecision(state: GameState, rng: Rng): Pending | null {
+  const pending = buildCareerChoices(state, rng);
+  // Dai 50 anni il ritiro è una delle scelte di carriera (offerte, rinnovo, attesa).
+  if (pending?.kind === 'career' && state.coach.age >= BALANCE.retireOfferAge) pending.options.push({ kind: 'retire' });
+  return pending;
+}
+
+function buildCareerChoices(state: GameState, rng: Rng): Pending | null {
   const job = state.job;
   const canStudy = state.coach.license !== 'PRO';
   const accept = (offers: Offer[]): CareerOption[] => offers.map((offer) => ({ kind: 'accept', offer }));
@@ -875,6 +913,7 @@ export function nextSeason(state: GameState): GameState {
       job.dressing += (50 - job.dressing) * BALANCE.meanReversion;
       job.environment += (50 - job.environment) * BALANCE.meanReversion;
       job.seasonBoost = 0;
+      job.midBoost = 0;
     }
     // Ogni turno è una stagione, anche in Primavera.
     state.coach.age += 1;

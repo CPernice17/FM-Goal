@@ -6,17 +6,61 @@
       "moment": "end",
       "category": "career",
       "conditions": [
-        { "type": "role", "is": ["youth"] },
-        { "type": "license", "is": ["B"] },
-        { "type": "seasonsInJob", "op": ">=", "value": 1 }
+        {
+          "type": "role",
+          "is": [
+            "youth"
+          ]
+        },
+        {
+          "type": "license",
+          "is": [
+            "B"
+          ]
+        },
+        {
+          "type": "seasonsInJob",
+          "op": ">=",
+          "value": 1
+        }
       ],
       "weight": 20,
       "cooldown": 1,
-      "title": { "it": "Corso UEFA A: si apre il bando" },
-      "body": { "it": "Il corso dura mesi e si sovrappone agli allenamenti. Senza UEFA A le prime squadre resteranno un sogno." },
+      "title": {
+        "it": "Corso UEFA A: si apre il bando"
+      },
+      "body": {
+        "it": "Il corso dura mesi e si sovrappone agli allenamenti. Senza UEFA A le prime squadre resteranno un sogno."
+      },
       "options": [
-        { "text": { "it": "Iscriviti, anche se i ragazzi ne risentono" }, "effects": [{ "type": "license", "upgrade": true }, { "type": "var", "var": "dressing", "delta": -8 }] },
-        { "text": { "it": "Rimanda all'anno prossimo" }, "effects": [{ "type": "var", "var": "board", "delta": 3 }] }
+        {
+          "text": {
+            "it": "Iscriviti, anche se i ragazzi ne risentono"
+          },
+          "effects": [
+            {
+              "type": "license",
+              "upgrade": true
+            },
+            {
+              "type": "var",
+              "var": "dressing",
+              "delta": -8
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Rimanda all'anno prossimo"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 3
+            }
+          ]
+        }
       ]
     },
     {
@@ -24,35 +68,65 @@
       "moment": "end",
       "category": "career",
       "conditions": [
-        { "type": "role", "is": ["first"] },
-        { "type": "license", "is": ["A"] },
-        { "type": "seasonsInJob", "op": ">=", "value": 1 },
-        { "type": "var", "var": "reputation", "op": ">=", "value": 20 }
+        {
+          "type": "role",
+          "is": [
+            "first"
+          ]
+        },
+        {
+          "type": "license",
+          "is": [
+            "A"
+          ]
+        },
+        {
+          "type": "seasonsInJob",
+          "op": ">=",
+          "value": 1
+        },
+        {
+          "type": "var",
+          "var": "reputation",
+          "op": ">=",
+          "value": 20
+        }
       ],
       "weight": 20,
       "cooldown": 2,
-      "title": { "it": "Corso UEFA Pro: c'è un posto per te" },
-      "body": { "it": "Senza UEFA Pro non potrai guidare i club più importanti. Ma il corso arriva proprio nella finestra delle offerte." },
+      "title": {
+        "it": "Corso UEFA Pro: c'è un posto per te"
+      },
+      "body": {
+        "it": "Senza UEFA Pro non potrai guidare i club più importanti. Ma il corso arriva proprio nella finestra delle offerte."
+      },
       "options": [
-        { "text": { "it": "Frequenta il corso, niente offerte quest'anno" }, "effects": [{ "type": "license", "upgrade": true }, { "type": "skipOffers" }] },
-        { "text": { "it": "Il campo prima di tutto" }, "effects": [{ "type": "var", "var": "board", "delta": 4 }] }
-      ]
-    },
-    {
-      "id": "ritiro_trionfale",
-      "moment": "end",
-      "category": "career",
-      "conditions": [
-        { "type": "age", "op": ">=", "value": 60 },
-        { "type": "headline", "is": "champion" }
-      ],
-      "weight": 20,
-      "cooldown": "once",
-      "title": { "it": "Il momento perfetto per dire basta?" },
-      "body": { "it": "Hai appena vinto il campionato con {club}. Qualcuno dice che non ci sarà mai un addio migliore." },
-      "options": [
-        { "text": { "it": "Lascia da campione" }, "effects": [{ "type": "retire" }] },
-        { "text": { "it": "Ancora una stagione" }, "effects": [{ "type": "var", "var": "environment", "delta": 5 }] }
+        {
+          "text": {
+            "it": "Frequenta il corso, niente offerte quest'anno"
+          },
+          "effects": [
+            {
+              "type": "license",
+              "upgrade": true
+            },
+            {
+              "type": "skipOffers"
+            }
+          ]
+        },
+        {
+          "text": {
+            "it": "Il campo prima di tutto"
+          },
+          "effects": [
+            {
+              "type": "var",
+              "var": "board",
+              "delta": 4
+            }
+          ]
+        }
       ]
     }
   ]

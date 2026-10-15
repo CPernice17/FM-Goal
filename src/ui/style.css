@@ -12,6 +12,13 @@
   --green: #1e6a47;
   --red: #a8261d;
   --focus: #2f55d4;
+  /* Ruoli derivati dalla palette */
+  --card: #ffffff;
+  --on-accent: #ffffff;
+  --playoff: #8fbfa5;
+  --muted-warm: #6b4f4b;
+  --mine-tint: rgba(29, 27, 44, 0.08);
+  --kit-edge: rgba(29, 27, 44, 0.25);
 
   --display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
   --text: 'Source Serif 4', Georgia, serif;
@@ -26,6 +33,47 @@
   --gutter: 1rem;
   --measure: 34rem;
   color-scheme: light;
+}
+
+/* Tema scuro: la stessa palette, con inchiostro e carta invertiti. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: #16141d;
+    --rosa: #3b2429;
+    --rosa-rule: #6a4249;
+    --ink: #f1eae4;
+    --ink-soft: #aaa3b2;
+    --line: #2f2b3a;
+    --green: #4cbf8b;
+    --red: #ff6f61;
+    --focus: #8ea8ff;
+    --card: #201d29;
+    --on-accent: #16141d;
+    --playoff: #3f7a5c;
+    --muted-warm: #d2aba5;
+    --mine-tint: rgba(241, 234, 228, 0.1);
+    --kit-edge: rgba(241, 234, 228, 0.3);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --paper: #16141d;
+  --rosa: #3b2429;
+  --rosa-rule: #6a4249;
+  --ink: #f1eae4;
+  --ink-soft: #aaa3b2;
+  --line: #2f2b3a;
+  --green: #4cbf8b;
+  --red: #ff6f61;
+  --focus: #8ea8ff;
+  --card: #201d29;
+  --on-accent: #16141d;
+  --playoff: #3f7a5c;
+  --muted-warm: #d2aba5;
+  --mine-tint: rgba(241, 234, 228, 0.1);
+  --kit-edge: rgba(241, 234, 228, 0.3);
+  color-scheme: dark;
 }
 
 * {
@@ -129,7 +177,7 @@ select {
   padding: 0.75rem 0.85rem;
   border: 1.5px solid var(--ink);
   border-radius: 6px;
-  background: #fff;
+  background: var(--card);
   color: var(--ink);
 }
 
@@ -153,7 +201,7 @@ select {
 }
 
 .sq-frame {
-  fill: #fff;
+  fill: var(--card);
   stroke: var(--ink);
   stroke-width: 1.5;
 }
@@ -172,7 +220,7 @@ select {
 
 .sq-dot {
   fill: var(--green);
-  stroke: #fff;
+  stroke: var(--card);
   stroke-width: 3;
 }
 
@@ -332,8 +380,7 @@ select {
 }
 
 .players ul,
-.history ul,
-.trophies {
+.history ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -397,7 +444,7 @@ select {
 .offer {
   font: inherit;
   text-align: left;
-  background: #fff;
+  background: var(--card);
   color: var(--ink);
   border: 1.5px solid var(--ink);
   border-radius: 6px;
@@ -446,7 +493,7 @@ select {
   font-family: var(--display);
   font-weight: 700;
   background: var(--red);
-  color: #fff;
+  color: var(--on-accent);
   padding: 0 0.45rem;
   border-radius: 3px;
 }
@@ -548,49 +595,12 @@ select {
 
 .mini-table tr.mine td {
   font-weight: 700;
-  background: rgba(29, 27, 44, 0.08);
+  background: var(--mine-tint);
 }
 
 .mini-table tr.gap td {
   height: 0.6rem;
   border-top: 1px dashed var(--rosa-rule);
-}
-
-/* ---------------- Fine carriera ---------------- */
-
-.final-title {
-  font-style: normal;
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: var(--step-2);
-}
-
-.final-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem 1rem;
-  margin: 1rem 0 1.25rem;
-}
-
-.final-stats dt {
-  font-size: var(--step--1);
-}
-
-.final-stats dd {
-  margin: 0;
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: var(--step-2);
-  line-height: 1;
-}
-
-.trophies li {
-  padding: 0.3rem 0;
-  border-top: 1px solid var(--rosa-rule);
-}
-
-.final .paper h2 {
-  margin-top: 0.75rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -676,7 +686,7 @@ select {
 }
 
 .standings tr.zone-playoff td:first-child {
-  border-left-color: #8fbfa5;
+  border-left-color: var(--playoff);
 }
 
 .standings tr.zone-down td:first-child {
@@ -707,7 +717,7 @@ select {
 }
 
 .key-playoff {
-  background: #8fbfa5;
+  background: var(--playoff);
 }
 
 .key-down {
@@ -780,7 +790,7 @@ select {
   padding: 0.7rem 0.85rem;
   border: 1.5px solid var(--line);
   border-radius: 6px;
-  background: #fff;
+  background: var(--card);
   cursor: pointer;
 }
 
@@ -817,4 +827,492 @@ select {
 
 .competitions span {
   color: var(--ink-soft);
+}
+
+/* ---------------- Fine carriera: bacheca per club ----------------
+ * Sostituisce in src/ui/style.css le regole .final-title, .final-stats,
+ * .trophies li e .final .paper h2. Mobile prima, desktop da 64rem.
+ */
+
+.final .masthead {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 4px double var(--ink);
+}
+
+.final-title {
+  font-style: italic;
+  font-size: var(--step-1);
+  margin: 0.25rem 0 0;
+}
+
+.final-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 1rem 0 0;
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1px solid var(--rosa-rule);
+  text-align: center;
+}
+
+.final-stats div {
+  padding: 0.5rem 0;
+}
+
+.final-stats div + div {
+  border-left: 1px solid var(--rosa-rule);
+}
+
+.final-stats dt {
+  font-size: 0.75rem;
+  order: 2;
+}
+
+.final-stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.final-stats dd {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: var(--step-2);
+  line-height: 1;
+}
+
+.timeline {
+  margin-top: 1.25rem;
+}
+
+.timeline h2 {
+  font-size: var(--step-0);
+}
+
+.tl-marks {
+  position: relative;
+  height: 1rem;
+}
+
+/* Il quadrato è l'area di tocco; il rombo è disegnato con ::before. */
+.tl-trophy {
+  position: absolute;
+  top: -0.3rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: -0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.tl-trophy::before {
+  content: '';
+  width: 0.6rem;
+  height: 0.6rem;
+  background: var(--ink);
+  transform: rotate(45deg);
+  transition: width 120ms, height 120ms;
+}
+
+.tl-tip {
+  position: absolute;
+  bottom: calc(100% + 0.4rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.45rem 0.75rem 0.5rem;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 4px;
+  white-space: nowrap;
+  line-height: 1.25;
+  font-size: var(--step--1);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.tl-tip strong {
+  font-family: var(--display);
+  font-size: var(--step-0);
+}
+
+.tl-tip span {
+  color: var(--rosa);
+}
+
+.tl-tip::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  background: var(--ink);
+  transform: rotate(45deg);
+}
+
+.tl-trophy:hover::before,
+.tl-trophy:focus-visible::before {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.tl-trophy:hover .tl-tip,
+.tl-trophy:focus .tl-tip {
+  display: flex;
+}
+
+.tl-trophy:focus-visible {
+  outline: none;
+}
+
+/* I primi e gli ultimi rombi non escono dal foglio. */
+.tl-trophy:first-child .tl-tip {
+  left: 0;
+  transform: none;
+}
+
+.tl-trophy:last-child .tl-tip {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+.tl-bar {
+  display: flex;
+  gap: 2px;
+  height: 1.6rem;
+}
+
+.tl-seg {
+  display: flex;
+  align-items: center;
+  min-width: 4px;
+  overflow: hidden;
+}
+
+.tl-seg span {
+  display: none;
+}
+
+.tl-gap {
+  border-bottom: 1.5px dashed var(--rosa-rule);
+  align-self: center;
+}
+
+.cabinet {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  border-top: 1.5px solid var(--ink);
+}
+
+.cab-row {
+  display: grid;
+  grid-template-columns: 6px 1fr auto;
+  column-gap: 0.75rem;
+  padding: 0.65rem 0;
+  border-top: 1px solid var(--rosa-rule);
+}
+
+.cab-row:first-child {
+  border-top: 0;
+}
+
+.cab-row::before {
+  content: '';
+  grid-row: 1 / span 2;
+  background: var(--stint);
+  border-radius: 3px;
+}
+
+.cab-club {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.cab-name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: var(--step-1);
+}
+
+.cab-meta {
+  font-size: var(--step--1);
+}
+
+.cab-best {
+  /* Sempre nella prima riga, a destra del nome: senza posizione esplicita la
+     griglia lo metterebbe sotto i trofei. */
+  grid-column: 3;
+  grid-row: 1;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: var(--step-1);
+  text-align: right;
+}
+
+.cab-trophies,
+.cab-none {
+  grid-column: 2 / span 2;
+  margin: 0.35rem 0 0;
+}
+
+.cab-trophies {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.cab-trophies li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: var(--step--1);
+}
+
+.cab-trophies span {
+  font-variant-numeric: tabular-nums;
+}
+
+.cab-none {
+  font-size: var(--step--1);
+  font-style: italic;
+  color: var(--muted-warm);
+}
+
+/* ---------------- Desktop ---------------- */
+
+@media (min-width: 64rem) {
+  #app:has(.final) {
+    max-width: 80rem;
+    padding-inline: 2rem;
+  }
+
+  .final .paper {
+    padding: 1.5rem 3.5rem 2rem;
+  }
+
+  .final-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2.5rem;
+    align-items: end;
+    padding: 1.25rem 0 1.5rem;
+    border-bottom: 1.5px solid var(--ink);
+  }
+
+  .final .front-headline {
+    font-size: 6.5rem;
+    margin: 0;
+  }
+
+  .final-stats {
+    margin: 0;
+    border: 0;
+  }
+
+  .final-stats div {
+    padding: 0 1.4rem;
+  }
+
+  .final-stats dt {
+    font-size: var(--step--1);
+  }
+
+  .final-stats dd {
+    font-size: 3.25rem;
+  }
+
+  .timeline {
+    margin-top: 1.5rem;
+  }
+
+  .tl-bar {
+    height: 2.5rem;
+    gap: 3px;
+  }
+
+  .tl-seg span {
+    display: block;
+    padding: 0 0.75rem;
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--paper);
+    white-space: nowrap;
+  }
+
+  .cab-row {
+    grid-template-columns: 8px 17.5rem minmax(0, 1fr) 10rem;
+    column-gap: 1.5rem;
+    padding: 0.9rem 0;
+  }
+
+  .cab-row::before {
+    grid-row: 1;
+  }
+
+  .cab-name {
+    font-size: 1.65rem;
+  }
+
+  .cab-trophies,
+  .cab-none {
+    grid-column: 3;
+    grid-row: 1;
+    margin: 0;
+    align-self: center;
+  }
+
+  .cab-trophies {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .cab-trophies li {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .cab-trophies strong {
+    font-family: var(--display);
+    font-size: var(--step-1);
+    line-height: 1.15;
+  }
+
+  .cab-best {
+    grid-column: 4;
+    grid-row: 1;
+    font-size: 1.65rem;
+  }
+
+  .final .action-bar {
+    position: static;
+    flex-direction: row;
+    justify-content: flex-end;
+    background: none;
+    padding: 1.25rem 0 2rem;
+  }
+
+  .final .action-bar > * {
+    max-width: none;
+  }
+
+  .final .action-bar .btn {
+    width: auto;
+  }
+}
+
+/* ---------------- Colori sociali ---------------- */
+
+/* Riquadro piccolo accanto ai nomi: metà colore primario, metà secondario. */
+.kit {
+  display: inline-block;
+  flex: none;
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 0.4em;
+  border-radius: 2px;
+  background: linear-gradient(135deg, var(--k1) 50%, var(--k2) 50%);
+  box-shadow: inset 0 0 0 1px var(--kit-edge);
+  vertical-align: -0.05em;
+}
+
+/* Sciarpa sotto il nome del club nella scheda incarico. */
+.scarf {
+  display: flex;
+  width: 6rem;
+  height: 0.5rem;
+  margin-top: 0.6rem;
+  border-radius: 1px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px var(--kit-edge);
+}
+
+.scarf span {
+  flex: 1;
+}
+
+.scarf span:nth-child(odd) {
+  background: var(--k1);
+}
+
+.scarf span:nth-child(even) {
+  background: var(--k2);
+}
+
+/* L'offerta porta i colori del club sul bordo sinistro. */
+.offer {
+  border-left-width: 6px;
+  border-left-color: var(--k1, var(--ink));
+}
+
+/* ---------------- Conseguenze dell'ultima scelta ---------------- */
+
+.outcome {
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  background: var(--card);
+  padding: 0.75rem 0.9rem 0.8rem;
+}
+
+.outcome-choice {
+  margin: 0 0 0.4rem;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.outcome-choice q {
+  color: var(--ink);
+  font-style: italic;
+}
+
+.outcome ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.outcome li {
+  font-size: var(--step--1);
+  line-height: 1.35;
+}
+
+.outcome .up {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.outcome .down {
+  color: var(--red);
+  font-weight: 600;
+}
+
+/* ---------------- Tema ---------------- */
+
+.theme-toggle {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  padding: 0.25rem 0;
+  font: inherit;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.home .theme-toggle {
+  margin-top: -0.5rem;
 }

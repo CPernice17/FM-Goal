@@ -1,8 +1,8 @@
 import { preseason } from '../engine/career';
 import type { EventDef } from '../engine/events/schema';
 import { renderText } from '../engine/events/runtime';
-import type { CareerOption, Difficulty, GameState, KeyPlayer, Lang, Pending, SeasonReport, Style } from '../engine/types';
-import { compInfo } from '../engine/continental';
+import type { CareerOption, Difficulty, GameState, KeyPlayer, Lang, OutcomeLine, Pending, SeasonReport, Style } from '../engine/types';
+import { compInfo, confedOf } from '../engine/continental';
 import { divisionOf, tierInLeague, topLeagueId } from '../engine/world';
 import { headlineText, styleLabel, t, trophyText } from '../i18n/index';
 import type { Strings } from '../i18n/it';
@@ -18,8 +18,88 @@ export function esc(value: string | number): string {
 
 const tt = (lang: Lang, key: keyof Strings, vars?: Record<string, string | number>) => esc(t(lang, key, vars));
 
+/** Aggettivo delle coppe continentali del club: "europee", "sudamericane", … */
+function areaOf(state: GameState, clubId: string): string {
+  const confed = confedOf(state.world, clubId);
+  return t(state.lang, `area_${confed ?? 'other'}` as keyof Strings);
+}
+
 function seasonLabel(year: number): string {
   return `${year}/${String(year + 1).slice(2)}`;
+}
+
+const NO_COLORS: [string, string] = ['#8d9093', '#ffffff'];
+
+function clubColors(state: GameState, clubId: string): [string, string] {
+  return state.world.clubs[clubId]?.colors ?? NO_COLORS;
+}
+
+/** Riquadro con i colori sociali, accanto al nome del club. */
+function kit(state: GameState, clubId: string): string {
+  const [k1, k2] = clubColors(state, clubId);
+  return `<span class="kit" style="--k1:${esc(k1)};--k2:${esc(k2)}" aria-hidden="true"></span>`;
+}
+
+/** Sciarpa a strisce con i colori sociali, sotto il nome del club. */
+function scarf(state: GameState, clubId: string): string {
+  const [k1, k2] = clubColors(state, clubId);
+  return `<span class="scarf" style="--k1:${esc(k1)};--k2:${esc(k2)}" aria-hidden="true">${'<span></span>'.repeat(6)}</span>`;
+}
+
+export type ThemeChoice = 'auto' | 'light' | 'dark';
+
+export function themeToggle(lang: Lang, theme: ThemeChoice): string {
+  return `<button class="theme-toggle" data-action="theme">${tt(lang, `ui_theme_${theme}` as keyof Strings)}</button>`;
+}
+
+// ---------------------------------------------------------------------------
+// Conseguenze dell'ultima scelta
+// ---------------------------------------------------------------------------
+
+function signed(n: number): string {
+  const r = Math.round(n * 10) / 10;
+  return `${r > 0 ? '+' : ''}${r}`;
+}
+
+function outcomeLine(state: GameState, l: OutcomeLine): string {
+  const lang = state.lang;
+  const delta = (n: number) => `<span class="${n > 0 ? 'up' : 'down'}">${esc(signed(n))}</span>`;
+  switch (l.kind) {
+    case 'var':
+      return l.delta === 0 ? '' : `${tt(lang, `var_${l.var}` as keyof Strings)} ${delta(l.delta)}`;
+    case 'style':
+      return tt(lang, `outcome_style_${l.axis}_${l.delta > 0 ? 'up' : 'down'}` as keyof Strings);
+    case 'team':
+      return `${tt(lang, l.secondHalf ? 'outcome_team_second' : 'outcome_team')} ${delta(l.delta)}`;
+    case 'playerLeft':
+      return tt(lang, 'outcome_player_left', { name: l.name });
+    case 'playerJoined':
+      return tt(lang, `outcome_player_joined_${l.profile}` as keyof Strings, { name: l.name, age: l.age });
+    case 'satisfaction':
+      return `${tt(lang, 'outcome_satisfaction', { name: l.name })} ${delta(l.delta)}`;
+    case 'license':
+      return tt(lang, 'outcome_license', { license: l.license === 'PRO' ? 'UEFA Pro' : `UEFA ${l.license}` });
+    case 'job': {
+      const name = state.world.clubs[l.clubId]?.name ?? '';
+      const key = l.role === 'youth' ? 'outcome_job_youth' : l.years === 1 ? 'outcome_job_one' : 'outcome_job';
+      return `${kit(state, l.clubId)}${tt(lang, key as keyof Strings, { club: name, years: l.years })}`;
+    }
+    case 'renew':
+      return tt(lang, l.years === 1 ? 'outcome_renew_one' : 'outcome_renew', { years: l.years });
+    default:
+      return tt(lang, `outcome_${l.kind}` as keyof Strings);
+  }
+}
+
+/** Riquadro con la scelta appena fatta e le sue conseguenze. */
+export function renderOutcome(state: GameState, choice: string, lines: OutcomeLine[]): string {
+  const items = lines.map((l) => outcomeLine(state, l)).filter((x) => x !== '');
+  if (items.length === 0) return '';
+  return `
+  <aside class="outcome" role="status">
+    <p class="outcome-choice">${tt(state.lang, 'ui_outcome_choice')} <q>${esc(choice)}</q></p>
+    <ul>${items.map((x) => `<li>${x}</li>`).join('')}</ul>
+  </aside>`;
 }
 
 // ---------------------------------------------------------------------------
@@ -77,13 +157,20 @@ function difficultyField(lang: Lang, current: Difficulty): string {
   </fieldset>`;
 }
 
-export function renderHome(lang: Lang, hasSave: boolean, draft: Draft, countries: { id: string; name: string }[]): string {
+export function renderHome(
+  lang: Lang,
+  hasSave: boolean,
+  draft: Draft,
+  countries: { id: string; name: string }[],
+  theme: ThemeChoice,
+): string {
   return `
   <main class="screen home">
     <header class="home-head">
       <h1 class="brand">${tt(lang, 'ui_title')}</h1>
       <p class="lede">${tt(lang, 'ui_tagline')}</p>
     </header>
+    ${themeToggle(lang, theme)}
     ${hasSave ? `<button class="btn btn-primary" data-action="continue">${tt(lang, 'ui_continue')}</button>` : ''}
     <form class="create" data-form="create" novalidate>
       <label class="field">
@@ -157,11 +244,11 @@ export function renderSheet(state: GameState): string {
   <main class="screen sheet">
     ${coachLine(state)}
     <p class="role">${tt(lang, roleKey)}</p>
-    <h1 class="club">${esc(pre?.clubName ?? '')}</h1>
+    <h1 class="club">${esc(pre?.clubName ?? '')}${scarf(state, job.clubId)}</h1>
     <p class="league">${esc(pre?.leagueName ?? '')}</p>
     <section class="objective">
       <span class="objective-label">${tt(lang, 'ui_objective')}</span>
-      <strong>${tt(lang, `objective_${pre?.objective ?? 'mid_table'}` as keyof Strings)}</strong>
+      <strong>${tt(lang, `objective_${pre?.objective ?? 'mid_table'}` as keyof Strings, { area: areaOf(state, job.clubId) })}</strong>
       <span class="objective-note">${tt(lang, 'ui_expected', { pos: pre?.expectedPosition ?? '-', teams: pre?.teams ?? '-' })}</span>
     </section>
     ${competitionsBlock(state)}
@@ -177,7 +264,7 @@ export function renderSheet(state: GameState): string {
         ${job.keyPlayers
           .map(
             (p) => `<li><span class="p-name">${esc(p.name)}</span>
-              <span class="p-meta">${tt(lang, `pos_${p.position}` as keyof Strings)}, ${tt(lang, 'ui_years', { n: p.age })}, ${tt(lang, `trait_${p.trait}` as keyof Strings)}. <em>${esc(mood(lang, p))}</em></span></li>`,
+              <span class="p-meta">${tt(lang, `pos_${p.position}` as keyof Strings)}, ${tt(lang, 'ui_years', { n: p.age })}, ${tt(lang, `trait_${p.trait}` as keyof Strings)}${p.profile ? `, ${tt(lang, `profile_${p.profile}` as keyof Strings)}` : ''}. <em>${esc(mood(lang, p))}</em></span></li>`,
           )
           .join('')}
       </ul>
@@ -279,7 +366,7 @@ function sideTable(state: GameState): { title: string; rows: SideRow[]; zones: (
   };
 }
 
-export function renderSidebar(state: GameState): string {
+export function renderSidebar(state: GameState, theme: ThemeChoice): string {
   const lang = state.lang;
   const table = sideTable(state);
   let tableHtml = '';
@@ -295,7 +382,7 @@ export function renderSidebar(state: GameState): string {
           ${table.rows
             .map(
               (r, i) => `<tr class="${[table.zones(i, n), r.id === table.mine ? 'mine' : ''].join(' ').trim()}">
-                <td>${i + 1}</td><td>${esc(r.name)}</td>
+                <td>${i + 1}</td><td>${kit(state, r.id)}${esc(r.name)}</td>
                 ${hasPoints ? `<td>${r.diff !== null && r.diff > 0 ? '+' : ''}${r.diff ?? ''}</td><td>${r.points ?? ''}</td>` : ''}
               </tr>`,
             )
@@ -305,7 +392,7 @@ export function renderSidebar(state: GameState): string {
       ${legend(lang, [...new Set(table.rows.map((_, i) => table.zones(i, n)).filter((z) => z !== ''))])}
     </section>`;
   }
-  return `<aside class="sidebar" aria-label="${tt(lang, 'ui_side_label')}">${tableHtml}${historyBlock(state)}</aside>`;
+  return `<aside class="sidebar" aria-label="${tt(lang, 'ui_side_label')}">${tableHtml}${historyBlock(state)}${themeToggle(lang, theme)}</aside>`;
 }
 
 function legend(lang: Lang, zones: string[]): string {
@@ -320,7 +407,7 @@ function historyBlock(state: GameState): string {
   const rows = [...state.history]
     .reverse()
     .map(
-      (r) => `<li><span>${seasonLabel(r.season)}</span><span>${esc(r.clubName)}${r.role === 'youth' ? ` (${tt(state.lang, 'ui_youth_short')})` : ''}</span><span>${r.firedAtMatchday !== null ? `<em>${tt(state.lang, 'ui_fired_short')}</em>` : `${r.position}°`}</span></li>`,
+      (r) => `<li><span>${seasonLabel(r.season)}</span><span>${kit(state, r.clubId)}${esc(r.clubName)}${r.role === 'youth' ? ` (${tt(state.lang, 'ui_youth_short')})` : ''}</span><span>${r.firedAtMatchday !== null ? `<em>${tt(state.lang, 'ui_fired_short')}</em>` : `${r.position}°`}</span></li>`,
     )
     .join('');
   return `<section class="history"><h2>${tt(state.lang, 'ui_history')}</h2><ul>${rows}</ul></section>`;
@@ -336,10 +423,12 @@ function actionBar(inner: string, quitLabel?: string): string {
 
 export function renderEvent(state: GameState, ev: EventDef, pending: Extract<Pending, { kind: 'event' }>): string {
   const lang = state.lang;
-  const clubName = state.job ? state.world.clubs[state.job.clubId]?.name ?? '' : '';
+  const clubId = state.job?.clubId;
+  const clubName = clubId ? state.world.clubs[clubId]?.name ?? '' : '';
+  const moment = t(lang, `ui_moment_${state.phase}` as keyof Strings);
   return `
   <main class="screen decision">
-    <p class="decision-context">${esc(clubName)}</p>
+    <p class="decision-context">${clubId ? kit(state, clubId) : ''}${esc([clubName, moment].filter(Boolean).join(', '))}</p>
     <h1 class="decision-title">${esc(renderText(state, ev.title, pending.bindings))}</h1>
     <p class="decision-body">${esc(renderText(state, ev.body, pending.bindings))}</p>
     <div class="choices">
@@ -380,13 +469,13 @@ export function renderReport(state: GameState): string {
       ${rest.map((h) => `<p class="front-sub">${esc(headlineText(lang, h))}</p>`).join('')}
       <div class="front-result">
         <span class="front-pos">${tt(lang, 'ui_position', { pos: r.position })}</span>
-        <span class="front-pos-note">${esc(r.clubName)}<br>${tt(lang, 'ui_position_of', { teams: r.teams, expected: r.expectedPosition })}<br>${tt(lang, 'ui_points', { points: r.points })}</span>
+        <span class="front-pos-note">${kit(state, r.clubId)}${esc(r.clubName)}<br>${tt(lang, 'ui_position_of', { teams: r.teams, expected: r.expectedPosition })}<br>${tt(lang, 'ui_points', { points: r.points })}</span>
       </div>
       ${r.cup ? `<p class="front-cup">${tt(lang, 'ui_cup', { cup: state.world.countries[state.world.clubs[r.clubId]?.country ?? '']?.cupName ?? '', stage: t(lang, `stage_${r.cup.reached}` as keyof Strings) })}</p>` : ''}
       ${r.continental
         .map((c) => `<p class="front-cup">${tt(lang, 'ui_cup', { cup: c.name, stage: t(lang, `stage_${c.reached}` as keyof Strings) })}</p>`)
         .join('')}
-      ${miniTable(lang, r)}
+      ${miniTable(state, r)}
     </article>
     <section class="meters">
       ${state.job ? meter(lang, 'var_board', state.job.board, r.deltas.board) : ''}
@@ -398,7 +487,8 @@ export function renderReport(state: GameState): string {
   </main>`;
 }
 
-function miniTable(lang: Lang, r: SeasonReport): string {
+function miniTable(state: GameState, r: SeasonReport): string {
+  const lang = state.lang;
   const mine = r.table.findIndex((x) => x.clubId === r.clubId);
   const show = new Set<number>([0, 1, 2, 3, 4, mine - 1, mine, mine + 1, r.table.length - 1].filter((i) => i >= 0 && i < r.table.length));
   const idx = [...show].sort((a, b) => a - b);
@@ -409,7 +499,7 @@ function miniTable(lang: Lang, r: SeasonReport): string {
       if (!row) return '';
       const gap = i > prev + 1 ? '<tr class="gap"><td colspan="3"></td></tr>' : '';
       prev = i;
-      return `${gap}<tr class="${i === mine ? 'mine' : ''}"><td>${i + 1}</td><td>${esc(row.name)}</td><td>${row.points}</td></tr>`;
+      return `${gap}<tr class="${i === mine ? 'mine' : ''}"><td>${i + 1}</td><td>${kit(state, row.clubId)}${esc(row.name)}</td><td>${row.points}</td></tr>`;
     })
     .join('');
   return `<table class="mini-table"><caption>${tt(lang, 'ui_table')}</caption><tbody>${rows}</tbody></table>`;
@@ -427,13 +517,13 @@ function optionHtml(state: GameState, o: CareerOption, i: number): string {
     const league = c.leagueId ? state.world.leagues[c.leagueId]?.config.name ?? '' : '';
     const cfg = c.leagueId ? state.world.leagues[c.leagueId]?.config : undefined;
     const div = cfg?.championPlayoff ? 'po' : divisionOf(state.world, c.id) === 1 ? 'd1' : 'd2';
-    const tier = t(lang, `tier_${div}_${tierInLeague(state.world, c.id)}` as keyof Strings);
+    const tier = t(lang, `tier_${div}_${tierInLeague(state.world, c.id)}` as keyof Strings, { area: areaOf(state, c.id) });
     const meta =
       o.offer.role === 'youth'
         ? t(lang, 'ui_offer_youth_meta', { league, tier })
         : t(lang, o.offer.years === 1 ? 'ui_offer_meta_one' : 'ui_offer_meta', { league, tier, years: o.offer.years });
     return `
-    <button class="offer" data-action="choose" data-index="${i}">
+    <button class="offer" data-action="choose" data-index="${i}" style="--k1:${esc(clubColors(state, c.id)[0])}">
       ${o.offer.challenge ? `<span class="offer-flag">${tt(lang, 'ui_challenge')}</span>` : ''}
       <span class="offer-club">${esc(c.name)}</span>
       <span class="offer-meta">${esc(meta)}</span>
@@ -464,36 +554,143 @@ export function summaryText(state: GameState): string {
   const s = state.summary;
   if (!s) return '';
   const lang = state.lang;
+  // Ogni trofeo con la squadra con cui è stato vinto.
+  const trophies = state.history.flatMap((r) => r.trophies.map((k) => `${trophyText(state, k)} (${r.clubName})`));
   const lines = [
     `${state.coach.name}: ${t(lang, `title_${s.title}` as keyof Strings)}`,
     `${t(lang, 'ui_seasons')}: ${s.seasons}. ${t(lang, 'ui_firings')}: ${s.firings}.`,
     `${t(lang, 'ui_clubs')}: ${s.clubs.join(', ')}`,
-    `${t(lang, 'ui_trophies')}: ${s.trophies.length ? s.trophies.map((k) => trophyText(state, k)).join(', ') : '0'}`,
+    `${t(lang, 'ui_trophies')}: ${trophies.length ? trophies.join(', ') : '0'}`,
     'FM-Goal',
   ];
   return lines.join('\n');
 }
 
+// ---------------------------------------------------------------------------
+// Fine carriera: bacheca per club (consegna "trophy cabinet", mockup 3c / 4a)
+// ---------------------------------------------------------------------------
+
+/**
+ * Nome della competizione da una chiave di trofeo: usa trophyText e toglie
+ * l'eventuale stagione finale ("Campionato 2038/39" -> "Campionato"), così
+ * i trofei uguali si raggruppano. Se trophyText include anche il club, toglierlo qui.
+ */
+function competitionName(state: GameState, key: string): string {
+  return trophyText(state, key).replace(/[\s,·(-]*\d{4}(\/\d{2,4})?\)?\s*$/, '').trim();
+}
+
+interface Stint {
+  club: string;
+  youth: boolean;
+  from: number;
+  to: number;
+  seasons: number;
+  best: number | null;
+  fired: boolean;
+  trophies: { competition: string; seasons: number[] }[];
+}
+
+function careerStints(state: GameState): Stint[] {
+  const out: Stint[] = [];
+  for (const r of state.history) {
+    const last = out[out.length - 1];
+    const youth = r.role === 'youth';
+    if (last && last.club === r.clubName && last.youth === youth && !last.fired) {
+      last.to = r.season;
+      last.seasons++;
+    } else {
+      out.push({ club: r.clubName, youth, from: r.season, to: r.season, seasons: 1, best: null, fired: false, trophies: [] });
+    }
+    const cur = out[out.length - 1]!;
+    if (r.firedAtMatchday !== null) cur.fired = true;
+    else cur.best = cur.best === null ? r.position : Math.min(cur.best, r.position);
+    // Ogni resoconto sa già stagione e club dei trofei vinti in quell'anno.
+    for (const key of r.trophies) {
+      const name = competitionName(state, key);
+      const g = cur.trophies.find((x) => x.competition === name);
+      if (g) g.seasons.push(r.season);
+      else cur.trophies.push({ competition: name, seasons: [r.season] });
+    }
+  }
+  return out;
+}
+
+const STINT_COLORS = ['var(--rosa-rule)', 'var(--ink)', 'var(--red)', 'var(--green)'];
+
 export function renderFinal(state: GameState, copied: boolean): string {
   const lang = state.lang;
   const s = state.summary;
   if (!s) return '';
+  const stints = careerStints(state);
+  const first = stints[0]?.from ?? state.world.season;
+  // Anni dal primo all'ultimo incarico; gli anni senza panchina restano vuoti nella barra.
+  const total = Math.max(1, (stints[stints.length - 1]?.to ?? first) - first + 1);
+  const color = (i: number) => STINT_COLORS[i % STINT_COLORS.length];
+
+  const diamonds = stints
+    .flatMap((x) => x.trophies.flatMap((g) => g.seasons.map((y) => ({ y, name: g.competition, club: x.club }))))
+    .map(
+      ({ y, name, club }) =>
+        `<span class="tl-trophy" tabindex="0" role="img" aria-label="${esc(`${name} ${seasonLabel(y)}, ${club}`)}" style="left:${(((y - first + 0.5) / total) * 100).toFixed(1)}%">
+          <span class="tl-tip" aria-hidden="true"><strong>${esc(name)}</strong><span>${esc(seasonLabel(y))} · ${esc(club)}</span></span>
+        </span>`,
+    )
+    .join('');
+
+  const bar = stints
+    .map((x, i) => {
+      const gap = i > 0 ? x.from - (stints[i - 1]!.to + 1) : 0;
+      const spacer = gap > 0 ? `<span class="tl-gap" style="flex:${gap}"></span>` : '';
+      const ink = i % STINT_COLORS.length === 0 ? ';color:var(--ink)' : '';
+      return `${spacer}<span class="tl-seg" style="flex:${x.to - x.from + 1};background:${color(i)}"><span style="${ink.slice(1)}">${x.to - x.from >= 2 ? esc(x.club) : ''}</span></span>`;
+    })
+    .join('');
+
+  const rows = stints
+    .map((x, i) => {
+      const years = x.from === x.to ? `${x.from}` : `${x.from}–${String(x.to + 1).slice(2)}`;
+      const meta = [years, x.youth ? t(lang, 'ui_youth_short') : '', t(lang, x.seasons === 1 ? 'ui_n_seasons_one' : 'ui_n_seasons', { n: x.seasons }), x.fired ? t(lang, 'ui_fired_short') : '']
+        .filter(Boolean)
+        .join(' · ');
+      const trophies = x.trophies.length
+        ? `<ul class="cab-trophies">${x.trophies
+            .map(
+              (g) => `<li><strong>${esc(g.competition)}${g.seasons.length > 1 ? ` ×${g.seasons.length}` : ''}</strong>
+                <span>${g.seasons.sort((a, b) => a - b).map((y) => esc(seasonLabel(y))).join(' · ')}</span></li>`,
+            )
+            .join('')}</ul>`
+        : `<p class="cab-none">${tt(lang, 'ui_no_trophies')}</p>`;
+      return `
+      <li class="cab-row" style="--stint:${color(i)}">
+        <div class="cab-club"><span class="cab-name">${esc(x.club)}</span><span class="cab-meta">${esc(meta)}</span></div>
+        ${trophies}
+        <span class="cab-best" aria-label="${tt(lang, 'ui_best')}">${x.best === null ? '—' : `${x.best}°`}</span>
+      </li>`;
+    })
+    .join('');
+
   return `
   <main class="screen final">
     <article class="paper">
-      <p class="masthead">${tt(lang, 'ui_career_over')}. ${tt(lang, `end_${s.reason}` as keyof Strings)}</p>
-      <h1 class="front-headline">${esc(state.coach.name)}</h1>
-      <p class="front-sub final-title">${tt(lang, `title_${s.title}` as keyof Strings)}</p>
-      <dl class="final-stats">
-        <div><dt>${tt(lang, 'ui_seasons')}</dt><dd>${s.seasons}</dd></div>
-        <div><dt>${tt(lang, 'ui_firings')}</dt><dd>${s.firings}</dd></div>
-        <div><dt>${tt(lang, 'ui_peak_rep')}</dt><dd>${s.peakReputation}</dd></div>
-        <div><dt>${tt(lang, 'ui_final_style')}</dt><dd>${esc(styleLabel(lang, s.finalStyle))}</dd></div>
-      </dl>
-      <h2>${tt(lang, 'ui_trophies')}</h2>
-      ${s.trophies.length ? `<ul class="trophies">${s.trophies.map((k) => `<li>${esc(trophyText(state, k))}</li>`).join('')}</ul>` : `<p class="body">${tt(lang, 'ui_no_trophies')}</p>`}
-      <h2>${tt(lang, 'ui_clubs')}</h2>
-      <p class="body">${esc(s.clubs.join(', '))}</p>
+      <p class="masthead"><span>${tt(lang, 'ui_career_over')}</span><span>${tt(lang, `end_${s.reason}` as keyof Strings)}</span></p>
+      <header class="final-head">
+        <div>
+          <h1 class="front-headline">${esc(state.coach.name)}</h1>
+          <p class="final-title">${tt(lang, `title_${s.title}` as keyof Strings)}</p>
+        </div>
+        <dl class="final-stats">
+          <div><dt>${tt(lang, 'ui_seasons')}</dt><dd>${s.seasons}</dd></div>
+          <div><dt>${tt(lang, 'ui_clubs')}</dt><dd>${stints.length}</dd></div>
+          <div><dt>${tt(lang, 'ui_firings')}</dt><dd>${s.firings}</dd></div>
+          <div><dt>${tt(lang, 'ui_trophies')}</dt><dd>${s.trophies.length}</dd></div>
+        </dl>
+      </header>
+      <section class="timeline">
+        <h2>${tt(lang, 'ui_career')}</h2>
+        <div class="tl-marks">${diamonds}</div>
+        <div class="tl-bar" aria-hidden="true">${bar}</div>
+      </section>
+      <ol class="cabinet">${rows}</ol>
     </article>
     ${actionBar(
       `<button class="btn btn-secondary" data-action="copy">${copied ? tt(lang, 'ui_copied') : tt(lang, 'ui_copy_summary')}</button>

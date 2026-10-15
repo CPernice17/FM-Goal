@@ -24,7 +24,7 @@ state.clubsCoached = [clubId];
 
 for (let i = 0; i < 6; i++) {
   state = startSeason(state, EVENTS);
-  while (state.phase === 'start_decision') state = choose(state, 0, EVENTS);
+  while (state.phase === 'start_decision' || state.phase === 'mid_decision') state = choose(state, 0, EVENTS);
   state = playSeason(state);
   if ((state.lastReport?.continental.length ?? 0) > 0) break;
   state = prepareEnd(state, EVENTS);

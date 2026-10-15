@@ -32,7 +32,11 @@
         "profile": {
           "build": 60,
           "press": 70
-        }
+        },
+        "colors": [
+          "#0c2340",
+          "#c8102e"
+        ]
       },
       {
         "id": "fra-marseille",
@@ -41,7 +45,11 @@
         "profile": {
           "build": 30,
           "press": 60
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#75aadb"
+        ]
       },
       {
         "id": "fra-monaco",
@@ -50,7 +58,11 @@
         "profile": {
           "build": 30,
           "press": 50
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-lille",
@@ -59,7 +71,11 @@
         "profile": {
           "build": 30,
           "press": 30
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#0c2340"
+        ]
       },
       {
         "id": "fra-lyon",
@@ -68,7 +84,11 @@
         "profile": {
           "build": 30,
           "press": 30
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#0046ad"
+        ]
       },
       {
         "id": "fra-nice",
@@ -77,7 +97,11 @@
         "profile": {
           "build": 20,
           "press": 30
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "fra-lens",
@@ -86,7 +110,11 @@
         "profile": {
           "build": 0,
           "press": 50
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#c8102e"
+        ]
       },
       {
         "id": "fra-rennes",
@@ -95,7 +123,11 @@
         "profile": {
           "build": 20,
           "press": 20
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "fra-strasbourg",
@@ -104,7 +136,11 @@
         "profile": {
           "build": 40,
           "press": 40
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-toulouse",
@@ -113,7 +149,11 @@
         "profile": {
           "build": 0,
           "press": 30
-        }
+        },
+        "colors": [
+          "#4f2683",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-brest",
@@ -122,7 +162,11 @@
         "profile": {
           "build": -30,
           "press": 40
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-paris-fc",
@@ -131,7 +175,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0c2340",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-auxerre",
@@ -140,7 +188,11 @@
         "profile": {
           "build": -30,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffffff",
+          "#0046ad"
+        ]
       },
       {
         "id": "fra-angers",
@@ -149,7 +201,11 @@
         "profile": {
           "build": -30,
           "press": 0
-        }
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-le-havre",
@@ -158,7 +214,11 @@
         "profile": {
           "build": -30,
           "press": 10
-        }
+        },
+        "colors": [
+          "#75aadb",
+          "#0c2340"
+        ]
       },
       {
         "id": "fra-lorient",
@@ -167,7 +227,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#f37021",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "fra-troyes",
@@ -176,7 +240,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-le-mans",
@@ -185,7 +253,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffd100"
+        ]
       }
     ],
     "fra2": [
@@ -196,7 +268,11 @@
         "profile": {
           "build": -10,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#00843d"
+        ]
       },
       {
         "id": "fra-metz",
@@ -205,7 +281,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#7b1e2b",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-saint-etienne",
@@ -214,7 +294,11 @@
         "profile": {
           "build": 20,
           "press": 20
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-montpellier",
@@ -223,7 +307,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#f37021",
+          "#0c2340"
+        ]
       },
       {
         "id": "fra-reims",
@@ -232,7 +320,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-guingamp",
@@ -241,7 +333,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "fra-dunkerque",
@@ -250,7 +346,11 @@
         "profile": {
           "build": 40,
           "press": 30
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-clermont",
@@ -259,7 +359,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#0046ad"
+        ]
       },
       {
         "id": "fra-annecy",
@@ -268,7 +372,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-laval",
@@ -277,7 +385,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#f37021",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "fra-grenoble",
@@ -286,7 +398,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-pau",
@@ -295,7 +411,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
       },
       {
         "id": "fra-red-star",
@@ -304,7 +424,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-rodez",
@@ -313,7 +437,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffd100"
+        ]
       },
       {
         "id": "fra-sochaux",
@@ -322,7 +450,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
       },
       {
         "id": "fra-nancy",
@@ -331,7 +463,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-dijon",
@@ -340,7 +476,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "fra-boulogne",
@@ -349,7 +489,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
       }
     ]
   },
@@ -361,7 +505,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
     },
     {
       "id": "fra-amiens",
@@ -370,7 +518,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#ffffff",
+        "#1a1a1a"
+      ]
     },
     {
       "id": "fra-caen",
@@ -379,7 +531,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#c8102e"
+      ]
     },
     {
       "id": "fra-ajaccio",
@@ -388,7 +544,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
     }
   ]
 }

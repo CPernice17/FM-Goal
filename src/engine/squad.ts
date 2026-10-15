@@ -12,6 +12,18 @@ export const SQUAD = {
   leaveThreshold: 20,
   retireAge: 35,
   youthGraduationAge: 20,
+  /** Massimo di giocatori chiave dopo gli acquisti sul mercato. */
+  maxAfterMarket: 5,
+  /** Quota del contributo di un giocatore che pesa sul rating della prima squadra. */
+  ratingShare: 0.5,
+  /** Giovane preso sul mercato: contributo iniziale, crescita annua fino a 23 anni, tetto. */
+  youngStart: 0.6,
+  youngGrowth: 0.5,
+  youngCap: 3,
+  /** Veterano preso sul mercato: contributo iniziale, calo annuo dai 31 anni, minimo. */
+  veteranStart: 2.6,
+  veteranDecline: 0.6,
+  veteranFloor: 0.4,
 };
 
 type NamePool = { first: string[]; last: string[] };
@@ -36,6 +48,24 @@ export function newKeyPlayer(rng: Rng, country: string, youth: boolean): KeyPlay
   };
 }
 
+/** Giocatore preso sul mercato: un giovane promettente o un veterano esperto. */
+export function newMarketPlayer(rng: Rng, country: string, profile: 'young' | 'veteran'): KeyPlayer {
+  const p = newKeyPlayer(rng, country, false);
+  p.profile = profile;
+  if (profile === 'young') {
+    p.age = rng.int(18, 19);
+    p.contribution = SQUAD.youngStart;
+    p.trait = rng.chance(0.5) ? 'ambitious' : p.trait;
+  } else {
+    p.age = rng.int(32, 33);
+    p.contribution = SQUAD.veteranStart;
+    p.position = rng.chance(0.6) ? 'FW' : p.position;
+    p.trait = rng.chance(0.4) ? 'leader' : p.trait;
+  }
+  p.satisfaction = rng.int(60, 75);
+  return p;
+}
+
 /** Riporta la rosa al numero minimo di giocatori chiave. */
 export function fillKeyPlayers(rng: Rng, job: Job, country: string): KeyPlayer[] {
   const added: KeyPlayer[] = [];
@@ -50,7 +80,7 @@ export function fillKeyPlayers(rng: Rng, job: Job, country: string): KeyPlayer[]
 
 export interface SquadChanges {
   left: KeyPlayer[];
-  /** Somma dei contributi persi dalla prima squadra (0 per la Primavera). */
+  /** Rating perso dalla prima squadra (negativo se i giovani crescono più di quanto si perde). */
   ratingLoss: number;
 }
 
@@ -68,12 +98,19 @@ export function ageKeyPlayers(rng: Rng, job: Job, judgment: number): SquadChange
     if (p.trait === 'rebel') drift += rng.int(-6, 4);
     p.satisfaction = clamp(p.satisfaction + drift, 0, 100);
 
+    // Giocatori presi sul mercato: il giovane cresce fino a 23 anni, il veterano cala dai 31.
+    const before = p.contribution;
+    if (p.profile === 'young' && p.age <= 23) p.contribution = Math.min(SQUAD.youngCap, p.contribution + SQUAD.youngGrowth);
+    if (p.profile === 'veteran' && p.age >= 31) p.contribution = Math.max(SQUAD.veteranFloor, p.contribution - SQUAD.veteranDecline);
+    if (job.role === 'first' && p.profile) ratingLoss -= (p.contribution - before) * SQUAD.ratingShare;
+
     const graduates = job.role === 'youth' && p.age >= SQUAD.youthGraduationAge;
     const retires = job.role === 'first' && p.age >= SQUAD.retireAge && rng.chance(0.5);
     const unhappy = p.satisfaction < SQUAD.leaveThreshold;
     if (graduates || retires || unhappy) {
       left.push(p);
-      if (job.role === 'first' && unhappy) ratingLoss += p.contribution * 0.5;
+      // Il rating cala per chi se ne va scontento e per chi era stato preso sul mercato.
+      if (job.role === 'first' && (unhappy || p.profile)) ratingLoss += p.contribution * SQUAD.ratingShare;
     }
   }
   job.keyPlayers = job.keyPlayers.filter((p) => !left.includes(p));

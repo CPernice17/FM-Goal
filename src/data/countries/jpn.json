@@ -22,7 +22,11 @@
         "profile": {
           "build": -10,
           "press": 60
-        }
+        },
+        "colors": [
+          "#7b1e2b",
+          "#ffffff"
+        ]
       },
       {
         "id": "jpn-kashima-antlers",
@@ -31,7 +35,11 @@
         "profile": {
           "build": 0,
           "press": 50
-        }
+        },
+        "colors": [
+          "#7b1e2b",
+          "#0c2340"
+        ]
       },
       {
         "id": "jpn-sanfrecce-hiroshima",
@@ -40,7 +48,11 @@
         "profile": {
           "build": 10,
           "press": 60
-        }
+        },
+        "colors": [
+          "#4f2683",
+          "#ffffff"
+        ]
       },
       {
         "id": "jpn-kashiwa-reysol",
@@ -49,7 +61,11 @@
         "profile": {
           "build": 50,
           "press": 40
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "jpn-machida-zelvia",
@@ -58,7 +74,11 @@
         "profile": {
           "build": -40,
           "press": 50
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "jpn-urawa-red-diamonds",
@@ -67,7 +87,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "jpn-kawasaki-frontale",
@@ -76,7 +100,11 @@
         "profile": {
           "build": 50,
           "press": 40
-        }
+        },
+        "colors": [
+          "#75aadb",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "jpn-gamba-osaka",
@@ -85,7 +113,11 @@
         "profile": {
           "build": 30,
           "press": 30
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#1a1a1a"
+        ]
       },
       {
         "id": "jpn-fc-tokyo",
@@ -94,7 +126,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#c8102e"
+        ]
       },
       {
         "id": "jpn-kyoto-sanga",
@@ -103,7 +139,11 @@
         "profile": {
           "build": -20,
           "press": 60
-        }
+        },
+        "colors": [
+          "#4f2683",
+          "#ffffff"
+        ]
       },
       {
         "id": "jpn-yokohama-f-marinos",
@@ -112,7 +152,11 @@
         "profile": {
           "build": 30,
           "press": 50
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "jpn-cerezo-osaka",
@@ -121,7 +165,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#f5a3c7",
+          "#0c2340"
+        ]
       },
       {
         "id": "jpn-nagoya-grampus",
@@ -130,7 +178,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffd100"
+        ]
       },
       {
         "id": "jpn-avispa-fukuoka",
@@ -139,7 +191,11 @@
         "profile": {
           "build": -30,
           "press": 30
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       },
       {
         "id": "jpn-tokyo-verdy",
@@ -148,7 +204,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
       },
       {
         "id": "jpn-shimizu-s-pulse",
@@ -157,7 +217,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#f37021",
+          "#ffffff"
+        ]
       },
       {
         "id": "jpn-fagiano-okayama",
@@ -166,7 +230,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
       },
       {
         "id": "jpn-jef-united-chiba",
@@ -175,7 +243,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#ffd100",
+          "#00843d"
+        ]
       },
       {
         "id": "jpn-v-varen-nagasaki",
@@ -184,7 +256,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#f37021",
+          "#0046ad"
+        ]
       },
       {
         "id": "jpn-mito-hollyhock",
@@ -193,7 +269,11 @@
         "profile": {
           "build": 0,
           "press": 10
-        }
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
       }
     ]
   },
@@ -205,7 +285,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#75aadb",
+        "#ffffff"
+      ]
     },
     {
       "id": "jpn-shonan-bellmare",
@@ -214,7 +298,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#00843d",
+        "#0046ad"
+      ]
     },
     {
       "id": "jpn-albirex-niigata",
@@ -223,7 +311,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#f37021",
+        "#ffffff"
+      ]
     },
     {
       "id": "jpn-vegalta-sendai",
@@ -232,7 +324,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
     },
     {
       "id": "jpn-sagan-tosu",
@@ -241,7 +337,11 @@
       "profile": {
         "build": 0,
         "press": 10
-      }
+      },
+      "colors": [
+        "#0046ad",
+        "#f5a3c7"
+      ]
     }
   ]
 }

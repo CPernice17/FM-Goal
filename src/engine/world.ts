@@ -29,9 +29,9 @@ export function createWorld(countries: CountryData[], season: number, continenta
     for (const config of country.leagues) {
       const data = country.clubs[config.id] ?? [];
       world.leagues[config.id] = { config, country: country.id, clubIds: data.map((c) => c.id), lastTable: [], standings: [] };
-      for (const c of data) addClub(world, c.id, c.name, country.id, config.id, c.rating, c.profile);
+      for (const c of data) addClub(world, c.id, c.name, country.id, config.id, c.rating, c.profile, c.colors);
     }
-    for (const c of country.external) addClub(world, c.id, c.name, country.id, null, c.rating, c.profile);
+    for (const c of country.external) addClub(world, c.id, c.name, country.id, null, c.rating, c.profile, c.colors);
   }
   if (continental) attachContinental(world, continental);
   return world;
@@ -45,9 +45,10 @@ function addClub(
   leagueId: string | null,
   rating: number,
   profile: Club['profile'],
+  colors?: [string, string],
 ): void {
   if (world.clubs[id]) throw new Error(`Club duplicato: ${id}`);
-  world.clubs[id] = { id, name, country, leagueId, rating, anchor: rating, profile: { ...profile } };
+  world.clubs[id] = { id, name, country, leagueId, rating, anchor: rating, profile: { ...profile }, colors };
 }
 
 export function club(world: WorldState, id: string): Club {
@@ -79,15 +80,16 @@ export function youthClubIds(world: WorldState, country: string, include?: strin
   return ids;
 }
 
-/** Rating delle Primavera di tutti i club con un campionato: prima squadra più una componente casuale. */
+/**
+ * Rating delle Primavera di tutti i club dei paesi simulati, anche di quelli
+ * scesi in una serie non simulata (la loro Primavera può essere ancora allenata).
+ */
 export function refreshYouthRatings(world: WorldState, rng: Rng): void {
   world.youthRatings = {};
-  for (const country of Object.keys(world.countries)) {
-    const ids = (world.countries[country]?.leagueIds ?? []).flatMap((lid) => world.leagues[lid]?.clubIds ?? []);
-    for (const id of ids) {
-      const r = club(world, id).rating;
-      world.youthRatings[id] = clamp(Math.round(50 + (r - 60) * 0.5 + rng.range(-6, 6)), 35, 80);
-    }
+  const pool = world.continental?.poolConfed ?? {};
+  for (const c of Object.values(world.clubs)) {
+    if (pool[c.id] || !world.countries[c.country]) continue;
+    world.youthRatings[c.id] = clamp(Math.round(50 + (c.rating - 60) * 0.5 + rng.range(-6, 6)), 35, 80);
   }
 }
 
@@ -135,7 +137,13 @@ export interface WorldSeasonResult {
 export function simulateWorldSeason(
   world: WorldState,
   rng: Rng,
-  override: { first: Record<string, number>; youth: Record<string, number> },
+  override: {
+    first: Record<string, number>;
+    youth: Record<string, number>;
+    /** Rating nel girone di ritorno, prima squadra e Primavera (stesso id del club, mappe separate). */
+    secondFirst?: Record<string, number>;
+    secondYouth?: Record<string, number>;
+  },
 ): WorldSeasonResult {
   const ratingOf = (id: string) => override.first[id] ?? club(world, id).rating;
   const result: WorldSeasonResult = {
@@ -152,7 +160,7 @@ export function simulateWorldSeason(
   for (const league of Object.values(world.leagues)) {
     const entrants = league.clubIds.map((id) => ({ id, rating: ratingOf(id) }));
     result.expected[league.config.id] = expectedPositions(entrants);
-    result.leagues[league.config.id] = simulateLeague(rng, entrants, league.config.rounds ?? 2);
+    result.leagues[league.config.id] = simulateLeague(rng, entrants, league.config.rounds ?? 2, override.secondFirst);
   }
 
   for (const [countryId, country] of Object.entries(world.countries)) {
@@ -168,7 +176,7 @@ export function simulateWorldSeason(
     }));
     result.youthExpected[countryId] = expectedPositions(youthEntrants);
     const topRounds = world.leagues[topLeagueId(world, countryId)]?.config.rounds ?? 2;
-    result.youth[countryId] = simulateLeague(rng, youthEntrants, topRounds);
+    result.youth[countryId] = simulateLeague(rng, youthEntrants, topRounds, override.secondYouth);
   }
 
   // Playoff promozione: eliminazione diretta tra le posizioni indicate.

@@ -48,7 +48,16 @@ export function roundRobin(ids: string[]): [string, string][][] {
   return [...rounds, ...second];
 }
 
-export function simulateLeague(rng: Rng, entrants: Entrant[], rounds: 1 | 2 = 2): LeagueResult {
+/**
+ * Campionato all'italiana. `secondHalf` sostituisce il rating di alcune squadre
+ * nel girone di ritorno (effetti del mercato di gennaio).
+ */
+export function simulateLeague(
+  rng: Rng,
+  entrants: Entrant[],
+  rounds: 1 | 2 = 2,
+  secondHalf: Record<string, number> = {},
+): LeagueResult {
   const rating = new Map(entrants.map((e) => [e.id, e.rating]));
   const rows = new Map<string, TableRow>(
     entrants.map((e) => [e.id, { id: e.id, played: 0, points: 0, gf: 0, ga: 0 }]),
@@ -58,9 +67,11 @@ export function simulateLeague(rng: Rng, entrants: Entrant[], rounds: 1 | 2 = 2)
 
   const all = roundRobin(entrants.map((e) => e.id));
   const schedule = rounds === 1 ? all.slice(0, all.length / 2) : all;
-  for (const round of schedule) {
+  const half = Math.floor(schedule.length / 2);
+  schedule.forEach((round, r) => {
+    const ratingOf = (id: string) => (r >= half ? (secondHalf[id] ?? rating.get(id)) : rating.get(id)) ?? 60;
     for (const [h, a] of round) {
-      const res = playMatch(rng, rating.get(h) ?? 60, rating.get(a) ?? 60);
+      const res = playMatch(rng, ratingOf(h), ratingOf(a));
       const rh = rows.get(h) as TableRow;
       const ra = rows.get(a) as TableRow;
       const ph = res.home > res.away ? 3 : res.home === res.away ? 1 : 0;
@@ -76,7 +87,7 @@ export function simulateLeague(rng: Rng, entrants: Entrant[], rounds: 1 | 2 = 2)
       logs[h]?.results.push({ gf: res.home, ga: res.away, points: ph });
       logs[a]?.results.push({ gf: res.away, ga: res.home, points: pa });
     }
-  }
+  });
 
   // Spareggio finale casuale ma deterministico per la seed.
   const tiebreak = new Map(entrants.map((e) => [e.id, rng.next()]));
