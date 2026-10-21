@@ -204,6 +204,10 @@
       ]
     }
   ],
+  "intercontinental": {
+    "id": "ic",
+    "name": "Trofeo Intercontinentale"
+  },
   "clubWorldCup": {
     "id": "cwc",
     "name": "Mondiale per club",
