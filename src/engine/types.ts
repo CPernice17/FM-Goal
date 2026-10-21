@@ -96,6 +96,8 @@ export interface Confederation {
   id: string;
   name: string;
   countries: string[];
+  /** Livello della coppa continentale per chi vince la coppa nazionale (regole reali 2026/27). */
+  cupWinnerTier?: number;
   /** Regioni (Asia): paesi simulati di ciascuna regione. */
   regions?: Record<string, string[]>;
   competitions: ContinentalComp[];
@@ -104,7 +106,8 @@ export interface Confederation {
 
 export interface ContinentalData {
   confederations: Confederation[];
-  intercontinental: { id: string; name: string };
+  /** Non più giocato: resta solo per dare un nome ai trofei dei salvataggi vecchi. */
+  intercontinental?: { id: string; name: string };
   clubWorldCup: { id: string; name: string; every: number; firstYear: number; quotas: Record<string, number> };
   /** Club esterni dei paesi non simulati: giocano solo le coppe continentali. */
   pool: { id: string; name: string; country: string; confed: string; region?: string; rating: number; colors?: [string, string] }[];

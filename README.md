@@ -2,7 +2,7 @@
 
 Simulatore web della carriera di un allenatore di calcio, a decisioni stagionali: una carriera completa in pochi minuti, dalla Primavera alle grandi panchine.
 
-Stato: **fetta verticale giocabile.** Si gioca su https://cpernice17.github.io/FM-Goal/ (dopo l'attivazione di GitHub Pages). Campionati: Italia, Inghilterra, Spagna, Germania e Francia (prima e seconda divisione), Portogallo, Paesi Bassi, Brasile, Argentina, Arabia Saudita, Giappone e MLS, con coppe nazionali e campionati giovanili. Coppe continentali con i formati reali 2026/27 (nomi inventati), supercoppe, trofeo intercontinentale e mondiale per club ogni quattro anni. Imprevisti al mercato di gennaio, conseguenze mostrate dopo ogni scelta, colori sociali di tutti i club, tema chiaro e scuro. Eventi in italiano.
+Stato: **fetta verticale giocabile.** Si gioca su https://cpernice17.github.io/FM-Goal/ (dopo l'attivazione di GitHub Pages). Campionati: Italia, Inghilterra, Spagna, Germania e Francia (prima e seconda divisione), Portogallo, Paesi Bassi, Brasile, Argentina, Arabia Saudita, Giappone e MLS, con coppe nazionali e campionati giovanili. Coppe continentali con i formati reali 2026/27 (nomi inventati), supercoppe e mondiale per club ogni quattro anni; le detentrici salgono di livello, le vincitrici delle coppe nazionali entrano secondo le regole reali. Imprevisti al mercato di gennaio, conseguenze mostrate dopo ogni scelta, colori sociali di tutti i club, tema chiaro e scuro. Eventi in italiano.
 
 ## Comandi
 
@@ -32,7 +32,7 @@ src/
     match.ts         modello partita (gol come estrazioni di Poisson)
     competition.ts   campionato all'italiana e coppa a eliminazione diretta
     world.ts         mondo: club, campionati, Primavera, promozioni, evoluzione dei rating
-    continental.ts   coppe continentali, supercoppe, intercontinentale, mondiale per club
+    continental.ts   coppe continentali, qualificazioni, supercoppe, mondiale per club
     squad.ts         giocatori chiave generati
     career.ts        ciclo della stagione, variabili, offerte, esonero, riepilogo finale
     events/          formato degli eventi, esecuzione, validatore

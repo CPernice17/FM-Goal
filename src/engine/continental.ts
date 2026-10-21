@@ -46,7 +46,7 @@ export function compInfo(world: WorldState, id: string): CompInfo | null {
     if (comp) return { id, name: comp.name, kind: 'continental', tier: comp.tier };
     if (conf.supercup?.id === id) return { id, name: conf.supercup.name, kind: 'supercup', tier: 0 };
   }
-  if (defs.intercontinental.id === id) return { id, name: defs.intercontinental.name, kind: 'intercontinental', tier: 0 };
+  if (defs.intercontinental?.id === id) return { id, name: defs.intercontinental.name, kind: 'intercontinental', tier: 0 };
   if (defs.clubWorldCup.id === id) return { id, name: defs.clubWorldCup.name, kind: 'clubWorldCup', tier: 0 };
   return null;
 }
@@ -78,8 +78,14 @@ function ranking(world: WorldState, country: string): string[] {
 }
 
 /**
- * Qualificate alla prossima stagione. Per le coppe regionali le squadre sono
- * elencate regione per regione (prima la metà ovest, poi la metà est).
+ * Qualificate alla prossima stagione, in quest'ordine per ogni coppa:
+ * 1. le detentrici: chi ha vinto una coppa continentale entra nella coppa del
+ *    livello superiore (chi vince la prima resta nella prima), comunque sia
+ *    andata in campionato, a meno che il campionato non le dia già di meglio;
+ * 2. i posti dei paesi simulati: la vincitrice della coppa nazionale entra nel
+ *    livello fissato dalla confederazione, poi si scorre la classifica;
+ * 3. i club esterni, per forza, fino a riempire la coppa.
+ * Per le coppe regionali le squadre sono elencate regione per regione.
  */
 export function qualifyContinental(world: WorldState, rng: Rng, cupWinners: Record<string, string>): void {
   const cont = world.continental;
@@ -90,12 +96,20 @@ export function qualifyContinental(world: WorldState, rng: Rng, cupWinners: Reco
   for (const conf of cont.defs.confederations) {
     const orders = Object.fromEntries(conf.countries.map((c) => [c, ranking(world, c)]));
     const regions: [string | null, string[]][] = conf.regions ? Object.entries(conf.regions) : [[null, conf.countries]];
+    const holders = holdersByTier(world, conf);
     for (const comp of [...conf.competitions].sort((a, b) => a.tier - b.tier)) {
       const parts = isRegional(comp.format) ? regions : ([[null, conf.countries]] as [string | null, string[]][]);
       const list: string[] = [];
       for (const [region, countries] of parts) {
         const part: string[] = [];
-        for (const country of countries) pickNational(comp, country, orders[country] ?? [], cupWinners[country], world, used, part);
+        for (const id of holders.get(comp.tier) ?? []) {
+          if (used.has(id) || (region && regionOf(world, conf, id) !== region)) continue;
+          part.push(id);
+          used.add(id);
+        }
+        for (const country of countries) {
+          pickNational(comp, conf, country, orders[country] ?? [], cupWinners[country], world, used, part);
+        }
         const size = expectedSize(conf, comp) / parts.length;
         const candidates = Object.keys(cont.poolConfed)
           .filter((id) => cont.poolConfed[id] === conf.id && !used.has(id) && (!region || cont.poolRegion[id] === region))
@@ -114,9 +128,36 @@ export function qualifyContinental(world: WorldState, rng: Rng, cupWinners: Reco
   cont.qualified = qualified;
 }
 
-/** Posti di un paese in una coppa: classifica, con la vincitrice della coppa nazionale al secondo livello. */
+/** Detentrici per livello di destinazione: chi vince il livello N va al livello N-1 (il primo resta il primo). */
+function holdersByTier(world: WorldState, conf: Confederation): Map<number, string[]> {
+  const out = new Map<number, string[]>();
+  const winners = world.continental?.lastWinners ?? {};
+  for (const comp of [...conf.competitions].sort((a, b) => a.tier - b.tier)) {
+    const id = winners[comp.id];
+    if (!id || !world.clubs[id]) continue;
+    const target = Math.max(1, comp.tier - 1);
+    out.set(target, [...(out.get(target) ?? []), id]);
+  }
+  return out;
+}
+
+/** Regione di un club (coppe asiatiche): dal paese per i club simulati, dal pool per gli esterni. */
+function regionOf(world: WorldState, conf: Confederation, clubId: string): string | null {
+  const pool = world.continental?.poolRegion[clubId];
+  if (pool) return pool;
+  const country = world.clubs[clubId]?.country;
+  const entry = Object.entries(conf.regions ?? {}).find(([, countries]) => country && countries.includes(country));
+  return entry?.[0] ?? null;
+}
+
+/**
+ * Posti di un paese in una coppa: prima la vincitrice della coppa nazionale
+ * (nel livello fissato dalla confederazione, anche se è retrocessa), poi la
+ * classifica della massima serie.
+ */
 function pickNational(
   comp: ContinentalComp,
+  conf: Confederation,
   country: string,
   order: string[],
   cupWinner: string | undefined,
@@ -125,7 +166,7 @@ function pickNational(
   out: string[],
 ): void {
   let n = comp.slots[country] ?? 0;
-  if (comp.tier === 2 && n > 0 && cupWinner && !used.has(cupWinner) && world.clubs[cupWinner]?.leagueId) {
+  if (comp.tier === (conf.cupWinnerTier ?? 2) && n > 0 && cupWinner && !used.has(cupWinner) && world.clubs[cupWinner]) {
     out.push(cupWinner);
     used.add(cupWinner);
     n--;
@@ -293,7 +334,6 @@ export function simulateContinental(world: WorldState, rng: Rng, ratingOf: (id: 
     }
   }
 
-  playIntercontinental(world, rng, entrant, out);
   playClubWorldCup(world, rng, entrant, out);
   return out;
 }
@@ -316,35 +356,6 @@ function playSupercup(
     reached: { [tie.winner.id]: 'winner', [tie.loser.id]: 'final' },
     penaltiesOut: tie.penalties ? { [tie.loser.id]: 'final' } : {},
   };
-}
-
-/**
- * Trofeo intercontinentale (formato FIFA): Nord America contro Sud America,
- * la vincente contro la campione asiatica, poi la finale con la campione europea.
- * Tutte gare secche in campo neutro.
- */
-function playIntercontinental(world: WorldState, rng: Rng, entrant: (id: string) => Entrant, out: Record<string, CupResult>): void {
-  const cont = world.continental;
-  if (!cont) return;
-  const champ = (confId: string) => {
-    const tier1 = cont.defs.confederations.find((c) => c.id === confId)?.competitions.find((c) => c.tier === 1);
-    return tier1 ? cont.lastWinners[tier1.id] : undefined;
-  };
-  const order = ['concacaf', 'conmebol', 'afc', 'uefa'].map(champ).filter((id): id is string => !!id);
-  if (order.length < 2) return;
-  const res = emptyResult();
-  const stages = ['r1', 'semi', 'final'] as const;
-  let current = entrant(order[0] as string);
-  for (let i = 1; i < order.length; i++) {
-    const tie = playTie(rng, current, entrant(order[i] as string), 1, true);
-    const stage = stages[Math.max(0, stages.length - (order.length - i))] ?? 'final';
-    res.reached[tie.loser.id] = stage;
-    if (tie.penalties) res.penaltiesOut[tie.loser.id] = stage;
-    current = tie.winner;
-  }
-  res.reached[current.id] = 'winner';
-  res.winner = current.id;
-  out[cont.defs.intercontinental.id] = res;
 }
 
 /** Mondiale per club ogni quattro anni: 32 squadre, gironi a sola andata, poi eliminazione diretta in gara secca. */

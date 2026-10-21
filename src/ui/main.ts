@@ -48,6 +48,13 @@ function withClubColors(s: GameState): GameState {
   }
   for (const club of CONTINENTAL.pool) if (club.colors) colors.set(club.id, club.colors);
   for (const club of Object.values(s.world.clubs)) if (!club.colors) club.colors = colors.get(club.id);
+  // Regole delle coppe aggiornate (livello della coppa nazionale, niente intercontinentale);
+  // la vecchia definizione dell'intercontinentale resta solo per i nomi dei trofei.
+  const cont = s.world.continental;
+  if (cont) {
+    const { pool: _pool, ...defs } = CONTINENTAL;
+    cont.defs = { ...defs, intercontinental: cont.defs.intercontinental };
+  }
   return s;
 }
 

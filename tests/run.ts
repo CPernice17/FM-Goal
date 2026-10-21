@@ -18,7 +18,7 @@ import { applyEffects } from '../src/engine/events/runtime';
 import { validatePacks } from '../src/engine/events/validate';
 import { Rng } from '../src/engine/rng';
 import type { GameState } from '../src/engine/types';
-import { expectedSize } from '../src/engine/continental';
+import { expectedSize, qualifyContinental } from '../src/engine/continental';
 import { createWorld, endOfSeason, refreshYouthRatings, simulateWorldSeason } from '../src/engine/world';
 
 let failed = 0;
@@ -218,7 +218,7 @@ test('coppe continentali: qualificate complete, senza doppioni, nella confederaz
     const all = Object.values(cont.qualified).flat();
     assert(new Set(all).size === all.length, 'club qualificato a due coppe');
     if (s >= 1) assert(season.continental.eusc, 'supercoppa europea mancante');
-    if (s >= 1) assert(season.continental.ic, 'trofeo intercontinentale mancante');
+    assert(!season.continental.ic, 'il trofeo intercontinentale non dovrebbe più giocarsi');
     if (world.season === 2029) {
       const cwc = season.continental.cwc;
       assert(cwc && Object.keys(cwc.reached).length === 32, `mondiale per club: ${Object.keys(cwc?.reached ?? {}).length} squadre`);
@@ -239,6 +239,64 @@ test('coppe continentali: qualificate complete, senza doppioni, nella confederaz
   assert(world.season === 2030, `stagione ${world.season}`);
   const season2030 = simulateWorldSeason(world, rng, { first: {}, youth: {} });
   assert(!season2030.continental.cwc, 'mondiale per club fuori stagione');
+});
+
+function qualifiedTier(world: ReturnType<typeof createWorld>, clubId: string): number | null {
+  const cont = world.continental;
+  if (!cont) return null;
+  for (const conf of cont.defs.confederations) {
+    for (const comp of conf.competitions) if (cont.qualified[comp.id]?.includes(clubId)) return comp.tier;
+  }
+  return null;
+}
+
+test('coppe nazionali: la vincitrice entra nella coppa prevista dalle regole reali', () => {
+  const rng = new Rng(8);
+  const world = createWorld(COUNTRIES, 2026, CONTINENTAL);
+  refreshYouthRatings(world, rng);
+  // Vincitrici di coppa a metà o in fondo alla classifica, per isolare l'effetto della coppa.
+  const pick = (league: string, fromBottom: number) => {
+    const ids = [...(world.leagues[league]?.clubIds ?? [])].sort((a, b) => (world.clubs[a]?.rating ?? 0) - (world.clubs[b]?.rating ?? 0));
+    return ids[fromBottom] as string;
+  };
+  const winners = { ita: pick('ita1', 2), bra: pick('bra1', 2), arg: pick('arg1', 3), usa: pick('usa1', 2), jpn: pick('jpn1', 2) };
+  qualifyContinental(world, rng, winners);
+  assert(qualifiedTier(world, winners.ita) === 2, 'Europa: la vincitrice della coppa non è nella seconda coppa');
+  assert(qualifiedTier(world, winners.bra) === 1, 'Brasile: la vincitrice della Copa do Brasil non è nella Libertadores');
+  assert(qualifiedTier(world, winners.arg) === 1, 'Argentina: la vincitrice della Copa Argentina non è nella Libertadores');
+  assert(qualifiedTier(world, winners.usa) === 1, 'Nord America: la vincitrice della U.S. Open Cup non è nella Champions Cup');
+  assert(qualifiedTier(world, winners.jpn) === 2, "Giappone: la vincitrice dell'Emperor's Cup non è nella seconda coppa");
+});
+
+test('detentrici: chi vince una coppa continentale sale di livello, la prima resta nella prima', () => {
+  const rng = new Rng(9);
+  const world = createWorld(COUNTRIES, 2026, CONTINENTAL);
+  refreshYouthRatings(world, rng);
+  const cont = world.continental;
+  if (!cont) throw new Error('coppe mancanti');
+  // Detentrici scelte tra i club più deboli: nessuna si qualificherebbe dal campionato.
+  const weak = (league: string, i: number) =>
+    [...(world.leagues[league]?.clubIds ?? [])].sort((a, b) => (world.clubs[a]?.rating ?? 0) - (world.clubs[b]?.rating ?? 0))[i] as string;
+  cont.lastWinners = { eu1: weak('ita1', 0), eu2: weak('eng1', 0), eu3: weak('esp1', 0), sa2: weak('bra1', 0), as2: weak('jpn1', 0), na1: weak('usa1', 0) };
+  qualifyContinental(world, rng, {});
+  assert(qualifiedTier(world, weak('ita1', 0)) === 1, 'la vincitrice della prima coppa europea non è nella prima');
+  assert(qualifiedTier(world, weak('eng1', 0)) === 1, 'la vincitrice della seconda coppa europea non è nella prima');
+  assert(qualifiedTier(world, weak('esp1', 0)) === 2, 'la vincitrice della terza coppa europea non è nella seconda');
+  assert(qualifiedTier(world, weak('bra1', 0)) === 1, 'la vincitrice della Sudamericana non è nella Libertadores');
+  assert(qualifiedTier(world, weak('jpn1', 0)) === 1, 'la vincitrice della seconda coppa asiatica non è nella prima');
+  assert(qualifiedTier(world, weak('usa1', 0)) === 1, 'la vincitrice della coppa nordamericana non la rigioca');
+  // Una detentrice del terzo livello che dal campionato ha la prima coppa resta nella prima.
+  const leader = [...(world.leagues.ger1?.clubIds ?? [])].sort((a, b) => (world.clubs[b]?.rating ?? 0) - (world.clubs[a]?.rating ?? 0))[0] as string;
+  cont.lastWinners = { eu3: leader };
+  qualifyContinental(world, rng, {});
+  assert(qualifiedTier(world, leader) === 1, 'una detentrice è stata retrocessa di livello');
+  // Le coppe restano della dimensione giusta.
+  for (const conf of cont.defs.confederations) {
+    for (const comp of conf.competitions) {
+      const n = cont.qualified[comp.id]?.length ?? 0;
+      assert(n === expectedSize(conf, comp), `${comp.id}: ${n} squadre`);
+    }
+  }
 });
 
 test('coppe continentali: la squadra allenata le gioca e le ritrova nel resoconto', () => {

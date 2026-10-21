@@ -12,6 +12,7 @@
         "por",
         "ned"
       ],
+      "cupWinnerTier": 2,
       "competitions": [
         {
           "id": "eu1",
@@ -93,6 +94,7 @@
         "bra",
         "arg"
       ],
+      "cupWinnerTier": 1,
       "competitions": [
         {
           "id": "sa1",
@@ -140,6 +142,7 @@
         "ksa",
         "jpn"
       ],
+      "cupWinnerTier": 2,
       "regions": {
         "west": [
           "ksa"
@@ -187,6 +190,7 @@
       "countries": [
         "usa"
       ],
+      "cupWinnerTier": 1,
       "competitions": [
         {
           "id": "na1",
@@ -204,10 +208,6 @@
       ]
     }
   ],
-  "intercontinental": {
-    "id": "ic",
-    "name": "Trofeo Intercontinentale"
-  },
   "clubWorldCup": {
     "id": "cwc",
     "name": "Mondiale per club",
