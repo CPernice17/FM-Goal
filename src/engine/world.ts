@@ -29,9 +29,9 @@ export function createWorld(countries: CountryData[], season: number, continenta
     for (const config of country.leagues) {
       const data = country.clubs[config.id] ?? [];
       world.leagues[config.id] = { config, country: country.id, clubIds: data.map((c) => c.id), lastTable: [], standings: [] };
-      for (const c of data) addClub(world, c.id, c.name, country.id, config.id, c.rating, c.profile, c.colors);
+      for (const c of data) addClub(world, c.id, c.name, country.id, config.id, c.rating, c.profile, c.colors, c.reserve);
     }
-    for (const c of country.external) addClub(world, c.id, c.name, country.id, null, c.rating, c.profile, c.colors);
+    for (const c of country.external) addClub(world, c.id, c.name, country.id, null, c.rating, c.profile, c.colors, c.reserve);
   }
   if (continental) attachContinental(world, continental);
   return world;
@@ -46,9 +46,15 @@ function addClub(
   rating: number,
   profile: Club['profile'],
   colors?: [string, string],
+  reserve?: boolean,
 ): void {
   if (world.clubs[id]) throw new Error(`Club duplicato: ${id}`);
-  world.clubs[id] = { id, name, country, leagueId, rating, anchor: rating, profile: { ...profile }, colors };
+  world.clubs[id] = { id, name, country, leagueId, rating, anchor: rating, profile: { ...profile }, colors, ...(reserve ? { reserve } : {}) };
+}
+
+/** Classifica senza le squadre riserve, che non possono essere promosse. */
+export function eligibleForPromotion(world: WorldState, ids: string[]): string[] {
+  return ids.filter((id) => !world.clubs[id]?.reserve);
 }
 
 export function club(world: WorldState, id: string): Club {
@@ -88,7 +94,7 @@ export function refreshYouthRatings(world: WorldState, rng: Rng): void {
   world.youthRatings = {};
   const pool = world.continental?.poolConfed ?? {};
   for (const c of Object.values(world.clubs)) {
-    if (pool[c.id] || !world.countries[c.country]) continue;
+    if (pool[c.id] || c.reserve || !world.countries[c.country]) continue;
     world.youthRatings[c.id] = clamp(Math.round(50 + (c.rating - 60) * 0.5 + rng.range(-6, 6)), 35, 80);
   }
 }
@@ -165,9 +171,9 @@ export function simulateWorldSeason(
 
   for (const [countryId, country] of Object.entries(world.countries)) {
     const cupEntrants = country.leagueIds.flatMap((lid) =>
-      (world.leagues[lid]?.clubIds ?? []).map((id) => ({ id, rating: ratingOf(id) })),
+      eligibleForPromotion(world, world.leagues[lid]?.clubIds ?? []).map((id) => ({ id, rating: ratingOf(id) })),
     );
-    if (cupEntrants.length >= 2) result.cups[countryId] = simulateCup(rng, cupEntrants);
+    if (country.cupName && cupEntrants.length >= 2) result.cups[countryId] = simulateCup(rng, cupEntrants);
 
     const coachYouth = Object.keys(override.youth).find((id) => world.clubs[id]?.country === countryId);
     const youthEntrants = youthClubIds(world, countryId, coachYouth).map((id) => ({
@@ -184,7 +190,8 @@ export function simulateWorldSeason(
     const po = league.config.playoff;
     const table = result.leagues[league.config.id]?.table;
     if (!po || !table) continue;
-    const contenders = table.slice(po.from - 1, po.to).map((r) => ({ id: r.id, rating: ratingOf(r.id) }));
+    const eligible = table.filter((r) => !world.clubs[r.id]?.reserve);
+    const contenders = eligible.slice(po.from - 1, po.to).map((r) => ({ id: r.id, rating: ratingOf(r.id) }));
     if (contenders.length >= 2) result.playoffWinners[league.config.id] = simulateCup(rng, contenders).winner;
   }
 
@@ -226,7 +233,7 @@ export function endOfSeason(world: WorldState, rng: Rng, season: WorldSeasonResu
     if (cfg.down) {
       const lower = world.leagues[cfg.down];
       if (!lower) continue;
-      const up = lower.lastTable.slice(0, lower.config.promotedDirect);
+      const up = eligibleForPromotion(world, lower.lastTable).slice(0, lower.config.promotedDirect);
       const po = season.playoffWinners[cfg.down];
       if (po && !up.includes(po)) up.push(po);
       for (const id of down) moves.push({ clubId: id, from: cfg.id, to: cfg.down });

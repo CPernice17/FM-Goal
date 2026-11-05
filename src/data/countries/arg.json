@@ -11,7 +11,22 @@
       "prestige": 0.75,
       "relegated": 2,
       "promotedDirect": 0,
-      "rounds": 1
+      "rounds": 1,
+      "down": "arg2"
+    },
+    {
+      "id": "arg2",
+      "name": "Primera Nacional",
+      "division": 2,
+      "prestige": 0.45,
+      "relegated": 4,
+      "promotedDirect": 1,
+      "playoff": {
+        "from": 2,
+        "to": 9
+      },
+      "rounds": 1,
+      "up": "arg1"
     }
   ],
   "clubs": {
@@ -406,13 +421,522 @@
           "#75aadb"
         ]
       }
+    ],
+    "arg2": [
+      {
+        "id": "arg-godoy-cruz",
+        "name": "Godoy Cruz",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-san-martin-de-san-juan",
+        "name": "San Martín de San Juan",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "arg-san-martin-de-tucuman",
+        "name": "San Martín de Tucumán",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-colon",
+        "name": "Colón",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "arg-quilmes",
+        "name": "Quilmes",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffffff",
+          "#0c2340"
+        ]
+      },
+      {
+        "id": "arg-chacarita-juniors",
+        "name": "Chacarita Juniors",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "arg-atlanta",
+        "name": "Atlanta",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "arg-atletico-de-rafaela",
+        "name": "Atlético de Rafaela",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-ferro-carril-oeste",
+        "name": "Ferro Carril Oeste",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-all-boys",
+        "name": "All Boys",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "arg-estudiantes-de-buenos-aires",
+        "name": "Estudiantes de Buenos Aires",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-nueva-chicago",
+        "name": "Nueva Chicago",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "arg-patronato",
+        "name": "Patronato",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "arg-temperley",
+        "name": "Temperley",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-gimnasia-y-esgrima-de-jujuy",
+        "name": "Gimnasia y Esgrima de Jujuy",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-deportivo-maipu",
+        "name": "Deportivo Maipú",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-almirante-brown",
+        "name": "Almirante Brown",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "arg-defensores-de-belgrano",
+        "name": "Defensores de Belgrano",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "arg-deportivo-madryn",
+        "name": "Deportivo Madryn",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffd100"
+        ]
+      },
+      {
+        "id": "arg-deportivo-moron",
+        "name": "Deportivo Morón",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-mitre-de-santiago-del-estero",
+        "name": "Mitre de Santiago del Estero",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "arg-almagro",
+        "name": "Almagro",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0c2340",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "arg-gimnasia-y-tiro",
+        "name": "Gimnasia y Tiro",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffffff",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "arg-los-andes",
+        "name": "Los Andes",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-san-telmo",
+        "name": "San Telmo",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-guemes",
+        "name": "Güemes",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-tristan-suarez",
+        "name": "Tristán Suárez",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-racing-de-cordoba",
+        "name": "Racing de Córdoba",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-chaco-for-ever",
+        "name": "Chaco For Ever",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-ciudad-de-bolivar",
+        "name": "Ciudad de Bolívar",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-san-miguel",
+        "name": "San Miguel",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#00843d"
+        ]
+      },
+      {
+        "id": "arg-agropecuario-argentino",
+        "name": "Agropecuario Argentino",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0c2340",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-acassuso",
+        "name": "Acassuso",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-central-norte",
+        "name": "Central Norte",
+        "rating": 57,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "arg-colegiales",
+        "name": "Colegiales",
+        "rating": 57,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "arg-ferrocarril-midland",
+        "name": "Ferrocarril Midland",
+        "rating": 57,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      }
     ]
   },
   "external": [
     {
-      "id": "arg-godoy-cruz",
-      "name": "Godoy Cruz",
-      "rating": 66,
+      "id": "arg-arsenal-de-sarandi",
+      "name": "Arsenal de Sarandí",
+      "rating": 60,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#75aadb",
+        "#c8102e"
+      ]
+    },
+    {
+      "id": "arg-brown-de-adrogue",
+      "name": "Brown de Adrogué",
+      "rating": 59,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#75aadb",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "arg-villa-dalmine",
+      "name": "Villa Dálmine",
+      "rating": 58,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#0c2340",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "arg-alvarado",
+      "name": "Alvarado",
+      "rating": 58,
       "profile": {
         "build": 0,
         "press": 10
@@ -423,55 +947,16 @@
       ]
     },
     {
-      "id": "arg-san-martin-de-san-juan",
-      "name": "San Martín de San Juan",
-      "rating": 65,
+      "id": "arg-defensores-unidos",
+      "name": "Defensores Unidos",
+      "rating": 57,
       "profile": {
         "build": 0,
         "press": 10
       },
       "colors": [
-        "#00843d",
-        "#1a1a1a"
-      ]
-    },
-    {
-      "id": "arg-colon",
-      "name": "Colón",
-      "rating": 64,
-      "profile": {
-        "build": 0,
-        "press": 10
-      },
-      "colors": [
-        "#c8102e",
-        "#1a1a1a"
-      ]
-    },
-    {
-      "id": "arg-quilmes",
-      "name": "Quilmes",
-      "rating": 63,
-      "profile": {
-        "build": 0,
-        "press": 10
-      },
-      "colors": [
-        "#ffffff",
-        "#0046ad"
-      ]
-    },
-    {
-      "id": "arg-chacarita-juniors",
-      "name": "Chacarita Juniors",
-      "rating": 62,
-      "profile": {
-        "build": 0,
-        "press": 10
-      },
-      "colors": [
-        "#c8102e",
-        "#1a1a1a"
+        "#0046ad",
+        "#ffffff"
       ]
     }
   ]

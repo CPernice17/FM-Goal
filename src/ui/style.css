@@ -587,6 +587,8 @@ select {
 
 .mini-table td:first-child {
   width: 2rem;
+  padding-left: 0.45rem;
+  border-left: 4px solid transparent;
 }
 
 .mini-table td:last-child {
@@ -678,7 +680,7 @@ select {
 .standings td:first-child {
   width: 2rem;
   padding-left: 0.5rem;
-  border-left: 3px solid transparent;
+  border-left: 4px solid transparent;
 }
 
 .standings tr.zone-up td:first-child {
@@ -693,6 +695,11 @@ select {
   border-left-color: var(--red);
 }
 
+.standings tr.q td:first-child,
+.mini-table tr.q td:first-child {
+  border-left-color: var(--q);
+}
+
 .standings tr.mine td {
   font-weight: 700;
   background: var(--rosa);
@@ -702,6 +709,11 @@ select {
   font-size: var(--step--1);
   color: var(--ink-soft);
   margin-top: 0.5rem;
+}
+
+.legend-item {
+  white-space: nowrap;
+  margin-right: 0.5rem;
 }
 
 .key {
@@ -1313,6 +1325,13 @@ select {
   cursor: pointer;
 }
 
-.home .theme-toggle {
+.toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  align-self: flex-start;
+}
+
+.home .toggles {
   margin-top: -0.5rem;
 }

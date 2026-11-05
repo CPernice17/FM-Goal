@@ -1,22 +1,46 @@
 import { compInfo } from '../engine/continental';
 import type { GameState, Headline, Lang, Style } from '../engine/types';
+import { en } from './en';
 import { it, type Strings } from './it';
 
-/**
- * Testi dell'interfaccia. Inglese e spagnolo arriveranno con la fase
- * multilingua: fino ad allora si ricade sull'italiano.
- */
-const DICTS: Partial<Record<Lang, Partial<Strings>>> = { it };
+/** Testi dell'interfaccia. Lo spagnolo arriverà più avanti: fino ad allora si ricade sull'italiano. */
+const DICTS: Partial<Record<Lang, Partial<Strings>>> = { it, en };
+
+/** Lingue disponibili nell'interfaccia. */
+export const LANGS: Lang[] = ['it', 'en'];
+
+function lookup(lang: Lang, key: string): string | undefined {
+  return DICTS[lang]?.[key as keyof Strings] ?? it[key as keyof Strings];
+}
 
 export function t(lang: Lang, key: keyof Strings, vars: Record<string, string | number> = {}): string {
   // Una chiave sconosciuta (per esempio da un salvataggio vecchio) mostra la chiave stessa.
-  const raw = DICTS[lang]?.[key] ?? it[key] ?? String(key);
+  const raw = lookup(lang, key) ?? String(key);
   return raw.replace(/\{(\w+)\}/g, (m, k: string) => (vars[k] !== undefined ? String(vars[k]) : m));
 }
 
-export function headlineText(lang: Lang, h: Headline): string {
+/** Nome di una coppa nella lingua scelta; i nomi non tradotti restano quelli dei dati. */
+export function compName(state: GameState, id: string, fallback?: string): string {
+  return lookup(state.lang, `comp_${id}`) ?? compInfo(state.world, id)?.name ?? fallback ?? id;
+}
+
+/** Nome di un paese nella lingua scelta. */
+export function countryName(lang: Lang, id: string, fallback = id): string {
+  return lookup(lang, `country_${id}`) ?? fallback;
+}
+
+/** Numero ordinale: 3° in italiano, 3rd in inglese. */
+export function ordinal(lang: Lang, n: number): string {
+  if (lang !== 'en') return `${n}°`;
+  const tens = n % 100;
+  const suffix = tens >= 11 && tens <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][n % 10] ?? 'th');
+  return `${n}${suffix}`;
+}
+
+export function headlineText(lang: Lang, h: Headline, state?: GameState): string {
   const vars: Record<string, string | number> = { ...(h.values ?? {}) };
   if (typeof vars.stage === 'string') vars.stage = t(lang, `stage_${vars.stage}` as keyof Strings);
+  if (state && typeof vars.cupId === 'string') vars.cup = compName(state, vars.cupId, String(vars.cup ?? ''));
   return t(lang, `headline_${h.id}` as keyof Strings, vars);
 }
 
@@ -35,6 +59,6 @@ export function trophyText(state: GameState, key: string): string {
   if (kind === 'cup') return t(lang, 'trophy_cup', { name: state.world.countries[ref ?? '']?.cupName ?? '', season });
   if (kind === 'youth') return t(lang, 'trophy_youth', { name: state.world.countries[ref ?? '']?.youthLeagueName ?? '', season });
   if (kind === 'promotion') return t(lang, 'trophy_promotion', { name: state.world.leagues[ref ?? '']?.config.name ?? '', season });
-  if (kind === 'cont') return t(lang, 'trophy_cont', { name: compInfo(state.world, ref ?? '')?.name ?? ref ?? '', season });
+  if (kind === 'cont') return t(lang, 'trophy_cont', { name: compName(state, ref ?? ''), season });
   return key;
 }

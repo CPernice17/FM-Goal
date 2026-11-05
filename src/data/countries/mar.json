@@ -1,0 +1,295 @@
+{
+  "id": "mar",
+  "name": "Marocco",
+  "cupName": "Coupe du Trône",
+  "youthLeagueName": "Botola U19",
+  "leagues": [
+    {
+      "id": "mar1",
+      "name": "Botola Pro",
+      "division": 1,
+      "prestige": 0.5,
+      "relegated": 2,
+      "promotedDirect": 0
+    }
+  ],
+  "clubs": {
+    "mar1": [
+      {
+        "id": "mar-rs-berkane",
+        "name": "RS Berkane",
+        "rating": 68,
+        "profile": {
+          "build": 10,
+          "press": 40
+        },
+        "colors": [
+          "#f37021",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "mar-as-far",
+        "name": "AS FAR",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#00843d"
+        ]
+      },
+      {
+        "id": "mar-wydad-ac",
+        "name": "Wydad AC",
+        "rating": 67,
+        "profile": {
+          "build": 20,
+          "press": 30
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mar-raja-ca",
+        "name": "Raja CA",
+        "rating": 66,
+        "profile": {
+          "build": 20,
+          "press": 30
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mar-maghreb-fez",
+        "name": "Maghreb Fez",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "mar-fus-rabat",
+        "name": "FUS Rabat",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#4f2683",
+          "#ffd100"
+        ]
+      },
+      {
+        "id": "mar-dh-el-jadida",
+        "name": "DH El Jadida",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#00843d"
+        ]
+      },
+      {
+        "id": "mar-ittihad-tanger",
+        "name": "Ittihad Tanger",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mar-kawkab-marrakech",
+        "name": "Kawkab Marrakech",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mar-cod-meknes",
+        "name": "COD Meknès",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#00843d"
+        ]
+      },
+      {
+        "id": "mar-hassania-agadir",
+        "name": "Hassania Agadir",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#00843d"
+        ]
+      },
+      {
+        "id": "mar-moghreb-tetouan",
+        "name": "Moghreb Tétouan",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mar-rca-zemamra",
+        "name": "RCA Zemamra",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mar-union-touarga",
+        "name": "Union Touarga",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mar-widad-temara",
+        "name": "Widad Témara",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mar-amal-tiznit",
+        "name": "Amal Tiznit",
+        "rating": 57,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffd100"
+        ]
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "mar-olympic-safi",
+      "name": "Olympic Safi",
+      "rating": 59,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "mar-olympique-dcheira",
+      "name": "Olympique Dcheira",
+      "rating": 58,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "mar-raja-beni-mellal",
+      "name": "Raja Béni Mellal",
+      "rating": 57,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "mar-us-yacoub-mansour",
+      "name": "US Yacoub Mansour",
+      "rating": 57,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "mar-jeunesse-el-massira",
+      "name": "Jeunesse El Massira",
+      "rating": 56,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    }
+  ]
+}

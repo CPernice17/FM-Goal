@@ -10,7 +10,21 @@
       "division": 1,
       "prestige": 0.65,
       "relegated": 3,
-      "promotedDirect": 0
+      "promotedDirect": 0,
+      "down": "ksa2"
+    },
+    {
+      "id": "ksa2",
+      "name": "First Division League",
+      "division": 2,
+      "prestige": 0.35,
+      "relegated": 3,
+      "promotedDirect": 2,
+      "playoff": {
+        "from": 3,
+        "to": 6
+      },
+      "up": "ksa1"
     }
   ],
   "clubs": {
@@ -249,39 +263,249 @@
           "#ffffff"
         ]
       }
+    ],
+    "ksa2": [
+      {
+        "id": "ksa-damac",
+        "name": "Damac",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffd100"
+        ]
+      },
+      {
+        "id": "ksa-al-okhdood",
+        "name": "Al-Okhdood",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#7b1e2b",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "ksa-al-wehda",
+        "name": "Al-Wehda",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "ksa-al-raed",
+        "name": "Al-Raed",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "ksa-al-najma",
+        "name": "Al-Najma",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "ksa-al-orobah",
+        "name": "Al-Orobah",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "ksa-al-tai",
+        "name": "Al-Tai",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "ksa-al-batin",
+        "name": "Al-Batin",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "ksa-al-adalah",
+        "name": "Al-Adalah",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "ksa-al-jabalain",
+        "name": "Al-Jabalain",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "ksa-al-ula",
+        "name": "Al-Ula",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#f37021",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "ksa-al-arabi",
+        "name": "Al-Arabi",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "ksa-jeddah",
+        "name": "Jeddah",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "ksa-al-jubail",
+        "name": "Al-Jubail",
+        "rating": 57,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#00843d"
+        ]
+      },
+      {
+        "id": "ksa-al-zulfi",
+        "name": "Al-Zulfi",
+        "rating": 56,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "ksa-al-anwar",
+        "name": "Al-Anwar",
+        "rating": 56,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffd100"
+        ]
+      },
+      {
+        "id": "ksa-al-bukiryah",
+        "name": "Al-Bukiryah",
+        "rating": 56,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "ksa-al-jandal",
+        "name": "Al-Jandal",
+        "rating": 56,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      }
     ]
   },
   "external": [
     {
-      "id": "ksa-damac",
-      "name": "Damac",
-      "rating": 66,
-      "profile": {
-        "build": 0,
-        "press": 10
-      },
-      "colors": [
-        "#c8102e",
-        "#ffd100"
-      ]
-    },
-    {
-      "id": "ksa-al-okhdood",
-      "name": "Al-Okhdood",
-      "rating": 65,
-      "profile": {
-        "build": 0,
-        "press": 10
-      },
-      "colors": [
-        "#0c2340",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "ksa-al-wehda",
-      "name": "Al-Wehda",
-      "rating": 64,
+      "id": "ksa-ohod",
+      "name": "Ohod",
+      "rating": 56,
       "profile": {
         "build": 0,
         "press": 10
@@ -292,22 +516,35 @@
       ]
     },
     {
-      "id": "ksa-al-raed",
-      "name": "Al-Raed",
-      "rating": 64,
+      "id": "ksa-hajer",
+      "name": "Hajer",
+      "rating": 55,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "ksa-al-qaisumah",
+      "name": "Al-Qaisumah",
+      "rating": 55,
       "profile": {
         "build": 0,
         "press": 10
       },
       "colors": [
         "#c8102e",
-        "#1a1a1a"
+        "#ffffff"
       ]
     },
     {
-      "id": "ksa-al-najma",
-      "name": "Al-Najma",
-      "rating": 63,
+      "id": "ksa-al-sahel",
+      "name": "Al-Sahel",
+      "rating": 54,
       "profile": {
         "build": 0,
         "press": 10

@@ -23,15 +23,18 @@
       "weight": 10,
       "cooldown": 2,
       "title": {
-        "it": "La prima squadra vuole {giocatore}"
+        "it": "La prima squadra vuole {giocatore}",
+        "en": "The first team wants {giocatore}"
       },
       "body": {
-        "it": "L'allenatore della prima squadra ha notato {giocatore} e lo vuole in ritiro. Senza di lui la tua Primavera perde il suo punto di forza."
+        "it": "L'allenatore della prima squadra ha notato {giocatore} e lo vuole in ritiro. Senza di lui la tua Primavera perde il suo punto di forza.",
+        "en": "The first-team coach has spotted {giocatore} and wants him at the training camp. Without him your youth side loses its best player."
       },
       "options": [
         {
           "text": {
-            "it": "Lascialo andare: è la sua occasione"
+            "it": "Lascialo andare: è la sua occasione",
+            "en": "Let him go: it is his chance"
           },
           "effects": [
             {
@@ -52,7 +55,8 @@
         },
         {
           "text": {
-            "it": "Tienilo per il campionato"
+            "it": "Tienilo per il campionato",
+            "en": "Keep him for the league"
           },
           "effects": [
             {
@@ -82,15 +86,18 @@
       "weight": 10,
       "cooldown": 2,
       "title": {
-        "it": "Risultati o crescita?"
+        "it": "Risultati o crescita?",
+        "en": "Results or development?"
       },
       "body": {
-        "it": "Il responsabile del settore giovanile di {club} ti chiede su cosa puntare quest'anno."
+        "it": "Il responsabile del settore giovanile di {club} ti chiede su cosa puntare quest'anno.",
+        "en": "{club}'s head of youth asks what you want to focus on this year."
       },
       "options": [
         {
           "text": {
-            "it": "Prima i risultati"
+            "it": "Prima i risultati",
+            "en": "Results first"
           },
           "effects": [
             {
@@ -111,7 +118,8 @@
         },
         {
           "text": {
-            "it": "Prima la crescita dei ragazzi"
+            "it": "Prima la crescita dei ragazzi",
+            "en": "The players' development first"
           },
           "effects": [
             {
@@ -142,15 +150,18 @@
       "weight": 8,
       "cooldown": 3,
       "title": {
-        "it": "Invito a un torneo in Spagna"
+        "it": "Invito a un torneo in Spagna",
+        "en": "Invitation to a tournament in Spain"
       },
       "body": {
-        "it": "Un torneo internazionale giovanile invita la tua squadra. È una vetrina, ma il viaggio pesa sul budget del settore giovanile."
+        "it": "Un torneo internazionale giovanile invita la tua squadra. È una vetrina, ma il viaggio pesa sul budget del settore giovanile.",
+        "en": "An international youth tournament invites your team. It is a showcase, but the trip weighs on the academy budget."
       },
       "options": [
         {
           "text": {
-            "it": "Accetta: esperienza preziosa"
+            "it": "Accetta: esperienza preziosa",
+            "en": "Accept: valuable experience"
           },
           "effects": [
             {
@@ -172,7 +183,8 @@
         },
         {
           "text": {
-            "it": "Resta a lavorare in sede"
+            "it": "Resta a lavorare in sede",
+            "en": "Stay and work at home"
           },
           "effects": [
             {

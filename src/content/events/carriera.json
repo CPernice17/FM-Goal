@@ -27,15 +27,18 @@
       "weight": 20,
       "cooldown": 1,
       "title": {
-        "it": "Corso UEFA A: si apre il bando"
+        "it": "Corso UEFA A: si apre il bando",
+        "en": "UEFA A course: applications open"
       },
       "body": {
-        "it": "Il corso dura mesi e si sovrappone agli allenamenti. Senza UEFA A le prime squadre resteranno un sogno."
+        "it": "Il corso dura mesi e si sovrappone agli allenamenti. Senza UEFA A le prime squadre resteranno un sogno.",
+        "en": "The course runs for months and clashes with training. Without the UEFA A licence, first-team jobs will stay a dream."
       },
       "options": [
         {
           "text": {
-            "it": "Iscriviti, anche se i ragazzi ne risentono"
+            "it": "Iscriviti, anche se i ragazzi ne risentono",
+            "en": "Sign up, even if the kids suffer for it"
           },
           "effects": [
             {
@@ -51,7 +54,8 @@
         },
         {
           "text": {
-            "it": "Rimanda all'anno prossimo"
+            "it": "Rimanda all'anno prossimo",
+            "en": "Put it off until next year"
           },
           "effects": [
             {
@@ -95,15 +99,18 @@
       "weight": 20,
       "cooldown": 2,
       "title": {
-        "it": "Corso UEFA Pro: c'è un posto per te"
+        "it": "Corso UEFA Pro: c'è un posto per te",
+        "en": "UEFA Pro course: there is a place for you"
       },
       "body": {
-        "it": "Senza UEFA Pro non potrai guidare i club più importanti. Ma il corso arriva proprio nella finestra delle offerte."
+        "it": "Senza UEFA Pro non potrai guidare i club più importanti. Ma il corso arriva proprio nella finestra delle offerte.",
+        "en": "Without the UEFA Pro licence you can't manage the biggest clubs. But the course falls right in the window when offers arrive."
       },
       "options": [
         {
           "text": {
-            "it": "Frequenta il corso, niente offerte quest'anno"
+            "it": "Frequenta il corso, niente offerte quest'anno",
+            "en": "Take the course, no offers this year"
           },
           "effects": [
             {
@@ -117,7 +124,8 @@
         },
         {
           "text": {
-            "it": "Il campo prima di tutto"
+            "it": "Il campo prima di tutto",
+            "en": "The pitch comes first"
           },
           "effects": [
             {

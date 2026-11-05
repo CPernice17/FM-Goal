@@ -1,0 +1,334 @@
+{
+  "id": "egy",
+  "name": "Egitto",
+  "cupName": "Egypt Cup",
+  "youthLeagueName": "Egyptian U-20 League",
+  "leagues": [
+    {
+      "id": "egy1",
+      "name": "Egyptian Premier League",
+      "division": 1,
+      "prestige": 0.5,
+      "relegated": 4,
+      "promotedDirect": 0
+    }
+  ],
+  "clubs": {
+    "egy1": [
+      {
+        "id": "egy-al-ahly",
+        "name": "Al Ahly",
+        "rating": 73,
+        "profile": {
+          "build": 30,
+          "press": 40
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "egy-pyramids",
+        "name": "Pyramids",
+        "rating": 71,
+        "profile": {
+          "build": 20,
+          "press": 40
+        },
+        "colors": [
+          "#0c2340",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "egy-zamalek",
+        "name": "Zamalek",
+        "rating": 68,
+        "profile": {
+          "build": 30,
+          "press": 30
+        },
+        "colors": [
+          "#ffffff",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "egy-ceramica-cleopatra",
+        "name": "Ceramica Cleopatra",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#f37021",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "egy-al-masry",
+        "name": "Al Masry",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "egy-zed",
+        "name": "ZED",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffd100"
+        ]
+      },
+      {
+        "id": "egy-modern-sport",
+        "name": "Modern Sport",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "egy-tala-ea-el-gaish",
+        "name": "Tala'ea El Gaish",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "egy-smouha",
+        "name": "Smouha",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "egy-eastern-enppi",
+        "name": "Eastern Enppi",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "egy-al-ittihad-alexandria",
+        "name": "Al Ittihad Alexandria",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "egy-national-bank-of-egypt",
+        "name": "National Bank of Egypt",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#8d9093",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "egy-wadi-degla",
+        "name": "Wadi Degla",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "egy-petrojet",
+        "name": "Petrojet",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "egy-el-mokawloon-el-arab",
+        "name": "El Mokawloon El Arab",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "egy-el-gouna",
+        "name": "El Gouna",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "egy-ghazl-el-mahalla",
+        "name": "Ghazl El Mahalla",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "egy-abu-qir-fertilizers",
+        "name": "Abu Qir Fertilizers",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "egy-asyut-petroleum",
+        "name": "Asyut Petroleum",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#00843d"
+        ]
+      },
+      {
+        "id": "egy-el-qanah",
+        "name": "El Qanah",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "egy-ismaily",
+      "name": "Ismaily",
+      "rating": 61,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
+    },
+    {
+      "id": "egy-haras-el-hodoud",
+      "name": "Haras El Hodoud",
+      "rating": 58,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
+    },
+    {
+      "id": "egy-pharco",
+      "name": "Pharco",
+      "rating": 58,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "egy-el-dakhleya",
+      "name": "El Dakhleya",
+      "rating": 57,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
+    }
+  ]
+}

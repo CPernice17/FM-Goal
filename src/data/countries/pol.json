@@ -1,0 +1,321 @@
+{
+  "id": "pol",
+  "name": "Polonia",
+  "cupName": "Puchar Polski",
+  "youthLeagueName": "Centralna Liga Juniorów",
+  "leagues": [
+    {
+      "id": "pol1",
+      "name": "Ekstraklasa",
+      "division": 1,
+      "prestige": 0.55,
+      "relegated": 3,
+      "promotedDirect": 0
+    }
+  ],
+  "clubs": {
+    "pol1": [
+      {
+        "id": "pol-lech-poznan",
+        "name": "Lech Poznań",
+        "rating": 69,
+        "profile": {
+          "build": 30,
+          "press": 40
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "pol-legia-warsaw",
+        "name": "Legia Warsaw",
+        "rating": 69,
+        "profile": {
+          "build": 20,
+          "press": 40
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "pol-rakow-czestochowa",
+        "name": "Raków Częstochowa",
+        "rating": 68,
+        "profile": {
+          "build": -10,
+          "press": 60
+        },
+        "colors": [
+          "#c8102e",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "pol-jagiellonia-biaystok",
+        "name": "Jagiellonia Białystok",
+        "rating": 67,
+        "profile": {
+          "build": 30,
+          "press": 40
+        },
+        "colors": [
+          "#ffd100",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "pol-pogon-szczecin",
+        "name": "Pogoń Szczecin",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#7b1e2b",
+          "#0c2340"
+        ]
+      },
+      {
+        "id": "pol-gornik-zabrze",
+        "name": "Górnik Zabrze",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffffff",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "pol-wisa-krakow",
+        "name": "Wisła Kraków",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "pol-cracovia",
+        "name": "Cracovia",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "pol-widzew-odz",
+        "name": "Widzew Łódź",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "pol-gks-katowice",
+        "name": "GKS Katowice",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffd100"
+        ]
+      },
+      {
+        "id": "pol-zagebie-lubin",
+        "name": "Zagłębie Lubin",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#f37021",
+          "#00843d"
+        ]
+      },
+      {
+        "id": "pol-piast-gliwice",
+        "name": "Piast Gliwice",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "pol-slask-wrocaw",
+        "name": "Śląsk Wrocław",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "pol-korona-kielce",
+        "name": "Korona Kielce",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "pol-radomiak-radom",
+        "name": "Radomiak Radom",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "pol-motor-lublin",
+        "name": "Motor Lublin",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "pol-wisa-pock",
+        "name": "Wisła Płock",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "pol-wieczysta-krakow",
+        "name": "Wieczysta Kraków",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "pol-lechia-gdansk",
+      "name": "Lechia Gdańsk",
+      "rating": 62,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "pol-arka-gdynia",
+      "name": "Arka Gdynia",
+      "rating": 60,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#ffd100",
+        "#0046ad"
+      ]
+    },
+    {
+      "id": "pol-bruk-bet-termalica-nieciecza",
+      "name": "Bruk-Bet Termalica Nieciecza",
+      "rating": 59,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#f37021",
+        "#1a1a1a"
+      ]
+    },
+    {
+      "id": "pol-ruch-chorzow",
+      "name": "Ruch Chorzów",
+      "rating": 59,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "pol-polonia-warszawa",
+      "name": "Polonia Warszawa",
+      "rating": 58,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
+    }
+  ]
+}

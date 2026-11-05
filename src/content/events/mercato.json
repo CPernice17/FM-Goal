@@ -19,15 +19,18 @@
       "weight": 14,
       "cooldown": 2,
       "title": {
-        "it": "{giocatore} ceduto a gennaio"
+        "it": "{giocatore} ceduto a gennaio",
+        "en": "{giocatore} sold in January"
       },
       "body": {
-        "it": "Un club straniero paga la clausola di {giocatore}. Il direttore sportivo ha due nomi per sostituirlo."
+        "it": "Un club straniero paga la clausola di {giocatore}. Il direttore sportivo ha due nomi per sostituirlo.",
+        "en": "A foreign club pays {giocatore}'s release clause. The sporting director has two names to replace him."
       },
       "options": [
         {
           "text": {
-            "it": "Il giovane promettente"
+            "it": "Il giovane promettente",
+            "en": "The promising youngster"
           },
           "effects": [
             {
@@ -47,7 +50,8 @@
         },
         {
           "text": {
-            "it": "Il bomber esperto"
+            "it": "Il bomber esperto",
+            "en": "The experienced striker"
           },
           "effects": [
             {
@@ -67,7 +71,8 @@
         },
         {
           "text": {
-            "it": "Nessuno: fiducia al gruppo"
+            "it": "Nessuno: fiducia al gruppo",
+            "en": "Nobody: trust the group"
           },
           "effects": [
             {
@@ -106,15 +111,18 @@
       "weight": 10,
       "cooldown": 3,
       "title": {
-        "it": "{giocatore} si rompe il crociato"
+        "it": "{giocatore} si rompe il crociato",
+        "en": "{giocatore} tears a cruciate ligament"
       },
       "body": {
-        "it": "Stagione finita per {giocatore}. La società ti lascia scegliere come tappare il buco."
+        "it": "Stagione finita per {giocatore}. La società ti lascia scegliere come tappare il buco.",
+        "en": "Season over for {giocatore}. The club lets you choose how to fill the gap."
       },
       "options": [
         {
           "text": {
-            "it": "Un giovane di prospettiva"
+            "it": "Un giovane di prospettiva",
+            "en": "A young prospect"
           },
           "effects": [
             {
@@ -129,7 +137,8 @@
         },
         {
           "text": {
-            "it": "Uno svincolato di esperienza"
+            "it": "Uno svincolato di esperienza",
+            "en": "An experienced free agent"
           },
           "effects": [
             {
@@ -149,7 +158,8 @@
         },
         {
           "text": {
-            "it": "Ci si arrangia con la rosa"
+            "it": "Ci si arrangia con la rosa",
+            "en": "Make do with the squad"
           },
           "effects": [
             {
@@ -192,15 +202,18 @@
       "weight": 9,
       "cooldown": 3,
       "title": {
-        "it": "Offerta fuori mercato per {giocatore}"
+        "it": "Offerta fuori mercato per {giocatore}",
+        "en": "A huge offer for {giocatore}"
       },
       "body": {
-        "it": "Un club ricchissimo offre una cifra enorme per {giocatore}. La dirigenza vuole sapere cosa ne pensi."
+        "it": "Un club ricchissimo offre una cifra enorme per {giocatore}. La dirigenza vuole sapere cosa ne pensi.",
+        "en": "A very rich club offers an enormous fee for {giocatore}. The board wants to know what you think."
       },
       "options": [
         {
           "text": {
-            "it": "Vendilo"
+            "it": "Vendilo",
+            "en": "Sell him"
           },
           "effects": [
             {
@@ -221,7 +234,8 @@
         },
         {
           "text": {
-            "it": "Tienilo a tutti i costi"
+            "it": "Tienilo a tutti i costi",
+            "en": "Keep him at all costs"
           },
           "effects": [
             {
@@ -258,15 +272,18 @@
       "weight": 16,
       "cooldown": 2,
       "title": {
-        "it": "Ultimatum a metà stagione"
+        "it": "Ultimatum a metà stagione",
+        "en": "Mid-season ultimatum"
       },
       "body": {
-        "it": "La dirigenza è preoccupata: o il girone di ritorno cambia passo, o si cambia allenatore."
+        "it": "La dirigenza è preoccupata: o il girone di ritorno cambia passo, o si cambia allenatore.",
+        "en": "The board is worried: either the second half of the season improves, or the coach changes."
       },
       "options": [
         {
           "text": {
-            "it": "Squadra più coperta"
+            "it": "Squadra più coperta",
+            "en": "A more cautious team"
           },
           "effects": [
             {
@@ -287,7 +304,8 @@
         },
         {
           "text": {
-            "it": "Avanti con le tue idee"
+            "it": "Avanti con le tue idee",
+            "en": "Carry on with your ideas"
           },
           "effects": [
             {
@@ -304,7 +322,8 @@
         },
         {
           "text": {
-            "it": "Chiedi un rinforzo esperto"
+            "it": "Chiedi un rinforzo esperto",
+            "en": "Ask for an experienced signing"
           },
           "effects": [
             {
@@ -340,15 +359,18 @@
       "weight": 9,
       "cooldown": 3,
       "title": {
-        "it": "Un talento scartato da un big"
+        "it": "Un talento scartato da un big",
+        "en": "A talent let go by a big club"
       },
       "body": {
-        "it": "Un club di vertice vuole liberarsi di un ragazzo che non trova spazio. Costa poco, ma è acerbo."
+        "it": "Un club di vertice vuole liberarsi di un ragazzo che non trova spazio. Costa poco, ma è acerbo.",
+        "en": "A top club wants to offload a youngster who cannot get a game. He is cheap, but raw."
       },
       "options": [
         {
           "text": {
-            "it": "Prendilo"
+            "it": "Prendilo",
+            "en": "Sign him"
           },
           "effects": [
             {
@@ -364,7 +386,8 @@
         },
         {
           "text": {
-            "it": "Lascia perdere"
+            "it": "Lascia perdere",
+            "en": "Leave it"
           },
           "effects": [
             {
@@ -395,15 +418,18 @@
       "weight": 8,
       "cooldown": 3,
       "title": {
-        "it": "{giocatore} vuole parlare alla squadra"
+        "it": "{giocatore} vuole parlare alla squadra",
+        "en": "{giocatore} wants to address the team"
       },
       "body": {
-        "it": "Dopo una brutta sconfitta {giocatore} chiede di parlare al gruppo, senza di te."
+        "it": "Dopo una brutta sconfitta {giocatore} chiede di parlare al gruppo, senza di te.",
+        "en": "After a bad defeat {giocatore} asks to speak to the group, without you."
       },
       "options": [
         {
           "text": {
-            "it": "Lascialo fare"
+            "it": "Lascialo fare",
+            "en": "Let him"
           },
           "effects": [
             {
@@ -424,7 +450,8 @@
         },
         {
           "text": {
-            "it": "Parli tu per primo"
+            "it": "Parli tu per primo",
+            "en": "You speak first"
           },
           "effects": [
             {
@@ -456,15 +483,18 @@
       "weight": 7,
       "cooldown": 3,
       "title": {
-        "it": "Ritiro invernale: dove?"
+        "it": "Ritiro invernale: dove?",
+        "en": "Winter training camp: where?"
       },
       "body": {
-        "it": "La pausa di gennaio è l'occasione per lavorare. Il preparatore vuole il caldo, la dirigenza vuole risparmiare."
+        "it": "La pausa di gennaio è l'occasione per lavorare. Il preparatore vuole il caldo, la dirigenza vuole risparmiare.",
+        "en": "The January break is a chance to work. The fitness coach wants warm weather, the board wants to save money."
       },
       "options": [
         {
           "text": {
-            "it": "Ritiro al caldo"
+            "it": "Ritiro al caldo",
+            "en": "Camp in the sun"
           },
           "effects": [
             {
@@ -480,7 +510,8 @@
         },
         {
           "text": {
-            "it": "Si resta a casa"
+            "it": "Si resta a casa",
+            "en": "Stay at home"
           },
           "effects": [
             {
@@ -507,15 +538,18 @@
       "weight": 8,
       "cooldown": 3,
       "title": {
-        "it": "Tre partite senza segnare"
+        "it": "Tre partite senza segnare",
+        "en": "Three games without a goal"
       },
       "body": {
-        "it": "In città si invoca un centravanti di peso. I giornali hanno già pronto il nome di un veterano."
+        "it": "In città si invoca un centravanti di peso. I giornali hanno già pronto il nome di un veterano.",
+        "en": "The city is calling for a proper centre-forward. The papers already have a veteran's name ready."
       },
       "options": [
         {
           "text": {
-            "it": "Prendi il bomber esperto"
+            "it": "Prendi il bomber esperto",
+            "en": "Sign the experienced striker"
           },
           "effects": [
             {
@@ -536,7 +570,8 @@
         },
         {
           "text": {
-            "it": "Fiducia agli attaccanti in rosa"
+            "it": "Fiducia agli attaccanti in rosa",
+            "en": "Trust the strikers you have"
           },
           "effects": [
             {
@@ -571,15 +606,18 @@
       "weight": 10,
       "cooldown": 2,
       "title": {
-        "it": "Un club straniero vuole {giocatore}"
+        "it": "Un club straniero vuole {giocatore}",
+        "en": "A foreign club wants {giocatore}"
       },
       "body": {
-        "it": "Offrono un contratto da professionista a {giocatore}. Il club incasserebbe subito, ma la squadra perde un pezzo."
+        "it": "Offrono un contratto da professionista a {giocatore}. Il club incasserebbe subito, ma la squadra perde un pezzo.",
+        "en": "They are offering {giocatore} a professional contract. The club would cash in at once, but the team loses a key piece."
       },
       "options": [
         {
           "text": {
-            "it": "Lascialo partire"
+            "it": "Lascialo partire",
+            "en": "Let him go"
           },
           "effects": [
             {
@@ -595,7 +633,8 @@
         },
         {
           "text": {
-            "it": "Convincilo a restare"
+            "it": "Convincilo a restare",
+            "en": "Convince him to stay"
           },
           "effects": [
             {
@@ -626,15 +665,18 @@
       "weight": 8,
       "cooldown": 3,
       "title": {
-        "it": "Un ragazzo scartato da un'altra Primavera"
+        "it": "Un ragazzo scartato da un'altra Primavera",
+        "en": "A boy released by another youth team"
       },
       "body": {
-        "it": "Un osservatore ti segnala un ragazzo lasciato a casa da un altro club. Potrebbe sorprendere."
+        "it": "Un osservatore ti segnala un ragazzo lasciato a casa da un altro club. Potrebbe sorprendere.",
+        "en": "A scout tells you about a boy another club let go. He could surprise you."
       },
       "options": [
         {
           "text": {
-            "it": "Fallo provare"
+            "it": "Fallo provare",
+            "en": "Give him a trial"
           },
           "effects": [
             {
@@ -650,7 +692,8 @@
         },
         {
           "text": {
-            "it": "La rosa è al completo"
+            "it": "La rosa è al completo",
+            "en": "The squad is full"
           },
           "effects": [
             {

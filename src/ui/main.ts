@@ -1,8 +1,8 @@
 import { CONTINENTAL, COUNTRIES, EVENTS } from '../content/index';
 import { choose, createCareer, nextSeason, playSeason, prepareEnd, startSeason } from '../engine/career';
 import type { Difficulty, GameState, Lang, OutcomeLine } from '../engine/types';
-import { t } from '../i18n/index';
-import { clearGame, loadGame, loadTheme, saveGame, saveTheme } from './storage';
+import { countryName, LANGS, t } from '../i18n/index';
+import { clearGame, loadGame, loadLang, loadTheme, saveGame, saveLang, saveTheme } from './storage';
 import {
   renderCareerDecision,
   renderEvent,
@@ -18,8 +18,12 @@ import {
 } from './views';
 import './style.css';
 
-const LANG: Lang = 'it';
-const COUNTRY_LIST = COUNTRIES.map((c) => ({ id: c.id, name: c.name }));
+/** Lingua: quella scelta, altrimenti quella del browser (italiano o inglese). */
+let lang: Lang = loadLang() ?? (navigator.language?.toLowerCase().startsWith('it') ? 'it' : 'en');
+
+function countryList(): { id: string; name: string }[] {
+  return COUNTRIES.map((c) => ({ id: c.id, name: countryName(lang, c.id, c.name) }));
+}
 const root = document.getElementById('app') as HTMLElement;
 
 let state: GameState | null = null;
@@ -53,7 +57,11 @@ function withClubColors(s: GameState): GameState {
   const cont = s.world.continental;
   if (cont) {
     const { pool: _pool, ...defs } = CONTINENTAL;
-    cont.defs = { ...defs, intercontinental: cont.defs.intercontinental };
+    // I salvataggi precedenti ai nuovi paesi tengono solo le confederazioni e i paesi che hanno.
+    const confederations = defs.confederations
+      .map((c) => ({ ...c, countries: c.countries.filter((id) => s.world.countries[id]) }))
+      .filter((c) => c.countries.length > 0 || cont.defs.confederations.some((old) => old.id === c.id));
+    cont.defs = { ...defs, confederations, intercontinental: cont.defs.intercontinental };
   }
   return s;
 }
@@ -74,9 +82,11 @@ function commit(next: GameState): void {
 }
 
 function render(newScreen = false): void {
+  document.documentElement.lang = lang;
+  if (state) state.lang = lang;
   if (!state) {
     root.className = 'is-home';
-    root.innerHTML = renderHome(LANG, loadGame() !== null, draft, COUNTRY_LIST, theme);
+    root.innerHTML = renderHome(lang, loadGame() !== null, draft, countryList(), theme);
   } else {
     let main = '';
     switch (state.phase) {
@@ -126,16 +136,25 @@ root.addEventListener('click', (e) => {
   if (!target) return;
   const action = target.getAttribute('data-action');
   // Le conseguenze restano visibili fino all'azione successiva.
-  if (action !== 'choose' && action !== 'theme' && action !== 'copy') outcome = null;
+  if (action !== 'choose' && action !== 'theme' && action !== 'lang' && action !== 'copy') outcome = null;
 
   switch (action) {
+    case 'lang':
+      lang = LANGS[(LANGS.indexOf(lang) + 1) % LANGS.length] ?? 'it';
+      saveLang(lang);
+      if (draft.error) draft = { ...draft, name: currentName(), error: t(lang, 'ui_name_missing') };
+      else draft = { ...draft, name: currentName() };
+      if (state) {
+        state.lang = lang;
+        saveGame(state);
+      }
+      render();
+      break;
     case 'theme':
       theme = THEMES[(THEMES.indexOf(theme) + 1) % THEMES.length] ?? 'auto';
       saveTheme(theme);
       applyTheme();
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => applyTheme());
-applyTheme();
-render();
+      render();
       break;
     case 'pick-style': {
       const rect = target.getBoundingClientRect();
@@ -144,9 +163,7 @@ render();
       const fy = (me.clientY - rect.top) / rect.height;
       const clampAxis = (v: number) => Math.max(-100, Math.min(100, Math.round(v / 10) * 10));
       draft = { ...draft, name: currentName(), style: { build: clampAxis((fx - 0.5) * 222), press: clampAxis((0.5 - fy) * 222) } };
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => applyTheme());
-applyTheme();
-render();
+      render();
       break;
     }
     case 'continue':
@@ -176,9 +193,7 @@ render();
       navigator.clipboard?.writeText(summaryText(state)).then(
         () => {
           copied = true;
-          window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => applyTheme());
-applyTheme();
-render();
+          render();
         },
         () => undefined,
       );
@@ -191,7 +206,7 @@ render();
       render(true);
       break;
     case 'quit':
-      if (window.confirm(t(LANG, 'ui_quit_confirm'))) {
+      if (window.confirm(t(lang, 'ui_quit_confirm'))) {
         clearGame();
         state = null;
         render(true);
@@ -208,16 +223,14 @@ root.addEventListener('submit', (e) => {
   e.preventDefault();
   const name = currentName().trim();
   if (!name) {
-    draft = { ...draft, name, error: t(LANG, 'ui_name_missing') };
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => applyTheme());
-applyTheme();
-render();
+    draft = { ...draft, name, error: t(lang, 'ui_name_missing') };
+    render();
     root.querySelector<HTMLInputElement>('input[name="name"]')?.focus();
     return;
   }
   const seed = Math.floor(Math.random() * 2 ** 31);
   copied = false;
-  commit(createCareer({ name, nationality: draft.nationality, style: draft.style, difficulty: draft.difficulty, seed, lang: LANG, countries: COUNTRIES, continental: CONTINENTAL }));
+  commit(createCareer({ name, nationality: draft.nationality, style: draft.style, difficulty: draft.difficulty, seed, lang, countries: COUNTRIES, continental: CONTINENTAL }));
 });
 
 // La difficoltà scelta resta nella bozza, così sopravvive ai ridisegni.
@@ -237,9 +250,7 @@ root.addEventListener('keydown', (e) => {
   e.preventDefault();
   const clampAxis = (v: number) => Math.max(-100, Math.min(100, v));
   draft = { ...draft, name: currentName(), style: { build: clampAxis(draft.style.build + d[0]), press: clampAxis(draft.style.press + d[1]) } };
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => applyTheme());
-applyTheme();
-render();
+  render();
   root.querySelector<SVGElement>('[data-action="pick-style"]')?.focus();
 });
 

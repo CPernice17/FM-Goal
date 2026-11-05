@@ -83,6 +83,16 @@ export const BALANCE = {
   /** Probabilità che un'offerta arrivi dal paese in cui si lavora e da quello d'origine. */
   offerHomeShare: 0.8,
   offerNationShare: 0.1,
+  /**
+   * Ai vertici l'interesse dall'estero cresce: da questo rating del club (o del
+   * club adatto alla reputazione) la quota del paese in cui si lavora scende,
+   * fino a `offerHomeShareTop` a `offerEliteTop` e oltre.
+   */
+  offerEliteFrom: 72,
+  offerEliteTop: 84,
+  offerHomeShareTop: 0.4,
+  /** Probabilità in più di ricevere offerte quando si allena ai vertici. */
+  offerEliteChance: 0.1,
 };
 
 /**
@@ -581,10 +591,10 @@ function buildReport(state: GameState, rng: Rng, season: WorldSeasonResult, pre:
         if (!reached || !info) continue;
         continental.push({ id: compId, name: info.name, reached, won: reached === 'winner' });
         if (reached === 'winner') {
-          headlines.push({ id: 'continental_winner', values: { cup: info.name } });
+          headlines.push({ id: 'continental_winner', values: { cup: info.name, cupId: compId } });
           trophies.push(`cont:${compId}:${seasonYear}`);
         } else if (info.kind === 'continental' && (reached === 'final' || reached === 'semi')) {
-          headlines.push({ id: reached === 'final' ? 'continental_final' : 'continental_semi', values: { cup: info.name } });
+          headlines.push({ id: reached === 'final' ? 'continental_final' : 'continental_semi', values: { cup: info.name, cupId: compId } });
         }
       }
     }
@@ -845,9 +855,16 @@ export function generateOffers(state: GameState, rng: Rng, mode: 'employed' | 'u
     return pool.length > 0 ? [{ clubId: rng.pick(pool), role: 'youth', years: 2, challenge: false }] : [];
   }
 
+  const currentClub = job?.clubId ?? state.lastClubId;
+  const currentCountry = currentClub ? world.clubs[currentClub]?.country : coach.nationality;
+  const target = bal(state).offerTargetBase + coach.reputation * BALANCE.offerTargetSlope - (mode === 'fired' ? 4 : 0);
+  // Calibro attuale: il club allenato in prima squadra, oppure quello adatto alla reputazione.
+  const caliber = job?.role === 'first' ? Math.max(target, club(world, job.clubId).rating) : target;
+  const elite = clamp((caliber - BALANCE.offerEliteFrom) / (BALANCE.offerEliteTop - BALANCE.offerEliteFrom), 0, 1);
+
   let p: number;
   if (job?.role === 'youth') p = 0.45 + 0.15 * job.seasons + 0.05 * lastJudgment;
-  else if (mode === 'employed') p = 0.3 + 0.07 * lastJudgment;
+  else if (mode === 'employed') p = 0.3 + 0.07 * lastJudgment + BALANCE.offerEliteChance * elite;
   else if (mode === 'fired') p = 0.45;
   else p = 0.6;
   p = clamp(p, 0.05, 0.9);
@@ -858,9 +875,6 @@ export function generateOffers(state: GameState, rng: Rng, mode: 'employed' | 'u
   if (job?.role === 'youth' && job.seasons >= 3) count = Math.max(count, 1);
   if (count === 0) return [];
 
-  const currentClub = job?.clubId ?? state.lastClubId;
-  const currentCountry = currentClub ? world.clubs[currentClub]?.country : coach.nationality;
-  const target = bal(state).offerTargetBase + coach.reputation * BALANCE.offerTargetSlope - (mode === 'fired' ? 4 : 0);
   const eligible = Object.values(world.clubs).filter((c) => {
     if (!c.leagueId || c.id === job?.clubId) return false;
     if (coach.license === 'A') {
@@ -877,27 +891,35 @@ export function generateOffers(state: GameState, rng: Rng, mode: 'employed' | 'u
     const dist = Math.hypot(coach.style.build - c.profile.build, coach.style.press - c.profile.press);
     return closeness * (1.2 - dist / 283);
   };
+  const homeShare = BALANCE.offerHomeShare - (BALANCE.offerHomeShare - BALANCE.offerHomeShareTop) * elite;
   for (let i = 0; i < count; i++) {
     const challenge = rng.chance(0.15);
     const center = challenge ? target + 6 : target;
-    // Prima il paese (soprattutto quello in cui lavori), poi il club al suo interno.
-    const country = pickOfferCountry(rng, currentCountry, coach.nationality, Object.keys(world.countries));
-    const local = eligible.filter((c) => c.country === country);
-    const choice = rng.weighted(local, (c) => weight(c, center)) ?? rng.weighted(eligible, (c) => weight(c, center));
+    const where = pickOfferOrigin(rng, homeShare, currentCountry, coach.nationality, world);
+    let choice: (typeof eligible)[number] | undefined;
+    if (where === 'abroad') {
+      // Dall'estero chiamano i club del tuo calibro, in qualunque paese.
+      const abroadCenter = challenge ? caliber + 2 : caliber - 1;
+      const foreign = eligible.filter((c) => c.country !== currentCountry);
+      choice = rng.weighted(foreign, (c) => weight(c, abroadCenter));
+    } else {
+      const local = eligible.filter((c) => c.country === where);
+      choice = rng.weighted(local, (c) => weight(c, center));
+    }
+    choice ??= rng.weighted(eligible, (c) => weight(c, center));
     if (choice) offers.push({ clubId: choice.id, role: 'first', years: rng.int(1, 3), challenge });
   }
   return offers;
 }
 
-/** Paese di un'offerta: quello in cui lavori, quello d'origine, oppure un altro. */
-function pickOfferCountry(rng: Rng, current: string | undefined, nationality: string, all: string[]): string {
+/** Provenienza di un'offerta: il paese in cui lavori, quello d'origine, oppure l'estero. */
+function pickOfferOrigin(rng: Rng, homeShare: number, current: string | undefined, nationality: string, world: WorldState): string {
   const r = rng.next();
-  const home = current && all.includes(current) ? current : undefined;
-  const origin = all.includes(nationality) ? nationality : undefined;
-  if (home && r < BALANCE.offerHomeShare) return home;
-  if (origin && origin !== home && r < BALANCE.offerHomeShare + BALANCE.offerNationShare) return origin;
-  const others = all.filter((c) => c !== home && c !== origin);
-  return others.length > 0 ? rng.pick(others) : (home ?? rng.pick(all));
+  const home = current && world.countries[current] ? current : undefined;
+  const origin = world.countries[nationality] ? nationality : undefined;
+  if (home && r < homeShare) return home;
+  if (origin && origin !== home && r < homeShare + BALANCE.offerNationShare) return origin;
+  return 'abroad';
 }
 
 // ---------------------------------------------------------------------------

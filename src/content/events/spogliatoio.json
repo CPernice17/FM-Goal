@@ -18,15 +18,18 @@
       "weight": 10,
       "cooldown": 3,
       "title": {
-        "it": "{giocatore} chiede più spazio"
+        "it": "{giocatore} chiede più spazio",
+        "en": "{giocatore} wants more game time"
       },
       "body": {
-        "it": "{giocatore} è un punto di riferimento per il gruppo e pretende un ruolo da titolare fisso."
+        "it": "{giocatore} è un punto di riferimento per il gruppo e pretende un ruolo da titolare fisso.",
+        "en": "{giocatore} is a reference point for the group and demands a guaranteed starting place."
       },
       "options": [
         {
           "text": {
-            "it": "Gli garantisci il posto"
+            "it": "Gli garantisci il posto",
+            "en": "Guarantee him the spot"
           },
           "effects": [
             {
@@ -46,7 +49,8 @@
         },
         {
           "text": {
-            "it": "Decide il campo"
+            "it": "Decide il campo",
+            "en": "The pitch decides"
           },
           "effects": [
             {
@@ -75,15 +79,18 @@
       "weight": 10,
       "cooldown": 3,
       "title": {
-        "it": "{giocatore} salta l'allenamento"
+        "it": "{giocatore} salta l'allenamento",
+        "en": "{giocatore} skips training"
       },
       "body": {
-        "it": "Nessun avviso, telefono spento. Il resto della squadra aspetta di vedere come reagisci."
+        "it": "Nessun avviso, telefono spento. Il resto della squadra aspetta di vedere come reagisci.",
+        "en": "No warning, phone switched off. The rest of the squad is waiting to see how you react."
       },
       "options": [
         {
           "text": {
-            "it": "Lo escludi dalla prossima partita"
+            "it": "Lo escludi dalla prossima partita",
+            "en": "Drop him for the next game"
           },
           "effects": [
             {
@@ -103,7 +110,8 @@
         },
         {
           "text": {
-            "it": "Chiudi un occhio"
+            "it": "Chiudi un occhio",
+            "en": "Turn a blind eye"
           },
           "effects": [
             {
@@ -142,15 +150,18 @@
       "weight": 10,
       "cooldown": 2,
       "title": {
-        "it": "{giocatore} vuole un club più grande"
+        "it": "{giocatore} vuole un club più grande",
+        "en": "{giocatore} wants a bigger club"
       },
       "body": {
-        "it": "Il procuratore di {giocatore} ha già parlato con altre squadre. Il giocatore chiede di essere ceduto."
+        "it": "Il procuratore di {giocatore} ha già parlato con altre squadre. Il giocatore chiede di essere ceduto.",
+        "en": "{giocatore}'s agent has already spoken to other clubs. The player asks to be sold."
       },
       "options": [
         {
           "text": {
-            "it": "Lo cedi alle sue condizioni"
+            "it": "Lo cedi alle sue condizioni",
+            "en": "Sell him on his terms"
           },
           "effects": [
             {
@@ -171,7 +182,8 @@
         },
         {
           "text": {
-            "it": "Lo trattieni e provi a convincerlo"
+            "it": "Lo trattieni e provi a convincerlo",
+            "en": "Keep him and try to convince him"
           },
           "effects": [
             {
@@ -200,15 +212,18 @@
       "weight": 8,
       "cooldown": 3,
       "title": {
-        "it": "{giocatore} gioca col dolore"
+        "it": "{giocatore} gioca col dolore",
+        "en": "{giocatore} plays through the pain"
       },
       "body": {
-        "it": "Lo staff medico consiglia un mese di stop. {giocatore} però vuole esserci fin dalla prima giornata."
+        "it": "Lo staff medico consiglia un mese di stop. {giocatore} però vuole esserci fin dalla prima giornata.",
+        "en": "The medical staff recommend a month out. But {giocatore} wants to play from the first matchday."
       },
       "options": [
         {
           "text": {
-            "it": "Lo fermi per un mese"
+            "it": "Lo fermi per un mese",
+            "en": "Rest him for a month"
           },
           "effects": [
             {
@@ -223,7 +238,8 @@
         },
         {
           "text": {
-            "it": "Gioca, serve alla squadra"
+            "it": "Gioca, serve alla squadra",
+            "en": "He plays, the team needs him"
           },
           "effects": [
             {
@@ -257,15 +273,18 @@
       "weight": 10,
       "cooldown": 0,
       "title": {
-        "it": "Ricaduta per {giocatore}"
+        "it": "Ricaduta per {giocatore}",
+        "en": "Relapse for {giocatore}"
       },
       "body": {
-        "it": "Il problema dell'anno scorso si ripresenta, più grave. Lo staff propone due strade."
+        "it": "Il problema dell'anno scorso si ripresenta, più grave. Lo staff propone due strade.",
+        "en": "Last year's problem is back, and worse. The staff propose two options."
       },
       "options": [
         {
           "text": {
-            "it": "Lunga riabilitazione"
+            "it": "Lunga riabilitazione",
+            "en": "Long rehabilitation"
           },
           "effects": [
             {
@@ -280,7 +299,8 @@
         },
         {
           "text": {
-            "it": "Intervento chirurgico subito"
+            "it": "Intervento chirurgico subito",
+            "en": "Surgery straight away"
           },
           "effects": [
             {
@@ -315,15 +335,18 @@
       "weight": 12,
       "cooldown": 2,
       "title": {
-        "it": "Spogliatoio diviso in due"
+        "it": "Spogliatoio diviso in due",
+        "en": "A dressing room split in two"
       },
       "body": {
-        "it": "Senatori da una parte, nuovi arrivati dall'altra. In allenamento ormai si parla poco."
+        "it": "Senatori da una parte, nuovi arrivati dall'altra. In allenamento ormai si parla poco.",
+        "en": "Senior players on one side, newcomers on the other. There is little talking in training now."
       },
       "options": [
         {
           "text": {
-            "it": "Ritiro di una settimana tutti insieme"
+            "it": "Ritiro di una settimana tutti insieme",
+            "en": "A week-long retreat together"
           },
           "effects": [
             {
@@ -340,7 +363,8 @@
         },
         {
           "text": {
-            "it": "Lasci che si chiariscano da soli"
+            "it": "Lasci che si chiariscano da soli",
+            "en": "Let them sort it out themselves"
           },
           "effects": [
             {
@@ -376,15 +400,18 @@
       "weight": 15,
       "cooldown": 3,
       "title": {
-        "it": "{giocatore} ti difende in pubblico"
+        "it": "{giocatore} ti difende in pubblico",
+        "en": "{giocatore} defends you in public"
       },
       "body": {
-        "it": "Con la tua panchina in bilico, {giocatore} dice ai giornalisti che la squadra è con te."
+        "it": "Con la tua panchina in bilico, {giocatore} dice ai giornalisti che la squadra è con te.",
+        "en": "With your job on the line, {giocatore} tells reporters the team is behind you."
       },
       "options": [
         {
           "text": {
-            "it": "Lo ringrazi e rilanci il gruppo"
+            "it": "Lo ringrazi e rilanci il gruppo",
+            "en": "Thank him and rally the group"
           },
           "effects": [
             {
@@ -405,7 +432,8 @@
         },
         {
           "text": {
-            "it": "Chiedi alla squadra di parlare in campo"
+            "it": "Chiedi alla squadra di parlare in campo",
+            "en": "Ask the team to talk on the pitch"
           },
           "effects": [
             {

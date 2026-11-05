@@ -3,6 +3,7 @@ import type { ContinentalData, CountryData } from '../engine/types';
 import continental from '../data/continental.json';
 import arg from '../data/countries/arg.json';
 import bra from '../data/countries/bra.json';
+import egy from '../data/countries/egy.json';
 import eng from '../data/countries/eng.json';
 import esp from '../data/countries/esp.json';
 import fra from '../data/countries/fra.json';
@@ -10,8 +11,13 @@ import ger from '../data/countries/ger.json';
 import ita from '../data/countries/ita.json';
 import jpn from '../data/countries/jpn.json';
 import ksa from '../data/countries/ksa.json';
+import mar from '../data/countries/mar.json';
+import mex from '../data/countries/mex.json';
 import ned from '../data/countries/ned.json';
+import nor from '../data/countries/nor.json';
+import pol from '../data/countries/pol.json';
 import por from '../data/countries/por.json';
+import swe from '../data/countries/swe.json';
 import usa from '../data/countries/usa.json';
 import carriera from './events/carriera.json';
 import crisi from './events/crisi.json';
@@ -29,7 +35,7 @@ export const EVENT_PACKS: EventPack[] = [carriera, gavetta, spogliatoio, dirigen
 
 export const EVENTS: EventDef[] = EVENT_PACKS.flatMap((p) => p.events);
 
-export const COUNTRIES: CountryData[] = [ita, eng, esp, ger, fra, por, ned, bra, arg, ksa, jpn, usa] as unknown as CountryData[];
+export const COUNTRIES: CountryData[] = [ita, eng, esp, ger, fra, por, ned, nor, swe, pol, bra, arg, mex, usa, ksa, jpn, mar, egy] as unknown as CountryData[];
 
 /** Coppe continentali, supercoppe, competizioni mondiali e club esterni. */
 export const CONTINENTAL: ContinentalData = continental as unknown as ContinentalData;

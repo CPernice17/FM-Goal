@@ -13,6 +13,16 @@
       "promotedDirect": 0,
       "rounds": 1,
       "championPlayoff": 16
+    },
+    {
+      "id": "usa2",
+      "name": "USL Championship",
+      "division": 2,
+      "prestige": 0.35,
+      "relegated": 0,
+      "promotedDirect": 0,
+      "rounds": 1,
+      "championPlayoff": 16
     }
   ],
   "clubs": {
@@ -405,6 +415,333 @@
         "colors": [
           "#0046ad",
           "#1a1a1a"
+        ]
+      }
+    ],
+    "usa2": [
+      {
+        "id": "usa-louisville-city-fc",
+        "name": "Louisville City FC",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#4f2683",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "usa-tampa-bay-rowdies",
+        "name": "Tampa Bay Rowdies",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffd100"
+        ]
+      },
+      {
+        "id": "usa-charleston-battery",
+        "name": "Charleston Battery",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "usa-sacramento-republic-fc",
+        "name": "Sacramento Republic FC",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "usa-pittsburgh-riverhounds-sc",
+        "name": "Pittsburgh Riverhounds SC",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffd100"
+        ]
+      },
+      {
+        "id": "usa-detroit-city-fc",
+        "name": "Detroit City FC",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#c5a253"
+        ]
+      },
+      {
+        "id": "usa-new-mexico-united",
+        "name": "New Mexico United",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "usa-indy-eleven",
+        "name": "Indy Eleven",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0c2340",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "usa-colorado-springs-switchbacks-fc",
+        "name": "Colorado Springs Switchbacks FC",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "usa-phoenix-rising-fc",
+        "name": "Phoenix Rising FC",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "usa-san-antonio-fc",
+        "name": "San Antonio FC",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "usa-el-paso-locomotive-fc",
+        "name": "El Paso Locomotive FC",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0c2340",
+          "#f37021"
+        ]
+      },
+      {
+        "id": "usa-orange-county-sc",
+        "name": "Orange County SC",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#f37021",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "usa-fc-tulsa",
+        "name": "FC Tulsa",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0c2340",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "usa-birmingham-legion-fc",
+        "name": "Birmingham Legion FC",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffd100"
+        ]
+      },
+      {
+        "id": "usa-rhode-island-fc",
+        "name": "Rhode Island FC",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0c2340",
+          "#ffd100"
+        ]
+      },
+      {
+        "id": "usa-hartford-athletic",
+        "name": "Hartford Athletic",
+        "rating": 57,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "usa-lexington-sc",
+        "name": "Lexington SC",
+        "rating": 57,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "usa-monterey-bay-fc",
+        "name": "Monterey Bay FC",
+        "rating": 57,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0c2340",
+          "#00a3ad"
+        ]
+      },
+      {
+        "id": "usa-oakland-roots-sc",
+        "name": "Oakland Roots SC",
+        "rating": 57,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "usa-loudoun-united-fc",
+        "name": "Loudoun United FC",
+        "rating": 56,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "usa-miami-fc",
+        "name": "Miami FC",
+        "rating": 56,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "usa-las-vegas-lights-fc",
+        "name": "Las Vegas Lights FC",
+        "rating": 56,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#f5a3c7"
+        ]
+      },
+      {
+        "id": "usa-brooklyn-fc",
+        "name": "Brooklyn FC",
+        "rating": 55,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "usa-sporting-club-jacksonville",
+        "name": "Sporting Club Jacksonville",
+        "rating": 55,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00a3ad",
+          "#ffffff"
         ]
       }
     ]

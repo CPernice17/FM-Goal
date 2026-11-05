@@ -10,7 +10,10 @@
         "ger",
         "fra",
         "por",
-        "ned"
+        "ned",
+        "nor",
+        "pol",
+        "swe"
       ],
       "cupWinnerTier": 2,
       "competitions": [
@@ -32,8 +35,11 @@
             "ger": 4,
             "fra": 3,
             "por": 2,
-            "ned": 2
-          }
+            "ned": 2,
+            "nor": 1,
+            "pol": 1
+          },
+          "color": "#1d4ed8"
         },
         {
           "id": "eu2",
@@ -53,8 +59,12 @@
             "ger": 2,
             "fra": 2,
             "por": 1,
-            "ned": 1
-          }
+            "ned": 1,
+            "nor": 1,
+            "pol": 1,
+            "swe": 1
+          },
+          "color": "#f97316"
         },
         {
           "id": "eu3",
@@ -74,8 +84,12 @@
             "ger": 1,
             "fra": 1,
             "por": 1,
-            "ned": 2
-          }
+            "ned": 2,
+            "nor": 1,
+            "pol": 2,
+            "swe": 2
+          },
+          "color": "#16a34a"
         }
       ],
       "supercup": {
@@ -108,7 +122,8 @@
           "slots": {
             "bra": 7,
             "arg": 6
-          }
+          },
+          "color": "#c9a227"
         },
         {
           "id": "sa2",
@@ -123,7 +138,8 @@
           "slots": {
             "bra": 6,
             "arg": 6
-          }
+          },
+          "color": "#0ea5e9"
         }
       ],
       "supercup": {
@@ -165,7 +181,8 @@
           "slots": {
             "ksa": 5,
             "jpn": 5
-          }
+          },
+          "color": "#7c3aed"
         },
         {
           "id": "as2",
@@ -180,7 +197,8 @@
           "slots": {
             "ksa": 1,
             "jpn": 1
-          }
+          },
+          "color": "#0d9488"
         }
       ]
     },
@@ -188,7 +206,8 @@
       "id": "concacaf",
       "name": "Nord America",
       "countries": [
-        "usa"
+        "usa",
+        "mex"
       ],
       "cupWinnerTier": 1,
       "competitions": [
@@ -202,7 +221,35 @@
             "byes": 5
           },
           "slots": {
-            "usa": 7
+            "usa": 6,
+            "mex": 9
+          },
+          "color": "#2563eb"
+        }
+      ]
+    },
+    {
+      "id": "caf",
+      "name": "Africa",
+      "countries": [
+        "mar",
+        "egy"
+      ],
+      "cupWinnerTier": 2,
+      "competitions": [
+        {
+          "id": "af1",
+          "name": "Coppa Élite africana",
+          "tier": 1,
+          "color": "#15803d",
+          "format": {
+            "type": "groups",
+            "groups": 4,
+            "advance": 2
+          },
+          "slots": {
+            "mar": 2,
+            "egy": 2
           }
         }
       ]
@@ -675,50 +722,6 @@
       ]
     },
     {
-      "id": "x-nor-bod-glimt",
-      "name": "Bodø/Glimt",
-      "country": "nor",
-      "confed": "uefa",
-      "rating": 72,
-      "colors": [
-        "#ffd100",
-        "#1a1a1a"
-      ]
-    },
-    {
-      "id": "x-nor-molde",
-      "name": "Molde",
-      "country": "nor",
-      "confed": "uefa",
-      "rating": 67,
-      "colors": [
-        "#0046ad",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-nor-brann",
-      "name": "Brann",
-      "country": "nor",
-      "confed": "uefa",
-      "rating": 67,
-      "colors": [
-        "#c8102e",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-nor-rosenborg",
-      "name": "Rosenborg",
-      "country": "nor",
-      "confed": "uefa",
-      "rating": 65,
-      "colors": [
-        "#ffffff",
-        "#1a1a1a"
-      ]
-    },
-    {
       "id": "x-cro-dinamo-zagreb",
       "name": "Dinamo Zagreb",
       "country": "cro",
@@ -826,94 +829,6 @@
       "colors": [
         "#ffd100",
         "#00843d"
-      ]
-    },
-    {
-      "id": "x-pol-lech-poznan",
-      "name": "Lech Poznań",
-      "country": "pol",
-      "confed": "uefa",
-      "rating": 68,
-      "colors": [
-        "#0046ad",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-pol-legia-warsaw",
-      "name": "Legia Warsaw",
-      "country": "pol",
-      "confed": "uefa",
-      "rating": 68,
-      "colors": [
-        "#00843d",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-pol-jagiellonia",
-      "name": "Jagiellonia",
-      "country": "pol",
-      "confed": "uefa",
-      "rating": 66,
-      "colors": [
-        "#ffd100",
-        "#c8102e"
-      ]
-    },
-    {
-      "id": "x-pol-rakow-czestochowa",
-      "name": "Raków Częstochowa",
-      "country": "pol",
-      "confed": "uefa",
-      "rating": 67,
-      "colors": [
-        "#c8102e",
-        "#0046ad"
-      ]
-    },
-    {
-      "id": "x-swe-malmo-ff",
-      "name": "Malmö FF",
-      "country": "swe",
-      "confed": "uefa",
-      "rating": 68,
-      "colors": [
-        "#75aadb",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-swe-djurgarden",
-      "name": "Djurgården",
-      "country": "swe",
-      "confed": "uefa",
-      "rating": 66,
-      "colors": [
-        "#75aadb",
-        "#0c2340"
-      ]
-    },
-    {
-      "id": "x-swe-hammarby",
-      "name": "Hammarby",
-      "country": "swe",
-      "confed": "uefa",
-      "rating": 66,
-      "colors": [
-        "#00843d",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-swe-aik",
-      "name": "AIK",
-      "country": "swe",
-      "confed": "uefa",
-      "rating": 65,
-      "colors": [
-        "#1a1a1a",
-        "#ffd100"
       ]
     },
     {
@@ -2779,116 +2694,6 @@
       ]
     },
     {
-      "id": "x-mex-monterrey",
-      "name": "Monterrey",
-      "country": "mex",
-      "confed": "concacaf",
-      "rating": 74,
-      "colors": [
-        "#0c2340",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-mex-america",
-      "name": "América",
-      "country": "mex",
-      "confed": "concacaf",
-      "rating": 74,
-      "colors": [
-        "#ffd100",
-        "#0046ad"
-      ]
-    },
-    {
-      "id": "x-mex-tigres-uanl",
-      "name": "Tigres UANL",
-      "country": "mex",
-      "confed": "concacaf",
-      "rating": 74,
-      "colors": [
-        "#ffd100",
-        "#0046ad"
-      ]
-    },
-    {
-      "id": "x-mex-cruz-azul",
-      "name": "Cruz Azul",
-      "country": "mex",
-      "confed": "concacaf",
-      "rating": 73,
-      "colors": [
-        "#0046ad",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-mex-toluca",
-      "name": "Toluca",
-      "country": "mex",
-      "confed": "concacaf",
-      "rating": 73,
-      "colors": [
-        "#c8102e",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-mex-guadalajara",
-      "name": "Guadalajara",
-      "country": "mex",
-      "confed": "concacaf",
-      "rating": 71,
-      "colors": [
-        "#c8102e",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-mex-pachuca",
-      "name": "Pachuca",
-      "country": "mex",
-      "confed": "concacaf",
-      "rating": 71,
-      "colors": [
-        "#0c2340",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-mex-pumas-unam",
-      "name": "Pumas UNAM",
-      "country": "mex",
-      "confed": "concacaf",
-      "rating": 70,
-      "colors": [
-        "#ffd100",
-        "#0046ad"
-      ]
-    },
-    {
-      "id": "x-mex-leon",
-      "name": "León",
-      "country": "mex",
-      "confed": "concacaf",
-      "rating": 70,
-      "colors": [
-        "#00843d",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-mex-santos-laguna",
-      "name": "Santos Laguna",
-      "country": "mex",
-      "confed": "concacaf",
-      "rating": 68,
-      "colors": [
-        "#00843d",
-        "#ffffff"
-      ]
-    },
-    {
       "id": "x-crc-saprissa",
       "name": "Saprissa",
       "country": "crc",
@@ -3076,39 +2881,6 @@
       ]
     },
     {
-      "id": "x-egy-al-ahly",
-      "name": "Al Ahly",
-      "country": "egy",
-      "confed": "caf",
-      "rating": 72,
-      "colors": [
-        "#c8102e",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-egy-pyramids",
-      "name": "Pyramids",
-      "country": "egy",
-      "confed": "caf",
-      "rating": 69,
-      "colors": [
-        "#0046ad",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-egy-zamalek",
-      "name": "Zamalek",
-      "country": "egy",
-      "confed": "caf",
-      "rating": 68,
-      "colors": [
-        "#ffffff",
-        "#c8102e"
-      ]
-    },
-    {
       "id": "x-tun-esperance-de-tunis",
       "name": "Espérance de Tunis",
       "country": "tun",
@@ -3117,28 +2889,6 @@
       "colors": [
         "#c8102e",
         "#ffd100"
-      ]
-    },
-    {
-      "id": "x-mar-wydad-casablanca",
-      "name": "Wydad Casablanca",
-      "country": "mar",
-      "confed": "caf",
-      "rating": 67,
-      "colors": [
-        "#c8102e",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "x-mar-rs-berkane",
-      "name": "RS Berkane",
-      "country": "mar",
-      "confed": "caf",
-      "rating": 67,
-      "colors": [
-        "#f37021",
-        "#1a1a1a"
       ]
     },
     {
@@ -3183,6 +2933,215 @@
       "colors": [
         "#c8102e",
         "#ffd100"
+      ]
+    },
+    {
+      "id": "x-alg-mc-alger",
+      "name": "MC Alger",
+      "country": "alg",
+      "confed": "caf",
+      "rating": 64,
+      "colors": [
+        "#c8102e",
+        "#00843d"
+      ]
+    },
+    {
+      "id": "x-sud-al-hilal-omdurman",
+      "name": "Al-Hilal Omdurman",
+      "country": "sud",
+      "confed": "caf",
+      "rating": 64,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-tun-club-africain",
+      "name": "Club Africain",
+      "country": "tun",
+      "confed": "caf",
+      "rating": 63,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-tun-etoile-du-sahel",
+      "name": "Étoile du Sahel",
+      "country": "tun",
+      "confed": "caf",
+      "rating": 63,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-alg-cr-belouizdad",
+      "name": "CR Belouizdad",
+      "country": "alg",
+      "confed": "caf",
+      "rating": 63,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-cod-tp-mazembe",
+      "name": "TP Mazembe",
+      "country": "cod",
+      "confed": "caf",
+      "rating": 63,
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-tan-young-africans",
+      "name": "Young Africans",
+      "country": "tan",
+      "confed": "caf",
+      "rating": 63,
+      "colors": [
+        "#00843d",
+        "#ffd100"
+      ]
+    },
+    {
+      "id": "x-tan-simba",
+      "name": "Simba",
+      "country": "tan",
+      "confed": "caf",
+      "rating": 63,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-alg-js-kabylie",
+      "name": "JS Kabylie",
+      "country": "alg",
+      "confed": "caf",
+      "rating": 62,
+      "colors": [
+        "#ffd100",
+        "#00843d"
+      ]
+    },
+    {
+      "id": "x-alg-usm-alger",
+      "name": "USM Alger",
+      "country": "alg",
+      "confed": "caf",
+      "rating": 62,
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
+    },
+    {
+      "id": "x-civ-asec-mimosas",
+      "name": "ASEC Mimosas",
+      "country": "civ",
+      "confed": "caf",
+      "rating": 62,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
+    },
+    {
+      "id": "x-ang-petro-de-luanda",
+      "name": "Petro de Luanda",
+      "country": "ang",
+      "confed": "caf",
+      "rating": 62,
+      "colors": [
+        "#0046ad",
+        "#ffd100"
+      ]
+    },
+    {
+      "id": "x-cod-as-maniema-union",
+      "name": "AS Maniema Union",
+      "country": "cod",
+      "confed": "caf",
+      "rating": 59,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-mli-stade-malien",
+      "name": "Stade Malien",
+      "country": "mli",
+      "confed": "caf",
+      "rating": 60,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-nga-rivers-united",
+      "name": "Rivers United",
+      "country": "nga",
+      "confed": "caf",
+      "rating": 59,
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-nga-enugu-rangers",
+      "name": "Enugu Rangers",
+      "country": "nga",
+      "confed": "caf",
+      "rating": 59,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-gha-medeama",
+      "name": "Medeama",
+      "country": "gha",
+      "confed": "caf",
+      "rating": 58,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
+    },
+    {
+      "id": "x-ken-gor-mahia",
+      "name": "Gor Mahia",
+      "country": "ken",
+      "confed": "caf",
+      "rating": 58,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-zam-power-dynamos",
+      "name": "Power Dynamos",
+      "country": "zam",
+      "confed": "caf",
+      "rating": 58,
+      "colors": [
+        "#f37021",
+        "#0046ad"
       ]
     }
   ]

@@ -20,6 +20,9 @@ import { Rng } from '../src/engine/rng';
 import type { GameState } from '../src/engine/types';
 import { expectedSize, qualifyContinental } from '../src/engine/continental';
 import { createWorld, endOfSeason, refreshYouthRatings, simulateWorldSeason } from '../src/engine/world';
+import { generateOffers } from '../src/engine/career';
+import { en } from '../src/i18n/en';
+import { it } from '../src/i18n/it';
 
 let failed = 0;
 let passed = 0;
@@ -473,6 +476,69 @@ test('eventi: il validatore trova gli errori tipici', () => {
   assert(errors.includes('{giocatore}'), 'giocatore senza condizione non segnalato');
   assert(errors.includes('{sconosciuto}'), 'segnaposto sconosciuto non segnalato');
   assert(errors.includes('inesistente'), 'evento programmato inesistente non segnalato');
+});
+
+test('squadre riserve: mai promosse, niente coppa nazionale, niente Primavera', () => {
+  const world = createWorld(COUNTRIES, 2026, CONTINENTAL);
+  const rng = new Rng(11);
+  const reserves = Object.values(world.clubs).filter((c) => c.reserve).map((c) => c.id);
+  assert(reserves.length >= 9, `riserve ${reserves.length}`);
+  for (let y = 0; y < 8; y++) {
+    refreshYouthRatings(world, rng);
+    for (const id of reserves) assert(world.youthRatings[id] === undefined, `Primavera della riserva ${id}`);
+    const season = simulateWorldSeason(world, rng, { first: {}, youth: {} });
+    for (const cup of Object.values(season.cups)) for (const id of reserves) assert(!(id in cup.reached), `riserva ${id} in coppa`);
+    const moves = endOfSeason(world, rng, season);
+    for (const m of moves) {
+      const up = m.to !== null && (m.from === null || (world.leagues[m.to]?.config.division ?? 9) < (world.leagues[m.from]?.config.division ?? 9));
+      assert(!(up && reserves.includes(m.clubId) && m.from !== null), `riserva promossa: ${m.clubId}`);
+    }
+  }
+});
+
+test('nuovi paesi: Messico senza coppa nazionale, CAF con 16 squadre, USL senza promozioni', () => {
+  const world = createWorld(COUNTRIES, 2026, CONTINENTAL);
+  const rng = new Rng(5);
+  refreshYouthRatings(world, rng);
+  const season = simulateWorldSeason(world, rng, { first: {}, youth: {} });
+  assert(!season.cups.mex, 'il Messico non ha una coppa nazionale');
+  assert(!!season.titleWinners.mex1, 'Liga MX: titolo dalla Liguilla');
+  assert(!!season.continental.af1?.winner, 'coppa africana senza vincitrice');
+  const usl = [...(world.leagues.usa2?.clubIds ?? [])].sort();
+  endOfSeason(world, rng, season);
+  qualifyContinental(world, rng, {});
+  assert((world.continental?.qualified.af1 ?? []).length === 16, 'coppa africana: 16 squadre');
+  assert(JSON.stringify([...(world.leagues.usa2?.clubIds ?? [])].sort()) === JSON.stringify(usl), 'USL Championship: nessun movimento');
+  assert(world.leagues.eng3?.config.up === 'eng2' && world.leagues.eng2?.config.down === 'eng3', 'League One collegata');
+});
+
+test('offerte: chi allena un top club riceve chiamate dall\'estero dello stesso livello', () => {
+  const s = createCareer({ name: 'T', nationality: 'ger', style: { build: 30, press: 40 }, seed: 8, countries: COUNTRIES, continental: CONTINENTAL });
+  const bayern = Object.values(s.world.clubs).find((c) => c.name === 'Bayern Munich');
+  assert(bayern, 'Bayern assente');
+  s.coach.license = 'PRO';
+  s.coach.reputation = 85;
+  s.job = { clubId: bayern!.id, role: 'first', contractYears: 2, seasons: 2, board: 60, dressing: 60, environment: 60, keyPlayers: [], seasonBoost: 0 };
+  const rng = new Rng(3);
+  let abroad = 0;
+  let strongAbroad = 0;
+  for (let i = 0; i < 200; i++) {
+    for (const o of generateOffers(s, rng, 'employed')) {
+      const c = s.world.clubs[o.clubId]!;
+      if (c.country === 'ger') continue;
+      abroad++;
+      if (c.rating >= bayern!.rating - 6) strongAbroad++;
+    }
+  }
+  assert(abroad >= 60, `poche offerte dall'estero: ${abroad}`);
+  assert(strongAbroad / abroad >= 0.75, `offerte estere di livello: ${strongAbroad}/${abroad}`);
+});
+
+test('inglese: ogni testo dell\'interfaccia è tradotto', () => {
+  const missing = Object.keys(it).filter((k) => !(k in en) || !en[k as keyof typeof en]);
+  assert(missing.length === 0, `mancano: ${missing.join(', ')}`);
+  for (const c of COUNTRIES) assert(`country_${c.id}` in en, `paese senza nome inglese: ${c.id}`);
+  for (const conf of CONTINENTAL.confederations) for (const comp of conf.competitions) assert(`comp_${comp.id}` in en, `coppa senza nome inglese: ${comp.id}`);
 });
 
 console.log(`\n${passed} superati, ${failed} falliti`);

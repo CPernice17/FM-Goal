@@ -28,6 +28,8 @@ export interface ClubData {
   profile: Style;
   /** Colori sociali: primario e secondario. */
   colors?: [string, string];
+  /** Squadra riserve (B, Jong): non può essere promossa e non gioca la coppa nazionale. */
+  reserve?: boolean;
 }
 
 export interface LeagueConfig {
@@ -54,6 +56,7 @@ export interface LeagueConfig {
 export interface CountryData {
   id: string;
   name: string;
+  /** Vuoto se il paese non ha una coppa nazionale (Messico). */
   cupName: string;
   youthLeagueName: string;
   leagues: LeagueConfig[];
@@ -87,6 +90,8 @@ export interface ContinentalComp {
   id: string;
   name: string;
   tier: number;
+  /** Colore di riferimento della coppa, per le classifiche. */
+  color?: string;
   format: CompFormat;
   /** Posti per paese simulato; il resto va ai club esterni. */
   slots: Record<string, number>;
@@ -128,6 +133,7 @@ export interface Club {
   anchor: number;
   profile: Style;
   colors?: [string, string];
+  reserve?: boolean;
 }
 
 export interface LeagueState {

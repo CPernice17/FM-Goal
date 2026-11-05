@@ -1,0 +1,256 @@
+{
+  "id": "mex",
+  "name": "Messico",
+  "cupName": "",
+  "youthLeagueName": "Liga MX Sub-21",
+  "leagues": [
+    {
+      "id": "mex1",
+      "name": "Liga MX",
+      "division": 1,
+      "prestige": 0.65,
+      "relegated": 0,
+      "promotedDirect": 0,
+      "championPlayoff": 8
+    }
+  ],
+  "clubs": {
+    "mex1": [
+      {
+        "id": "mex-america",
+        "name": "América",
+        "rating": 75,
+        "profile": {
+          "build": 20,
+          "press": 40
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "mex-toluca",
+        "name": "Toluca",
+        "rating": 75,
+        "profile": {
+          "build": 30,
+          "press": 50
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mex-cruz-azul",
+        "name": "Cruz Azul",
+        "rating": 74,
+        "profile": {
+          "build": 30,
+          "press": 40
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mex-tigres-uanl",
+        "name": "Tigres UANL",
+        "rating": 74,
+        "profile": {
+          "build": 10,
+          "press": 30
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "mex-monterrey",
+        "name": "Monterrey",
+        "rating": 74,
+        "profile": {
+          "build": 10,
+          "press": 30
+        },
+        "colors": [
+          "#0c2340",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mex-guadalajara",
+        "name": "Guadalajara",
+        "rating": 72,
+        "profile": {
+          "build": 10,
+          "press": 50
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mex-pachuca",
+        "name": "Pachuca",
+        "rating": 71,
+        "profile": {
+          "build": 30,
+          "press": 40
+        },
+        "colors": [
+          "#0c2340",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mex-pumas-unam",
+        "name": "Pumas UNAM",
+        "rating": 71,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0c2340",
+          "#c5a253"
+        ]
+      },
+      {
+        "id": "mex-leon",
+        "name": "León",
+        "rating": 70,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mex-tijuana",
+        "name": "Tijuana",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "mex-atlas",
+        "name": "Atlas",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "mex-atletico-san-luis",
+        "name": "Atlético San Luis",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mex-juarez",
+        "name": "Juárez",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#00843d"
+        ]
+      },
+      {
+        "id": "mex-necaxa",
+        "name": "Necaxa",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mex-santos-laguna",
+        "name": "Santos Laguna",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "mex-queretaro",
+        "name": "Querétaro",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "mex-puebla",
+        "name": "Puebla",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffffff",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "mex-atlante",
+        "name": "Atlante",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#c8102e"
+        ]
+      }
+    ]
+  },
+  "external": []
+}

@@ -6,7 +6,7 @@ import { EVENT_PACKS } from '../src/content/index';
 import { validatePacks } from '../src/engine/events/validate';
 
 const strict = process.argv.includes('--strict');
-const report = validatePacks(EVENT_PACKS, strict ? ['it', 'en', 'es'] : ['it']);
+const report = validatePacks(EVENT_PACKS, strict ? ['it', 'en', 'es'] : ['it', 'en']);
 
 const total = EVENT_PACKS.reduce((s, p) => s + p.events.length, 0);
 console.log(`Pacchetti: ${EVENT_PACKS.length}, eventi: ${total}`);

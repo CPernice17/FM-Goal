@@ -1,0 +1,295 @@
+{
+  "id": "swe",
+  "name": "Svezia",
+  "cupName": "Svenska Cupen",
+  "youthLeagueName": "P19 Allsvenskan",
+  "leagues": [
+    {
+      "id": "swe1",
+      "name": "Allsvenskan",
+      "division": 1,
+      "prestige": 0.5,
+      "relegated": 2,
+      "promotedDirect": 0
+    }
+  ],
+  "clubs": {
+    "swe1": [
+      {
+        "id": "swe-malmo-ff",
+        "name": "Malmö FF",
+        "rating": 69,
+        "profile": {
+          "build": 30,
+          "press": 40
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "swe-hammarby",
+        "name": "Hammarby",
+        "rating": 67,
+        "profile": {
+          "build": 30,
+          "press": 50
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "swe-djurgarden",
+        "name": "Djurgården",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#75aadb",
+          "#0c2340"
+        ]
+      },
+      {
+        "id": "swe-aik",
+        "name": "AIK",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffd100"
+        ]
+      },
+      {
+        "id": "swe-bk-hacken",
+        "name": "BK Häcken",
+        "rating": 66,
+        "profile": {
+          "build": 30,
+          "press": 40
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "swe-mjallby",
+        "name": "Mjällby",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "swe-if-elfsborg",
+        "name": "IF Elfsborg",
+        "rating": 65,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "swe-ifk-goteborg",
+        "name": "IFK Göteborg",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "swe-gais",
+        "name": "GAIS",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "swe-ik-sirius",
+        "name": "IK Sirius",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "swe-if-brommapojkarna",
+        "name": "IF Brommapojkarna",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "swe-halmstads-bk",
+        "name": "Halmstads BK",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "swe-kalmar-ff",
+        "name": "Kalmar FF",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "swe-degerfors-if",
+        "name": "Degerfors IF",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "swe-orgryte-is",
+        "name": "Örgryte IS",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "swe-vasteras-sk",
+        "name": "Västerås SK",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "swe-ifk-norrkoping",
+      "name": "IFK Norrköping",
+      "rating": 62,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#ffffff",
+        "#0046ad"
+      ]
+    },
+    {
+      "id": "swe-ifk-varnamo",
+      "name": "IFK Värnamo",
+      "rating": 59,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "swe-osters-if",
+      "name": "Östers IF",
+      "rating": 59,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "swe-helsingborgs-if",
+      "name": "Helsingborgs IF",
+      "rating": 59,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "swe-landskrona-bois",
+      "name": "Landskrona BoIS",
+      "rating": 58,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
+    }
+  ]
+}

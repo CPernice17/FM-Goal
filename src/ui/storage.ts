@@ -48,3 +48,23 @@ export function saveTheme(theme: 'auto' | 'light' | 'dark'): void {
     // Archiviazione non disponibile: il tema vale solo per questa sessione.
   }
 }
+
+const LANG_KEY = 'fm-goal:lang';
+
+/** Lingua scelta dal giocatore; null se non l'ha mai cambiata. */
+export function loadLang(): 'it' | 'en' | null {
+  try {
+    const v = localStorage.getItem(LANG_KEY);
+    return v === 'it' || v === 'en' ? v : null;
+  } catch {
+    return null;
+  }
+}
+
+export function saveLang(lang: 'it' | 'en' | 'es'): void {
+  try {
+    localStorage.setItem(LANG_KEY, lang);
+  } catch {
+    // Archiviazione non disponibile: la lingua vale solo per questa sessione.
+  }
+}

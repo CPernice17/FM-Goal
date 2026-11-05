@@ -10,7 +10,17 @@
       "division": 1,
       "prestige": 0.8,
       "relegated": 4,
-      "promotedDirect": 0
+      "promotedDirect": 0,
+      "down": "bra2"
+    },
+    {
+      "id": "bra2",
+      "name": "Série B",
+      "division": 2,
+      "prestige": 0.5,
+      "relegated": 4,
+      "promotedDirect": 4,
+      "up": "bra1"
     }
   ],
   "clubs": {
@@ -275,39 +285,288 @@
           "#ffffff"
         ]
       }
+    ],
+    "bra2": [
+      {
+        "id": "bra-fortaleza",
+        "name": "Fortaleza",
+        "rating": 68,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "bra-ceara",
+        "name": "Ceará",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "bra-juventude",
+        "name": "Juventude",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "bra-sport",
+        "name": "Sport",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "bra-atletico-goianiense",
+        "name": "Atlético Goianiense",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "bra-goias",
+        "name": "Goiás",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "bra-america-mineiro",
+        "name": "América Mineiro",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "bra-criciuma",
+        "name": "Criciúma",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "bra-cuiaba",
+        "name": "Cuiabá",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#00843d"
+        ]
+      },
+      {
+        "id": "bra-novorizontino",
+        "name": "Novorizontino",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "bra-avai",
+        "name": "Avaí",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "bra-crb",
+        "name": "CRB",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "bra-nautico",
+        "name": "Náutico",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "bra-vila-nova",
+        "name": "Vila Nova",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "bra-botafogo-sp",
+        "name": "Botafogo-SP",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "bra-operario-ferroviario",
+        "name": "Operário Ferroviário",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "bra-ponte-preta",
+        "name": "Ponte Preta",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "bra-athletic",
+        "name": "Athletic",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "bra-londrina",
+        "name": "Londrina",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#75aadb",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "bra-sao-bernardo",
+        "name": "São Bernardo",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      }
     ]
   },
   "external": [
     {
-      "id": "bra-fortaleza",
-      "name": "Fortaleza",
-      "rating": 69,
+      "id": "bra-paysandu",
+      "name": "Paysandu",
+      "rating": 62,
       "profile": {
         "build": 0,
         "press": 10
       },
       "colors": [
-        "#0046ad",
-        "#c8102e"
-      ]
-    },
-    {
-      "id": "bra-ceara",
-      "name": "Ceará",
-      "rating": 68,
-      "profile": {
-        "build": 0,
-        "press": 10
-      },
-      "colors": [
-        "#1a1a1a",
+        "#75aadb",
         "#ffffff"
       ]
     },
     {
-      "id": "bra-juventude",
-      "name": "Juventude",
-      "rating": 66,
+      "id": "bra-guarani",
+      "name": "Guarani",
+      "rating": 61,
       "profile": {
         "build": 0,
         "press": 10
@@ -318,41 +577,41 @@
       ]
     },
     {
-      "id": "bra-sport",
-      "name": "Sport",
-      "rating": 66,
+      "id": "bra-ferroviaria",
+      "name": "Ferroviária",
+      "rating": 60,
       "profile": {
         "build": 0,
         "press": 10
       },
       "colors": [
-        "#c8102e",
+        "#7b1e2b",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "bra-amazonas",
+      "name": "Amazonas",
+      "rating": 59,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#ffd100",
         "#1a1a1a"
       ]
     },
     {
-      "id": "bra-goias",
-      "name": "Goiás",
-      "rating": 64,
+      "id": "bra-volta-redonda",
+      "name": "Volta Redonda",
+      "rating": 59,
       "profile": {
         "build": 0,
         "press": 10
       },
       "colors": [
-        "#00843d",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "bra-america-mineiro",
-      "name": "América Mineiro",
-      "rating": 64,
-      "profile": {
-        "build": 0,
-        "press": 10
-      },
-      "colors": [
-        "#00843d",
+        "#ffd100",
         "#1a1a1a"
       ]
     }

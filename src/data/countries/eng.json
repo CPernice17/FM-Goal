@@ -24,7 +24,21 @@
         "from": 3,
         "to": 6
       },
-      "up": "eng1"
+      "up": "eng1",
+      "down": "eng3"
+    },
+    {
+      "id": "eng3",
+      "name": "League One",
+      "division": 3,
+      "prestige": 0.45,
+      "relegated": 4,
+      "promotedDirect": 2,
+      "playoff": {
+        "from": 3,
+        "to": 6
+      },
+      "up": "eng2"
     }
   ],
   "clubs": {
@@ -603,13 +617,327 @@
           "#ffffff"
         ]
       }
+    ],
+    "eng3": [
+      {
+        "id": "eng-leicester-city",
+        "name": "Leicester City",
+        "rating": 66,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "eng-luton-town",
+        "name": "Luton Town",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#f37021",
+          "#0c2340"
+        ]
+      },
+      {
+        "id": "eng-oxford-united",
+        "name": "Oxford United",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#0c2340"
+        ]
+      },
+      {
+        "id": "eng-huddersfield-town",
+        "name": "Huddersfield Town",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "eng-sheffield-wednesday",
+        "name": "Sheffield Wednesday",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "eng-reading",
+        "name": "Reading",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "eng-bradford-city",
+        "name": "Bradford City",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#6c1d45",
+          "#ffd100"
+        ]
+      },
+      {
+        "id": "eng-plymouth-argyle",
+        "name": "Plymouth Argyle",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "eng-stockport-county",
+        "name": "Stockport County",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "eng-barnsley",
+        "name": "Barnsley",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "eng-blackpool",
+        "name": "Blackpool",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#f37021",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "eng-milton-keynes-dons",
+        "name": "Milton Keynes Dons",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "eng-notts-county",
+        "name": "Notts County",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "eng-peterborough-united",
+        "name": "Peterborough United",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "eng-wigan-athletic",
+        "name": "Wigan Athletic",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "eng-wycombe-wanderers",
+        "name": "Wycombe Wanderers",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0c2340",
+          "#75aadb"
+        ]
+      },
+      {
+        "id": "eng-afc-wimbledon",
+        "name": "AFC Wimbledon",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffd100"
+        ]
+      },
+      {
+        "id": "eng-doncaster-rovers",
+        "name": "Doncaster Rovers",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "eng-leyton-orient",
+        "name": "Leyton Orient",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "eng-mansfield-town",
+        "name": "Mansfield Town",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "eng-stevenage",
+        "name": "Stevenage",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "eng-bromley",
+        "name": "Bromley",
+        "rating": 57,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "eng-burton-albion",
+        "name": "Burton Albion",
+        "rating": 57,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "eng-cambridge-united",
+        "name": "Cambridge United",
+        "rating": 57,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      }
     ]
   },
   "external": [
     {
-      "id": "eng-leicester-city",
-      "name": "Leicester City",
-      "rating": 66,
+      "id": "eng-bristol-rovers",
+      "name": "Bristol Rovers",
+      "rating": 57,
       "profile": {
         "build": 0,
         "press": 10
@@ -620,68 +948,68 @@
       ]
     },
     {
-      "id": "eng-luton-town",
-      "name": "Luton Town",
-      "rating": 62,
+      "id": "eng-rotherham-united",
+      "name": "Rotherham United",
+      "rating": 57,
       "profile": {
         "build": 0,
         "press": 10
       },
       "colors": [
-        "#f37021",
-        "#0c2340"
+        "#c8102e",
+        "#ffffff"
       ]
     },
     {
-      "id": "eng-oxford-united",
-      "name": "Oxford United",
-      "rating": 61,
+      "id": "eng-port-vale",
+      "name": "Port Vale",
+      "rating": 57,
       "profile": {
         "build": 0,
         "press": 10
       },
       "colors": [
-        "#ffd100",
-        "#0c2340"
+        "#ffffff",
+        "#1a1a1a"
       ]
     },
     {
-      "id": "eng-huddersfield-town",
-      "name": "Huddersfield Town",
-      "rating": 61,
+      "id": "eng-exeter-city",
+      "name": "Exeter City",
+      "rating": 56,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "eng-northampton-town",
+      "name": "Northampton Town",
+      "rating": 56,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#6c1d45",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "eng-shrewsbury-town",
+      "name": "Shrewsbury Town",
+      "rating": 55,
       "profile": {
         "build": 0,
         "press": 10
       },
       "colors": [
         "#0046ad",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "eng-sheffield-wednesday",
-      "name": "Sheffield Wednesday",
-      "rating": 60,
-      "profile": {
-        "build": 0,
-        "press": 10
-      },
-      "colors": [
-        "#0046ad",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "eng-reading",
-      "name": "Reading",
-      "rating": 60,
-      "profile": {
-        "build": 0,
-        "press": 10
-      },
-      "colors": [
-        "#0046ad",
-        "#ffffff"
+        "#ffd100"
       ]
     }
   ]

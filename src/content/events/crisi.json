@@ -16,15 +16,18 @@
       "weight": 15,
       "cooldown": 2,
       "title": {
-        "it": "Contestazione sotto la sede: {club}"
+        "it": "Contestazione sotto la sede: {club}",
+        "en": "Fans protest outside the club: {club}"
       },
       "body": {
-        "it": "Striscioni e cori contro di te. La società aspetta di capire se reggerai la pressione."
+        "it": "Striscioni e cori contro di te. La società aspetta di capire se reggerai la pressione.",
+        "en": "Banners and chants against you. The club is waiting to see whether you can handle the pressure."
       },
       "options": [
         {
           "text": {
-            "it": "Ci metti la faccia"
+            "it": "Ci metti la faccia",
+            "en": "Face them yourself"
           },
           "effects": [
             {
@@ -41,7 +44,8 @@
         },
         {
           "text": {
-            "it": "Lasci parlare la società"
+            "it": "Lasci parlare la società",
+            "en": "Let the club do the talking"
           },
           "effects": [
             {
@@ -58,7 +62,8 @@
         },
         {
           "text": {
-            "it": "Rassegni le dimissioni"
+            "it": "Rassegni le dimissioni",
+            "en": "Hand in your resignation"
           },
           "effects": [
             {
@@ -82,15 +87,18 @@
       "weight": 10,
       "cooldown": 3,
       "title": {
-        "it": "Una TV ti vuole come opinionista"
+        "it": "Una TV ti vuole come opinionista",
+        "en": "A TV channel wants you as a pundit"
       },
       "body": {
-        "it": "Un posto fisso in studio la domenica: ti tiene in vetrina, ma ti lascia poco tempo per studiare."
+        "it": "Un posto fisso in studio la domenica: ti tiene in vetrina, ma ti lascia poco tempo per studiare.",
+        "en": "A regular Sunday seat in the studio keeps you in the shop window, but leaves little time for study."
       },
       "options": [
         {
           "text": {
-            "it": "Accetti: resti in vetrina"
+            "it": "Accetti: resti in vetrina",
+            "en": "Accept: stay in the spotlight"
           },
           "effects": [
             {
@@ -102,7 +110,8 @@
         },
         {
           "text": {
-            "it": "Rifiuti e studi le partite"
+            "it": "Rifiuti e studi le partite",
+            "en": "Decline and study matches"
           },
           "effects": [
             {
@@ -127,15 +136,18 @@
       "weight": 8,
       "cooldown": 4,
       "title": {
-        "it": "Uno stage in un club straniero"
+        "it": "Uno stage in un club straniero",
+        "en": "A placement at a foreign club"
       },
       "body": {
-        "it": "Un vecchio compagno di corso ti invita a seguire per un mese gli allenamenti del suo club all'estero."
+        "it": "Un vecchio compagno di corso ti invita a seguire per un mese gli allenamenti del suo club all'estero.",
+        "en": "An old classmate from the coaching course invites you to follow his club's training abroad for a month."
       },
       "options": [
         {
           "text": {
-            "it": "Parti per un mese"
+            "it": "Parti per un mese",
+            "en": "Go for a month"
           },
           "effects": [
             {
@@ -152,7 +164,8 @@
         },
         {
           "text": {
-            "it": "Resti disponibile a casa"
+            "it": "Resti disponibile a casa",
+            "en": "Stay available at home"
           },
           "effects": [
             {

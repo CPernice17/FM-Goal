@@ -4,7 +4,7 @@ import { renderText } from '../engine/events/runtime';
 import type { CareerOption, Difficulty, GameState, KeyPlayer, Lang, OutcomeLine, Pending, SeasonReport, Style } from '../engine/types';
 import { compInfo, confedOf } from '../engine/continental';
 import { divisionOf, tierInLeague, topLeagueId } from '../engine/world';
-import { headlineText, styleLabel, t, trophyText } from '../i18n/index';
+import { compName, headlineText, ordinal, styleLabel, t, trophyText } from '../i18n/index';
 import type { Strings } from '../i18n/it';
 
 /** Escape per tutto il testo inserito nell'HTML. */
@@ -49,7 +49,10 @@ function scarf(state: GameState, clubId: string): string {
 export type ThemeChoice = 'auto' | 'light' | 'dark';
 
 export function themeToggle(lang: Lang, theme: ThemeChoice): string {
-  return `<button class="theme-toggle" data-action="theme">${tt(lang, `ui_theme_${theme}` as keyof Strings)}</button>`;
+  return `<div class="toggles">
+    <button class="theme-toggle" data-action="theme">${tt(lang, `ui_theme_${theme}` as keyof Strings)}</button>
+    <button class="theme-toggle" data-action="lang" aria-label="${tt(lang, 'ui_lang_label')}: ${tt(lang, 'ui_lang')}" lang="${lang === 'it' ? 'en' : 'it'}">${tt(lang, 'ui_lang')}</button>
+  </div>`;
 }
 
 // ---------------------------------------------------------------------------
@@ -249,7 +252,7 @@ export function renderSheet(state: GameState): string {
     <section class="objective">
       <span class="objective-label">${tt(lang, 'ui_objective')}</span>
       <strong>${tt(lang, `objective_${pre?.objective ?? 'mid_table'}` as keyof Strings, { area: areaOf(state, job.clubId) })}</strong>
-      <span class="objective-note">${tt(lang, 'ui_expected', { pos: pre?.expectedPosition ?? '-', teams: pre?.teams ?? '-' })}</span>
+      <span class="objective-note">${tt(lang, 'ui_expected', { pos: pre ? ordinal(lang, pre.expectedPosition) : '-', teams: pre?.teams ?? '-' })}</span>
     </section>
     ${competitionsBlock(state)}
     <section class="meters">
@@ -281,8 +284,8 @@ function competitionsBlock(state: GameState): string {
   if (!job || job.role !== 'first' || !cont) return '';
   const names = Object.entries(cont.qualified)
     .filter(([, ids]) => ids.includes(job.clubId))
-    .map(([id]) => compInfo(state.world, id)?.name)
-    .filter((n): n is string => !!n);
+    .filter(([id]) => !!compInfo(state.world, id))
+    .map(([id]) => compName(state, id));
   if (names.length === 0) return '';
   return `<p class="competitions"><span>${tt(state.lang, 'ui_competitions')}:</span> ${esc(names.join(', '))}</p>`;
 }
@@ -316,7 +319,46 @@ function homeCountry(state: GameState): string {
   return state.world.countries[state.coach.nationality] ? state.coach.nationality : Object.keys(state.world.countries)[0] ?? 'ita';
 }
 
-function sideTable(state: GameState): { title: string; rows: SideRow[]; zones: (i: number, n: number) => string; mine: string | null } | null {
+interface Qualification {
+  id: string;
+  color: string;
+}
+
+/** Coppa continentale a cui ogni club è qualificato per la stagione in corso (o la prossima, a fine stagione). */
+function qualifications(state: GameState): Map<string, Qualification> {
+  const out = new Map<string, Qualification>();
+  const cont = state.world.continental;
+  if (!cont) return out;
+  for (const conf of cont.defs.confederations) {
+    for (const comp of conf.competitions) {
+      if (!comp.color) continue;
+      for (const id of cont.qualified[comp.id] ?? []) if (!out.has(id)) out.set(id, { id: comp.id, color: comp.color });
+    }
+  }
+  return out;
+}
+
+/** Banda colorata a sinistra della posizione: coppa continentale conquistata. */
+function qualAttrs(q: Qualification | undefined): { cls: string; style: string } {
+  return q ? { cls: 'q', style: ` style="--q:${esc(q.color)}"` } : { cls: '', style: '' };
+}
+
+function qualLegend(state: GameState, ids: string[], quals: Map<string, Qualification>): string {
+  const comps = [...new Set(ids.map((id) => quals.get(id)?.id).filter((c): c is string => !!c))];
+  const cont = state.world.continental;
+  const order = cont ? cont.defs.confederations.flatMap((c) => c.competitions.map((x) => x.id)) : [];
+  comps.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+  return comps
+    .map((c) => {
+      const color = [...quals.values()].find((q) => q.id === c)?.color ?? '';
+      return `<span class="legend-item"><span class="key" style="background:${esc(color)}"></span>${esc(compName(state, c))}</span> `;
+    })
+    .join('');
+}
+
+function sideTable(
+  state: GameState,
+): { title: string; rows: SideRow[]; zones: (i: number, n: number) => string; mine: string | null; final: boolean } | null {
   const lang = state.lang;
   const world = state.world;
   const job = state.job;
@@ -331,6 +373,7 @@ function sideTable(state: GameState): { title: string; rows: SideRow[]; zones: (
         rows: last.table.map((r) => ({ id: r.clubId, name: r.name, points: r.points, diff: r.gf - r.ga })),
         zones: () => '',
         mine: last.clubId,
+        final: false,
       };
     }
   }
@@ -340,20 +383,28 @@ function sideTable(state: GameState): { title: string; rows: SideRow[]; zones: (
   const league = leagueId ? world.leagues[leagueId] : undefined;
   if (!league) return null;
   const cfg = league.config;
-  const zones = (i: number, n: number) => {
-    if (cfg.relegated > 0 && i >= n - cfg.relegated) return 'zone-down';
-    if (cfg.championPlayoff && i < cfg.championPlayoff) return 'zone-playoff';
-    if (cfg.promotedDirect > 0 && i < cfg.promotedDirect) return 'zone-up';
-    if (cfg.playoff && i + 1 >= cfg.playoff.from && i + 1 <= cfg.playoff.to) return 'zone-playoff';
-    return '';
+  // Le squadre riserve non contano per le zone promozione: la posizione utile scorre.
+  const makeZones = (ids: string[]) => {
+    const eligibleRank = new Map<string, number>();
+    ids.filter((id) => !world.clubs[id]?.reserve).forEach((id, i) => eligibleRank.set(id, i));
+    return (i: number, n: number) => {
+      if (cfg.relegated > 0 && i >= n - cfg.relegated) return 'zone-down';
+      if (cfg.championPlayoff && i < cfg.championPlayoff) return 'zone-playoff';
+      const e = eligibleRank.get(ids[i] ?? '');
+      if (e === undefined) return '';
+      if (cfg.promotedDirect > 0 && e < cfg.promotedDirect) return 'zone-up';
+      if (cfg.playoff && e + 1 >= cfg.playoff.from && e + 1 <= cfg.playoff.to) return 'zone-playoff';
+      return '';
+    };
   };
 
   if (league.standings.length > 0) {
     return {
       title: t(lang, 'ui_side_table', { league: cfg.name, season: lastSeason }),
       rows: league.standings.map((r) => ({ id: r.id, name: world.clubs[r.id]?.name ?? r.id, points: r.points, diff: r.gf - r.ga })),
-      zones,
+      zones: makeZones(league.standings.map((r) => r.id)),
       mine: clubId,
+      final: true,
     };
   }
   // Prima stagione: ancora nessuna classifica, si mostrano le squadre per forza.
@@ -361,8 +412,9 @@ function sideTable(state: GameState): { title: string; rows: SideRow[]; zones: (
   return {
     title: t(lang, 'ui_side_forecast', { league: cfg.name }),
     rows: byRating.map((id) => ({ id, name: world.clubs[id]?.name ?? id, points: null, diff: null })),
-    zones,
+    zones: makeZones(byRating),
     mine: clubId,
+    final: false,
   };
 }
 
@@ -373,33 +425,38 @@ export function renderSidebar(state: GameState, theme: ThemeChoice): string {
   if (table) {
     const n = table.rows.length;
     const hasPoints = table.rows.some((r) => r.points !== null);
+    // Colori delle coppe solo sulla classifica finale, quando le qualificate sono note.
+    const quals = table.final ? qualifications(state) : new Map<string, Qualification>();
     tableHtml = `
     <section class="side-section">
       <h2>${esc(table.title)}</h2>
       <table class="standings">
-        ${hasPoints ? `<thead><tr><th scope="col"><span class="sr-only">Posizione</span></th><th scope="col">${tt(lang, 'ui_side_club')}</th><th scope="col">${tt(lang, 'ui_side_diff')}</th><th scope="col">${tt(lang, 'ui_side_points')}</th></tr></thead>` : ''}
+        ${hasPoints ? `<thead><tr><th scope="col"><span class="sr-only">${tt(lang, 'ui_position_col')}</span></th><th scope="col">${tt(lang, 'ui_side_club')}</th><th scope="col">${tt(lang, 'ui_side_diff')}</th><th scope="col">${tt(lang, 'ui_side_points')}</th></tr></thead>` : ''}
         <tbody>
           ${table.rows
             .map(
-              (r, i) => `<tr class="${[table.zones(i, n), r.id === table.mine ? 'mine' : ''].join(' ').trim()}">
+              (r, i) => {
+                const q = qualAttrs(quals.get(r.id));
+                return `<tr class="${[table.zones(i, n), q.cls, r.id === table.mine ? 'mine' : ''].join(' ').trim()}"${q.style}>
                 <td>${i + 1}</td><td>${kit(state, r.id)}${esc(r.name)}</td>
                 ${hasPoints ? `<td>${r.diff !== null && r.diff > 0 ? '+' : ''}${r.diff ?? ''}</td><td>${r.points ?? ''}</td>` : ''}
-              </tr>`,
+              </tr>`;
+              },
             )
             .join('')}
         </tbody>
       </table>
-      ${legend(lang, [...new Set(table.rows.map((_, i) => table.zones(i, n)).filter((z) => z !== ''))])}
+      ${legend(lang, [...new Set(table.rows.map((_, i) => table.zones(i, n)).filter((z) => z !== ''))], qualLegend(state, table.rows.map((r) => r.id), quals))}
     </section>`;
   }
   return `<aside class="sidebar" aria-label="${tt(lang, 'ui_side_label')}">${tableHtml}${historyBlock(state)}${themeToggle(lang, theme)}</aside>`;
 }
 
-function legend(lang: Lang, zones: string[]): string {
-  if (zones.length === 0) return '';
+function legend(lang: Lang, zones: string[], cups = ''): string {
+  if (zones.length === 0 && !cups) return '';
   const item = (zone: string, key: string, label: keyof Strings) =>
-    zones.includes(zone) ? `<span class="key ${key}"></span>${tt(lang, label)} ` : '';
-  return `<p class="legend">${item('zone-up', 'key-up', 'ui_side_up')}${item('zone-playoff', 'key-playoff', 'ui_side_playoff')}${item('zone-down', 'key-down', 'ui_side_down')}</p>`;
+    zones.includes(zone) ? `<span class="legend-item"><span class="key ${key}"></span>${tt(lang, label)}</span> ` : '';
+  return `<p class="legend">${cups}${item('zone-up', 'key-up', 'ui_side_up')}${item('zone-playoff', 'key-playoff', 'ui_side_playoff')}${item('zone-down', 'key-down', 'ui_side_down')}</p>`;
 }
 
 function historyBlock(state: GameState): string {
@@ -407,7 +464,7 @@ function historyBlock(state: GameState): string {
   const rows = [...state.history]
     .reverse()
     .map(
-      (r) => `<li><span>${seasonLabel(r.season)}</span><span>${kit(state, r.clubId)}${esc(r.clubName)}${r.role === 'youth' ? ` (${tt(state.lang, 'ui_youth_short')})` : ''}</span><span>${r.firedAtMatchday !== null ? `<em>${tt(state.lang, 'ui_fired_short')}</em>` : `${r.position}°`}</span></li>`,
+      (r) => `<li><span>${seasonLabel(r.season)}</span><span>${kit(state, r.clubId)}${esc(r.clubName)}${r.role === 'youth' ? ` (${tt(state.lang, 'ui_youth_short')})` : ''}</span><span>${r.firedAtMatchday !== null ? `<em>${tt(state.lang, 'ui_fired_short')}</em>` : esc(ordinal(state.lang, r.position))}</span></li>`,
     )
     .join('');
   return `<section class="history"><h2>${tt(state.lang, 'ui_history')}</h2><ul>${rows}</ul></section>`;
@@ -460,20 +517,20 @@ export function renderReport(state: GameState): string {
     </main>`;
   }
   const [main, ...rest] = r.headlines;
-  const headline = main ? headlineText(lang, main) : r.clubName;
+  const headline = main ? headlineText(lang, main, state) : r.clubName;
   return `
   <main class="screen report">
     <article class="paper">
       <p class="masthead">${tt(lang, 'ui_season', { season: seasonLabel(r.season) })}. ${esc(r.leagueName)}</p>
       <h1 class="front-headline">${esc(headline)}</h1>
-      ${rest.map((h) => `<p class="front-sub">${esc(headlineText(lang, h))}</p>`).join('')}
+      ${rest.map((h) => `<p class="front-sub">${esc(headlineText(lang, h, state))}</p>`).join('')}
       <div class="front-result">
-        <span class="front-pos">${tt(lang, 'ui_position', { pos: r.position })}</span>
-        <span class="front-pos-note">${kit(state, r.clubId)}${esc(r.clubName)}<br>${tt(lang, 'ui_position_of', { teams: r.teams, expected: r.expectedPosition })}<br>${tt(lang, 'ui_points', { points: r.points })}</span>
+        <span class="front-pos">${tt(lang, 'ui_position', { pos: ordinal(lang, r.position) })}</span>
+        <span class="front-pos-note">${kit(state, r.clubId)}${esc(r.clubName)}<br>${tt(lang, 'ui_position_of', { teams: r.teams, expected: ordinal(lang, r.expectedPosition) })}<br>${tt(lang, 'ui_points', { points: r.points })}</span>
       </div>
       ${r.cup ? `<p class="front-cup">${tt(lang, 'ui_cup', { cup: state.world.countries[state.world.clubs[r.clubId]?.country ?? '']?.cupName ?? '', stage: t(lang, `stage_${r.cup.reached}` as keyof Strings) })}</p>` : ''}
       ${r.continental
-        .map((c) => `<p class="front-cup">${tt(lang, 'ui_cup', { cup: c.name, stage: t(lang, `stage_${c.reached}` as keyof Strings) })}</p>`)
+        .map((c) => `<p class="front-cup">${tt(lang, 'ui_cup', { cup: compName(state, c.id, c.name), stage: t(lang, `stage_${c.reached}` as keyof Strings) })}</p>`)
         .join('')}
       ${miniTable(state, r)}
     </article>
@@ -492,6 +549,8 @@ function miniTable(state: GameState, r: SeasonReport): string {
   const mine = r.table.findIndex((x) => x.clubId === r.clubId);
   const show = new Set<number>([0, 1, 2, 3, 4, mine - 1, mine, mine + 1, r.table.length - 1].filter((i) => i >= 0 && i < r.table.length));
   const idx = [...show].sort((a, b) => a - b);
+  // Nel resoconto la classifica è finale: le qualificate alle coppe sono già note.
+  const quals = r.role === 'first' ? qualifications(state) : new Map<string, Qualification>();
   let prev = -1;
   const rows = idx
     .map((i) => {
@@ -499,10 +558,12 @@ function miniTable(state: GameState, r: SeasonReport): string {
       if (!row) return '';
       const gap = i > prev + 1 ? '<tr class="gap"><td colspan="3"></td></tr>' : '';
       prev = i;
-      return `${gap}<tr class="${i === mine ? 'mine' : ''}"><td>${i + 1}</td><td>${kit(state, row.clubId)}${esc(row.name)}</td><td>${row.points}</td></tr>`;
+      const q = qualAttrs(quals.get(row.clubId));
+      return `${gap}<tr class="${[i === mine ? 'mine' : '', q.cls].join(' ').trim()}"${q.style}><td>${i + 1}</td><td>${kit(state, row.clubId)}${esc(row.name)}</td><td>${row.points}</td></tr>`;
     })
     .join('');
-  return `<table class="mini-table"><caption>${tt(lang, 'ui_table')}</caption><tbody>${rows}</tbody></table>`;
+  const cups = qualLegend(state, idx.map((i) => r.table[i]?.clubId ?? ''), quals);
+  return `<table class="mini-table"><caption>${tt(lang, 'ui_table')}</caption><tbody>${rows}</tbody></table>${cups ? `<p class="legend">${cups}</p>` : ''}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -664,7 +725,7 @@ export function renderFinal(state: GameState, copied: boolean): string {
       <li class="cab-row" style="--stint:${color(i)}">
         <div class="cab-club"><span class="cab-name">${esc(x.club)}</span><span class="cab-meta">${esc(meta)}</span></div>
         ${trophies}
-        <span class="cab-best" aria-label="${tt(lang, 'ui_best')}">${x.best === null ? '—' : `${x.best}°`}</span>
+        <span class="cab-best" aria-label="${tt(lang, 'ui_best')}">${x.best === null ? '—' : esc(ordinal(lang, x.best))}</span>
       </li>`;
     })
     .join('');

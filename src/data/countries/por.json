@@ -10,7 +10,17 @@
       "division": 1,
       "prestige": 0.75,
       "relegated": 2,
-      "promotedDirect": 0
+      "promotedDirect": 0,
+      "down": "por2"
+    },
+    {
+      "id": "por2",
+      "name": "Liga Portugal 2",
+      "division": 2,
+      "prestige": 0.4,
+      "relegated": 2,
+      "promotedDirect": 2,
+      "up": "por1"
     }
   ],
   "clubs": {
@@ -249,26 +259,252 @@
           "#ffffff"
         ]
       }
+    ],
+    "por2": [
+      {
+        "id": "por-tondela",
+        "name": "Tondela",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#00843d"
+        ]
+      },
+      {
+        "id": "por-afs",
+        "name": "AFS",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "por-farense",
+        "name": "Farense",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "por-chaves",
+        "name": "Chaves",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "por-vizela",
+        "name": "Vizela",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "por-portimonense",
+        "name": "Portimonense",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "por-academica",
+        "name": "Académica",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#1a1a1a",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "por-torreense",
+        "name": "Torreense",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "por-uniao-de-leiria",
+        "name": "União de Leiria",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "por-leixoes",
+        "name": "Leixões",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "por-penafiel",
+        "name": "Penafiel",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "por-feirense",
+        "name": "Feirense",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "por-lusitania-lourosa",
+        "name": "Lusitânia Lourosa",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "por-felgueiras",
+        "name": "Felgueiras",
+        "rating": 58,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "por-amarante",
+        "name": "Amarante",
+        "rating": 57,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "por-benfica-b",
+        "name": "Benfica B",
+        "rating": 61,
+        "profile": {
+          "build": 30,
+          "press": 50
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ],
+        "reserve": true
+      },
+      {
+        "id": "por-porto-b",
+        "name": "Porto B",
+        "rating": 61,
+        "profile": {
+          "build": 20,
+          "press": 50
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ],
+        "reserve": true
+      },
+      {
+        "id": "por-sporting-cp-b",
+        "name": "Sporting CP B",
+        "rating": 61,
+        "profile": {
+          "build": 40,
+          "press": 50
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ],
+        "reserve": true
+      }
     ]
   },
   "external": [
     {
-      "id": "por-avs",
-      "name": "AVS",
-      "rating": 64,
-      "profile": {
-        "build": 0,
-        "press": 10
-      },
-      "colors": [
-        "#c8102e",
-        "#ffffff"
-      ]
-    },
-    {
-      "id": "por-tondela",
-      "name": "Tondela",
-      "rating": 64,
+      "id": "por-pacos-de-ferreira",
+      "name": "Paços de Ferreira",
+      "rating": 61,
       "profile": {
         "build": 0,
         "press": 10
@@ -279,9 +515,9 @@
       ]
     },
     {
-      "id": "por-vizela",
-      "name": "Vizela",
-      "rating": 62,
+      "id": "por-oliveirense",
+      "name": "Oliveirense",
+      "rating": 58,
       "profile": {
         "build": 0,
         "press": 10
@@ -292,28 +528,41 @@
       ]
     },
     {
-      "id": "por-chaves",
-      "name": "Chaves",
-      "rating": 62,
+      "id": "por-belenenses",
+      "name": "Belenenses",
+      "rating": 58,
       "profile": {
         "build": 0,
         "press": 10
       },
       "colors": [
         "#0046ad",
-        "#c8102e"
+        "#ffffff"
       ]
     },
     {
-      "id": "por-feirense",
-      "name": "Feirense",
-      "rating": 61,
+      "id": "por-varzim",
+      "name": "Varzim",
+      "rating": 57,
       "profile": {
         "build": 0,
         "press": 10
       },
       "colors": [
-        "#0046ad",
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "por-trofense",
+      "name": "Trofense",
+      "rating": 56,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#c8102e",
         "#ffffff"
       ]
     }

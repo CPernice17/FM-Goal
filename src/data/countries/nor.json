@@ -1,0 +1,308 @@
+{
+  "id": "nor",
+  "name": "Norvegia",
+  "cupName": "Norgesmesterskapet",
+  "youthLeagueName": "Junior-NM G19",
+  "leagues": [
+    {
+      "id": "nor1",
+      "name": "Eliteserien",
+      "division": 1,
+      "prestige": 0.5,
+      "relegated": 2,
+      "promotedDirect": 0
+    }
+  ],
+  "clubs": {
+    "nor1": [
+      {
+        "id": "nor-bod-glimt",
+        "name": "Bodø/Glimt",
+        "rating": 74,
+        "profile": {
+          "build": 30,
+          "press": 70
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "nor-brann",
+        "name": "Brann",
+        "rating": 68,
+        "profile": {
+          "build": 10,
+          "press": 50
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "nor-molde",
+        "name": "Molde",
+        "rating": 67,
+        "profile": {
+          "build": 20,
+          "press": 40
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "nor-viking",
+        "name": "Viking",
+        "rating": 67,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0c2340",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "nor-rosenborg",
+        "name": "Rosenborg",
+        "rating": 66,
+        "profile": {
+          "build": 30,
+          "press": 30
+        },
+        "colors": [
+          "#ffffff",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "nor-troms",
+        "name": "Tromsø",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "nor-valerenga",
+        "name": "Vålerenga",
+        "rating": 64,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0c2340",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "nor-lillestrm",
+        "name": "Lillestrøm",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "nor-fredrikstad",
+        "name": "Fredrikstad",
+        "rating": 63,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffffff",
+          "#c8102e"
+        ]
+      },
+      {
+        "id": "nor-sarpsborg-08",
+        "name": "Sarpsborg 08",
+        "rating": 62,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "nor-sandefjord",
+        "name": "Sandefjord",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "nor-hamkam",
+        "name": "HamKam",
+        "rating": 61,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#00843d",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "nor-kfum-oslo",
+        "name": "KFUM Oslo",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#c8102e",
+          "#1a1a1a"
+        ]
+      },
+      {
+        "id": "nor-kristiansund",
+        "name": "Kristiansund",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#0046ad",
+          "#ffffff"
+        ]
+      },
+      {
+        "id": "nor-aalesund",
+        "name": "Aalesund",
+        "rating": 60,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#f37021",
+          "#0046ad"
+        ]
+      },
+      {
+        "id": "nor-start",
+        "name": "Start",
+        "rating": 59,
+        "profile": {
+          "build": 0,
+          "press": 10
+        },
+        "colors": [
+          "#ffd100",
+          "#1a1a1a"
+        ]
+      }
+    ]
+  },
+  "external": [
+    {
+      "id": "nor-haugesund",
+      "name": "Haugesund",
+      "rating": 60,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#0c2340",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "nor-strmsgodset",
+      "name": "Strømsgodset",
+      "rating": 60,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "nor-bryne",
+      "name": "Bryne",
+      "rating": 59,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#c8102e",
+        "#1a1a1a"
+      ]
+    },
+    {
+      "id": "nor-odd",
+      "name": "Odd",
+      "rating": 59,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "nor-lyn",
+      "name": "Lyn",
+      "rating": 58,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "nor-stabk",
+      "name": "Stabæk",
+      "rating": 58,
+      "profile": {
+        "build": 0,
+        "press": 10
+      },
+      "colors": [
+        "#0046ad",
+        "#ffffff"
+      ]
+    }
+  ]
+}

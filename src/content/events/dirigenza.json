@@ -28,15 +28,18 @@
       "weight": 10,
       "cooldown": 3,
       "title": {
-        "it": "Il presidente vuole un calcio più diretto"
+        "it": "Il presidente vuole un calcio più diretto",
+        "en": "The president wants more direct football"
       },
       "body": {
-        "it": "Troppi passaggi orizzontali, dice il presidente di {club}. Vuole vedere la squadra arrivare in porta più in fretta."
+        "it": "Troppi passaggi orizzontali, dice il presidente di {club}. Vuole vedere la squadra arrivare in porta più in fretta.",
+        "en": "Too many sideways passes, says the president of {club}. He wants to see the team get to goal faster."
       },
       "options": [
         {
           "text": {
-            "it": "Ti adegui: più verticalità"
+            "it": "Ti adegui: più verticalità",
+            "en": "Adapt: more direct play"
           },
           "effects": [
             {
@@ -53,7 +56,8 @@
         },
         {
           "text": {
-            "it": "Difendi le tue idee"
+            "it": "Difendi le tue idee",
+            "en": "Stand by your ideas"
           },
           "effects": [
             {
@@ -91,15 +95,18 @@
       "weight": 10,
       "cooldown": 3,
       "title": {
-        "it": "La piazza chiede più coraggio"
+        "it": "La piazza chiede più coraggio",
+        "en": "The fans want more courage"
       },
       "body": {
-        "it": "Tifosi e stampa accusano la squadra di aspettare troppo. Vogliono vederla aggredire alta."
+        "it": "Tifosi e stampa accusano la squadra di aspettare troppo. Vogliono vederla aggredire alta.",
+        "en": "Supporters and press accuse the team of sitting back too much. They want to see it press high."
       },
       "options": [
         {
           "text": {
-            "it": "Alzi il pressing"
+            "it": "Alzi il pressing",
+            "en": "Press higher"
           },
           "effects": [
             {
@@ -121,7 +128,8 @@
         },
         {
           "text": {
-            "it": "Resti compatto e paziente"
+            "it": "Resti compatto e paziente",
+            "en": "Stay compact and patient"
           },
           "effects": [
             {
@@ -153,15 +161,18 @@
       "weight": 12,
       "cooldown": 4,
       "title": {
-        "it": "Mercato: un rinforzo o il bilancio?"
+        "it": "Mercato: un rinforzo o il bilancio?",
+        "en": "Transfers: a signing or the books?"
       },
       "body": {
-        "it": "Il direttore sportivo di {club} ha margine per un solo colpo, ma i conti preoccupano la proprietà."
+        "it": "Il direttore sportivo di {club} ha margine per un solo colpo, ma i conti preoccupano la proprietà.",
+        "en": "{club}'s sporting director has room for one deal, but the owners are worried about the finances."
       },
       "options": [
         {
           "text": {
-            "it": "Chiedi il rinforzo"
+            "it": "Chiedi il rinforzo",
+            "en": "Ask for the signing"
           },
           "effects": [
             {
@@ -177,7 +188,8 @@
         },
         {
           "text": {
-            "it": "Lavori con chi hai"
+            "it": "Lavori con chi hai",
+            "en": "Work with what you have"
           },
           "effects": [
             {
@@ -209,15 +221,18 @@
       "weight": 8,
       "cooldown": 3,
       "title": {
-        "it": "Provocazioni da {rivale}"
+        "it": "Provocazioni da {rivale}",
+        "en": "Jibes from {rivale}"
       },
       "body": {
-        "it": "L'allenatore di {rivale} ironizza sul tuo gioco in conferenza stampa. Tutti aspettano la tua risposta."
+        "it": "L'allenatore di {rivale} ironizza sul tuo gioco in conferenza stampa. Tutti aspettano la tua risposta.",
+        "en": "{rivale}'s coach mocks your football at a press conference. Everyone is waiting for your reply."
       },
       "options": [
         {
           "text": {
-            "it": "Rispondi a tono"
+            "it": "Rispondi a tono",
+            "en": "Hit back"
           },
           "effects": [
             {
@@ -239,7 +254,8 @@
         },
         {
           "text": {
-            "it": "Ignori le provocazioni"
+            "it": "Ignori le provocazioni",
+            "en": "Ignore the jibes"
           },
           "effects": [
             {
@@ -269,15 +285,18 @@
       "weight": 12,
       "cooldown": 2,
       "title": {
-        "it": "Dopo una grande stagione, attese più alte"
+        "it": "Dopo una grande stagione, attese più alte",
+        "en": "After a great season, higher hopes"
       },
       "body": {
-        "it": "L'anno scorso è andato oltre ogni previsione. Ora a {club} tutti sognano qualcosa di più."
+        "it": "L'anno scorso è andato oltre ogni previsione. Ora a {club} tutti sognano qualcosa di più.",
+        "en": "Last year went beyond every forecast. Now everyone at {club} dreams of something more."
       },
       "options": [
         {
           "text": {
-            "it": "Alimenti il sogno"
+            "it": "Alimenti il sogno",
+            "en": "Feed the dream"
           },
           "effects": [
             {
@@ -299,7 +318,8 @@
         },
         {
           "text": {
-            "it": "Freni gli entusiasmi"
+            "it": "Freni gli entusiasmi",
+            "en": "Cool the excitement"
           },
           "effects": [
             {
@@ -329,15 +349,18 @@
       "weight": 15,
       "cooldown": 2,
       "title": {
-        "it": "La dirigenza ricorda il crollo"
+        "it": "La dirigenza ricorda il crollo",
+        "en": "The board remembers the collapse"
       },
       "body": {
-        "it": "Nel girone di ritorno la squadra si è spenta. Prima di ripartire, la dirigenza vuole sapere cosa cambierai."
+        "it": "Nel girone di ritorno la squadra si è spenta. Prima di ripartire, la dirigenza vuole sapere cosa cambierai.",
+        "en": "The team faded in the second half of the season. Before starting again, the board wants to know what you will change."
       },
       "options": [
         {
           "text": {
-            "it": "Preparazione più intensa e pressing alto"
+            "it": "Preparazione più intensa e pressing alto",
+            "en": "Tougher pre-season and high pressing"
           },
           "effects": [
             {
@@ -358,7 +381,8 @@
         },
         {
           "text": {
-            "it": "Spieghi che è stata sfortuna"
+            "it": "Spieghi che è stata sfortuna",
+            "en": "Explain it was bad luck"
           },
           "effects": [
             {

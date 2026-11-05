@@ -27,7 +27,7 @@ export const LIMITS = {
  * Controlla i pacchetti di eventi: struttura, riferimenti, segnaposto, testi
  * mancanti e valori fuori scala. Gli errori bloccano, gli avvisi no.
  */
-export function validatePacks(packs: readonly EventPack[], requiredLangs: Lang[] = ['it']): ValidationReport {
+export function validatePacks(packs: readonly EventPack[], requiredLangs: Lang[] = ['it', 'en']): ValidationReport {
   const errors: string[] = [];
   const warnings: string[] = [];
   const all: EventDef[] = [];
