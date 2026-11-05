@@ -273,6 +273,8 @@ export const it = {
   comp_as2: 'Coppa Continentale asiatica',
   comp_na1: 'Coppa Élite nordamericana',
   comp_af1: 'Coppa Élite africana',
+  comp_af2: 'Coppa Continentale africana',
+  comp_afsc: 'Supercoppa africana',
   comp_cwc: 'Mondiale per club',
 };
 

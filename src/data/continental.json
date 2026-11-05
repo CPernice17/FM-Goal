@@ -251,8 +251,31 @@
             "mar": 2,
             "egy": 2
           }
+        },
+        {
+          "id": "af2",
+          "name": "Coppa Continentale africana",
+          "tier": 2,
+          "color": "#d97706",
+          "format": {
+            "type": "groups",
+            "groups": 4,
+            "advance": 2
+          },
+          "slots": {
+            "mar": 2,
+            "egy": 2
+          }
         }
-      ]
+      ],
+      "supercup": {
+        "id": "afsc",
+        "name": "Supercoppa africana",
+        "from": [
+          "af1",
+          "af2"
+        ]
+      }
     }
   ],
   "clubWorldCup": {
@@ -3142,6 +3165,105 @@
       "colors": [
         "#f37021",
         "#0046ad"
+      ]
+    },
+    {
+      "id": "x-rsa-kaizer-chiefs",
+      "name": "Kaizer Chiefs",
+      "country": "rsa",
+      "confed": "caf",
+      "rating": 62,
+      "colors": [
+        "#ffd100",
+        "#1a1a1a"
+      ]
+    },
+    {
+      "id": "x-rsa-stellenbosch",
+      "name": "Stellenbosch",
+      "country": "rsa",
+      "confed": "caf",
+      "rating": 60,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-tun-cs-sfaxien",
+      "name": "CS Sfaxien",
+      "country": "tun",
+      "confed": "caf",
+      "rating": 61,
+      "colors": [
+        "#1a1a1a",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-tun-us-monastir",
+      "name": "US Monastir",
+      "country": "tun",
+      "confed": "caf",
+      "rating": 60,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-alg-cs-constantine",
+      "name": "CS Constantine",
+      "country": "alg",
+      "confed": "caf",
+      "rating": 60,
+      "colors": [
+        "#00843d",
+        "#1a1a1a"
+      ]
+    },
+    {
+      "id": "x-lby-al-ahli-tripoli",
+      "name": "Al-Ahli Tripoli",
+      "country": "lby",
+      "confed": "caf",
+      "rating": 60,
+      "colors": [
+        "#00843d",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-lby-al-ittihad-tripoli",
+      "name": "Al-Ittihad Tripoli",
+      "country": "lby",
+      "confed": "caf",
+      "rating": 59,
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "x-ang-bravos-do-maquis",
+      "name": "Bravos do Maquis",
+      "country": "ang",
+      "confed": "caf",
+      "rating": 57,
+      "colors": [
+        "#f37021",
+        "#1a1a1a"
+      ]
+    },
+    {
+      "id": "x-gha-dreams-fc",
+      "name": "Dreams FC",
+      "country": "gha",
+      "confed": "caf",
+      "rating": 57,
+      "colors": [
+        "#75aadb",
+        "#ffffff"
       ]
     }
   ]

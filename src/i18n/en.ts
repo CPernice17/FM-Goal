@@ -275,5 +275,7 @@ export const en: Strings = {
   comp_as2: 'Asian Continental Cup',
   comp_na1: 'North American Elite Cup',
   comp_af1: 'African Elite Cup',
+  comp_af2: 'African Continental Cup',
+  comp_afsc: 'African Super Cup',
   comp_cwc: 'Club World Cup',
 };

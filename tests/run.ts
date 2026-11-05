@@ -496,7 +496,7 @@ test('squadre riserve: mai promosse, niente coppa nazionale, niente Primavera', 
   }
 });
 
-test('nuovi paesi: Messico senza coppa nazionale, CAF con 16 squadre, USL senza promozioni', () => {
+test('nuovi paesi: Messico senza coppa nazionale, due coppe CAF da 16 squadre, USL senza promozioni', () => {
   const world = createWorld(COUNTRIES, 2026, CONTINENTAL);
   const rng = new Rng(5);
   refreshYouthRatings(world, rng);
@@ -508,6 +508,7 @@ test('nuovi paesi: Messico senza coppa nazionale, CAF con 16 squadre, USL senza 
   endOfSeason(world, rng, season);
   qualifyContinental(world, rng, {});
   assert((world.continental?.qualified.af1 ?? []).length === 16, 'coppa africana: 16 squadre');
+  assert((world.continental?.qualified.af2 ?? []).length === 16, 'seconda coppa africana: 16 squadre');
   assert(JSON.stringify([...(world.leagues.usa2?.clubIds ?? [])].sort()) === JSON.stringify(usl), 'USL Championship: nessun movimento');
   assert(world.leagues.eng3?.config.up === 'eng2' && world.leagues.eng2?.config.down === 'eng3', 'League One collegata');
 });
